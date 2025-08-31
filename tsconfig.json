@@ -12,20 +12,21 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "noEmit": true,
-    "types": ["vitest", "@testing-library/jest-dom"]
+    "types": ["vitest", "@testing-library/jest-dom"],
+    "allowImportingTsExtensions": true
   },
   "include": [
     "src/**/*",
     "tests/**/*",
     "e2e/**/*",
     ".storybook/**/*",
-    "*.config.ts"
+    "*.config.ts",
+    "scripts/**/*"
   ],
   "exclude": [
     "node_modules",
     "storybook-static",
     "coverage",
-    "playwright-report",
-    ".storybook/preview.ts"
+    "playwright-report"
   ]
 }

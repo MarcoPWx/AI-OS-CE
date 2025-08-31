@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+storybook-static/
+coverage/
+playwright-report/
+test-results/
+
+# Local Storybook dev artifacts
+.storybook-dev.log
+.storybook-dev.pid
+
+# OS files
+.DS_Store
+

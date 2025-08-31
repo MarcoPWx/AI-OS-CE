@@ -1,0 +1,55 @@
+{
+  "name": "opensource-storybook",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "dev": "storybook dev -p 7007",
+    "build": "storybook build",
+    "test:unit": "vitest run",
+    "test:unit:coverage": "vitest run --coverage",
+    "test:stories": "test-storybook --url http://localhost:7007",
+    "e2e": "playwright test",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
+    "integrity:check": "node scripts/integrity-check.mjs"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "msw": "^2.3.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.6.0",
+    "@storybook/addon-interactions": "^8.6.0",
+    "@storybook/react-vite": "^8.6.0",
+    "@storybook/test-runner": "^0.16.0",
+    "msw-storybook-addon": "^2.0.0",
+    "storybook": "^8.6.0",
+    "typescript": "^5.5.4",
+    "vitest": "^3.2.4",
+    "@testing-library/react": "^14.3.1",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/parser": "^6.20.0",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "eslint-plugin-react": "^7.34.4",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3",
+    "concurrently": "^8.2.2",
+    "http-server": "^14.1.1",
+    "wait-on": "^7.2.0",
+    "playwright": "^1.46.0",
+    "@playwright/test": "^1.46.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "detect-package-manager": "^2.0.1"
+  }
+}
