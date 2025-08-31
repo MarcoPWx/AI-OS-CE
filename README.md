@@ -38,7 +38,8 @@ Canonical docs (single source of truth)
 - DevLog: docs/status/DEVLOG.md
 - Epics: docs/roadmap/EPICS.md
 - System Status: docs/SYSTEM_STATUS.md
-- Agent Boot (session): docs/status/AGENT_BOOT.md
+- Agent Boot System (reference): AGENT_BOOT_README.md
+- Agent Boot (Storybook): docs/AgentBoot.docs.mdx
 
 Storybook pages
 - Docs/Dev Log (reads docs/status/DEVLOG.md)
@@ -52,7 +53,7 @@ Agent operations
   - Set "> Updated: YYYY-MM-DD" in docs/roadmap/EPICS.md
   - Refresh docs/status/last-updated.json timestamps
 - "Load Agent Boot"
-  - Ensure AGENT_BOOT.md and docs/AgentBoot.docs.mdx reflect the current contract
+  - Ensure AGENT_BOOT_README.md and docs/AgentBoot.docs.mdx reflect the current contract
   - No manifests and no pre-hooks; manual-only
 
 Nothing auto-runs
@@ -284,6 +285,20 @@ npm run dev
   - “Load Agent Boot” → I will ensure AGENT_BOOT.md and docs/AgentBoot.docs.mdx reflect the current contract. No manifests, no pre-hooks.
 - Nothing auto-runs when starting Storybook. No badges, no fancy UI.
 
+## 🤖 Agent Boot System (Python, Reference Implementation)
+
+- Complete learning platform and production-ready patterns
+- Read: AGENT_BOOT_README.md for full details and the manifesto
+
+Quick CLI:
+```bash
+python3 agent_boot.py init
+python3 agent_boot.py update-docs --content "Session summary"
+python3 agent_boot.py create-epic --title "New Feature" --description "Complete implementation"
+python3 agent_boot.py test-security --input "<script>alert('xss')</script>"
+python3 agent_boot.py performance-report
+```
+
 ## 🔁 Porting This Setup to Another Project
 
 1) Create canonical docs in your repo:
@@ -295,9 +310,9 @@ npm run dev
    - Docs/System Status (live markdown)
    - Epics/Epic Manager (use your improved component)
 3) Include Agent Boot (manual):
-   - AGENT_BOOT.md (contract)
-   - docs/AgentBoot.docs.mdx (same contract for Storybook)
-   - Optional: docs/status/AGENT_BOOT.md with a “loaded” preface for your session
+  - AGENT_BOOT_README.md (reference implementation & contract)
+  - docs/AgentBoot.docs.mdx (same contract for Storybook)
+  - Optional: link AGENT_BOOT_README.md from your project's README
 4) Optional helper scripts (manual-only):
    - scripts/docs-refresh.mjs and scripts/update-docs-status.mjs
    - package.json: add scripts "docs:refresh" and "docs:updates" (do NOT wire to prestorybook/prebuild)
@@ -493,6 +508,7 @@ npm run storybook:check-budgets  # Enforce limits
 || [🧪 Lab 01: Notification Center](docs/labs/LAB_01_NOTIFICATION_CENTER.mdx) | Build a notification center fast | First lab |
 || [🧩 Patterns Overview](docs/guides/PATTERNS_OVERVIEW.mdx) | Tradeoffs, anti-patterns, and links to templates | When choosing a pattern |
 || [🧵 Hooks (Query & Mutation)](docs/guides/HOOKS.mdx) | Minimal useQuery/useMutation APIs and examples | When wiring async data |
+|| [🤖 Agent Boot System (Reference)](AGENT_BOOT_README.md) | Python-based agent orchestration and manifesto | When using the agent to manage docs/epics/status |
 
 ### Deep Dives
 | Guide | Description |
@@ -527,6 +543,15 @@ npm run e2e:storybook   # Start Storybook + run E2E
 ```bash
 npm run storybook:stats    # Generate bundle stats
 npm run storybook:analyze  # Open bundle analyzer
+```
+
+### Agent Boot (Python)
+```bash
+python3 agent_boot.py init
+python3 agent_boot.py update-docs --content "Session update"
+python3 agent_boot.py create-epic --title "Title" --description "Description"
+python3 agent_boot.py test-security --input "<script>alert('xss')</script>"
+python3 agent_boot.py performance-report
 ```
 
 ## 📁 Project Structure

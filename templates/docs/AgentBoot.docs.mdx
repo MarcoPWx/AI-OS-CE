@@ -2,10 +2,11 @@ import { Meta } from '@storybook/blocks'
 
 <Meta title="Docs/Agent Boot" />
 
-# Agent Boot Contract
+# Agent Boot Contract - Reference Implementation
 
 ## Purpose
-- This document makes the project “agent-ready.” It defines the minimum I need to operate instantly, the guardrails I must follow, and how we collaborate via TDD and clean code practices.
+- This document makes the project "agent-ready." It defines the minimum I need to operate instantly, the guardrails I must follow, and how we collaborate via TDD and clean code practices.
+- **REFERENCE IMPLEMENTATION**: Not just a utility, but a complete learning platform with production-ready patterns that are educational by design.
 
 ## Constraints & Allowed Tools
 - Terminal only; no external web browsing.
@@ -113,8 +114,91 @@ import { Meta } from '@storybook/blocks'
 - Stories: src/stories/**/*
 - Tests: src/components/**/*/__tests__ and tests/e2e/**/*
 
+## Reference Implementation Principles
+
+### 1. Complete Learning Platform
+- **User Journeys**: Complete business logic, not fragments
+  - Onboarding: Multi-step wizards with preference management
+  - Progress Journey: Analytics and data visualization
+  - Each journey teaches real patterns
+
+### 2. Teaching Through Patterns
+- **MSW Integration**: Each endpoint has educational purpose
+  - CRUD operations with optimistic updates
+  - Stateful operations with proper state machines
+  - Real-time operations with WebSocket patterns
+  - Error scenarios with graceful degradation
+
+### 3. Dev Tools as Real Platform
+- **Epic Manager**: Actual project management, not a demo
+- **System Status**: Live monitoring with real metrics
+- **API Playground**: Postman alternative in-browser
+- **Network Inspector**: DevTools alternative for learning
+
+### 4. Interactive Labs
+- **Security Lab**: Test attacks safely, learn defenses
+- **A11y Lab**: Test accessibility, understand WCAG
+- **Performance Lab**: Learn optimization through measurement
+
+### 5. Implementation Standards
+
+#### Every Feature Must Be COMPLETE
+- No partial implementations
+- Full error handling with recovery
+- Proper state management (Redux/Context/Zustand patterns)
+- Real patterns used in production
+
+#### Educational Value is PRIMARY
+- Code teaches best practices through example
+- Comments explain WHY, not WHAT
+- Examples are production-ready, not toy demos
+- Patterns are industry-standard, not academic
+
+#### Testing is CORE
+- TDD is mandatory for all features
+- E2E tests for all user journeys
+- Tests serve as living documentation
+- Coverage thresholds enforced (80% minimum)
+
+#### Performance MATTERS
+- Optimize from the start, not later
+- Lazy loading for code splitting
+- Memoization for expensive operations
+- Caching strategies built-in
+- Performance budgets enforced
+
+## Agent Boot Python Implementation
+
+The `agent_boot.py` file demonstrates these principles:
+
+```python
+# Initialize the agent system
+python agent_boot.py init
+
+# Update documentation
+python agent_boot.py update-docs --content "Session summary"
+
+# Create an epic with validation
+python agent_boot.py create-epic --title "New Feature" --description "Complete implementation"
+
+# Test security patterns
+python agent_boot.py test-security --input "<script>alert('xss')</script>"
+
+# Generate performance report
+python agent_boot.py performance-report
+```
+
+### Key Components:
+
+1. **AgentContext**: Single source of truth for state
+2. **DocumentationManager**: Treats docs as code
+3. **EpicManager**: Real project management with CRUD
+4. **SecurityLab**: Safe security testing environment
+5. **PerformanceMonitor**: Built-in performance tracking
+
 ## Acceptance Criteria for This Contract
 - One canonical doc each for DevLog, Epics, System Status.
 - Storybook boot page present and linked from top-level nav.
 - Agent operates via TDD, updates docs on request, and respects guardrails.
-
+- Reference implementation demonstrates all principles.
+- Every component is complete, educational, tested, and performant.
