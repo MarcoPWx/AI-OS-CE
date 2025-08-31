@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="30" failures="5" errors="0" time="4.353">
+  <testsuite name="Batch Processing Integration" errors="0" failures="3" skipped="0" timestamp="2025-08-30T02:09:32" time="3.94" tests="13">
+    <testcase classname="Batch Processing Integration Performance Comparison should demonstrate 90% reduction in API calls with batching" name="Batch Processing Integration Performance Comparison should demonstrate 90% reduction in API calls with batching" time="1.409">
+    </testcase>
+    <testcase classname="Batch Processing Integration Performance Comparison should handle mixed load patterns efficiently" name="Batch Processing Integration Performance Comparison should handle mixed load patterns efficiently" time="1.074">
+      <failure>Error: expect(received).toBeGreaterThan(expected)
+
+Expected: &gt; 0
+Received:   0
+    at Object.toBeGreaterThan (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/src/services/__tests__/batchProcessor.integration.test.ts:143:39)
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+    at _next (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)</failure>
+    </testcase>
+    <testcase classname="Batch Processing Integration Real-World Scenarios should batch quiz question loading effectively" name="Batch Processing Integration Real-World Scenarios should batch quiz question loading effectively" time="0.103">
+    </testcase>
+    <testcase classname="Batch Processing Integration Real-World Scenarios should handle user progress sync with batching" name="Batch Processing Integration Real-World Scenarios should handle user progress sync with batching" time="0.104">
+    </testcase>
+    <testcase classname="Batch Processing Integration Real-World Scenarios should track analytics events efficiently" name="Batch Processing Integration Real-World Scenarios should track analytics events efficiently" time="0.154">
+    </testcase>
+    <testcase classname="Batch Processing Integration Error Handling and Retry should retry failed batches with exponential backoff" name="Batch Processing Integration Error Handling and Retry should retry failed batches with exponential backoff" time="0.205">
+      <failure>Error: expect(received).toBeGreaterThan(expected)
+
+Expected: &gt; 1
+Received:   1
+    at Object.toBeGreaterThan (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/src/services/__tests__/batchProcessor.integration.test.ts:249:28)
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+    at _next (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)</failure>
+    </testcase>
+    <testcase classname="Batch Processing Integration Error Handling and Retry should handle partial batch failures gracefully" name="Batch Processing Integration Error Handling and Retry should handle partial batch failures gracefully" time="0.001">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 5
+Received: 0
+    at Object.toBe (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/src/services/__tests__/batchProcessor.integration.test.ts:277:40)
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+    at _next (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)</failure>
+    </testcase>
+    <testcase classname="Batch Processing Integration Memory Management should not leak memory with large batches" name="Batch Processing Integration Memory Management should not leak memory with large batches" time="0.014">
+    </testcase>
+    <testcase classname="Batch Processing Integration Memory Management should clear resources on destroy" name="Batch Processing Integration Memory Management should clear resources on destroy" time="0">
+    </testcase>
+    <testcase classname="Batch Processing Integration Singleton Pattern should share state across getInstance calls" name="Batch Processing Integration Singleton Pattern should share state across getInstance calls" time="0.002">
+    </testcase>
+    <testcase classname="Batch Processing Integration Singleton Pattern should flush all processors at once" name="Batch Processing Integration Singleton Pattern should flush all processors at once" time="0.001">
+    </testcase>
+    <testcase classname="Performance Benchmarks should process 10,000 events efficiently" name="Performance Benchmarks should process 10,000 events efficiently" time="0.018">
+    </testcase>
+    <testcase classname="Performance Benchmarks should maintain low latency under load" name="Performance Benchmarks should maintain low latency under load" time="0.169">
+    </testcase>
+  </testsuite>
+  <testsuite name="Daily Challenge Store (TDD)" errors="0" failures="2" skipped="0" timestamp="2025-08-30T02:09:36" time="0.29" tests="17">
+    <testcase classname="Daily Challenge Store (TDD) Initial State should have correct initial values" name="Daily Challenge Store (TDD) Initial State should have correct initial values" time="0.008">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) generateDailyChallenge should generate a new challenge for today" name="Daily Challenge Store (TDD) generateDailyChallenge should generate a new challenge for today" time="0.001">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) generateDailyChallenge should not generate a new challenge if one already exists for today" name="Daily Challenge Store (TDD) generateDailyChallenge should not generate a new challenge if one already exists for today" time="0">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) generateDailyChallenge should generate different challenges on different days" name="Daily Challenge Store (TDD) generateDailyChallenge should generate different challenges on different days" time="0">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) updateChallengeProgress should update challenge progress" name="Daily Challenge Store (TDD) updateChallengeProgress should update challenge progress" time="0.001">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) updateChallengeProgress should mark challenge as completed when target is reached" name="Daily Challenge Store (TDD) updateChallengeProgress should mark challenge as completed when target is reached" time="0">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) updateChallengeProgress should not mark as completed if accuracy is below target" name="Daily Challenge Store (TDD) updateChallengeProgress should not mark as completed if accuracy is below target" time="0">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) completeChallenge should add completed challenge to history" name="Daily Challenge Store (TDD) completeChallenge should add completed challenge to history" time="0.001">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) completeChallenge should increment challenge streak" name="Daily Challenge Store (TDD) completeChallenge should increment challenge streak" time="0.001">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) completeChallenge should add points to total" name="Daily Challenge Store (TDD) completeChallenge should add points to total" time="0">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 1500
+Received: 1650
+    at Object.toBe (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/store/__tests__/dailyChallengeStore.test.ts:264:42)
+    at Promise.then.completed (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:121:9)
+    at run (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) completeChallenge should apply streak bonus to points" name="Daily Challenge Store (TDD) completeChallenge should apply streak bonus to points" time="0">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) getChallengeRewards should calculate rewards based on difficulty" name="Daily Challenge Store (TDD) getChallengeRewards should calculate rewards based on difficulty" time="0">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 100
+Received: 170
+    at Object.toBe (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/store/__tests__/dailyChallengeStore.test.ts:307:34)
+    at Promise.then.completed (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:121:9)
+    at run (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/Users/betolbook/Documents/github/NatureQuest/QuizMentor/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) getChallengeRewards should include streak multiplier in rewards" name="Daily Challenge Store (TDD) getChallengeRewards should include streak multiplier in rewards" time="0">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) resetChallengeStreak should reset streak to 0" name="Daily Challenge Store (TDD) resetChallengeStreak should reset streak to 0" time="0.001">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) getStreakMultiplier should return correct multiplier for different streak lengths" name="Daily Challenge Store (TDD) getStreakMultiplier should return correct multiplier for different streak lengths" time="0">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) getStreakMultiplier should cap multiplier at 5x" name="Daily Challenge Store (TDD) getStreakMultiplier should cap multiplier at 5x" time="0">
+    </testcase>
+    <testcase classname="Daily Challenge Store (TDD) Persistence should persist state to AsyncStorage" name="Daily Challenge Store (TDD) Persistence should persist state to AsyncStorage" time="0.102">
+    </testcase>
+  </testsuite>
+</testsuites>

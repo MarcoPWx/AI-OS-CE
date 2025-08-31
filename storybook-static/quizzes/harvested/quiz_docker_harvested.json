@@ -1,0 +1,274 @@
+{
+  "quiz_id": "harvest_docker",
+  "title": "Docker Quiz (Harvested)",
+  "description": "Auto-generated quiz from harvested docker content",
+  "category": "docker",
+  "difficulty": "mixed",
+  "time_limit": 30,
+  "passing_score": 70,
+  "questions": [
+    {
+      "id": "harvest_61",
+      "question": "How does Back differ from alternatives?",
+      "options": [
+        "Back Ask\u00a0AI Start typing to search or try Ask\nAI",
+        "An image layer with additional configuration",
+        "A container runtime with additional configuration",
+        "A compose directive with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "Back Ask\u00a0AI Start typing to search or try Ask\nAI",
+      "difficulty": 1,
+      "tags": [
+        "docker",
+        "engine"
+      ]
+    },
+    {
+      "id": "harvest_63",
+      "question": "How is Start typically implemented?",
+      "options": [
+        "A container runtime with additional configuration",
+        "Back Ask\u00a0AI Start typing to search or try Ask\nAI",
+        "A compose directive with additional configuration",
+        "An image layer with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Back Ask\u00a0AI Start typing to search or try Ask\nAI",
+      "difficulty": 1,
+      "tags": [
+        "docker",
+        "engine"
+      ]
+    },
+    {
+      "id": "harvest_66",
+      "question": "What is the primary purpose of Back?",
+      "options": [
+        "An image layer with additional configuration",
+        "A compose directive with additional configuration",
+        "Back Ask\u00a0AI Start typing to search or try Ask\nAI",
+        "A container runtime with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Back Ask\u00a0AI Start typing to search or try Ask\nAI",
+      "difficulty": 1,
+      "tags": [
+        "docker",
+        "compose"
+      ]
+    },
+    {
+      "id": "harvest_71",
+      "question": "What problem does Back solve?",
+      "options": [
+        "A container runtime with additional configuration",
+        "Back Ask\u00a0AI Start typing to search or try Ask\nAI",
+        "An image layer with additional configuration",
+        "A compose directive with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Back Ask\u00a0AI Start typing to search or try Ask\nAI",
+      "difficulty": 1,
+      "tags": [
+        "docker",
+        "registry"
+      ]
+    },
+    {
+      "id": "harvest_73",
+      "question": "Which of the following best describes Start?",
+      "options": [
+        "An image layer with additional configuration",
+        "A back ask\u00a0ai start typing to search or try ask\nai",
+        "A container runtime with additional configuration",
+        "A compose directive with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Start is correctly described as: A back ask\u00a0ai start typing to search or try ask\nai",
+      "difficulty": 1,
+      "tags": [
+        "docker",
+        "registry"
+      ]
+    },
+    {
+      "id": "harvest_62",
+      "question": "Which approach is best for Ask?",
+      "options": [
+        "Contact support Manuals Get started Guides Reference Docker Engine Page options Copy page as Markdown for LLMs View page as plain text Ask questions",
+        "A compose directive with additional configuration",
+        "A container runtime with additional configuration",
+        "An image layer with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "Contact support Manuals Get started Guides Reference Docker Engine Page options Copy page as Markdown for LLMs View page as plain text Ask questions with Docs AI Claude Open in Claude Table of content",
+      "difficulty": 2,
+      "tags": [
+        "docker",
+        "engine"
+      ]
+    },
+    {
+      "id": "harvest_64",
+      "question": "What is the main advantage of Contact?",
+      "options": [
+        "A compose directive with additional configuration",
+        "An image layer with additional configuration",
+        "A container runtime with additional configuration",
+        "Contact support Manuals Get started Guides Reference Docker Engine Page options Copy page as Markdown for LLMs View page as plain text Ask questions"
+      ],
+      "correct_answer": 3,
+      "explanation": "Contact support Manuals Get started Guides Reference Docker Engine Page options Copy page as Markdown for LLMs View page as plain text Ask questions with Docs AI Claude Open in Claude Table of content",
+      "difficulty": 2,
+      "tags": [
+        "docker",
+        "engine"
+      ]
+    },
+    {
+      "id": "harvest_65",
+      "question": "Why would you use Manuals in engine?",
+      "options": [
+        "An image layer with additional configuration",
+        "A compose directive with additional configuration",
+        "Contact support Manuals Get started Guides Reference Docker Engine Page options Copy page as Markdown for LLMs View page as plain text Ask questions",
+        "A container runtime with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Contact support Manuals Get started Guides Reference Docker Engine Page options Copy page as Markdown for LLMs View page as plain text Ask questions with Docs AI Claude Open in Claude Table of content",
+      "difficulty": 2,
+      "tags": [
+        "docker",
+        "engine"
+      ]
+    },
+    {
+      "id": "harvest_67",
+      "question": "What is the main advantage of Ask?",
+      "options": [
+        "Contact support Manuals Get started Guides Reference Docker Compose Page options Copy page as Markdown for LLMs View page as plain text Ask questions",
+        "A container runtime with additional configuration",
+        "An image layer with additional configuration",
+        "A compose directive with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "Contact support Manuals Get started Guides Reference Docker Compose Page options Copy page as Markdown for LLMs View page as plain text Ask questions with Docs AI Claude Open in Claude Docker Compose ",
+      "difficulty": 2,
+      "tags": [
+        "docker",
+        "compose"
+      ]
+    },
+    {
+      "id": "harvest_68",
+      "question": "Why would you use Start in compose?",
+      "options": [
+        "It also has commands for managing the whole lifecycle of your application: Start, stop, and rebuild services View the status of running services Stre",
+        "A compose directive with additional configuration",
+        "A container runtime with additional configuration",
+        "An image layer with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "It also has commands for managing the whole lifecycle of your application: Start, stop, and rebuild services View the status of running services Stream the log output of running services Run a one-off",
+      "difficulty": 2,
+      "tags": [
+        "docker",
+        "compose"
+      ]
+    },
+    {
+      "id": "harvest_69",
+      "question": "What problem does Contact solve?",
+      "options": [
+        "An image layer with additional configuration",
+        "A container runtime with additional configuration",
+        "Contact support Manuals Get started Guides Reference Docker Compose Page options Copy page as Markdown for LLMs View page as plain text Ask questions",
+        "A compose directive with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Contact support Manuals Get started Guides Reference Docker Compose Page options Copy page as Markdown for LLMs View page as plain text Ask questions with Docs AI Claude Open in Claude Docker Compose ",
+      "difficulty": 2,
+      "tags": [
+        "docker",
+        "compose"
+      ]
+    },
+    {
+      "id": "harvest_70",
+      "question": "In docker, what does Manuals refer to?",
+      "options": [
+        "A  contact support manuals get started guides reference docker compose page options copy page as markdown for llms view page as plain text ask questions",
+        "An image layer with additional configuration",
+        "A container runtime with additional configuration",
+        "A compose directive with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "Manuals is correctly described as: A  contact support manuals get started guides reference docker compose page options copy page as mar",
+      "difficulty": 2,
+      "tags": [
+        "docker",
+        "compose"
+      ]
+    },
+    {
+      "id": "harvest_72",
+      "question": "What problem does Ask solve?",
+      "options": [
+        "A container runtime with additional configuration",
+        "An image layer with additional configuration",
+        "Contact support Manuals Get started Guides Reference Deprecated and retired Docker products and features Page options Copy page as Markdown for LLMs",
+        "A compose directive with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Contact support Manuals Get started Guides Reference Deprecated and retired Docker products and features Page options Copy page as Markdown for LLMs View page as plain text Ask questions with Docs AI ",
+      "difficulty": 2,
+      "tags": [
+        "docker",
+        "registry"
+      ]
+    },
+    {
+      "id": "harvest_74",
+      "question": "What is the primary purpose of Contact?",
+      "options": [
+        "An image layer with additional configuration",
+        "A compose directive with additional configuration",
+        "A container runtime with additional configuration",
+        "Contact support Manuals Get started Guides Reference Deprecated and retired Docker products and features Page options Copy page as Markdown for LLMs"
+      ],
+      "correct_answer": 3,
+      "explanation": "Contact support Manuals Get started Guides Reference Deprecated and retired Docker products and features Page options Copy page as Markdown for LLMs View page as plain text Ask questions with Docs AI ",
+      "difficulty": 2,
+      "tags": [
+        "docker",
+        "registry"
+      ]
+    },
+    {
+      "id": "harvest_75",
+      "question": "Which of the following best describes Manuals?",
+      "options": [
+        "A compose directive with additional configuration",
+        "A container runtime with additional configuration",
+        "An image layer with additional configuration",
+        "A  contact support manuals get started guides reference deprecated and retired docker products and features page options copy page as markdown for llms"
+      ],
+      "correct_answer": 3,
+      "explanation": "Manuals is correctly described as: A  contact support manuals get started guides reference deprecated and retired docker products and f",
+      "difficulty": 2,
+      "tags": [
+        "docker",
+        "registry"
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "automated_harvest",
+    "question_count": 15,
+    "difficulty_distribution": {
+      "2": 10,
+      "1": 5
+    }
+  }
+}

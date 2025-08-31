@@ -1,0 +1,21 @@
+# Bundling & Performance (Storybook)
+
+import { Meta, Canvas, Story } from '@storybook/blocks';
+
+<Meta title="Docs/Bundling & Performance" />
+
+This page summarizes bundling, tree shaking, and code splitting for our Storybook + web builds and links to the full guide.
+
+- Read: /docs/status/BUNDLING_AND_PERFORMANCE_GUIDE.md
+- Analyze the Storybook bundle:
+  - npm run analyze:storybook
+  - Open storybook-bundle.html
+- Tips: Prefer ESM, subpath imports, and lazy-load heavy components.
+
+## Code Split Demo
+
+Below is a small demo component that lazy-loads a child chunk via React.lazy.
+
+<Canvas>
+  <Story id="dev-codesplitdemo--default" />
+</Canvas>

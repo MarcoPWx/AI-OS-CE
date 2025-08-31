@@ -1,0 +1,105 @@
+version: '3.8'
+
+services:
+  # Master node for distributed testing (Web UI)
+  locust-master:
+    image: locustio/locust:2.17.0
+    container_name: quizmentor-locust-master
+    ports:
+      - "8089:8089"  # Web UI
+      - "5557:5557"  # Master-Worker communication
+    volumes:
+      - ./locustfile.py:/home/locust/locustfile.py
+      - ./artifacts:/home/locust/artifacts
+    environment:
+      - LOCUST_MODE=master
+      - LOCUST_HOST=${QM_LOADTEST_BASE_URL:-http://localhost:3000}
+      - QM_API_TOKEN=${QM_API_TOKEN:-}
+      - QM_USE_AUTH=${QM_USE_AUTH:-false}
+      - QM_DEBUG=${QM_DEBUG:-false}
+    command: >
+      --locustfile /home/locust/locustfile.py
+      --master
+      --master-bind-host=0.0.0.0
+      --master-bind-port=5557
+    networks:
+      - locust-net
+    restart: unless-stopped
+
+  # Worker nodes for distributed testing (scale as needed)
+  locust-worker:
+    image: locustio/locust:2.17.0
+    volumes:
+      - ./locustfile.py:/home/locust/locustfile.py
+      - ./artifacts:/home/locust/artifacts
+    environment:
+      - LOCUST_MODE=worker
+      - LOCUST_MASTER_HOST=locust-master
+      - LOCUST_MASTER_PORT=5557
+      - QM_API_TOKEN=${QM_API_TOKEN:-}
+      - QM_USE_AUTH=${QM_USE_AUTH:-false}
+      - QM_DEBUG=${QM_DEBUG:-false}
+    command: >
+      --locustfile /home/locust/locustfile.py
+      --worker
+      --master-host=locust-master
+      --master-port=5557
+    networks:
+      - locust-net
+    deploy:
+      replicas: ${LOCUST_WORKERS:-4}  # Number of worker instances
+    restart: unless-stopped
+
+  # Standalone mode for headless/CI testing
+  locust-standalone:
+    image: locustio/locust:2.17.0
+    container_name: quizmentor-locust-standalone
+    profiles:
+      - headless  # Only run when explicitly requested
+    volumes:
+      - ./locustfile.py:/home/locust/locustfile.py
+      - ./artifacts:/home/locust/artifacts
+    environment:
+      - LOCUST_HOST=${QM_LOADTEST_BASE_URL:-http://localhost:3000}
+      - QM_API_TOKEN=${QM_API_TOKEN:-}
+      - QM_USE_AUTH=${QM_USE_AUTH:-false}
+      - QM_DEBUG=${QM_DEBUG:-false}
+      - QM_LOADTEST_THRESHOLD_FAIL_RATIO=${QM_LOADTEST_THRESHOLD_FAIL_RATIO:-0.01}
+      - QM_LOADTEST_THRESHOLD_P95=${QM_LOADTEST_THRESHOLD_P95:-1000}
+    command: >
+      --locustfile /home/locust/locustfile.py
+      --headless
+      --users ${QM_LOADTEST_USERS:-100}
+      --spawn-rate ${QM_LOADTEST_SPAWN:-10}
+      --run-time ${QM_LOADTEST_RUNTIME:-5m}
+      --host ${QM_LOADTEST_BASE_URL:-http://localhost:3000}
+      --csv=/home/locust/artifacts/locust
+      --csv-full-history
+      --only-summary
+      --print-stats
+    networks:
+      - locust-net
+
+  # Optional: Prometheus exporter for metrics collection
+  locust-exporter:
+    image: containersol/locust_exporter:latest
+    container_name: quizmentor-locust-exporter
+    profiles:
+      - monitoring  # Only run when monitoring is needed
+    ports:
+      - "9646:9646"
+    environment:
+      - LOCUST_EXPORTER_URI=http://locust-master:8089
+    networks:
+      - locust-net
+    depends_on:
+      - locust-master
+    restart: unless-stopped
+
+networks:
+  locust-net:
+    driver: bridge
+
+volumes:
+  artifacts:
+    driver: local

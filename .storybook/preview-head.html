@@ -1,0 +1,63 @@
+<!-- Print-friendly stylesheet for Storybook Docs pages -->
+<style>
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  @media print {
+    /* Hide Storybook chrome */
+    #storybook-explorer,
+    #storybook-panel-root,
+    #storybook-panel,
+    .sidebar-container,
+    .sidebar,
+    .sb-bar,
+    .sbdocs-preview,
+    [data-testid="addon-panel-root"],
+    [data-testid*="sidebar"],
+    [class*="sidebar"],
+    [class*="addons"] {
+      display: none !important;
+    }
+
+    /* Expand docs content */
+    .sbdocs,
+    .sbdocs-wrapper,
+    .sbdocs-content,
+    #storybook-root {
+      max-width: 100% !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #fff !important;
+      box-shadow: none !important;
+    }
+
+    body {
+      background: #fff !important;
+      color: #111 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .docblock-source,
+    pre,
+    code {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    h1, h2, h3 {
+      break-after: avoid;
+    }
+
+    /* Improve link readability on paper */
+    a[href]::after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+      color: #666;
+    }
+  }
+</style>
+

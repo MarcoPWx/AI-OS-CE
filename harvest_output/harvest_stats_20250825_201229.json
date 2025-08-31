@@ -1,0 +1,49 @@
+{
+  "total_content": 410,
+  "content_by_type": {
+    "documentation": 27,
+    "github": 5,
+    "stackoverflow": 378
+  },
+  "content_by_category": {
+    "ansible": 1,
+    "azure": 5,
+    "docker": 3,
+    "gcp": 4,
+    "go": 2,
+    "javascript": 2,
+    "jenkins": 1,
+    "kubernetes": 3,
+    "mongodb": 1,
+    "postgresql": 1,
+    "programming": 378,
+    "python": 2,
+    "redis": 1,
+    "repository": 5,
+    "terraform": 1
+  },
+  "total_questions": 1605,
+  "questions_by_category": {
+    "ansible": 15,
+    "azure": 60,
+    "docker": 31,
+    "gcp": 40,
+    "go": 33,
+    "javascript": 29,
+    "jenkins": 17,
+    "kubernetes": 44,
+    "mongodb": 12,
+    "postgresql": 16,
+    "programming": 1171,
+    "python": 35,
+    "redis": 15,
+    "repository": 70,
+    "terraform": 17
+  },
+  "questions_by_difficulty": {
+    "1": 186,
+    "2": 1253,
+    "3": 166
+  },
+  "average_confidence": 0.8
+}

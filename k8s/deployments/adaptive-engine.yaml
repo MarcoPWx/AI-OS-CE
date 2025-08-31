@@ -1,0 +1,100 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adaptive-engine
+  namespace: quizmentor-app
+  labels:
+    app: adaptive-engine
+    version: v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: adaptive-engine
+  template:
+    metadata:
+      labels:
+        app: adaptive-engine
+        version: v1
+    spec:
+      containers:
+        - name: adaptive-engine
+          image: quizmentor/adaptive-engine:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3011
+              name: http
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: PORT
+              value: "3011"
+            - name: POSTGRES_HOST
+              value: "postgresql.quizmentor-data.svc.cluster.local"
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_DB
+              value: "quizmentor"
+            - name: REDIS_HOST
+              value: "redis.quizmentor-data.svc.cluster.local"
+            - name: REDIS_PORT
+              value: "6379"
+            - name: QDRANT_HOST
+              value: "qdrant.quizmentor-data.svc.cluster.local"
+            - name: QDRANT_PORT
+              value: "6333"
+            - name: ML_MODEL_PATH
+              value: "/models"
+            - name: CACHE_TTL
+              value: "3600"
+            - name: FLOW_STATE_THRESHOLD
+              value: "0.7"
+            - name: SPACED_REPETITION_ENABLED
+              value: "true"
+            - name: LOG_LEVEL
+              value: "info"
+            - name: ENABLE_TRACING
+              value: "true"
+            - name: JAEGER_ENDPOINT
+              value: "http://jaeger-collector.istio-system.svc.cluster.local:14268/api/traces"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "200m"
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3011
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3011
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          volumeMounts:
+            - name: ml-models
+              mountPath: /models
+      volumes:
+        - name: ml-models
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: adaptive-engine
+  namespace: quizmentor-app
+  labels:
+    app: adaptive-engine
+spec:
+  selector:
+    app: adaptive-engine
+  ports:
+    - name: http
+      port: 3011
+      targetPort: 3011
+      protocol: TCP

@@ -1,0 +1,445 @@
+{
+  "quiz_id": "harvest_repository",
+  "title": "Repository Quiz (Harvested)",
+  "description": "Auto-generated quiz from harvested repository content",
+  "category": "repository",
+  "difficulty": "mixed",
+  "time_limit": 30,
+  "passing_score": 70,
+  "questions": [
+    {
+      "id": "harvest_474",
+      "question": "In repository, what does Inspired refer to?",
+      "options": [
+        "A component of Inspired",
+        "A different approach to Inspired",
+        "An alternative to Inspired",
+        "A \n\ninspired by [awesome-php](https://github"
+      ],
+      "correct_answer": 3,
+      "explanation": "Inspired is correctly described as: A \n\ninspired by [awesome-php](https://github",
+      "difficulty": 1,
+      "tags": [
+        "repository",
+        "awesome-python"
+      ]
+    },
+    {
+      "id": "harvest_467",
+      "question": "In repository, what does Awesome refer to?",
+      "options": [
+        "A different approach to Awesome with additional configuration",
+        "A component of Awesome with additional configuration",
+        "An alternative to Awesome with additional configuration",
+        "A svg\" alt=\"awesome\">\n\t<br>\n\t<br>\n\t<br>\n\t<br>\n\t<div>\n\t\t<sub>check out my macos app</sub>\n\t\t<br>\n\t\t<h2>\n\t\t\t<a href=\"https://sindresorhus"
+      ],
+      "correct_answer": 3,
+      "explanation": "Awesome is correctly described as: A svg\" alt=\"awesome\">\n\t<br>\n\t<br>\n\t<br>\n\t<br>\n\t<div>\n\t\t<sub>check out my macos app</sub>\n\t\t<br>\n\t\t<h",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome"
+      ]
+    },
+    {
+      "id": "harvest_468",
+      "question": "What is required to use Check?",
+      "options": [
+        "A different approach to Check with additional configuration",
+        "svg\" alt=\"Awesome\">\n\t<br>\n\t<br>\n\t<br>\n\t<br>\n\t<div>\n\t\t<sub>Check out my macOS app</sub>\n\t\t<br>\n\t\t<h2>\n\t\t\t<a href=\"https://sindresorhus",
+        "An alternative to Check with additional configuration",
+        "A component of Check with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "svg\" alt=\"Awesome\">\n\t<br>\n\t<br>\n\t<br>\n\t<br>\n\t<div>\n\t\t<sub>Check out my macOS app</sub>\n\t\t<br>\n\t\t<h2>\n\t\t\t<a href=\"https://sindresorhus",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome"
+      ]
+    },
+    {
+      "id": "harvest_469",
+      "question": "In repository, what does Supercharge refer to?",
+      "options": [
+        "An alternative to Supercharge with additional configuration",
+        "A different approach to Supercharge with additional configuration",
+        "A com/supercharge\">supercharge</a>\n\t\t\t<br>\n\t\t\t<sup>elevate your mac experience</sup>\n\t\t</h2>\n\t</div>\n\t<br>\n\t<br>\n\t<br>\n\t<br>\n\t<hr>\n\t<p>\n\t\t<p>\n\t\t\t<sup>",
+        "A component of Supercharge with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Supercharge is correctly described as: A com/supercharge\">supercharge</a>\n\t\t\t<br>\n\t\t\t<sup>elevate your mac experience</sup>\n\t\t</h2>\n\t</div>",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome"
+      ]
+    },
+    {
+      "id": "harvest_470",
+      "question": "Which of the following best describes Elevate?",
+      "options": [
+        "An alternative to Elevate with additional configuration",
+        "A component of Elevate with additional configuration",
+        "A different approach to Elevate with additional configuration",
+        "A com/supercharge\">supercharge</a>\n\t\t\t<br>\n\t\t\t<sup>elevate your mac experience</sup>\n\t\t</h2>\n\t</div>\n\t<br>\n\t<br>\n\t<br>\n\t<br>\n\t<hr>\n\t<p>\n\t\t<p>\n\t\t\t<sup>"
+      ],
+      "correct_answer": 3,
+      "explanation": "Elevate is correctly described as: A com/supercharge\">supercharge</a>\n\t\t\t<br>\n\t\t\t<sup>elevate your mac experience</sup>\n\t\t</h2>\n\t</div>",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome"
+      ]
+    },
+    {
+      "id": "harvest_471",
+      "question": "In repository, what does Mac refer to?",
+      "options": [
+        "A component of Mac with additional configuration",
+        "A different approach to Mac with additional configuration",
+        "A com/supercharge\">supercharge</a>\n\t\t\t<br>\n\t\t\t<sup>elevate your mac experience</sup>\n\t\t</h2>\n\t</div>\n\t<br>\n\t<br>\n\t<br>\n\t<br>\n\t<hr>\n\t<p>\n\t\t<p>\n\t\t\t<sup>",
+        "An alternative to Mac with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Mac is correctly described as: A com/supercharge\">supercharge</a>\n\t\t\t<br>\n\t\t\t<sup>elevate your mac experience</sup>\n\t\t</h2>\n\t</div>",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome"
+      ]
+    },
+    {
+      "id": "harvest_472",
+      "question": "Which of the following best describes Awesome?",
+      "options": [
+        "A component of Awesome with additional configuration",
+        "A different approach to Awesome with additional configuration",
+        "An alternative to Awesome with additional configuration",
+        "A \n\n- [awesome python](#awesome-python)\n    - [admin panels](#admin-panels)\n    - [algorithms and design patterns](#algorithms-and-design-patterns)"
+      ],
+      "correct_answer": 3,
+      "explanation": "Awesome is correctly described as: A \n\n- [awesome python](#awesome-python)\n    - [admin panels](#admin-panels)\n    - [algorithms and de",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-python"
+      ]
+    },
+    {
+      "id": "harvest_473",
+      "question": "Which approach is best for Python?",
+      "options": [
+        "A component of Python with additional configuration",
+        "An alternative to Python with additional configuration",
+        "- [Awesome Python](#awesome-python)\n    - [Admin Panels](#admin-panels)\n    - [Algorithms and Design Patterns](#algorithms-and-design-patterns)",
+        "A different approach to Python with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "- [Awesome Python](#awesome-python)\n    - [Admin Panels](#admin-panels)\n    - [Algorithms and Design Patterns](#algorithms-and-design-patterns)\n    - [ASGI Servers](#asgi-servers)\n    - [Asynchronous ",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-python"
+      ]
+    },
+    {
+      "id": "harvest_475",
+      "question": "In repository, what does Admin refer to?",
+      "options": [
+        "An alternative to Admin with additional configuration",
+        "A different approach to Admin with additional configuration",
+        "A \n\n- [awesome python](#awesome-python)\n    - [admin panels](#admin-panels)\n    - [algorithms and design patterns](#algorithms-and-design-patterns)",
+        "A component of Admin with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Admin is correctly described as: A \n\n- [awesome python](#awesome-python)\n    - [admin panels](#admin-panels)\n    - [algorithms and de",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-python"
+      ]
+    },
+    {
+      "id": "harvest_476",
+      "question": "In repository, what does Panels refer to?",
+      "options": [
+        "A different approach to Panels with additional configuration",
+        "A \n\n- [awesome python](#awesome-python)\n    - [admin panels](#admin-panels)\n    - [algorithms and design patterns](#algorithms-and-design-patterns)",
+        "A component of Panels with additional configuration",
+        "An alternative to Panels with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Panels is correctly described as: A \n\n- [awesome python](#awesome-python)\n    - [admin panels](#admin-panels)\n    - [algorithms and de",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-python"
+      ]
+    },
+    {
+      "id": "harvest_477",
+      "question": "What problem does Awesome solve?",
+      "options": [
+        "* [Awesome JavaScript](#awesome-javascript)\n  * [Package Managers](#package-managers)\n  * [Component management](#component-management)\n  * [Loaders",
+        "An alternative to Awesome with additional configuration",
+        "A component of Awesome with additional configuration",
+        "A different approach to Awesome with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "* [Awesome JavaScript](#awesome-javascript)\n  * [Package Managers](#package-managers)\n  * [Component management](#component-management)\n  * [Loaders](#loaders)\n  * [Transpilers](#transpilers)\n  * [Bun",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-javascript"
+      ]
+    },
+    {
+      "id": "harvest_478",
+      "question": "What problem does JavaScript solve?",
+      "options": [
+        "A different approach to JavaScript with additional configuration",
+        "An alternative to JavaScript with additional configuration",
+        "A component of JavaScript with additional configuration",
+        "* [Awesome JavaScript](#awesome-javascript)\n  * [Package Managers](#package-managers)\n  * [Component management](#component-management)\n  * [Loaders"
+      ],
+      "correct_answer": 3,
+      "explanation": "* [Awesome JavaScript](#awesome-javascript)\n  * [Package Managers](#package-managers)\n  * [Component management](#component-management)\n  * [Loaders](#loaders)\n  * [Transpilers](#transpilers)\n  * [Bun",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-javascript"
+      ]
+    },
+    {
+      "id": "harvest_479",
+      "question": "What is the primary purpose of Web?",
+      "options": [
+        "An alternative to Web with additional configuration",
+        "A component of Web with additional configuration",
+        "A different approach to Web with additional configuration",
+        "* [Awesome JavaScript](#awesome-javascript)\n  * [Package Managers](#package-managers)\n  * [Component management](#component-management)\n  * [Loaders"
+      ],
+      "correct_answer": 3,
+      "explanation": "* [Awesome JavaScript](#awesome-javascript)\n  * [Package Managers](#package-managers)\n  * [Component management](#component-management)\n  * [Loaders](#loaders)\n  * [Transpilers](#transpilers)\n  * [Bun",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-javascript"
+      ]
+    },
+    {
+      "id": "harvest_480",
+      "question": "Which approach is best for Package?",
+      "options": [
+        "A component of Package with additional configuration",
+        "A different approach to Package with additional configuration",
+        "* [Awesome JavaScript](#awesome-javascript)\n  * [Package Managers](#package-managers)\n  * [Component management](#component-management)\n  * [Loaders",
+        "An alternative to Package with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "* [Awesome JavaScript](#awesome-javascript)\n  * [Package Managers](#package-managers)\n  * [Component management](#component-management)\n  * [Loaders](#loaders)\n  * [Transpilers](#transpilers)\n  * [Bun",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-javascript"
+      ]
+    },
+    {
+      "id": "harvest_481",
+      "question": "What is the primary purpose of Managers?",
+      "options": [
+        "An alternative to Managers with additional configuration",
+        "A different approach to Managers with additional configuration",
+        "A component of Managers with additional configuration",
+        "* [Awesome JavaScript](#awesome-javascript)\n  * [Package Managers](#package-managers)\n  * [Component management](#component-management)\n  * [Loaders"
+      ],
+      "correct_answer": 3,
+      "explanation": "* [Awesome JavaScript](#awesome-javascript)\n  * [Package Managers](#package-managers)\n  * [Component management](#component-management)\n  * [Loaders](#loaders)\n  * [Transpilers](#transpilers)\n  * [Bun",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-javascript"
+      ]
+    },
+    {
+      "id": "harvest_482",
+      "question": "How is Awesome typically implemented?",
+      "options": [
+        "Thank you!_\n\n## Contents\n\n- [Awesome Go](#awesome-go)\n  - [Contents](#contents)\n  - [Actor Model](#actor-model)\n  - [Artificial Intelligence](#artifi",
+        "An alternative to Awesome with additional configuration",
+        "A different approach to Awesome with additional configuration",
+        "A component of Awesome with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "Thank you!_\n\n## Contents\n\n- [Awesome Go](#awesome-go)\n  - [Contents](#contents)\n  - [Actor Model](#actor-model)\n  - [Artificial Intelligence](#artificial-intelligence)\n  - [Audio and Music](#audio-and",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-go"
+      ]
+    },
+    {
+      "id": "harvest_483",
+      "question": "Why would you use Build in awesome-go?",
+      "options": [
+        "A different approach to Build with additional configuration",
+        "An alternative to Build with additional configuration",
+        "Thank you!_\n\n## Contents\n\n- [Awesome Go](#awesome-go)\n  - [Contents](#contents)\n  - [Actor Model](#actor-model)\n  - [Artificial Intelligence](#artifi",
+        "A component of Build with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Thank you!_\n\n## Contents\n\n- [Awesome Go](#awesome-go)\n  - [Contents](#contents)\n  - [Actor Model](#actor-model)\n  - [Artificial Intelligence](#artificial-intelligence)\n  - [Audio and Music](#audio-and",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-go"
+      ]
+    },
+    {
+      "id": "harvest_484",
+      "question": "What is the primary purpose of Status?",
+      "options": [
+        "A different approach to Status with additional configuration",
+        "An alternative to Status with additional configuration",
+        "A component of Status with additional configuration",
+        "com/TimothyYe/skm) - SKM is a simple and powerful SSH Keys Manager, it helps you to manage your multiple SSH keys easily!\n- [StatusOK](https://github"
+      ],
+      "correct_answer": 3,
+      "explanation": "com/TimothyYe/skm) - SKM is a simple and powerful SSH Keys Manager, it helps you to manage your multiple SSH keys easily!\n- [StatusOK](https://github",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-go"
+      ]
+    },
+    {
+      "id": "harvest_485",
+      "question": "Which of the following best describes Slack?",
+      "options": [
+        "An alternative to Slack with additional configuration",
+        "A component of Slack with additional configuration",
+        "A different approach to Slack with additional configuration",
+        "A com/oklahomer/go-sarah) - framework to build a bot for desired chat services including line, slack, gitter, and more"
+      ],
+      "correct_answer": 3,
+      "explanation": "Slack is correctly described as: A com/oklahomer/go-sarah) - framework to build a bot for desired chat services including line, slack",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-go"
+      ]
+    },
+    {
+      "id": "harvest_486",
+      "question": "How is Widget typically implemented?",
+      "options": [
+        "A different approach to Widget with additional configuration",
+        "A component of Widget with additional configuration",
+        "An alternative to Widget with additional configuration",
+        "com/DamnWidget/VenGO) - create and manage exportable isolated go virtual environments"
+      ],
+      "correct_answer": 3,
+      "explanation": "com/DamnWidget/VenGO) - create and manage exportable isolated go virtual environments",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-go"
+      ]
+    },
+    {
+      "id": "harvest_487",
+      "question": "What is the main advantage of Awesome?",
+      "options": [
+        "An alternative to Awesome with additional configuration",
+        "A component of Awesome with additional configuration",
+        "com/mjebrahimi/Awesome-Microservices-NetCore) :star: - A collection of awesome training series, articles, videos, books, courses, sample projects, and",
+        "A different approach to Awesome with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "com/mjebrahimi/Awesome-Microservices-NetCore) :star: - A collection of awesome training series, articles, videos, books, courses, sample projects, and tools for microservices in",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-microservices"
+      ]
+    },
+    {
+      "id": "harvest_488",
+      "question": "What is the primary purpose of Microservices?",
+      "options": [
+        "com/mjebrahimi/Awesome-Microservices-NetCore) :star: - A collection of awesome training series, articles, videos, books, courses, sample projects, and",
+        "A different approach to Microservices with additional configuration",
+        "A component of Microservices with additional configuration",
+        "An alternative to Microservices with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "com/mjebrahimi/Awesome-Microservices-NetCore) :star: - A collection of awesome training series, articles, videos, books, courses, sample projects, and tools for microservices in",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-microservices"
+      ]
+    },
+    {
+      "id": "harvest_489",
+      "question": "Why would you use Microservice in awesome-microservices?",
+      "options": [
+        "A different approach to Microservice with additional configuration",
+        "A component of Microservice with additional configuration",
+        "An alternative to Microservice with additional configuration",
+        "com/mjebrahimi/Awesome-Microservices-NetCore) :star: - A collection of awesome training series, articles, videos, books, courses, sample projects, and"
+      ],
+      "correct_answer": 3,
+      "explanation": "com/mjebrahimi/Awesome-Microservices-NetCore) :star: - A collection of awesome training series, articles, videos, books, courses, sample projects, and tools for microservices in",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-microservices"
+      ]
+    },
+    {
+      "id": "harvest_491",
+      "question": "What problem does Table solve?",
+      "options": [
+        "An alternative to Table with additional configuration",
+        "A component of Table with additional configuration",
+        "**Table of Contents**\n\n- [Platforms](#platforms)\n- [Frameworks / Runtimes](#frameworks--runtimes)\n- [Service Toolkits](#service-toolkits)\n  - [Polyg",
+        "A different approach to Table with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "**Table of Contents**\n\n- [Platforms](#platforms)\n- [Frameworks / Runtimes](#frameworks--runtimes)\n- [Service Toolkits](#service-toolkits)\n  - [Polyglot](#polyglot)\n  - [C](#c)\n  - [C++](#c-1)\n  - [C#]",
+      "difficulty": 2,
+      "tags": [
+        "repository",
+        "awesome-microservices"
+      ]
+    },
+    {
+      "id": "harvest_490",
+      "question": "What problem does Architecture solve?",
+      "options": [
+        "A component of Architecture with additional configuration",
+        "com/sindresorhus/awesome)\n\nA curated list of Microservice Architecture related principles and technologies",
+        "An alternative to Architecture with additional configuration",
+        "A different approach to Architecture with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "com/sindresorhus/awesome)\n\nA curated list of Microservice Architecture related principles and technologies",
+      "difficulty": 3,
+      "tags": [
+        "repository",
+        "awesome-microservices"
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "automated_harvest",
+    "question_count": 25,
+    "difficulty_distribution": {
+      "2": 23,
+      "1": 1,
+      "3": 1
+    }
+  }
+}

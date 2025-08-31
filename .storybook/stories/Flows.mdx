@@ -1,0 +1,105 @@
+# Flows Documentation
+
+> These MDX docs render in the web Storybook only. Use `npm run storybook` and open http://localhost:7007.
+
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import AuthChoiceEpic from '../../src/screens/AuthChoiceEpic';
+import HomeScreenEpic from '../../src/screens/HomeScreenEpic';
+import QuizScreenEpic from '../../src/screens/QuizScreenEpic';
+import ResultsScreenEpic from '../../src/screens/ResultsScreenEpic';
+
+<Meta title="Flows/Docs" />
+
+# App Flows
+
+Useful links
+
+- Detailed flows (docs):
+  - /docs/flows/main-flows/USER_REGISTRATION_FLOW.md
+  - /docs/flows/main-flows/ONBOARDING_FLOW.md
+  - /docs/flows/main-flows/QUIZ_TAKING_FLOW.md
+  - /docs/flows/main-flows/RESULTS_AND_ANALYTICS_FLOW.md
+  - /docs/flows/main-flows/MULTIPLAYER_FLOW.md
+  - /docs/flows/main-flows/SETTINGS_AND_PROFILE_FLOW.md
+  - /docs/flows/main-flows/PREMIUM_AND_MONETIZATION_FLOW.md
+  - /docs/flows/main-flows/ERROR_RECOVERY_FLOW.md
+- Coverage & Testing Matrix: /docs/flows/FLOW_COVERAGE_MATRIX.md
+
+This section documents our primary user flows: authentication choice, home dashboard, quiz taking, and results.
+
+## Auth Choice
+
+<Canvas>
+  <Story name="AuthChoice">
+    <AuthChoiceEpic
+      onEmailLogin={() => {}}
+      onGoogleLogin={() => {}}
+      onGitHubLogin={() => {}}
+      onDemoLogin={() => {}}
+      onSignup={() => {}}
+    />
+  </Story>
+</Canvas>
+
+## Home
+
+<Canvas>
+  <Story name="Home">
+    <HomeScreenEpic
+      user={{
+        id: 'demo',
+        name: 'Demo User',
+        email: 'demo@quizmentor.app',
+        level: 5,
+        xp: 1200,
+        streak: 3,
+        interests: ['javascript', 'react'],
+        skillLevel: 'intermediate',
+      }}
+      onCategorySelect={() => {}}
+      onStartLearning={() => {}}
+    />
+  </Story>
+</Canvas>
+
+## Quiz
+
+<Canvas>
+  <Story name="Quiz">
+    <QuizScreenEpic
+      category="javascript"
+      questions={[
+        {
+          id: 1,
+          question: 'What is closure in JavaScript?',
+          options: ['Block scope', 'Function + environment', 'Module pattern', 'Global scope'],
+          correct: 1,
+          explanation: 'A closure is function + environment.',
+        },
+        {
+          id: 2,
+          question: 'Which hook handles side effects?',
+          options: ['useState', 'useEffect', 'useMemo', 'useCallback'],
+          correct: 1,
+          explanation: 'useEffect for side effects.',
+        },
+      ]}
+      onComplete={() => {}}
+      onBack={() => {}}
+    />
+  </Story>
+</Canvas>
+
+## Results
+
+<Canvas>
+  <Story name="Results">
+    <ResultsScreenEpic
+      score={80}
+      totalQuestions={10}
+      category="javascript"
+      onGoHome={() => {}}
+      onRetry={() => {}}
+    />
+  </Story>
+</Canvas>

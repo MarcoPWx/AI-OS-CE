@@ -1,0 +1,48 @@
+# AI Gateway — Full Specification (concept)
+
+import { Meta } from '@storybook/blocks';
+import { BackToTop } from '../components/BackToTop';
+
+<Meta title="Specs/AI/AI Gateway — Full Specification" />
+<a id="top"></a>
+
+### Table of Contents
+
+- Endpoints (concept)
+- Errors
+- Security
+- Observability
+- Notes
+
+This is a concept document (not implemented in this repository). It describes the intended interface for an AI gateway used for streaming generation.
+
+## Endpoints (concept)
+
+<a id="endpoints"></a>
+- POST /ai/generate
+  - In: `{ input: string, context?: object, stream?: boolean }`
+  - Out (non-stream): `{ id, output: string, tokens: number, latencyMs }`
+- GET /ai/stream?requestId=...
+  - Server-Sent Events (SSE): data: `{ token: string, index: number }` ... data: `[DONE]`
+
+## Errors
+
+<a id="errors"></a>- 400 validation_failed `{(field, message)}` - 401 unauthorized - 429
+rate_limited (Retry-After) - 5xx upstream_error
+
+## Security
+
+<a id="security"></a>- Bearer tokens; scope-based access - PII redaction in logs; prompt content
+hashing
+
+## Observability
+
+<a id="observability"></a>- Events: ai_request_started, ai_token_streamed, ai_request_completed,
+ai_request_failed
+
+## Notes
+
+<a id="notes"></a>
+
+<BackToTop />- For Storybook demos, use POST /api/tooltips/generate with TRIGGER_* inputs as a
+stand-in for real streaming behavior.

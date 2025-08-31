@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/blocks';
+import React from 'react';
+import { StorybookCIDashboard } from '../../src/stories/StorybookCIDashboard';
+
+<Meta title="Dev/CI Checks" />
+
+export const parameters = { devOnly: true };
+
+# CI Checks for Storybook
+
+This page summarizes E2E checks that exercise Presenter Mode and MSW overlays against a running Storybook instance.
+
+How to run
+- Storybook E2E (Presenter/MSW): npm run e2e:storybook:json
+- Storybook Journeys E2E: npm run e2e:storybook:journeys:json
+
+Results will appear below if the JSON artifacts exist under data/tests/.
+
+<StorybookCIDashboard />
+

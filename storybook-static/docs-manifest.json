@@ -1,0 +1,1510 @@
+{
+  "generatedAt": "2025-08-30T15:08:24.851Z",
+  "total": 130,
+  "items": [
+    {
+      "path": "/docs/ACTUAL_REALITY_STATUS.md",
+      "title": "QuizMentor - ACTUAL Reality Status Report",
+      "mtime": 1756519664574.825
+    },
+    {
+      "path": "/docs/ACTUAL_STATUS.md",
+      "title": "QuizMentor ACTUAL Development Status",
+      "mtime": 1756519664581.9578
+    },
+    {
+      "path": "/docs/AD_SERVICE_MONETIZATION_STRATEGY.md",
+      "title": "QuizMentor Ad Service & Monetization Strategy",
+      "mtime": 1756519664603.7612
+    },
+    {
+      "path": "/docs/ADMIN_DASHBOARD.md",
+      "title": "QuizMentor Admin Dashboard",
+      "mtime": 1756519664620.7378
+    },
+    {
+      "path": "/docs/AI_ENGINE_HOSTING_GUIDE.md",
+      "title": "AI Engine Hosting Guide for QuizMentor",
+      "mtime": 1756519664639.2712
+    },
+    {
+      "path": "/docs/AI_FEATURES_COMPLETE.md",
+      "title": "🤖 QUIZMENTOR AI FEATURES & INTELLIGENCE",
+      "mtime": 1756519664674.3677
+    },
+    {
+      "path": "/docs/ALL_MOCKS.md",
+      "title": "All Mocks Unified Toggle",
+      "mtime": 1756519664678.1565
+    },
+    {
+      "path": "/docs/ANIMATION_OPTIMIZATION.md",
+      "title": "QuizMentor Animation & Performance Optimization",
+      "mtime": 1756519664692.5
+    },
+    {
+      "path": "/docs/API_COMPLETE_REFERENCE.md",
+      "title": "🔌 COMPLETE API & SERVICES REFERENCE",
+      "mtime": 1756519664714.349
+    },
+    {
+      "path": "/docs/API_DOCUMENTATION.md",
+      "title": "QuizMentor API Documentation",
+      "mtime": 1756519664724.2
+    },
+    {
+      "path": "/docs/API_ROUTES.md",
+      "title": "API Routes Overview",
+      "mtime": 1756519664729.6992
+    },
+    {
+      "path": "/docs/APP_STORE_READINESS.md",
+      "title": "QuizMentor - App Store Readiness Checklist",
+      "mtime": 1756519664743.182
+    },
+    {
+      "path": "/docs/archive/2025-08-30/AGENT_BOOT.md",
+      "title": "Agent Boot Contract",
+      "mtime": 1756566440625.4434
+    },
+    {
+      "path": "/docs/AUTH_IMPLEMENTATION_PLAN.md",
+      "title": "Auth Implementation Plan (Mock-First)",
+      "mtime": 1756519664754.1675
+    },
+    {
+      "path": "/docs/AUTH_WIRING_PLAN.md",
+      "title": "Auth Wiring Plan (Mock-first)",
+      "mtime": 1756519664761.7332
+    },
+    {
+      "path": "/docs/auth/AUTH_WIRING_PLAN.md",
+      "title": "Auth Wiring Plan (Supabase OAuth + Email/Password)",
+      "mtime": 1756519664766.8264
+    },
+    {
+      "path": "/docs/AUTHENTICATION_DESIGN.md",
+      "title": "Authentication System Technical Design",
+      "mtime": 1756519664785.618
+    },
+    {
+      "path": "/docs/BETA_READINESS_CHECKLIST.md",
+      "title": "Beta Readiness Checklist",
+      "mtime": 1756519664790.0032
+    },
+    {
+      "path": "/docs/BETA_RELEASE_CRITERIA.md",
+      "title": "Beta Release Criteria - QuizMentor v0.9.0-beta",
+      "mtime": 1756519664804.133
+    },
+    {
+      "path": "/docs/BETA_RELEASE_PLAN.md",
+      "title": "QuizMentor Beta Release Plan",
+      "mtime": 1756519664820.8867
+    },
+    {
+      "path": "/docs/BUDGET_VS_REALITY_ANALYSIS.md",
+      "title": "The Reality Check: Why Ultra-Cheap Will Break QuizMentor",
+      "mtime": 1756519664832.0352
+    },
+    {
+      "path": "/docs/COMPETITIVE_ANALYSIS.md",
+      "title": "QuizMentor Competitive Analysis & Inspiration",
+      "mtime": 1756519664843.5266
+    },
+    {
+      "path": "/docs/COMPLETE_SELF_HOSTED_ARCHITECTURE.md",
+      "title": "QuizMentor Complete Self-Hosted Architecture",
+      "mtime": 1756519664866.6096
+    },
+    {
+      "path": "/docs/COMPONENT_LIBRARY_COMPLETE.md",
+      "title": "🎨 QUIZMENTOR COMPONENT LIBRARY",
+      "mtime": 1756519664883.1428
+    },
+    {
+      "path": "/docs/COST_MINIMIZATION_GUIDE.md",
+      "title": "💰 QuizMentor Cost Minimization Guide",
+      "mtime": 1756519664894.958
+    },
+    {
+      "path": "/docs/DARK_PATTERNS_IMPLEMENTATION_RUNBOOK.md",
+      "title": "Dark Patterns & Gamification Implementation Runbook",
+      "mtime": 1756519664928.5566
+    },
+    {
+      "path": "/docs/DEPLOYMENT_GUIDE.md",
+      "title": "QuizMentor Deployment Guide",
+      "mtime": 1756519664937.0244
+    },
+    {
+      "path": "/docs/DEPLOYMENT_LAUNCH_STRATEGY.md",
+      "title": "QuizMentor Deployment & Launch Strategy",
+      "mtime": 1756519664954.675
+    },
+    {
+      "path": "/docs/DESIGN_SYSTEM_REFINED.md",
+      "title": "🎨 QuizMentor Refined Design System",
+      "mtime": 1756519664974.4666
+    },
+    {
+      "path": "/docs/devlog.md",
+      "title": "DEVLOG (legacy pointer)\\n\\n> Canonical location: /docs/status/DEVLOG.md\\n\\nThis file is retained for compatibility. Please update bookmarks to /docs/status/DEVLOG.md.",
+      "mtime": 1756566504793.82
+    },
+    {
+      "path": "/docs/DO_TO_KUBERNETES_MIGRATION_STRATEGY.md",
+      "title": "DigitalOcean to Kubernetes Migration Strategy",
+      "mtime": 1756519665000.966
+    },
+    {
+      "path": "/docs/DOCUMENTATION_ARCHITECTURE_BLUEPRINT.md",
+      "title": "QuizMentor Documentation Architecture Blueprint",
+      "mtime": 1756519665021.379
+    },
+    {
+      "path": "/docs/e2e/README.md",
+      "title": "E2E and Storybook Test Runner",
+      "mtime": 1756519665027.3271
+    },
+    {
+      "path": "/docs/EAS_BUILD_AND_SUBMIT.md",
+      "title": "EAS Build and Submit Guide",
+      "mtime": 1756519665031.8032
+    },
+    {
+      "path": "/docs/EPIC_MANAGEMENT_CURRENT.md",
+      "title": "📋 EPIC MANAGEMENT - CURRENT STATUS",
+      "mtime": 1756519665053.5688
+    },
+    {
+      "path": "/docs/ERROR_HANDLING_COMPLETE.md",
+      "title": "🚨 COMPLETE ERROR HANDLING & TROUBLESHOOTING GUIDE",
+      "mtime": 1756519665073.456
+    },
+    {
+      "path": "/docs/flows/ALL_USER_FLOWS.md",
+      "title": "🔄 COMPLETE USER FLOWS DOCUMENTATION",
+      "mtime": 1756519665083.6155
+    },
+    {
+      "path": "/docs/flows/FLOW_COVERAGE_MATRIX.md",
+      "title": "Flow Coverage & Testing Matrix",
+      "mtime": 1756519665088.7131
+    },
+    {
+      "path": "/docs/flows/main-flows/ERROR_RECOVERY_FLOW.md",
+      "title": "Error Recovery Flow",
+      "mtime": 1756519665092.8071
+    },
+    {
+      "path": "/docs/flows/main-flows/MULTIPLAYER_FLOW.md",
+      "title": "Multiplayer Flow (Realtime)",
+      "mtime": 1756519665096.1353
+    },
+    {
+      "path": "/docs/flows/main-flows/ONBOARDING_FLOW.md",
+      "title": "Onboarding Flow",
+      "mtime": 1756519665098.1387
+    },
+    {
+      "path": "/docs/flows/main-flows/PREMIUM_AND_MONETIZATION_FLOW.md",
+      "title": "Premium & Monetization Flow",
+      "mtime": 1756519665100.12
+    },
+    {
+      "path": "/docs/flows/main-flows/QUIZ_TAKING_FLOW.md",
+      "title": "Quiz Taking Flow",
+      "mtime": 1756519665104.3132
+    },
+    {
+      "path": "/docs/flows/main-flows/RESULTS_AND_ANALYTICS_FLOW.md",
+      "title": "Results & Analytics Flow",
+      "mtime": 1756519665107.076
+    },
+    {
+      "path": "/docs/flows/main-flows/SETTINGS_AND_PROFILE_FLOW.md",
+      "title": "Settings & Profile Flow",
+      "mtime": 1756519665108.751
+    },
+    {
+      "path": "/docs/flows/main-flows/USER_REGISTRATION_FLOW.md",
+      "title": "User Registration Flow",
+      "mtime": 1756519665125.0527
+    },
+    {
+      "path": "/docs/FRICTIONLESS_DEPLOYMENT.md",
+      "title": "QuizMentor Frictionless MVP - Deployment Guide",
+      "mtime": 1756519665135.1924
+    },
+    {
+      "path": "/docs/GAMIFICATION_JOURNEY_S2S.md",
+      "title": "Gamification Journey & S2S Orchestration",
+      "mtime": 1756519665152.4355
+    },
+    {
+      "path": "/docs/GAMIFICATION_SYSTEM.md",
+      "title": "🎮 Gamification System Documentation",
+      "mtime": 1756519665168.7048
+    },
+    {
+      "path": "/docs/HANDS_ON_TUTORIAL.md",
+      "title": "QuizMentor Hands-On Tutorial: From Zero to Kubernetes",
+      "mtime": 1756519665178.6506
+    },
+    {
+      "path": "/docs/IMMEDIATE_ACTIONS.md",
+      "title": "🚀 Immediate Action Items - QuizMentor",
+      "mtime": 1756519665186.9424
+    },
+    {
+      "path": "/docs/IMPLEMENTATION_STATUS.md",
+      "title": "QuizMentor Implementation Status",
+      "mtime": 1756519665197.3433
+    },
+    {
+      "path": "/docs/INTEGRATE_EXISTING_ENGINE.md",
+      "title": "Integrating Your Existing QuizMentor Engine with Next.js + Supabase",
+      "mtime": 1756519665212.8582
+    },
+    {
+      "path": "/docs/INTEGRATION_GUIDE.md",
+      "title": "Integration Guide - Adding Smart Quiz Logic to Your App",
+      "mtime": 1756519665219.283
+    },
+    {
+      "path": "/docs/INTEGRATION_WIRING.md",
+      "title": "QuizMentor Integration Wiring – Quiz Flow, Delivery, Gamification",
+      "mtime": 1756519665222.9485
+    },
+    {
+      "path": "/docs/LEARNING_GUIDE.md",
+      "title": "QuizMentor Learning Guide: Understanding Kubernetes & Microservices",
+      "mtime": 1756519665239.749
+    },
+    {
+      "path": "/docs/LOGO_BRAND_ASSETS.md",
+      "title": "🎨 QuizMentor Logo & Brand Assets",
+      "mtime": 1756519665253.4167
+    },
+    {
+      "path": "/docs/MASTER_DOCUMENTATION_INDEX.md",
+      "title": "📚 MASTER DOCUMENTATION INDEX",
+      "mtime": 1756519665265.1348
+    },
+    {
+      "path": "/docs/MOCKS_OVERVIEW.md",
+      "title": "Mocking Overview",
+      "mtime": 1756519665269.5505
+    },
+    {
+      "path": "/docs/mocks/SERVICE_MOCKING_ARCHITECTURE.md",
+      "title": "Service Mocking Architecture",
+      "mtime": 1756519665273.7927
+    },
+    {
+      "path": "/docs/mocks/SERVICE_MOCKING_COVERAGE.md",
+      "title": "Service Mocking Coverage (MSW)",
+      "mtime": 1756519665276.2942
+    },
+    {
+      "path": "/docs/mocks/WEBSOCKET_MOCKS.md",
+      "title": "WebSocket Mocks",
+      "mtime": 1756519665280.309
+    },
+    {
+      "path": "/docs/MONETIZATION_PSYCHOLOGY.md",
+      "title": "QuizMentor Monetization Psychology & Dark Patterns",
+      "mtime": 1756519665291.394
+    },
+    {
+      "path": "/docs/MSW_SETUP.md",
+      "title": "MSW Setup Guide",
+      "mtime": 1756519665295.3174
+    },
+    {
+      "path": "/docs/OAUTH_MOCK_GUIDE.md",
+      "title": "Mocking GitHub OAuth (Web) and Email Auth",
+      "mtime": 1756519665298.2349
+    },
+    {
+      "path": "/docs/overview/ProductBrief.mdx",
+      "title": "Product Brief — QuizMentor",
+      "mtime": 1756519665305.2485
+    },
+    {
+      "path": "/docs/PLATFORM_VISION.md",
+      "title": "QuizMentor Platform Vision: Enterprise Scale",
+      "mtime": 1756519665317.8564
+    },
+    {
+      "path": "/docs/POST_BETA_ROADMAP.md",
+      "title": "QuizMentor Post-Beta Roadmap",
+      "mtime": 1756519665334.2246
+    },
+    {
+      "path": "/docs/PREMIUM_DESIGN_SYSTEM.md",
+      "title": "🎨 QuizMentor Premium Design System",
+      "mtime": 1756519665356.4377
+    },
+    {
+      "path": "/docs/PRODUCT_DIFFERENTIATION.md",
+      "title": "QuizMentor Product Differentiation & User Journey",
+      "mtime": 1756519665368.8901
+    },
+    {
+      "path": "/docs/PRODUCTION_ARCHITECTURE.md",
+      "title": "QuizMentor Production Architecture",
+      "mtime": 1756519665394.272
+    },
+    {
+      "path": "/docs/PRODUCTION_READINESS_RUNBOOK.md",
+      "title": "🚨 QuizMentor Production Readiness Runbook",
+      "mtime": 1756519665407.8413
+    },
+    {
+      "path": "/docs/PROJECT_OVERVIEW.md",
+      "title": "QuizMentor - Complete Project Documentation",
+      "mtime": 1756519665419.6982
+    },
+    {
+      "path": "/docs/PROJECT_STATUS_2025.md",
+      "title": "QuizMentor Project Status - 2025",
+      "mtime": 1756519665436.0332
+    },
+    {
+      "path": "/docs/PROJECT_STATUS_ROADMAP.md",
+      "title": "📊 QuizMentor Project Status & Roadmap",
+      "mtime": 1756519665448.116
+    },
+    {
+      "path": "/docs/QUICK_START_SUPABASE.md",
+      "title": "QuizMentor Quick Start with Supabase + Next.js",
+      "mtime": 1756519665459.6003
+    },
+    {
+      "path": "/docs/QUIZ_OPTIMIZATION_FLOW.md",
+      "title": "How Quiz Optimization Actually Works - Simple Flow",
+      "mtime": 1756519665464.7139
+    },
+    {
+      "path": "/docs/QUIZ_OPTIMIZATION_RESEARCH.md",
+      "title": "Quiz Optimization Research & Best Practices",
+      "mtime": 1756519665476.5488
+    },
+    {
+      "path": "/docs/QUIZ_OPTIMIZATION_SUMMARY.md",
+      "title": "Quiz Optimization System - Final Summary",
+      "mtime": 1756519665488.8374
+    },
+    {
+      "path": "/docs/QuizMentor_DEVLOG.md",
+      "title": "QuizMentor Development Log",
+      "mtime": 1756519665513.5752
+    },
+    {
+      "path": "/docs/QuizMentor_EPIC_MANAGEMENT_V2.md",
+      "title": "QuizMentor Epic Management v2.0",
+      "mtime": 1756519665527.1372
+    },
+    {
+      "path": "/docs/QuizMentor_EPIC_MANAGEMENT.md",
+      "title": "QuizMentor Epic Management",
+      "mtime": 1756519665538.8645
+    },
+    {
+      "path": "/docs/QuizMentor_SYSTEM_STATUS.md",
+      "title": "QuizMentor System Status",
+      "mtime": 1756519665550.3271
+    },
+    {
+      "path": "/docs/README.md",
+      "title": "QuizMentor Documentation",
+      "mtime": 1756519665558.4524
+    },
+    {
+      "path": "/docs/REALISTIC_PROJECT_STATUS.md",
+      "title": "🚨 QuizMentor REALISTIC Project Status",
+      "mtime": 1756519665570.6367
+    },
+    {
+      "path": "/docs/roadmap/EPICS.md",
+      "title": "EPICS — Canonical Roadmap",
+      "mtime": 1756566504795.6692
+    },
+    {
+      "path": "/docs/runbooks/ENHANCED_FEATURES_RUNBOOK.md",
+      "title": "Enhanced Features Runbook",
+      "mtime": 1756519665582.5173
+    },
+    {
+      "path": "/docs/runbooks/QUESTION_PIPELINE_RUNBOOK.md",
+      "title": "QUESTION PIPELINE RUNBOOK",
+      "mtime": 1756519665588.0266
+    },
+    {
+      "path": "/docs/S2S_ORCHESTRATION.md",
+      "title": "S2S Orchestration Scenarios (Mock-first)",
+      "mtime": 1756519665592.4277
+    },
+    {
+      "path": "/docs/SCDD_EXPERIMENT.md",
+      "title": "SCDD Framework Experiment: QuizMentor Strategic Development",
+      "mtime": 1756519665602.396
+    },
+    {
+      "path": "/docs/SECURITY_AUDIT.md",
+      "title": "QuizMentor Security Audit & Requirements",
+      "mtime": 1756519665615.3818
+    },
+    {
+      "path": "/docs/SELF_LEARNING_DEPLOYMENT_GUIDE.md",
+      "title": "Self-Learning System: Testing & Production Deployment Guide",
+      "mtime": 1756519665640.3193
+    },
+    {
+      "path": "/docs/SELF_LEARNING_OPERATIONAL_RUNBOOK.md",
+      "title": "📚 Self-Learning System Operational Runbook",
+      "mtime": 1756519665664.8394
+    },
+    {
+      "path": "/docs/SELF_LEARNING_USER_GUIDE.md",
+      "title": "🎓 QuizMentor Self-Learning System: Complete User & Developer Guide",
+      "mtime": 1756519665684.2703
+    },
+    {
+      "path": "/docs/SETUP_ENV.md",
+      "title": "Environment Setup Guide",
+      "mtime": 1756519665689.877
+    },
+    {
+      "path": "/docs/SPRINT_PLAN_CURRENT.md",
+      "title": "Sprint Plan (Current)",
+      "mtime": 1756519665693.2585
+    },
+    {
+      "path": "/docs/status/AGENT_VALIDATE_REPORT.md",
+      "title": "Agent Validate Report",
+      "mtime": 1756566459442.8706
+    },
+    {
+      "path": "/docs/status/ALL_EPICS_STATUS.md",
+      "title": "QuizMentor - All Epics Status Report",
+      "mtime": 1756519665708.8857
+    },
+    {
+      "path": "/docs/status/AUTHORING_MDX_GUIDE.md",
+      "title": "Authoring MDX (Storybook)",
+      "mtime": 1756519665712.767
+    },
+    {
+      "path": "/docs/status/BUNDLING_AND_PERFORMANCE_GUIDE.md",
+      "title": "Bundling, Tree Shaking, Code Splitting, and Lazy Loading",
+      "mtime": 1756519665718.6245
+    },
+    {
+      "path": "/docs/status/DEVLOG.md",
+      "title": "Development Log",
+      "mtime": 1756566504791.8877
+    },
+    {
+      "path": "/docs/status/EPIC_MANAGEMENT_CURRENT.md",
+      "title": "Epic Management (Current Truth)",
+      "mtime": 1756519665744.321
+    },
+    {
+      "path": "/docs/status/EPIC_MANAGEMENT.md",
+      "title": "Epic Management",
+      "mtime": 1756519665747.4573
+    },
+    {
+      "path": "/docs/status/INTERVIEW_BRIEF.md",
+      "title": "Interview Brief: QuizMentor",
+      "mtime": 1756519665757.6018
+    },
+    {
+      "path": "/docs/status/LOCAL_DEV_AND_TESTING_GUIDE.md",
+      "title": "Local Development and Testing Guide",
+      "mtime": 1756519665766.3435
+    },
+    {
+      "path": "/docs/status/PROJECT_ANALYSIS_2025-08-29.md",
+      "title": "Project Analysis: QuizMentor Alignment & State Assessment",
+      "mtime": 1756519665775.941
+    },
+    {
+      "path": "/docs/status/READINESS_CHECKLIST.md",
+      "title": "Readiness Checklist (Go / No-Go)",
+      "mtime": 1756519665778.7178
+    },
+    {
+      "path": "/docs/status/SECURITY_EPIC.md",
+      "title": "Security Epic - Status and Roadmap",
+      "mtime": 1756519665791.7986
+    },
+    {
+      "path": "/docs/status/STORYBOOK_AND_DOCS_DECISIONS.md",
+      "title": "Storybook and Docs Decisions (CSF vs MDX, Web vs RN)",
+      "mtime": 1756519665798.5745
+    },
+    {
+      "path": "/docs/status/SYSTEM_STATUS_CURRENT.md",
+      "title": "System Status (Current Truth)",
+      "mtime": 1756519665802.6614
+    },
+    {
+      "path": "/docs/status/SYSTEM_STATUS.md",
+      "title": "System Status",
+      "mtime": 1756519665809.2002
+    },
+    {
+      "path": "/docs/status/TECH_STACK_CHEAT_SHEET.md",
+      "title": "Tech Stack Cheat Sheet",
+      "mtime": 1756519665812.6907
+    },
+    {
+      "path": "/docs/status/TESTING_GUIDE.md",
+      "title": "Testing Guide (Snapshot)",
+      "mtime": 1756519665815.8015
+    },
+    {
+      "path": "/docs/status/WORK_PLAN_NEXT_STEPS.md",
+      "title": "QuizMentor - Strategic Work Plan",
+      "mtime": 1756519665823.642
+    },
+    {
+      "path": "/docs/STORYBOOK_GUIDE.md",
+      "title": "QuizMentor Storybook Guide",
+      "mtime": 1756519665836.2322
+    },
+    {
+      "path": "/docs/STORYBOOK_TESTING.md",
+      "title": "Storybook Testing and API Mocking",
+      "mtime": 1756519665843.0679
+    },
+    {
+      "path": "/docs/SUPABASE_SETUP_GUIDE.md",
+      "title": "Supabase Setup Guide for QuizMentor",
+      "mtime": 1756519665864.2454
+    },
+    {
+      "path": "/docs/SYSTEM_STATUS_CURRENT.md",
+      "title": "🟢 SYSTEM STATUS - NEW STRATEGIC DIRECTION",
+      "mtime": 1756519665878.3179
+    },
+    {
+      "path": "/docs/SYSTEM_STATUS.md",
+      "title": "System Status",
+      "mtime": 1756566504794.0508
+    },
+    {
+      "path": "/docs/TESTING_STRATEGY_COMPLETE.md",
+      "title": "🧪 COMPREHENSIVE TESTING STRATEGY",
+      "mtime": 1756519665892.3428
+    },
+    {
+      "path": "/docs/TESTING_STRATEGY.md",
+      "title": "Testing Strategy",
+      "mtime": 1756519665896.8398
+    },
+    {
+      "path": "/docs/testing-guide.md",
+      "title": "Testing Guide for QuizMentor",
+      "mtime": 1756519665908.984
+    },
+    {
+      "path": "/docs/testing-strategy.md",
+      "title": "Testing Strategy",
+      "mtime": 1756519665919.1057
+    },
+    {
+      "path": "/docs/testing-testid-guide.md",
+      "title": "Data-TestID Implementation Guide",
+      "mtime": 1756519665941.123
+    },
+    {
+      "path": "/docs/USER_JOURNEY_ANALYSIS.md",
+      "title": "🎯 QuizMentor User Journey & Story Analysis",
+      "mtime": 1756519665956.5117
+    },
+    {
+      "path": "/docs/USER_JOURNEY_ARCHITECTURE.md",
+      "title": "QuizMentor Complete User Journey & Technical Architecture",
+      "mtime": 1756519665973.7114
+    },
+    {
+      "path": "/docs/USER_JOURNEY_COMPLETE.md",
+      "title": "QuizMentor - Complete User Journey & App Experience",
+      "mtime": 1756519665983.969
+    },
+    {
+      "path": "/docs/USER_JOURNEY_SIMPLIFIED.md",
+      "title": "QuizMentor Simplified User Journey",
+      "mtime": 1756519665993.265
+    },
+    {
+      "path": "/docs/USER_STORIES.md",
+      "title": "QuizMentor User Stories & Acceptance Criteria",
+      "mtime": 1756519666028.7493
+    },
+    {
+      "path": "/docs/WEBSOCKET_API.md",
+      "title": "WebSocket API (Multiplayer)",
+      "mtime": 1756519666034.5576
+    }
+  ],
+  "byDir": {
+    "docs/ACTUAL_REALITY_STATUS.md": [
+      {
+        "path": "/docs/ACTUAL_REALITY_STATUS.md",
+        "title": "QuizMentor - ACTUAL Reality Status Report",
+        "mtime": 1756519664574.825
+      }
+    ],
+    "docs/ACTUAL_STATUS.md": [
+      {
+        "path": "/docs/ACTUAL_STATUS.md",
+        "title": "QuizMentor ACTUAL Development Status",
+        "mtime": 1756519664581.9578
+      }
+    ],
+    "docs/AD_SERVICE_MONETIZATION_STRATEGY.md": [
+      {
+        "path": "/docs/AD_SERVICE_MONETIZATION_STRATEGY.md",
+        "title": "QuizMentor Ad Service & Monetization Strategy",
+        "mtime": 1756519664603.7612
+      }
+    ],
+    "docs/ADMIN_DASHBOARD.md": [
+      {
+        "path": "/docs/ADMIN_DASHBOARD.md",
+        "title": "QuizMentor Admin Dashboard",
+        "mtime": 1756519664620.7378
+      }
+    ],
+    "docs/AI_ENGINE_HOSTING_GUIDE.md": [
+      {
+        "path": "/docs/AI_ENGINE_HOSTING_GUIDE.md",
+        "title": "AI Engine Hosting Guide for QuizMentor",
+        "mtime": 1756519664639.2712
+      }
+    ],
+    "docs/AI_FEATURES_COMPLETE.md": [
+      {
+        "path": "/docs/AI_FEATURES_COMPLETE.md",
+        "title": "🤖 QUIZMENTOR AI FEATURES & INTELLIGENCE",
+        "mtime": 1756519664674.3677
+      }
+    ],
+    "docs/ALL_MOCKS.md": [
+      {
+        "path": "/docs/ALL_MOCKS.md",
+        "title": "All Mocks Unified Toggle",
+        "mtime": 1756519664678.1565
+      }
+    ],
+    "docs/ANIMATION_OPTIMIZATION.md": [
+      {
+        "path": "/docs/ANIMATION_OPTIMIZATION.md",
+        "title": "QuizMentor Animation & Performance Optimization",
+        "mtime": 1756519664692.5
+      }
+    ],
+    "docs/API_COMPLETE_REFERENCE.md": [
+      {
+        "path": "/docs/API_COMPLETE_REFERENCE.md",
+        "title": "🔌 COMPLETE API & SERVICES REFERENCE",
+        "mtime": 1756519664714.349
+      }
+    ],
+    "docs/API_DOCUMENTATION.md": [
+      {
+        "path": "/docs/API_DOCUMENTATION.md",
+        "title": "QuizMentor API Documentation",
+        "mtime": 1756519664724.2
+      }
+    ],
+    "docs/API_ROUTES.md": [
+      {
+        "path": "/docs/API_ROUTES.md",
+        "title": "API Routes Overview",
+        "mtime": 1756519664729.6992
+      }
+    ],
+    "docs/APP_STORE_READINESS.md": [
+      {
+        "path": "/docs/APP_STORE_READINESS.md",
+        "title": "QuizMentor - App Store Readiness Checklist",
+        "mtime": 1756519664743.182
+      }
+    ],
+    "docs/archive": [
+      {
+        "path": "/docs/archive/2025-08-30/AGENT_BOOT.md",
+        "title": "Agent Boot Contract",
+        "mtime": 1756566440625.4434
+      }
+    ],
+    "docs/AUTH_IMPLEMENTATION_PLAN.md": [
+      {
+        "path": "/docs/AUTH_IMPLEMENTATION_PLAN.md",
+        "title": "Auth Implementation Plan (Mock-First)",
+        "mtime": 1756519664754.1675
+      }
+    ],
+    "docs/AUTH_WIRING_PLAN.md": [
+      {
+        "path": "/docs/AUTH_WIRING_PLAN.md",
+        "title": "Auth Wiring Plan (Mock-first)",
+        "mtime": 1756519664761.7332
+      }
+    ],
+    "docs/auth": [
+      {
+        "path": "/docs/auth/AUTH_WIRING_PLAN.md",
+        "title": "Auth Wiring Plan (Supabase OAuth + Email/Password)",
+        "mtime": 1756519664766.8264
+      }
+    ],
+    "docs/AUTHENTICATION_DESIGN.md": [
+      {
+        "path": "/docs/AUTHENTICATION_DESIGN.md",
+        "title": "Authentication System Technical Design",
+        "mtime": 1756519664785.618
+      }
+    ],
+    "docs/BETA_READINESS_CHECKLIST.md": [
+      {
+        "path": "/docs/BETA_READINESS_CHECKLIST.md",
+        "title": "Beta Readiness Checklist",
+        "mtime": 1756519664790.0032
+      }
+    ],
+    "docs/BETA_RELEASE_CRITERIA.md": [
+      {
+        "path": "/docs/BETA_RELEASE_CRITERIA.md",
+        "title": "Beta Release Criteria - QuizMentor v0.9.0-beta",
+        "mtime": 1756519664804.133
+      }
+    ],
+    "docs/BETA_RELEASE_PLAN.md": [
+      {
+        "path": "/docs/BETA_RELEASE_PLAN.md",
+        "title": "QuizMentor Beta Release Plan",
+        "mtime": 1756519664820.8867
+      }
+    ],
+    "docs/BUDGET_VS_REALITY_ANALYSIS.md": [
+      {
+        "path": "/docs/BUDGET_VS_REALITY_ANALYSIS.md",
+        "title": "The Reality Check: Why Ultra-Cheap Will Break QuizMentor",
+        "mtime": 1756519664832.0352
+      }
+    ],
+    "docs/COMPETITIVE_ANALYSIS.md": [
+      {
+        "path": "/docs/COMPETITIVE_ANALYSIS.md",
+        "title": "QuizMentor Competitive Analysis & Inspiration",
+        "mtime": 1756519664843.5266
+      }
+    ],
+    "docs/COMPLETE_SELF_HOSTED_ARCHITECTURE.md": [
+      {
+        "path": "/docs/COMPLETE_SELF_HOSTED_ARCHITECTURE.md",
+        "title": "QuizMentor Complete Self-Hosted Architecture",
+        "mtime": 1756519664866.6096
+      }
+    ],
+    "docs/COMPONENT_LIBRARY_COMPLETE.md": [
+      {
+        "path": "/docs/COMPONENT_LIBRARY_COMPLETE.md",
+        "title": "🎨 QUIZMENTOR COMPONENT LIBRARY",
+        "mtime": 1756519664883.1428
+      }
+    ],
+    "docs/COST_MINIMIZATION_GUIDE.md": [
+      {
+        "path": "/docs/COST_MINIMIZATION_GUIDE.md",
+        "title": "💰 QuizMentor Cost Minimization Guide",
+        "mtime": 1756519664894.958
+      }
+    ],
+    "docs/DARK_PATTERNS_IMPLEMENTATION_RUNBOOK.md": [
+      {
+        "path": "/docs/DARK_PATTERNS_IMPLEMENTATION_RUNBOOK.md",
+        "title": "Dark Patterns & Gamification Implementation Runbook",
+        "mtime": 1756519664928.5566
+      }
+    ],
+    "docs/DEPLOYMENT_GUIDE.md": [
+      {
+        "path": "/docs/DEPLOYMENT_GUIDE.md",
+        "title": "QuizMentor Deployment Guide",
+        "mtime": 1756519664937.0244
+      }
+    ],
+    "docs/DEPLOYMENT_LAUNCH_STRATEGY.md": [
+      {
+        "path": "/docs/DEPLOYMENT_LAUNCH_STRATEGY.md",
+        "title": "QuizMentor Deployment & Launch Strategy",
+        "mtime": 1756519664954.675
+      }
+    ],
+    "docs/DESIGN_SYSTEM_REFINED.md": [
+      {
+        "path": "/docs/DESIGN_SYSTEM_REFINED.md",
+        "title": "🎨 QuizMentor Refined Design System",
+        "mtime": 1756519664974.4666
+      }
+    ],
+    "docs/devlog.md": [
+      {
+        "path": "/docs/devlog.md",
+        "title": "DEVLOG (legacy pointer)\\n\\n> Canonical location: /docs/status/DEVLOG.md\\n\\nThis file is retained for compatibility. Please update bookmarks to /docs/status/DEVLOG.md.",
+        "mtime": 1756566504793.82
+      }
+    ],
+    "docs/DO_TO_KUBERNETES_MIGRATION_STRATEGY.md": [
+      {
+        "path": "/docs/DO_TO_KUBERNETES_MIGRATION_STRATEGY.md",
+        "title": "DigitalOcean to Kubernetes Migration Strategy",
+        "mtime": 1756519665000.966
+      }
+    ],
+    "docs/DOCUMENTATION_ARCHITECTURE_BLUEPRINT.md": [
+      {
+        "path": "/docs/DOCUMENTATION_ARCHITECTURE_BLUEPRINT.md",
+        "title": "QuizMentor Documentation Architecture Blueprint",
+        "mtime": 1756519665021.379
+      }
+    ],
+    "docs/e2e": [
+      {
+        "path": "/docs/e2e/README.md",
+        "title": "E2E and Storybook Test Runner",
+        "mtime": 1756519665027.3271
+      }
+    ],
+    "docs/EAS_BUILD_AND_SUBMIT.md": [
+      {
+        "path": "/docs/EAS_BUILD_AND_SUBMIT.md",
+        "title": "EAS Build and Submit Guide",
+        "mtime": 1756519665031.8032
+      }
+    ],
+    "docs/EPIC_MANAGEMENT_CURRENT.md": [
+      {
+        "path": "/docs/EPIC_MANAGEMENT_CURRENT.md",
+        "title": "📋 EPIC MANAGEMENT - CURRENT STATUS",
+        "mtime": 1756519665053.5688
+      }
+    ],
+    "docs/ERROR_HANDLING_COMPLETE.md": [
+      {
+        "path": "/docs/ERROR_HANDLING_COMPLETE.md",
+        "title": "🚨 COMPLETE ERROR HANDLING & TROUBLESHOOTING GUIDE",
+        "mtime": 1756519665073.456
+      }
+    ],
+    "docs/flows": [
+      {
+        "path": "/docs/flows/ALL_USER_FLOWS.md",
+        "title": "🔄 COMPLETE USER FLOWS DOCUMENTATION",
+        "mtime": 1756519665083.6155
+      },
+      {
+        "path": "/docs/flows/FLOW_COVERAGE_MATRIX.md",
+        "title": "Flow Coverage & Testing Matrix",
+        "mtime": 1756519665088.7131
+      },
+      {
+        "path": "/docs/flows/main-flows/ERROR_RECOVERY_FLOW.md",
+        "title": "Error Recovery Flow",
+        "mtime": 1756519665092.8071
+      },
+      {
+        "path": "/docs/flows/main-flows/MULTIPLAYER_FLOW.md",
+        "title": "Multiplayer Flow (Realtime)",
+        "mtime": 1756519665096.1353
+      },
+      {
+        "path": "/docs/flows/main-flows/ONBOARDING_FLOW.md",
+        "title": "Onboarding Flow",
+        "mtime": 1756519665098.1387
+      },
+      {
+        "path": "/docs/flows/main-flows/PREMIUM_AND_MONETIZATION_FLOW.md",
+        "title": "Premium & Monetization Flow",
+        "mtime": 1756519665100.12
+      },
+      {
+        "path": "/docs/flows/main-flows/QUIZ_TAKING_FLOW.md",
+        "title": "Quiz Taking Flow",
+        "mtime": 1756519665104.3132
+      },
+      {
+        "path": "/docs/flows/main-flows/RESULTS_AND_ANALYTICS_FLOW.md",
+        "title": "Results & Analytics Flow",
+        "mtime": 1756519665107.076
+      },
+      {
+        "path": "/docs/flows/main-flows/SETTINGS_AND_PROFILE_FLOW.md",
+        "title": "Settings & Profile Flow",
+        "mtime": 1756519665108.751
+      },
+      {
+        "path": "/docs/flows/main-flows/USER_REGISTRATION_FLOW.md",
+        "title": "User Registration Flow",
+        "mtime": 1756519665125.0527
+      }
+    ],
+    "docs/FRICTIONLESS_DEPLOYMENT.md": [
+      {
+        "path": "/docs/FRICTIONLESS_DEPLOYMENT.md",
+        "title": "QuizMentor Frictionless MVP - Deployment Guide",
+        "mtime": 1756519665135.1924
+      }
+    ],
+    "docs/GAMIFICATION_JOURNEY_S2S.md": [
+      {
+        "path": "/docs/GAMIFICATION_JOURNEY_S2S.md",
+        "title": "Gamification Journey & S2S Orchestration",
+        "mtime": 1756519665152.4355
+      }
+    ],
+    "docs/GAMIFICATION_SYSTEM.md": [
+      {
+        "path": "/docs/GAMIFICATION_SYSTEM.md",
+        "title": "🎮 Gamification System Documentation",
+        "mtime": 1756519665168.7048
+      }
+    ],
+    "docs/HANDS_ON_TUTORIAL.md": [
+      {
+        "path": "/docs/HANDS_ON_TUTORIAL.md",
+        "title": "QuizMentor Hands-On Tutorial: From Zero to Kubernetes",
+        "mtime": 1756519665178.6506
+      }
+    ],
+    "docs/IMMEDIATE_ACTIONS.md": [
+      {
+        "path": "/docs/IMMEDIATE_ACTIONS.md",
+        "title": "🚀 Immediate Action Items - QuizMentor",
+        "mtime": 1756519665186.9424
+      }
+    ],
+    "docs/IMPLEMENTATION_STATUS.md": [
+      {
+        "path": "/docs/IMPLEMENTATION_STATUS.md",
+        "title": "QuizMentor Implementation Status",
+        "mtime": 1756519665197.3433
+      }
+    ],
+    "docs/INTEGRATE_EXISTING_ENGINE.md": [
+      {
+        "path": "/docs/INTEGRATE_EXISTING_ENGINE.md",
+        "title": "Integrating Your Existing QuizMentor Engine with Next.js + Supabase",
+        "mtime": 1756519665212.8582
+      }
+    ],
+    "docs/INTEGRATION_GUIDE.md": [
+      {
+        "path": "/docs/INTEGRATION_GUIDE.md",
+        "title": "Integration Guide - Adding Smart Quiz Logic to Your App",
+        "mtime": 1756519665219.283
+      }
+    ],
+    "docs/INTEGRATION_WIRING.md": [
+      {
+        "path": "/docs/INTEGRATION_WIRING.md",
+        "title": "QuizMentor Integration Wiring – Quiz Flow, Delivery, Gamification",
+        "mtime": 1756519665222.9485
+      }
+    ],
+    "docs/LEARNING_GUIDE.md": [
+      {
+        "path": "/docs/LEARNING_GUIDE.md",
+        "title": "QuizMentor Learning Guide: Understanding Kubernetes & Microservices",
+        "mtime": 1756519665239.749
+      }
+    ],
+    "docs/LOGO_BRAND_ASSETS.md": [
+      {
+        "path": "/docs/LOGO_BRAND_ASSETS.md",
+        "title": "🎨 QuizMentor Logo & Brand Assets",
+        "mtime": 1756519665253.4167
+      }
+    ],
+    "docs/MASTER_DOCUMENTATION_INDEX.md": [
+      {
+        "path": "/docs/MASTER_DOCUMENTATION_INDEX.md",
+        "title": "📚 MASTER DOCUMENTATION INDEX",
+        "mtime": 1756519665265.1348
+      }
+    ],
+    "docs/MOCKS_OVERVIEW.md": [
+      {
+        "path": "/docs/MOCKS_OVERVIEW.md",
+        "title": "Mocking Overview",
+        "mtime": 1756519665269.5505
+      }
+    ],
+    "docs/mocks": [
+      {
+        "path": "/docs/mocks/SERVICE_MOCKING_ARCHITECTURE.md",
+        "title": "Service Mocking Architecture",
+        "mtime": 1756519665273.7927
+      },
+      {
+        "path": "/docs/mocks/SERVICE_MOCKING_COVERAGE.md",
+        "title": "Service Mocking Coverage (MSW)",
+        "mtime": 1756519665276.2942
+      },
+      {
+        "path": "/docs/mocks/WEBSOCKET_MOCKS.md",
+        "title": "WebSocket Mocks",
+        "mtime": 1756519665280.309
+      }
+    ],
+    "docs/MONETIZATION_PSYCHOLOGY.md": [
+      {
+        "path": "/docs/MONETIZATION_PSYCHOLOGY.md",
+        "title": "QuizMentor Monetization Psychology & Dark Patterns",
+        "mtime": 1756519665291.394
+      }
+    ],
+    "docs/MSW_SETUP.md": [
+      {
+        "path": "/docs/MSW_SETUP.md",
+        "title": "MSW Setup Guide",
+        "mtime": 1756519665295.3174
+      }
+    ],
+    "docs/OAUTH_MOCK_GUIDE.md": [
+      {
+        "path": "/docs/OAUTH_MOCK_GUIDE.md",
+        "title": "Mocking GitHub OAuth (Web) and Email Auth",
+        "mtime": 1756519665298.2349
+      }
+    ],
+    "docs/overview": [
+      {
+        "path": "/docs/overview/ProductBrief.mdx",
+        "title": "Product Brief — QuizMentor",
+        "mtime": 1756519665305.2485
+      }
+    ],
+    "docs/PLATFORM_VISION.md": [
+      {
+        "path": "/docs/PLATFORM_VISION.md",
+        "title": "QuizMentor Platform Vision: Enterprise Scale",
+        "mtime": 1756519665317.8564
+      }
+    ],
+    "docs/POST_BETA_ROADMAP.md": [
+      {
+        "path": "/docs/POST_BETA_ROADMAP.md",
+        "title": "QuizMentor Post-Beta Roadmap",
+        "mtime": 1756519665334.2246
+      }
+    ],
+    "docs/PREMIUM_DESIGN_SYSTEM.md": [
+      {
+        "path": "/docs/PREMIUM_DESIGN_SYSTEM.md",
+        "title": "🎨 QuizMentor Premium Design System",
+        "mtime": 1756519665356.4377
+      }
+    ],
+    "docs/PRODUCT_DIFFERENTIATION.md": [
+      {
+        "path": "/docs/PRODUCT_DIFFERENTIATION.md",
+        "title": "QuizMentor Product Differentiation & User Journey",
+        "mtime": 1756519665368.8901
+      }
+    ],
+    "docs/PRODUCTION_ARCHITECTURE.md": [
+      {
+        "path": "/docs/PRODUCTION_ARCHITECTURE.md",
+        "title": "QuizMentor Production Architecture",
+        "mtime": 1756519665394.272
+      }
+    ],
+    "docs/PRODUCTION_READINESS_RUNBOOK.md": [
+      {
+        "path": "/docs/PRODUCTION_READINESS_RUNBOOK.md",
+        "title": "🚨 QuizMentor Production Readiness Runbook",
+        "mtime": 1756519665407.8413
+      }
+    ],
+    "docs/PROJECT_OVERVIEW.md": [
+      {
+        "path": "/docs/PROJECT_OVERVIEW.md",
+        "title": "QuizMentor - Complete Project Documentation",
+        "mtime": 1756519665419.6982
+      }
+    ],
+    "docs/PROJECT_STATUS_2025.md": [
+      {
+        "path": "/docs/PROJECT_STATUS_2025.md",
+        "title": "QuizMentor Project Status - 2025",
+        "mtime": 1756519665436.0332
+      }
+    ],
+    "docs/PROJECT_STATUS_ROADMAP.md": [
+      {
+        "path": "/docs/PROJECT_STATUS_ROADMAP.md",
+        "title": "📊 QuizMentor Project Status & Roadmap",
+        "mtime": 1756519665448.116
+      }
+    ],
+    "docs/QUICK_START_SUPABASE.md": [
+      {
+        "path": "/docs/QUICK_START_SUPABASE.md",
+        "title": "QuizMentor Quick Start with Supabase + Next.js",
+        "mtime": 1756519665459.6003
+      }
+    ],
+    "docs/QUIZ_OPTIMIZATION_FLOW.md": [
+      {
+        "path": "/docs/QUIZ_OPTIMIZATION_FLOW.md",
+        "title": "How Quiz Optimization Actually Works - Simple Flow",
+        "mtime": 1756519665464.7139
+      }
+    ],
+    "docs/QUIZ_OPTIMIZATION_RESEARCH.md": [
+      {
+        "path": "/docs/QUIZ_OPTIMIZATION_RESEARCH.md",
+        "title": "Quiz Optimization Research & Best Practices",
+        "mtime": 1756519665476.5488
+      }
+    ],
+    "docs/QUIZ_OPTIMIZATION_SUMMARY.md": [
+      {
+        "path": "/docs/QUIZ_OPTIMIZATION_SUMMARY.md",
+        "title": "Quiz Optimization System - Final Summary",
+        "mtime": 1756519665488.8374
+      }
+    ],
+    "docs/QuizMentor_DEVLOG.md": [
+      {
+        "path": "/docs/QuizMentor_DEVLOG.md",
+        "title": "QuizMentor Development Log",
+        "mtime": 1756519665513.5752
+      }
+    ],
+    "docs/QuizMentor_EPIC_MANAGEMENT_V2.md": [
+      {
+        "path": "/docs/QuizMentor_EPIC_MANAGEMENT_V2.md",
+        "title": "QuizMentor Epic Management v2.0",
+        "mtime": 1756519665527.1372
+      }
+    ],
+    "docs/QuizMentor_EPIC_MANAGEMENT.md": [
+      {
+        "path": "/docs/QuizMentor_EPIC_MANAGEMENT.md",
+        "title": "QuizMentor Epic Management",
+        "mtime": 1756519665538.8645
+      }
+    ],
+    "docs/QuizMentor_SYSTEM_STATUS.md": [
+      {
+        "path": "/docs/QuizMentor_SYSTEM_STATUS.md",
+        "title": "QuizMentor System Status",
+        "mtime": 1756519665550.3271
+      }
+    ],
+    "docs/README.md": [
+      {
+        "path": "/docs/README.md",
+        "title": "QuizMentor Documentation",
+        "mtime": 1756519665558.4524
+      }
+    ],
+    "docs/REALISTIC_PROJECT_STATUS.md": [
+      {
+        "path": "/docs/REALISTIC_PROJECT_STATUS.md",
+        "title": "🚨 QuizMentor REALISTIC Project Status",
+        "mtime": 1756519665570.6367
+      }
+    ],
+    "docs/roadmap": [
+      {
+        "path": "/docs/roadmap/EPICS.md",
+        "title": "EPICS — Canonical Roadmap",
+        "mtime": 1756566504795.6692
+      }
+    ],
+    "docs/runbooks": [
+      {
+        "path": "/docs/runbooks/ENHANCED_FEATURES_RUNBOOK.md",
+        "title": "Enhanced Features Runbook",
+        "mtime": 1756519665582.5173
+      },
+      {
+        "path": "/docs/runbooks/QUESTION_PIPELINE_RUNBOOK.md",
+        "title": "QUESTION PIPELINE RUNBOOK",
+        "mtime": 1756519665588.0266
+      }
+    ],
+    "docs/S2S_ORCHESTRATION.md": [
+      {
+        "path": "/docs/S2S_ORCHESTRATION.md",
+        "title": "S2S Orchestration Scenarios (Mock-first)",
+        "mtime": 1756519665592.4277
+      }
+    ],
+    "docs/SCDD_EXPERIMENT.md": [
+      {
+        "path": "/docs/SCDD_EXPERIMENT.md",
+        "title": "SCDD Framework Experiment: QuizMentor Strategic Development",
+        "mtime": 1756519665602.396
+      }
+    ],
+    "docs/SECURITY_AUDIT.md": [
+      {
+        "path": "/docs/SECURITY_AUDIT.md",
+        "title": "QuizMentor Security Audit & Requirements",
+        "mtime": 1756519665615.3818
+      }
+    ],
+    "docs/SELF_LEARNING_DEPLOYMENT_GUIDE.md": [
+      {
+        "path": "/docs/SELF_LEARNING_DEPLOYMENT_GUIDE.md",
+        "title": "Self-Learning System: Testing & Production Deployment Guide",
+        "mtime": 1756519665640.3193
+      }
+    ],
+    "docs/SELF_LEARNING_OPERATIONAL_RUNBOOK.md": [
+      {
+        "path": "/docs/SELF_LEARNING_OPERATIONAL_RUNBOOK.md",
+        "title": "📚 Self-Learning System Operational Runbook",
+        "mtime": 1756519665664.8394
+      }
+    ],
+    "docs/SELF_LEARNING_USER_GUIDE.md": [
+      {
+        "path": "/docs/SELF_LEARNING_USER_GUIDE.md",
+        "title": "🎓 QuizMentor Self-Learning System: Complete User & Developer Guide",
+        "mtime": 1756519665684.2703
+      }
+    ],
+    "docs/SETUP_ENV.md": [
+      {
+        "path": "/docs/SETUP_ENV.md",
+        "title": "Environment Setup Guide",
+        "mtime": 1756519665689.877
+      }
+    ],
+    "docs/SPRINT_PLAN_CURRENT.md": [
+      {
+        "path": "/docs/SPRINT_PLAN_CURRENT.md",
+        "title": "Sprint Plan (Current)",
+        "mtime": 1756519665693.2585
+      }
+    ],
+    "docs/status": [
+      {
+        "path": "/docs/status/AGENT_VALIDATE_REPORT.md",
+        "title": "Agent Validate Report",
+        "mtime": 1756566459442.8706
+      },
+      {
+        "path": "/docs/status/ALL_EPICS_STATUS.md",
+        "title": "QuizMentor - All Epics Status Report",
+        "mtime": 1756519665708.8857
+      },
+      {
+        "path": "/docs/status/AUTHORING_MDX_GUIDE.md",
+        "title": "Authoring MDX (Storybook)",
+        "mtime": 1756519665712.767
+      },
+      {
+        "path": "/docs/status/BUNDLING_AND_PERFORMANCE_GUIDE.md",
+        "title": "Bundling, Tree Shaking, Code Splitting, and Lazy Loading",
+        "mtime": 1756519665718.6245
+      },
+      {
+        "path": "/docs/status/DEVLOG.md",
+        "title": "Development Log",
+        "mtime": 1756566504791.8877
+      },
+      {
+        "path": "/docs/status/EPIC_MANAGEMENT_CURRENT.md",
+        "title": "Epic Management (Current Truth)",
+        "mtime": 1756519665744.321
+      },
+      {
+        "path": "/docs/status/EPIC_MANAGEMENT.md",
+        "title": "Epic Management",
+        "mtime": 1756519665747.4573
+      },
+      {
+        "path": "/docs/status/INTERVIEW_BRIEF.md",
+        "title": "Interview Brief: QuizMentor",
+        "mtime": 1756519665757.6018
+      },
+      {
+        "path": "/docs/status/LOCAL_DEV_AND_TESTING_GUIDE.md",
+        "title": "Local Development and Testing Guide",
+        "mtime": 1756519665766.3435
+      },
+      {
+        "path": "/docs/status/PROJECT_ANALYSIS_2025-08-29.md",
+        "title": "Project Analysis: QuizMentor Alignment & State Assessment",
+        "mtime": 1756519665775.941
+      },
+      {
+        "path": "/docs/status/READINESS_CHECKLIST.md",
+        "title": "Readiness Checklist (Go / No-Go)",
+        "mtime": 1756519665778.7178
+      },
+      {
+        "path": "/docs/status/SECURITY_EPIC.md",
+        "title": "Security Epic - Status and Roadmap",
+        "mtime": 1756519665791.7986
+      },
+      {
+        "path": "/docs/status/STORYBOOK_AND_DOCS_DECISIONS.md",
+        "title": "Storybook and Docs Decisions (CSF vs MDX, Web vs RN)",
+        "mtime": 1756519665798.5745
+      },
+      {
+        "path": "/docs/status/SYSTEM_STATUS_CURRENT.md",
+        "title": "System Status (Current Truth)",
+        "mtime": 1756519665802.6614
+      },
+      {
+        "path": "/docs/status/SYSTEM_STATUS.md",
+        "title": "System Status",
+        "mtime": 1756519665809.2002
+      },
+      {
+        "path": "/docs/status/TECH_STACK_CHEAT_SHEET.md",
+        "title": "Tech Stack Cheat Sheet",
+        "mtime": 1756519665812.6907
+      },
+      {
+        "path": "/docs/status/TESTING_GUIDE.md",
+        "title": "Testing Guide (Snapshot)",
+        "mtime": 1756519665815.8015
+      },
+      {
+        "path": "/docs/status/WORK_PLAN_NEXT_STEPS.md",
+        "title": "QuizMentor - Strategic Work Plan",
+        "mtime": 1756519665823.642
+      }
+    ],
+    "docs/STORYBOOK_GUIDE.md": [
+      {
+        "path": "/docs/STORYBOOK_GUIDE.md",
+        "title": "QuizMentor Storybook Guide",
+        "mtime": 1756519665836.2322
+      }
+    ],
+    "docs/STORYBOOK_TESTING.md": [
+      {
+        "path": "/docs/STORYBOOK_TESTING.md",
+        "title": "Storybook Testing and API Mocking",
+        "mtime": 1756519665843.0679
+      }
+    ],
+    "docs/SUPABASE_SETUP_GUIDE.md": [
+      {
+        "path": "/docs/SUPABASE_SETUP_GUIDE.md",
+        "title": "Supabase Setup Guide for QuizMentor",
+        "mtime": 1756519665864.2454
+      }
+    ],
+    "docs/SYSTEM_STATUS_CURRENT.md": [
+      {
+        "path": "/docs/SYSTEM_STATUS_CURRENT.md",
+        "title": "🟢 SYSTEM STATUS - NEW STRATEGIC DIRECTION",
+        "mtime": 1756519665878.3179
+      }
+    ],
+    "docs/SYSTEM_STATUS.md": [
+      {
+        "path": "/docs/SYSTEM_STATUS.md",
+        "title": "System Status",
+        "mtime": 1756566504794.0508
+      }
+    ],
+    "docs/TESTING_STRATEGY_COMPLETE.md": [
+      {
+        "path": "/docs/TESTING_STRATEGY_COMPLETE.md",
+        "title": "🧪 COMPREHENSIVE TESTING STRATEGY",
+        "mtime": 1756519665892.3428
+      }
+    ],
+    "docs/TESTING_STRATEGY.md": [
+      {
+        "path": "/docs/TESTING_STRATEGY.md",
+        "title": "Testing Strategy",
+        "mtime": 1756519665896.8398
+      }
+    ],
+    "docs/testing-guide.md": [
+      {
+        "path": "/docs/testing-guide.md",
+        "title": "Testing Guide for QuizMentor",
+        "mtime": 1756519665908.984
+      }
+    ],
+    "docs/testing-strategy.md": [
+      {
+        "path": "/docs/testing-strategy.md",
+        "title": "Testing Strategy",
+        "mtime": 1756519665919.1057
+      }
+    ],
+    "docs/testing-testid-guide.md": [
+      {
+        "path": "/docs/testing-testid-guide.md",
+        "title": "Data-TestID Implementation Guide",
+        "mtime": 1756519665941.123
+      }
+    ],
+    "docs/USER_JOURNEY_ANALYSIS.md": [
+      {
+        "path": "/docs/USER_JOURNEY_ANALYSIS.md",
+        "title": "🎯 QuizMentor User Journey & Story Analysis",
+        "mtime": 1756519665956.5117
+      }
+    ],
+    "docs/USER_JOURNEY_ARCHITECTURE.md": [
+      {
+        "path": "/docs/USER_JOURNEY_ARCHITECTURE.md",
+        "title": "QuizMentor Complete User Journey & Technical Architecture",
+        "mtime": 1756519665973.7114
+      }
+    ],
+    "docs/USER_JOURNEY_COMPLETE.md": [
+      {
+        "path": "/docs/USER_JOURNEY_COMPLETE.md",
+        "title": "QuizMentor - Complete User Journey & App Experience",
+        "mtime": 1756519665983.969
+      }
+    ],
+    "docs/USER_JOURNEY_SIMPLIFIED.md": [
+      {
+        "path": "/docs/USER_JOURNEY_SIMPLIFIED.md",
+        "title": "QuizMentor Simplified User Journey",
+        "mtime": 1756519665993.265
+      }
+    ],
+    "docs/USER_STORIES.md": [
+      {
+        "path": "/docs/USER_STORIES.md",
+        "title": "QuizMentor User Stories & Acceptance Criteria",
+        "mtime": 1756519666028.7493
+      }
+    ],
+    "docs/WEBSOCKET_API.md": [
+      {
+        "path": "/docs/WEBSOCKET_API.md",
+        "title": "WebSocket API (Multiplayer)",
+        "mtime": 1756519666034.5576
+      }
+    ]
+  }
+}

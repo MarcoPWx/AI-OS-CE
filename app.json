@@ -1,0 +1,127 @@
+{
+  "expo": {
+    "name": "QuizMentor",
+    "slug": "quizmentor",
+    "owner": "quizmentor",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "scheme": "quizmentor",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#4F46E5"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/your-project-id"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.quizmentor.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "QuizMentor needs camera access to let you capture and set a custom profile picture.",
+        "NSPhotoLibraryUsageDescription": "QuizMentor needs photo library access to let you choose a profile picture.",
+        "NSPhotoLibraryAddUsageDescription": "QuizMentor needs permission to save achievement badges to your photo library.",
+        "NSUserTrackingUsageDescription": "QuizMentor would like to track your activity to provide personalized learning recommendations.",
+        "ITSAppUsesNonExemptEncryption": false,
+        "UIBackgroundModes": ["remote-notification", "fetch"]
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "associatedDomains": ["applinks:quizmentor.app", "applinks:www.quizmentor.app"],
+      "usesAppleSignIn": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#4F46E5"
+      },
+      "package": "com.quizmentor.app",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "NOTIFICATIONS",
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            { "scheme": "https", "host": "quizmentor.app", "pathPrefix": "/" },
+            { "scheme": "https", "host": "www.quizmentor.app", "pathPrefix": "/" }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-apple-authentication",
+      "expo-tracking-transparency",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow QuizMentor to access your camera for profile pictures."
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow QuizMentor to access your photos.",
+          "savePhotosPermission": "Allow QuizMentor to save photos."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#4F46E5",
+          "defaultChannel": "default",
+          "sounds": ["./assets/sounds/notification.wav"]
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "15.1",
+            "useFrameworks": "static"
+          },
+          "android": {
+            "compileSdkVersion": 34,
+            "targetSdkVersion": 34,
+            "minSdkVersion": 21,
+            "buildToolsVersion": "34.0.0"
+          }
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "your-eas-project-id"
+      },
+      "supabaseUrl": "https://your-project.supabase.co",
+      "supabaseAnonKey": "your-anon-key"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "experiments": {
+      "tsconfigPaths": true
+    }
+  }
+}

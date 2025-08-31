@@ -1,0 +1,56 @@
+# Epic Management — Full Spec
+
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import { LastUpdated } from '../components/LastUpdated';
+import { InlineTOC } from '../components/InlineTOC';
+import { BackToTop } from '../components/BackToTop';
+
+<Meta title="Specs/Epic Management — Full Spec" />
+<a id="top"></a>
+
+Source of truth lives in the repository and is rendered via the Repo Docs Browser. Use the interactive Epic Manager to explore filters and states.
+
+### Table of Contents
+
+- Repo Docs (#repo-docs)
+- Interactive (#interactive)
+
+<InlineTOC
+  items={[
+    { id: 'repo-docs', label: 'Repo Docs' },
+    { id: 'interactive', label: 'Interactive' },
+  ]}
+/>
+
+## Test Stabilization (2025-08-30)
+
+- RN env mocks (Dimensions, PixelRatio, Reanimated, NetInfo, Notifications)
+- Supabase chainable mocks for adaptive engine and analytics
+- MSW mapping + shared server fallback for Jest
+- AnalyticsService test adapter for legacy suites
+- Next: NetInfo-dependent API tests, perf suite tuning
+
+## Repo Docs
+
+<a id="repo-docs"></a>- /docs/status/EPIC_MANAGEMENT_CURRENT.md - /docs/status/EPIC_MANAGEMENT.md
+
+<Canvas>
+  <Story id="docs-repo-docs-browser--default" />
+</Canvas>
+
+## Interactive
+
+<a id="interactive"></a>- Epic Manager (filters, search, Empty/Loading/Error variants)
+
+<Canvas>
+  <Story id="docs-epics-epic-manager--default" />
+</Canvas>
+
+### Live Epic Manager
+
+<Canvas>
+  <Story id="docs-epics-epic-manager--live" />
+</Canvas>
+
+<BackToTop />
+<LastUpdated note="Epic Management Full Spec" />

@@ -1,0 +1,188 @@
+{
+  "quiz_id": "harvest_python",
+  "title": "Python Quiz (Harvested)",
+  "description": "Auto-generated quiz from harvested python content",
+  "category": "python",
+  "difficulty": "mixed",
+  "time_limit": 30,
+  "passing_score": 70,
+  "questions": [
+    {
+      "id": "harvest_76",
+      "question": "What problem does Python solve?",
+      "options": [
+        "A built-in function with additional configuration",
+        "A data structure with additional configuration",
+        "A standard library module with additional configuration",
+        "7 Documentation \u00bb The Python Tutorial | Theme Auto Light Dark | The Python Tutorial \u00b6 Tip This tutorial is designed for programmers that are new to th"
+      ],
+      "correct_answer": 3,
+      "explanation": "7 Documentation \u00bb The Python Tutorial | Theme Auto Light Dark | The Python Tutorial \u00b6 Tip This tutorial is designed for programmers that are new to the Python language, not beginners who are new to pr",
+      "difficulty": 2,
+      "tags": [
+        "python",
+        "tutorial"
+      ]
+    },
+    {
+      "id": "harvest_77",
+      "question": "What is required to use Tutorial?",
+      "options": [
+        "7 Documentation \u00bb The Python Tutorial | Theme Auto Light Dark | The Python Tutorial \u00b6 Tip This tutorial is designed for programmers that are new to th",
+        "A built-in function with additional configuration",
+        "A data structure with additional configuration",
+        "A standard library module with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "7 Documentation \u00bb The Python Tutorial | Theme Auto Light Dark | The Python Tutorial \u00b6 Tip This tutorial is designed for programmers that are new to the Python language, not beginners who are new to pr",
+      "difficulty": 2,
+      "tags": [
+        "python",
+        "tutorial"
+      ]
+    },
+    {
+      "id": "harvest_78",
+      "question": "What problem does Navigation solve?",
+      "options": [
+        "A data structure with additional configuration",
+        "A standard library module with additional configuration",
+        "Whetting Your Appetite This page Report a bug Show source \u00ab Navigation index modules | next | previous | Python \u00bb 3",
+        "A built-in function with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Whetting Your Appetite This page Report a bug Show source \u00ab Navigation index modules | next | previous | Python \u00bb 3",
+      "difficulty": 2,
+      "tags": [
+        "python",
+        "tutorial"
+      ]
+    },
+    {
+      "id": "harvest_79",
+      "question": "What is the main advantage of Documentation?",
+      "options": [
+        "A built-in function with additional configuration",
+        "A data structure with additional configuration",
+        "A standard library module with additional configuration",
+        "7 Documentation \u00bb The Python Tutorial | Theme Auto Light Dark | The Python Tutorial \u00b6 Tip This tutorial is designed for programmers that are new to th"
+      ],
+      "correct_answer": 3,
+      "explanation": "7 Documentation \u00bb The Python Tutorial | Theme Auto Light Dark | The Python Tutorial \u00b6 Tip This tutorial is designed for programmers that are new to the Python language, not beginners who are new to pr",
+      "difficulty": 2,
+      "tags": [
+        "python",
+        "tutorial"
+      ]
+    },
+    {
+      "id": "harvest_80",
+      "question": "What problem does Theme solve?",
+      "options": [
+        "A built-in function with additional configuration",
+        "A data structure with additional configuration",
+        "A standard library module with additional configuration",
+        "7 Documentation \u00bb The Python Tutorial | Theme Auto Light Dark | The Python Tutorial \u00b6 Tip This tutorial is designed for programmers that are new to th"
+      ],
+      "correct_answer": 3,
+      "explanation": "7 Documentation \u00bb The Python Tutorial | Theme Auto Light Dark | The Python Tutorial \u00b6 Tip This tutorial is designed for programmers that are new to the Python language, not beginners who are new to pr",
+      "difficulty": 2,
+      "tags": [
+        "python",
+        "tutorial"
+      ]
+    },
+    {
+      "id": "harvest_81",
+      "question": "How is Python typically implemented?",
+      "options": [
+        "A data structure with additional configuration",
+        "A standard library module with additional configuration",
+        "A built-in function with additional configuration",
+        "path module search path Python Language Services ast \u2014 Abstract Syntax Trees symtable \u2014 Access to the compiler\u2019s symbol tables token \u2014 Constants used"
+      ],
+      "correct_answer": 3,
+      "explanation": "path module search path Python Language Services ast \u2014 Abstract Syntax Trees symtable \u2014 Access to the compiler\u2019s symbol tables token \u2014 Constants used with Python parse trees keyword \u2014 Testing for Pyth",
+      "difficulty": 2,
+      "tags": [
+        "python",
+        "library"
+      ]
+    },
+    {
+      "id": "harvest_82",
+      "question": "When should you use Standard?",
+      "options": [
+        "A standard library module with additional configuration",
+        "abc \u2014 Abstract Base Classes for Containers heapq \u2014 Heap queue algorithm bisect \u2014 Array bisection algorithm array \u2014 Efficient arrays of numeric values",
+        "A data structure with additional configuration",
+        "A built-in function with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "abc \u2014 Abstract Base Classes for Containers heapq \u2014 Heap queue algorithm bisect \u2014 Array bisection algorithm array \u2014 Efficient arrays of numeric values weakref \u2014 Weak references types \u2014 Dynamic type cre",
+      "difficulty": 2,
+      "tags": [
+        "python",
+        "library"
+      ]
+    },
+    {
+      "id": "harvest_83",
+      "question": "How is Library typically implemented?",
+      "options": [
+        "A standard library module with additional configuration",
+        "7 Documentation \u00bb The Python Standard Library | Theme Auto Light Dark | The Python Standard Library \u00b6 While The Python Language Reference describes th",
+        "A built-in function with additional configuration",
+        "A data structure with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "7 Documentation \u00bb The Python Standard Library | Theme Auto Light Dark | The Python Standard Library \u00b6 While The Python Language Reference describes the exact syntax and\nsemantics of the Python languag",
+      "difficulty": 2,
+      "tags": [
+        "python",
+        "library"
+      ]
+    },
+    {
+      "id": "harvest_84",
+      "question": "When should you use Navigation?",
+      "options": [
+        "A built-in function with additional configuration",
+        "Full Grammar specification Next topic Introduction This page Report a bug Show source \u00ab Navigation index modules | next | previous | Python \u00bb 3",
+        "A data structure with additional configuration",
+        "A standard library module with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Full Grammar specification Next topic Introduction This page Report a bug Show source \u00ab Navigation index modules | next | previous | Python \u00bb 3",
+      "difficulty": 2,
+      "tags": [
+        "python",
+        "library"
+      ]
+    },
+    {
+      "id": "harvest_85",
+      "question": "How is Documentation typically implemented?",
+      "options": [
+        "7 Documentation \u00bb The Python Standard Library | Theme Auto Light Dark | The Python Standard Library \u00b6 While The Python Language Reference describes th",
+        "A built-in function with additional configuration",
+        "A standard library module with additional configuration",
+        "A data structure with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "7 Documentation \u00bb The Python Standard Library | Theme Auto Light Dark | The Python Standard Library \u00b6 While The Python Language Reference describes the exact syntax and\nsemantics of the Python languag",
+      "difficulty": 2,
+      "tags": [
+        "python",
+        "library"
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "automated_harvest",
+    "question_count": 10,
+    "difficulty_distribution": {
+      "2": 10
+    }
+  }
+}

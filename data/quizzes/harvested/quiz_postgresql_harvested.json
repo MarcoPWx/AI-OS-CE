@@ -1,0 +1,105 @@
+{
+  "quiz_id": "harvest_postgresql",
+  "title": "Postgresql Quiz (Harvested)",
+  "description": "Auto-generated quiz from harvested postgresql content",
+  "category": "postgresql",
+  "difficulty": "mixed",
+  "time_limit": 30,
+  "passing_score": 70,
+  "questions": [
+    {
+      "id": "harvest_108",
+      "question": "When should you use Tutorial?",
+      "options": [
+        "A different approach to Tutorial",
+        "A component of Tutorial",
+        "An alternative to Tutorial",
+        "Tutorial August 14, 2025: PostgreSQL 17"
+      ],
+      "correct_answer": 3,
+      "explanation": "Tutorial August 14, 2025: PostgreSQL 17",
+      "difficulty": 1,
+      "tags": [
+        "postgresql",
+        "tutorial"
+      ]
+    },
+    {
+      "id": "harvest_109",
+      "question": "What is the main advantage of August?",
+      "options": [
+        "Tutorial August 14, 2025: PostgreSQL 17",
+        "A component of August",
+        "A different approach to August",
+        "An alternative to August"
+      ],
+      "correct_answer": 0,
+      "explanation": "Tutorial August 14, 2025: PostgreSQL 17",
+      "difficulty": 1,
+      "tags": [
+        "postgresql",
+        "tutorial"
+      ]
+    },
+    {
+      "id": "harvest_107",
+      "question": "How does Part differ from alternatives?",
+      "options": [
+        "A component of Part with additional configuration",
+        "A different approach to Part with additional configuration",
+        "An alternative to Part with additional configuration",
+        "After you have successfully completed this tutorial you will want to read the Part\u00a0II section to gain a better understanding of the SQL language, or"
+      ],
+      "correct_answer": 3,
+      "explanation": "After you have successfully completed this tutorial you will want to read the Part\u00a0II section to gain a better understanding of the SQL language, or Part\u00a0IV for information about developing applicatio",
+      "difficulty": 2,
+      "tags": [
+        "postgresql",
+        "tutorial"
+      ]
+    },
+    {
+      "id": "harvest_110",
+      "question": "In postgresql, what does Beta refer to?",
+      "options": [
+        "A different approach to Beta with additional configuration",
+        "A 22, and 18 beta 3 released! documentation \u2192 postgresql 17 supported versions: current ( 17 )",
+        "A component of Beta with additional configuration",
+        "An alternative to Beta with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Beta is correctly described as: A 22, and 18 beta 3 released! documentation \u2192 postgresql 17 supported versions: current ( 17 )",
+      "difficulty": 2,
+      "tags": [
+        "postgresql",
+        "tutorial"
+      ]
+    },
+    {
+      "id": "harvest_106",
+      "question": "What problem does Documentation solve?",
+      "options": [
+        "22, and 18 Beta 3 Released! Documentation \u2192 PostgreSQL 17 Supported Versions: Current ( 17 )",
+        "A different approach to Documentation with additional configuration",
+        "A component of Documentation with additional configuration",
+        "An alternative to Documentation with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "22, and 18 Beta 3 Released! Documentation \u2192 PostgreSQL 17 Supported Versions: Current ( 17 )\n                        \n                      \n                         / 16 / 15 / 14 / 13 Development Ve",
+      "difficulty": 3,
+      "tags": [
+        "postgresql",
+        "tutorial"
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "automated_harvest",
+    "question_count": 5,
+    "difficulty_distribution": {
+      "1": 2,
+      "2": 2,
+      "3": 1
+    }
+  }
+}

@@ -1,0 +1,48 @@
+# Highest Mount Journeys
+
+import { Meta, Canvas, Story } from '@storybook/blocks';
+
+<Meta
+  title="Specs/Journeys/Highest Mount"
+  parameters={{
+    helpDocs: [
+      {
+        href: '?path=/story/overview-overview-insanely-detailed--page#journeys',
+        title: 'Deep Dive Overview — Journeys',
+      },
+    ],
+  }}
+/>
+
+Happy-path journeys that demonstrate smooth operation and ideal UX flows using the stories and mocks in this repository.
+
+## Run This Now
+
+- S2S Orchestration (Happy): <Canvas><Story id="dev-s2s-orchestration--default" /></Canvas>
+
+### Deep Links
+
+- Happy: ?path=/story/dev-s2s-orchestration--default&traceFail=none
+- Validate Failure: ?path=/story/dev-s2s-orchestration--default&traceFail=validate&traceDelay=300&noDefaults=1
+- Chaos Demo: ?path=/story/dev-s2s-orchestration--default&chaos=1&chaosPercent=50&traceJitter=500
+
+## Lessons and Quizzes
+
+- API/Playground default endpoints: call GET /api/lessons and GET /api/quizzes; verify 200 and payloads.
+  <Canvas>
+    <Story id="api-playground--default" />
+  </Canvas>
+
+## Epic Filtering
+
+- Epic Manager: use Status/Priority filters and search to refine the list.
+  <Canvas>
+    <Story id="docs-epics-epic-manager--default" />
+  </Canvas>
+
+## API Models & Operations
+
+- Swagger UI: expand models and operations for a quick scan.
+  <Canvas>
+    <Story id="api-swagger--default" />
+  </Canvas>

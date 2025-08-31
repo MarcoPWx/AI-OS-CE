@@ -1,0 +1,35 @@
+# Latency & Error Profiles
+
+import { Meta, Canvas, Story } from '@storybook/blocks';
+
+<Meta title="Docs/Latency & Error Profiles" />
+
+This page documents global latency and error profiles for MSW handlers and provides a live playground to see how UI and endpoints behave under different network conditions.
+
+## How it works
+
+- Handlers in `src/mocks/handlers.ts` read global defaults: `{ latencyMs, errorRate }`.
+- You can set them via a control endpoint in the mock layer:
+  - `POST /__msw__/defaults` with JSON `{ latencyMs: number, errorRate: number }`
+  - `GET /__msw__/defaults` to read current config
+- These defaults are applied in addition to route-specific behaviors (e.g., ETag on /api/cache, rate limiting on /api/ratelimit).
+
+## Network Playground
+
+Use the interactive playground to set defaults and run a scenario across several endpoints (lessons, quizzes, cache, ratelimit, login):
+
+<Canvas>
+  <Story id="dev-networkplayground--default" />
+</Canvas>
+
+Tips:
+
+- Start with latency 100–500ms and errorRate 0.1–0.2 to see realistic slow/error states.
+- Click "Run Scenario" to get a full timeline of status/durations.
+
+## Notes
+
+- The API Playground stories also demonstrate per-story MSW overrides (errors/timeouts/empty data).
+- To disable global injection for specific requests (e.g., in the Network Playground), send header `x-msw-no-defaults: 1`.
+- You can also use the “MSW Profile” toolbar to apply presets globally (Default/Slower/Flaky/Chaos) or reset defaults.
+- The "Live WS → SSE Fallback" demo is separate and focuses on realtime transport behavior.

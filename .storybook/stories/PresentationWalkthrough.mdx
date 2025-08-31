@@ -1,0 +1,61 @@
+# Presentation — Narrated Walkthrough (Live)
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Docs/Presentation — Narrated Walkthrough" />
+
+How to use this page
+- Use this as your live script. Each step links to the page you’ll present.
+- Keep mock mode on for web demos (EXPO_PUBLIC_USE_MSW=1) and on-device builds (EXPO_PUBLIC_USE_ALL_MOCKS=1) when relevant.
+
+Agenda (20–30 minutes)
+1) Set the frame (2–3 min)
+   - Start: Docs/00 Start Here → Quick Index
+   - Purpose: what QuizMentor is; why mock-first; how Storybook drives dev and interviews
+   - Links:
+     - Start Here: ?path=/story/docs-00-start-here--page
+     - Quick Index: ?path=/story/docs-quick-index--page
+2) Agent + Canonical Docs (2–3 min)
+   - Agent Boot (guardrails and operating model): ?path=/story/docs-agent-boot--page
+   - DevLog, Epics, System Status as single sources of truth
+     - DevLog: ?path=/story/docs-dev-log--default
+     - Epics: ?path=/story/docs-epics--default
+     - System Status: ?path=/story/docs-system-status--default
+3) Mobile Mock Beta (3–4 min)
+   - Labs/Mobile Mock Beta: explain full-mock iteration and banner
+   - Labs/Device Matrix: show the smoke checklist and exit criteria
+   - Links:
+     - Mobile Mock Beta: ?path=/story/labs-mobile-mock-beta--page
+     - Device Matrix: ?path=/story/labs-device-matrix--page
+4) Core functionality (6–8 min)
+   - Auth & Session (mock flows, guards): ?path=/story/labs-auth-session--page
+   - Quiz & Content (core loop + offline fallback): ?path=/story/labs-quiz-content--page
+   - Gamification & Achievements (XP, levels, badges): ?path=/story/labs-gamification-achievements--page
+   - Leaderboard & Social (rankings, future hooks): ?path=/story/labs-leaderboard-social--page
+   - Onboarding & Profile (first-run, basics): ?path=/story/labs-onboarding-profile--page
+5) S2S and contracts (3–4 min)
+   - Labs/S2S Orchestration: MSW, Api Playground, Swagger, supertest
+   - Links:
+     - S2S Orchestration: ?path=/story/labs-s2s-orchestration--page
+     - API Playground: ?path=/story/api-playground--default
+     - Swagger: ?path=/story/api-swagger--default
+6) Quality and guardrails (3–5 min)
+   - Error & Offline lab: latency/error profiles, offline; logs without PII
+     - ?path=/story/labs-error-offline--page
+   - Performance & Device Metrics: code split checks and device sanity
+     - ?path=/story/labs-performance-device-metrics--page
+   - Security & Privacy: headers and data handling
+     - ?path=/story/labs-security-privacy--page
+   - Accessibility: key screens checks
+     - ?path=/story/labs-accessibility--page
+   - Sentry (optional): crash capture & release health, gated by env
+     - ?path=/story/labs-sentry-crash-release-health--page
+7) Close with status and roadmap (2–3 min)
+   - System Status and Critical Path: ?path=/story/docs-system-status--default
+   - Epics “Now Working On” summary: ?path=/story/docs-epics--default
+
+Tips
+- Narrate “why” before “how” for each step. Keep flows live and tangible.
+- If asked about backend reality, pivot to S2S lab (contract-first) and describe migration from MSW to Supabase.
+- If asked about crash fidelity, open the Sentry lab and explain the env-gated approach for interviews vs real builds.
+

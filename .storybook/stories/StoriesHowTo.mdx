@@ -1,0 +1,80 @@
+# How to write and maintain stories (CSF + MDX)
+
+> Web-only docs page. Use `npm run storybook` and open http://localhost:7007.
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Docs/Stories How-To" />
+
+# Stories: How-To
+
+Authoring reference
+
+- See docs/status/AUTHORING_MDX_GUIDE.md for MDX authoring patterns (Canvas/Story/Controls, naming conventions).
+
+## CSF vs MDX
+
+- CSF (`.stories.tsx`) is the source of truth for executable examples, tests (play functions), and Chromatic.
+- MDX (`.mdx`) is for narrative docs that stitch multiple CSF stories together; web-only.
+
+## Where to put things
+
+- Co-locate CSF with components: `src/components/<Name>/<Name>.stories.tsx`.
+- Flows and demos: `src/stories/*.stories.tsx`.
+- Narrative docs: `.storybook/stories/*.mdx`.
+
+## Definition of Done (per story)
+
+- Covers key states: default, loading, empty/disabled, error, success.
+- Args wired to Controls with sensible defaults.
+- One `play()` function for a primary user action (where meaningful).
+- Optional per-story MSW overrides for error/timeout.
+- `parameters.docs.description` includes usage/context.
+- Deterministic output for Chromatic (animations settled; disable snapshots if too dynamic).
+- Renders on RN on-device or explicitly marked web-only.
+
+## MSW per-story overrides
+
+Use `parameters.msw.handlers` to override endpoints per story:
+
+```ts path=null start=null
+export const ErrorState: Story = {
+  parameters: {
+    msw: {
+      handlers: [http.get('/api/lessons', () => new HttpResponse('Server error', { status: 500 }))],
+    },
+  },
+};
+```
+
+## WS scenarios (toolbar)
+
+- Use the toolbar to pick: `lobbyBasic | matchHappyPath | disconnectRecovery | taskBoardLive`.
+- The mock WebSocket reads `window.__WS_MOCK_SCENARIO__`.
+
+## Theme & Platform (toolbar)
+
+- Theme: `light | dark`.
+- Platform: `web | ios | android` (cosmetic tokens for fonts/radii).
+
+## Checklist (quick)
+
+- [ ] Default + important states
+- [ ] Controls wired for interactive props
+- [ ] Docs description explains intent
+- [ ] One play() for core interaction
+- [ ] Per-story MSW overrides for error/timeout if applicable
+- [ ] Stable Chromatic snapshot (or disabled when noisy)
+
+## Examples
+
+- API Playground: MSW + interaction
+- Live Task Board: WebSocket scenario (taskBoardLive)
+- LessonCard: Interactive story with play()
+
+## Related docs
+
+- `docs/status/STORYBOOK_AND_DOCS_DECISIONS.md`
+- `docs/STORYBOOK_TESTING.md`
+- `docs/mocks/SERVICE_MOCKING_ARCHITECTURE.md`
+- `docs/mocks/WEBSOCKET_MOCKS.md`

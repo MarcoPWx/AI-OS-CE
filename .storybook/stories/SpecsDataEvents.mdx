@@ -1,0 +1,64 @@
+# Data Events & Persistence — Reference
+
+import { Meta } from '@storybook/blocks';
+import { InlineTOC } from '../components/InlineTOC';
+import { BackToTop } from '../components/BackToTop';
+
+<Meta title="Specs/Data Events & Persistence" />
+<a id="top"></a>
+
+This page enumerates key domain events, their intended persistence, and observability metadata.
+
+### Table of Contents
+
+- Sessions (#sessions)
+- Answers & Streaks (#answers)
+- XP & Levels (#xp)
+- Achievements (#achievements)
+- Leaderboards (#leaderboards)
+- Privacy & Data Lifecycle (#privacy)
+
+<InlineTOC
+  items={[
+    { id: 'sessions', label: 'Sessions' },
+    { id: 'answers', label: 'Answers & Streaks' },
+    { id: 'xp', label: 'XP & Levels' },
+    { id: 'achievements', label: 'Achievements' },
+    { id: 'leaderboards', label: 'Leaderboards' },
+    { id: 'privacy', label: 'Privacy & Lifecycle' },
+  ]}
+/>
+
+## Sessions
+
+<a id="sessions"></a>- session_started: sessions.insert(userId, topic, difficulty, createdAt) -
+session_completed: sessions.update(completedAt, score) - Observability: requestId, sessionId,
+userId(pseudonymized)
+
+## Answers & Streaks
+
+<a id="answers"></a>- answer_submitted: session_answers.insert(sessionId, qId, idx, correct,
+elapsedMs) - streak_updated: streaks.update(userId, current, max) - Observability: questionId,
+correctness, latencyMs
+
+## XP & Levels
+
+<a id="xp"></a>- xp_awarded: xp_events.insert(userId, base, multiplier, totalDelta) -
+level_progressed: users.update(level, xp) - Observability: xp.balance, xp.delta
+
+## Achievements
+
+<a id="achievements"></a>- achievement_unlocked: achievements.insert(userId, badgeId, rarity) -
+Observability: badgeId, rarity, sourceEvent
+
+## Leaderboards
+
+<a id="leaderboards"></a>- leaderboard_upserted: leaderboard_scores.upsert(userId, scope, score) -
+Observability: scope(weekly|monthly|all), rankDelta
+
+## Privacy & Data Lifecycle
+
+<a id="privacy"></a>- export_requested: exports.enqueue(userId) - account_deleted: purge PII; retain
+aggregates per policy - Observability: audit trail for privacy actions
+
+<BackToTop />

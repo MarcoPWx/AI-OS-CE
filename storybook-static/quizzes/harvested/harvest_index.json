@@ -1,0 +1,160 @@
+{
+  "total_quizzes": 15,
+  "total_questions": 491,
+  "categories": [
+    "ansible",
+    "azure",
+    "docker",
+    "gcp",
+    "go",
+    "javascript",
+    "jenkins",
+    "kubernetes",
+    "mongodb",
+    "postgresql",
+    "programming",
+    "python",
+    "redis",
+    "repository",
+    "terraform"
+  ],
+  "quizzes": [
+    {
+      "category": "ansible",
+      "questions": 5,
+      "file": "data/quizzes/harvested/quiz_ansible_harvested.json",
+      "difficulties": {
+        "2": 5
+      }
+    },
+    {
+      "category": "azure",
+      "questions": 25,
+      "file": "data/quizzes/harvested/quiz_azure_harvested.json",
+      "difficulties": {
+        "2": 13,
+        "3": 8,
+        "1": 4
+      }
+    },
+    {
+      "category": "docker",
+      "questions": 15,
+      "file": "data/quizzes/harvested/quiz_docker_harvested.json",
+      "difficulties": {
+        "2": 10,
+        "1": 5
+      }
+    },
+    {
+      "category": "gcp",
+      "questions": 20,
+      "file": "data/quizzes/harvested/quiz_gcp_harvested.json",
+      "difficulties": {
+        "2": 16,
+        "3": 4
+      }
+    },
+    {
+      "category": "go",
+      "questions": 10,
+      "file": "data/quizzes/harvested/quiz_go_harvested.json",
+      "difficulties": {
+        "2": 7,
+        "3": 3
+      }
+    },
+    {
+      "category": "javascript",
+      "questions": 10,
+      "file": "data/quizzes/harvested/quiz_javascript_harvested.json",
+      "difficulties": {
+        "2": 9,
+        "3": 1
+      }
+    },
+    {
+      "category": "jenkins",
+      "questions": 5,
+      "file": "data/quizzes/harvested/quiz_jenkins_harvested.json",
+      "difficulties": {
+        "2": 4,
+        "3": 1
+      }
+    },
+    {
+      "category": "kubernetes",
+      "questions": 15,
+      "file": "data/quizzes/harvested/quiz_kubernetes_harvested.json",
+      "difficulties": {
+        "2": 13,
+        "1": 1,
+        "3": 1
+      }
+    },
+    {
+      "category": "mongodb",
+      "questions": 5,
+      "file": "data/quizzes/harvested/quiz_mongodb_harvested.json",
+      "difficulties": {
+        "2": 5
+      }
+    },
+    {
+      "category": "postgresql",
+      "questions": 5,
+      "file": "data/quizzes/harvested/quiz_postgresql_harvested.json",
+      "difficulties": {
+        "1": 2,
+        "2": 2,
+        "3": 1
+      }
+    },
+    {
+      "category": "programming",
+      "questions": 331,
+      "file": "data/quizzes/harvested/quiz_programming_harvested.json",
+      "difficulties": {
+        "2": 275,
+        "1": 33,
+        "3": 23
+      }
+    },
+    {
+      "category": "python",
+      "questions": 10,
+      "file": "data/quizzes/harvested/quiz_python_harvested.json",
+      "difficulties": {
+        "2": 10
+      }
+    },
+    {
+      "category": "redis",
+      "questions": 5,
+      "file": "data/quizzes/harvested/quiz_redis_harvested.json",
+      "difficulties": {
+        "2": 5
+      }
+    },
+    {
+      "category": "repository",
+      "questions": 25,
+      "file": "data/quizzes/harvested/quiz_repository_harvested.json",
+      "difficulties": {
+        "2": 23,
+        "1": 1,
+        "3": 1
+      }
+    },
+    {
+      "category": "terraform",
+      "questions": 5,
+      "file": "data/quizzes/harvested/quiz_terraform_harvested.json",
+      "difficulties": {
+        "2": 3,
+        "3": 2
+      }
+    }
+  ],
+  "integration_ready": true
+}

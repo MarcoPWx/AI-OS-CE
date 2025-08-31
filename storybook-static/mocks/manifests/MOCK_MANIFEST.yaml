@@ -1,0 +1,442 @@
+# QuizMentor Mock Manifest
+# Master configuration for all mocking strategies and data generation
+
+version: 1.0.0
+metadata:
+  description: Complete mock configuration for QuizMentor app development and testing
+  created: 2024-01-15
+  updated: 2024-01-15
+  environments:
+    - development
+    - testing
+    - demo
+    - storybook
+
+# Global Configuration
+config:
+  seed: 12345  # For deterministic random data
+  locale: en_US
+  timezone: UTC
+  api_delay:
+    min: 100  # ms
+    max: 500  # ms
+  error_rate: 0.05  # 5% simulated error rate in test mode
+  
+# Mock Modes
+modes:
+  demo:
+    description: Full offline demo with rich data
+    features:
+      auth: local
+      data: fixtures
+      realtime: simulated
+      persistence: localStorage
+      errors: minimal
+      
+  development:
+    description: Development mode with backend fallback
+    features:
+      auth: mock_or_real
+      data: mock_or_real
+      realtime: mock_only
+      persistence: hybrid
+      errors: verbose
+      
+  testing:
+    description: Deterministic testing mode
+    features:
+      auth: mock
+      data: fixtures
+      realtime: controlled
+      persistence: memory
+      errors: all_scenarios
+      
+  storybook:
+    description: Component development mode
+    features:
+      auth: static
+      data: minimal
+      realtime: disabled
+      persistence: none
+      errors: disabled
+
+# Service Mocks
+services:
+  auth:
+    endpoints:
+      - path: /auth/register
+        method: POST
+        responses:
+          success:
+            status: 201
+            delay: 300
+            fixture: auth/register-success.json
+          user_exists:
+            status: 409
+            fixture: errors/user-exists.json
+          validation_error:
+            status: 400
+            fixture: errors/validation-error.json
+            
+      - path: /auth/login
+        method: POST
+        responses:
+          success:
+            status: 200
+            delay: 200
+            fixture: auth/login-success.json
+          invalid_credentials:
+            status: 401
+            fixture: errors/invalid-credentials.json
+            
+      - path: /auth/oauth/{provider}
+        method: POST
+        responses:
+          success:
+            status: 200
+            delay: 500
+            fixture: auth/oauth-success.json
+            
+  quiz:
+    endpoints:
+      - path: /quiz/session
+        method: POST
+        responses:
+          success:
+            status: 201
+            fixture: quiz/session-created.json
+            generator: generateQuizSession
+            
+      - path: /quiz/session/{id}/answer
+        method: POST
+        responses:
+          correct:
+            status: 200
+            probability: 0.7
+            fixture: quiz/answer-correct.json
+          incorrect:
+            status: 200
+            probability: 0.3
+            fixture: quiz/answer-incorrect.json
+            
+  categories:
+    endpoints:
+      - path: /categories
+        method: GET
+        responses:
+          success:
+            status: 200
+            fixture: categories/list.json
+            cache: 3600
+            
+  leaderboard:
+    endpoints:
+      - path: /leaderboard
+        method: GET
+        responses:
+          success:
+            status: 200
+            fixture: leaderboard/global.json
+            generator: generateLeaderboard
+            
+  multiplayer:
+    websocket:
+      url: ws://localhost:3003
+      events:
+        - name: match.created
+          fixture: multiplayer/match-created.json
+        - name: player.joined
+          fixture: multiplayer/player-joined.json
+        - name: question.next
+          fixture: multiplayer/question-next.json
+        - name: answer.submitted
+          fixture: multiplayer/answer-submitted.json
+        - name: match.completed
+          fixture: multiplayer/match-completed.json
+
+# Data Generators
+generators:
+  user:
+    schema:
+      id: uuid
+      email: email
+      display_name: firstName + ' ' + lastName
+      avatar_url: avatar
+      level: numberBetween(1, 50)
+      xp: numberBetween(0, 10000)
+      trust_score: numberBetween(0.3, 1.0)
+      streak: numberBetween(0, 100)
+      created_at: dateTimeBetween(-1year, now)
+      
+  question:
+    schema:
+      id: uuid
+      text: questionText
+      options:
+        - id: uuid
+          text: optionText
+        - id: uuid
+          text: optionText
+        - id: uuid
+          text: optionText
+        - id: uuid
+          text: optionText
+      difficulty: randomElement([beginner, intermediate, advanced, expert])
+      category: randomElement([javascript, react, typescript, nodejs])
+      time_limit: numberBetween(10, 60)
+      points: numberBetween(10, 100)
+      
+  achievement:
+    schema:
+      id: slug
+      name: achievementName
+      description: sentence
+      icon: iconUrl
+      rarity: randomElement([common, rare, epic, legendary, mythic])
+      xp_reward: numberBetween(10, 500)
+      progress:
+        current: numberBetween(0, 100)
+        target: 100
+        percentage: calculated
+        
+  leaderboardEntry:
+    schema:
+      rank: sequence
+      user: $ref:user
+      score: numberBetween(100, 10000)
+      xp: numberBetween(100, 10000)
+      level: numberBetween(1, 50)
+      streak: numberBetween(0, 365)
+      trend: randomElement([up, down, stable, new])
+
+# Fixture Data Sets
+fixtures:
+  users:
+    demo_users:
+      - id: demo-user-1
+        email: john@example.com
+        display_name: John Developer
+        level: 15
+        xp: 3250
+        trust_score: 0.85
+        streak: 7
+        
+      - id: demo-user-2
+        email: jane@example.com
+        display_name: Jane Coder
+        level: 23
+        xp: 5670
+        trust_score: 0.92
+        streak: 21
+        
+    test_users:
+      - id: test-user-1
+        email: test@test.com
+        display_name: Test User
+        password: Test123!
+        
+  questions:
+    javascript_basics:
+      count: 50
+      difficulty_distribution:
+        beginner: 20
+        intermediate: 20
+        advanced: 10
+        
+    react_hooks:
+      count: 30
+      difficulty_distribution:
+        intermediate: 15
+        advanced: 10
+        expert: 5
+        
+  categories:
+    main:
+      - id: javascript
+        name: JavaScript
+        icon: 🟨
+        question_count: 150
+        
+      - id: react
+        name: React
+        icon: ⚛️
+        question_count: 120
+        
+      - id: typescript
+        name: TypeScript
+        icon: 🔷
+        question_count: 80
+        
+      - id: nodejs
+        name: Node.js
+        icon: 🟢
+        question_count: 100
+
+# Scenario Definitions
+scenarios:
+  new_user_journey:
+    description: Complete flow for new user
+    steps:
+      - action: register
+        data: fixtures.users.demo_users[0]
+      - action: select_categories
+        data: [javascript, react]
+      - action: complete_onboarding
+      - action: take_first_quiz
+        result: 7/10 correct
+      - action: unlock_achievement
+        data: first_steps
+        
+  quiz_perfect_score:
+    description: User achieves perfect quiz score
+    steps:
+      - action: start_quiz
+        category: javascript
+        difficulty: beginner
+      - action: answer_all_correct
+        count: 10
+      - action: unlock_achievements
+        data: [perfect_score, streak_master]
+      - action: level_up
+        from: 5
+        to: 6
+        
+  multiplayer_match:
+    description: Full multiplayer match
+    steps:
+      - action: create_match
+        players: 2
+      - action: wait_for_players
+        duration: 30s
+      - action: start_match
+      - action: play_rounds
+        count: 10
+      - action: determine_winner
+      - action: distribute_rewards
+        
+  network_failure:
+    description: Network failure during quiz
+    steps:
+      - action: start_quiz
+      - action: answer_questions
+        count: 5
+      - action: simulate_network_failure
+      - action: enable_offline_mode
+      - action: continue_offline
+      - action: sync_when_online
+
+# Error Scenarios
+errors:
+  network:
+    - code: NETWORK_ERROR
+      message: Unable to connect to server
+      retry: true
+      
+    - code: TIMEOUT
+      message: Request timed out
+      retry: true
+      
+  auth:
+    - code: INVALID_CREDENTIALS
+      message: Invalid email or password
+      retry: false
+      
+    - code: SESSION_EXPIRED
+      message: Your session has expired
+      action: refresh_token
+      
+  validation:
+    - code: VALIDATION_ERROR
+      message: Invalid input data
+      details: field_errors
+      
+  server:
+    - code: INTERNAL_ERROR
+      message: Something went wrong
+      retry: true
+      
+# Performance Profiles
+performance:
+  fast:
+    api_delay: 50-100ms
+    error_rate: 0
+    
+  normal:
+    api_delay: 100-300ms
+    error_rate: 0.01
+    
+  slow:
+    api_delay: 500-2000ms
+    error_rate: 0.05
+    
+  unreliable:
+    api_delay: 100-5000ms
+    error_rate: 0.2
+    
+# Storage Configuration
+storage:
+  localStorage:
+    prefix: quizmentor_mock_
+    persist:
+      - user
+      - preferences
+      - progress
+      
+  sessionStorage:
+    prefix: quizmentor_session_
+    persist:
+      - quiz_state
+      - temp_data
+      
+  indexedDB:
+    database: quizmentor_offline
+    stores:
+      - questions
+      - results
+      - achievements
+
+# Validation Rules
+validation:
+  email:
+    pattern: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+    minLength: 5
+    maxLength: 255
+    
+  password:
+    minLength: 8
+    maxLength: 128
+    requireUppercase: true
+    requireLowercase: true
+    requireNumber: true
+    requireSpecial: true
+    
+  displayName:
+    minLength: 3
+    maxLength: 50
+    pattern: ^[a-zA-Z0-9 _-]+$
+    
+# Feature Flags
+features:
+  multiplayer:
+    enabled: true
+    mock_only: true
+    
+  achievements:
+    enabled: true
+    unlock_all: false
+    
+  leaderboard:
+    enabled: true
+    mock_data: true
+    
+  premium:
+    enabled: false
+    mock_purchases: true
+    
+  analytics:
+    enabled: true
+    console_only: true
+    
+  push_notifications:
+    enabled: false
+    simulate: true

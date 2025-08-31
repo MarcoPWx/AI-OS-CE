@@ -1,0 +1,56 @@
+# Start Here
+
+import { Meta, Canvas, Story } from '@storybook/blocks';
+
+<Meta
+  title="Docs/00 Start Here"
+  parameters={{
+    helpDoc: '?path=/story/overview-overview-insanely-detailed--page',
+    helpTitle: 'Deep Dive Overview',
+  }}
+/>
+
+Welcome! This is your guided entry point to learn the system, explore user flows, and try API endpoints right inside Storybook.
+
+What you can do here
+
+- Learn the stack and mocks: Docs/Tech Stack + API, Docs/Mocking & Scenarios
+- Browse repo docs: Docs/Quick Index, Docs/Repo Docs Browser
+- Explore user flows: Docs/ALL_USER_FLOWS.md (via Repo Docs Browser)
+- Try APIs:
+  - API/Playground (mocked endpoints, caching 304, rate limiting 429, error variants)
+  - API/Swagger (OpenAPI spec with controls for doc expansion, model rendering, and TryOut)
+- Observe realtime:
+  - Live/TaskBoard (WebSocket mock with WS Scenario toolbar)
+  - Live WS → SSE Fallback (Docs/Tech Stack + API page)
+
+Quick links
+
+- Docs/Quick Index: ?path=/story/docs-quick-index--page
+- Docs/Repo Docs Browser: ?path=/story/docs-repo-docs-browser--default
+- API/Playground: ?path=/story/api-playground--default
+- API/Swagger: ?path=/story/api-swagger--default
+- Dev/NetworkPlayground: ?path=/story/dev-networkplayground--default
+- Live/TaskBoard: ?path=/story/live-taskboard--default
+
+Toolbars you can use (top bar)
+
+- WS Scenario: lobbyBasic | matchHappyPath | disconnectRecovery | taskBoardLive
+- Theme: light | dark
+- Platform: web | ios | android
+- MSW Profile: default | slower | flaky | chaos (controls global mock latency/error; see the Defaults chip)
+
+Getting started
+
+- Open Docs/Quick Index to see the most-used docs and key stories
+- Then try API/Playground and API/Swagger
+- Switch WS Scenario and theme to see how stories react
+
+Presentation mode
+
+- Use Docs/Presentation — Narrated Walkthrough for a step-by-step live script
+  - ?path=/story/docs-presentation-narrated-walkthrough--page
+
+<Canvas>
+  <Story id="docs-quick-index--page" />
+</Canvas>

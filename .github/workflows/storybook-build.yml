@@ -1,0 +1,50 @@
+name: Storybook Build & Docs Links
+
+on:
+  pull_request:
+    branches: [ master, staging, dev ]
+  push:
+    branches: [ master, staging, dev ]
+
+jobs:
+  storybook-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Analyze Storybook bundle
+        run: npm run analyze:storybook
+
+      - name: Upload bundle analysis
+        uses: actions/upload-artifact@v3
+        with:
+          name: storybook-bundle-analysis
+          path: storybook-bundle.html
+
+  docs-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Link Checker (lychee)
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --no-progress --verbose --max-concurrency 4 --exclude-path storybook-static -- ./docs/**/*.md ./docs/**/*.mdx
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

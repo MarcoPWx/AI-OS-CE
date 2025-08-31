@@ -1,0 +1,54 @@
+# System Status — Full Spec
+
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import { LastUpdated } from '../components/LastUpdated';
+import { InlineTOC } from '../components/InlineTOC';
+import { BackToTop } from '../components/BackToTop';
+
+<Meta
+  title="Specs/System Status — Full Spec"
+  parameters={{
+    helpDocs: [
+      { href: '?path=/story/overview-architecture--page#layered-view', title: 'Architecture' },
+    ],
+  }}
+/>
+<a id="top"></a>
+
+Source of truth lives in the repository and is viewable via the Repo Docs Browser. The status JSON is used by stories to display the current state.
+
+### Table of Contents
+
+- Repo Docs (#repo-docs)
+- JSON Shape (#json)
+- Related Story (#related)
+
+<InlineTOC
+  items={[
+    { id: 'repo-docs', label: 'Repo Docs' },
+    { id: 'json', label: 'JSON Shape' },
+    { id: 'related', label: 'Related' },
+  ]}
+/>
+
+## Repo Docs
+
+<a id="repo-docs"></a>- /docs/status/SYSTEM_STATUS_CURRENT.md - /docs/status/SYSTEM_STATUS.md
+
+<Canvas>
+  <Story id="docs-repo-docs-browser--default" />
+</Canvas>
+
+## JSON Shape (served file)
+
+<a id="json"></a>
+```
+{ "status": "green|degraded|outage|unknown", "lastValidated": "ISO8601" }
+```
+
+## Related Story
+
+<a id="related"></a>
+
+<BackToTop />
+<LastUpdated note="System Status Full Spec" />- Docs/System Status (links to current docs)

@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Docs/DB-Backed Questions (Supabase)" />
+
+# DB-Backed Questions (Supabase)
+
+This page explains how the API serves questions from Supabase when enabled.
+
+## Enable DB Mode
+
+Set environment variables for the API process:
+
+```env path=null start=null
+SUPABASE_URL=https://your-project-id.supabase.co
+SUPABASE_SERVICE_ROLE_KEY={{service_role_key}}
+API_USE_SUPABASE=true
+```
+
+- categoryId can be a UUID or a slug/name found in question_categories.metadata.slug or name.
+- difficulty must be one of: easy | medium | hard.
+- random=true: over-fetches and shuffles in memory for variety.
+
+## Example Requests
+
+Fetch 10 random questions from a category by slug:
+
+```bash path=null start=null
+curl "http://localhost:PORT/api/quiz/questions?categoryId=javascript&limit=10&random=true"
+```
+
+Fetch 5 medium questions by category UUID:
+
+```bash path=null start=null
+curl "http://localhost:PORT/api/quiz/questions?categoryId=00000000-0000-0000-0000-000000000000&difficulty=medium&limit=5"
+```
+
+## Data Model (003_question_delivery.sql)
+
+Tables used:
+
+- question_categories: id, name, icon, color, description, metadata
+- questions: id, category_id, text, options (jsonb), correct_answer, difficulty, explanation, is_active
+
+Recommended metadata fields:
+
+- metadata.slug: short identifier used in categoryId filter (non-UUID)
+
+## Seeding from Import JSON
+
+If you imported CLI questions:
+
+```bash path=null start=null
+node scripts/generate-sql-from-import.js
+# Apply supabase/cli_import_seed.sql in Supabase
+```
+
+## Troubleshooting
+
+- 401/403: Ensure SUPABASE_SERVICE_ROLE_KEY is valid in server environment.
+- Empty results: Confirm categories exist and that questions.is_active = true.
+- Performance: Add indexes (already included in migrations) and prefer UUID categoryId for direct matches.

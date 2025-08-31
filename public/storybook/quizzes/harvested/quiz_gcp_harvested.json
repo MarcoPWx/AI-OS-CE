@@ -1,0 +1,359 @@
+{
+  "quiz_id": "harvest_gcp",
+  "title": "Gcp Quiz (Harvested)",
+  "description": "Auto-generated quiz from harvested gcp content",
+  "category": "gcp",
+  "difficulty": "mixed",
+  "time_limit": 30,
+  "passing_score": 70,
+  "questions": [
+    {
+      "id": "harvest_26",
+      "question": "What problem does Home solve?",
+      "options": [
+        "Home Compute Engine Documentation Compute Engine documentation Read product documentation Compute Engine is a computing and hosting service that lets",
+        "An alternative to Home with additional configuration",
+        "A component of Home with additional configuration",
+        "A different approach to Home with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "Home Compute Engine Documentation Compute Engine documentation Read product documentation Compute Engine is a computing and hosting service that lets you create\n  and run virtual machines on Google in",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_27",
+      "question": "How is Compute typically implemented?",
+      "options": [
+        "A different approach to Compute with additional configuration",
+        "A component of Compute with additional configuration",
+        "An alternative to Compute with additional configuration",
+        "Learn more Training Training and tutorials Interactive walkthrough: Create a Linux VM in Compute Engine Create a Linux VM by using a tutorial that wa"
+      ],
+      "correct_answer": 3,
+      "explanation": "Learn more Training Training and tutorials Interactive walkthrough: Create a Linux VM in Compute Engine Create a Linux VM by using a tutorial that walks you through the steps directly in the Cloud con",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_28",
+      "question": "Why would you use Engine in docs?",
+      "options": [
+        "A different approach to Engine with additional configuration",
+        "An alternative to Engine with additional configuration",
+        "A component of Engine with additional configuration",
+        "Learn more Training Training and tutorials Interactive walkthrough: Create a Linux VM in Compute Engine Create a Linux VM by using a tutorial that wa"
+      ],
+      "correct_answer": 3,
+      "explanation": "Learn more Training Training and tutorials Interactive walkthrough: Create a Linux VM in Compute Engine Create a Linux VM by using a tutorial that walks you through the steps directly in the Cloud con",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_30",
+      "question": "Why would you use Read in docs?",
+      "options": [
+        "A different approach to Read with additional configuration",
+        "Home Compute Engine Documentation Compute Engine documentation Read product documentation Compute Engine is a computing and hosting service that lets",
+        "A component of Read with additional configuration",
+        "An alternative to Read with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Home Compute Engine Documentation Compute Engine documentation Read product documentation Compute Engine is a computing and hosting service that lets you create\n  and run virtual machines on Google in",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_31",
+      "question": "What is Console?",
+      "options": [
+        "A component of Console with additional configuration",
+        "A different approach to Console with additional configuration",
+        "A  format_list_numbered guides get started: console quickstart or cli quickstart write functions: http or cloudevents deploy functions function triggers",
+        "An alternative to Console with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Console is correctly described as: A  format_list_numbered guides get started: console quickstart or cli quickstart write functions: ht",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_33",
+      "question": "When should you use Cloud?",
+      "options": [
+        "A different approach to Cloud with additional configuration",
+        "format_list_numbered Guides Get started: Console quickstart or CLI quickstart Write functions: HTTP or CloudEvents Deploy functions Function triggers",
+        "A component of Cloud with additional configuration",
+        "An alternative to Cloud with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "format_list_numbered Guides Get started: Console quickstart or CLI quickstart Write functions: HTTP or CloudEvents Deploy functions Function triggers: HTTP or CloudEvents find_in_page Reference gcloud",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_34",
+      "question": "What is the main advantage of Run?",
+      "options": [
+        "A component of Run with additional configuration",
+        "format_list_numbered Guides Get started: Console quickstart or CLI quickstart Write functions: HTTP or CloudEvents Deploy functions Function triggers",
+        "An alternative to Run with additional configuration",
+        "A different approach to Run with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "format_list_numbered Guides Get started: Console quickstart or CLI quickstart Write functions: HTTP or CloudEvents Deploy functions Function triggers: HTTP or CloudEvents find_in_page Reference gcloud",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_35",
+      "question": "What is required to use Home?",
+      "options": [
+        "An alternative to Home with additional configuration",
+        "A different approach to Home with additional configuration",
+        "A component of Home with additional configuration",
+        "Home Cloud Run functions Documentation Cloud Run functions documentation Read product documentation Cloud Run functions is a\n  lightweight compute so"
+      ],
+      "correct_answer": 3,
+      "explanation": "Home Cloud Run functions Documentation Cloud Run functions documentation Read product documentation Cloud Run functions is a\n  lightweight compute solution for developers to create single-purpose,\n  s",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_36",
+      "question": "What is Home?",
+      "options": [
+        "A component of Home with additional configuration",
+        "An alternative to Home with additional configuration",
+        "A different approach to Home with additional configuration",
+        "A home cloud storage documentation cloud storage documentation read product documentation cloud storage allows world-wide storage and retrieval of any a"
+      ],
+      "correct_answer": 3,
+      "explanation": "Home is correctly described as: A home cloud storage documentation cloud storage documentation read product documentation cloud stor",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_37",
+      "question": "What is required to use Cloud?",
+      "options": [
+        "js samples Samples for interacting with Cloud Storage Open GitHub arrow_forward Code sample Code Samples PHP samples Samples for interacting with Clou",
+        "A different approach to Cloud with additional configuration",
+        "A component of Cloud with additional configuration",
+        "An alternative to Cloud with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "js samples Samples for interacting with Cloud Storage Open GitHub arrow_forward Code sample Code Samples PHP samples Samples for interacting with Cloud Storage Open GitHub arrow_forward Code sample Co",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_38",
+      "question": "How is Storage typically implemented?",
+      "options": [
+        "A different approach to Storage with additional configuration",
+        "js samples Samples for interacting with Cloud Storage Open GitHub arrow_forward Code sample Code Samples PHP samples Samples for interacting with Clou",
+        "An alternative to Storage with additional configuration",
+        "A component of Storage with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "js samples Samples for interacting with Cloud Storage Open GitHub arrow_forward Code sample Code Samples PHP samples Samples for interacting with Cloud Storage Open GitHub arrow_forward Code sample Co",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_40",
+      "question": "How is Read typically implemented?",
+      "options": [
+        "Home Cloud Storage Documentation Cloud Storage documentation Read product documentation Cloud Storage allows world-wide storage and retrieval of any a",
+        "A component of Read with additional configuration",
+        "An alternative to Read with additional configuration",
+        "A different approach to Read with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "Home Cloud Storage Documentation Cloud Storage documentation Read product documentation Cloud Storage allows world-wide storage and retrieval of any amount of\n  data at any time",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_41",
+      "question": "When should you use Home?",
+      "options": [
+        "A component of Home with additional configuration",
+        "An alternative to Home with additional configuration",
+        "Home Google Kubernetes Engine (GKE) Documentation Google Kubernetes Engine documentation Read product documentation Deploy, manage, and scale containe",
+        "A different approach to Home with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Home Google Kubernetes Engine (GKE) Documentation Google Kubernetes Engine documentation Read product documentation Deploy, manage, and scale containerized applications on Kubernetes, powered by Googl",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_42",
+      "question": "What is Google?",
+      "options": [
+        "A component of Google with additional configuration",
+        "An alternative to Google with additional configuration",
+        "A  format_list_numbered guides quickstart: create a cluster and deploy a workload configuring cluster access for kubectl access google cloud apis from g",
+        "A different approach to Google with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Google is correctly described as: A  format_list_numbered guides quickstart: create a cluster and deploy a workload configuring cluste",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_43",
+      "question": "What is required to use Kubernetes?",
+      "options": [
+        "An alternative to Kubernetes with additional configuration",
+        "format_list_numbered Guides Quickstart: Create a cluster and deploy a workload Configuring cluster access for kubectl Access Google Cloud APIs from G",
+        "A component of Kubernetes with additional configuration",
+        "A different approach to Kubernetes with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "format_list_numbered Guides Quickstart: Create a cluster and deploy a workload Configuring cluster access for kubectl Access Google Cloud APIs from GKE workloads GKE security documentation GKE network",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_44",
+      "question": "Which of the following best describes Engine?",
+      "options": [
+        "An alternative to Engine with additional configuration",
+        "A different approach to Engine with additional configuration",
+        "A  format_list_numbered guides quickstart: create a cluster and deploy a workload configuring cluster access for kubectl access google cloud apis from g",
+        "A component of Engine with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Engine is correctly described as: A  format_list_numbered guides quickstart: create a cluster and deploy a workload configuring cluste",
+      "difficulty": 2,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_29",
+      "question": "What is the primary purpose of Documentation?",
+      "options": [
+        "An alternative to Documentation with additional configuration",
+        "A component of Documentation with additional configuration",
+        "Home Compute Engine Documentation Compute Engine documentation Read product documentation Compute Engine is a computing and hosting service that lets",
+        "A different approach to Documentation with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Home Compute Engine Documentation Compute Engine documentation Read product documentation Compute Engine is a computing and hosting service that lets you create\n  and run virtual machines on Google in",
+      "difficulty": 3,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_32",
+      "question": "When should you use Quickstart?",
+      "options": [
+        "A component of Quickstart with additional configuration",
+        "If you are creating a new function, see the Console Quickstart on Cloud Run",
+        "An alternative to Quickstart with additional configuration",
+        "A different approach to Quickstart with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "If you are creating a new function, see the Console Quickstart on Cloud Run",
+      "difficulty": 3,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_39",
+      "question": "What problem does Documentation solve?",
+      "options": [
+        "Home Cloud Storage Documentation Cloud Storage documentation Read product documentation Cloud Storage allows world-wide storage and retrieval of any a",
+        "An alternative to Documentation with additional configuration",
+        "A different approach to Documentation with additional configuration",
+        "A component of Documentation with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "Home Cloud Storage Documentation Cloud Storage documentation Read product documentation Cloud Storage allows world-wide storage and retrieval of any amount of\n  data at any time",
+      "difficulty": 3,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_45",
+      "question": "What is Documentation?",
+      "options": [
+        "A different approach to Documentation with additional configuration",
+        "A home google kubernetes engine (gke) documentation google kubernetes engine documentation read product documentation deploy, manage, and scale containe",
+        "A component of Documentation with additional configuration",
+        "An alternative to Documentation with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Documentation is correctly described as: A home google kubernetes engine (gke) documentation google kubernetes engine documentation read prod",
+      "difficulty": 3,
+      "tags": [
+        "gcp",
+        "docs"
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "automated_harvest",
+    "question_count": 20,
+    "difficulty_distribution": {
+      "2": 16,
+      "3": 4
+    }
+  }
+}

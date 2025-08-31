@@ -1,0 +1,362 @@
+name: Load Testing with Locust
+
+on:
+  # Schedule nightly runs at 2 AM UTC
+  schedule:
+    - cron: '0 2 * * *'
+  
+  # Manual trigger with parameters
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        description: 'Target environment to test'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+          - development
+      test_profile:
+        description: 'Load test profile'
+        required: true
+        default: 'medium'
+        type: choice
+        options:
+          - light
+          - medium
+          - heavy
+          - spike
+          - soak
+      duration:
+        description: 'Test duration (e.g., 5m, 1h)'
+        required: false
+        default: '5m'
+      users:
+        description: 'Number of concurrent users'
+        required: false
+        default: '100'
+
+env:
+  LOCUST_VERSION: '2.17.0'
+  NODE_VERSION: '18'
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  load-test:
+    name: Execute Load Test
+    runs-on: ubuntu-latest
+    
+    # Set timeout based on test duration
+    timeout-minutes: 120
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Install dependencies
+        run: |
+          # Install Locust
+          pip install locust==${{ env.LOCUST_VERSION }}
+          
+          # Install Node.js dependencies for CSV processing
+          npm install csv-parse csv-stringify
+      
+      - name: Configure test parameters
+        id: config
+        run: |
+          # Set base URL based on environment
+          if [ "${{ github.event.inputs.target_environment || 'staging' }}" == "production" ]; then
+            echo "BASE_URL=${{ secrets.QM_PRODUCTION_URL }}" >> $GITHUB_ENV
+            echo "API_TOKEN=${{ secrets.QM_PRODUCTION_API_TOKEN }}" >> $GITHUB_ENV
+            echo "USE_AUTH=true" >> $GITHUB_ENV
+          elif [ "${{ github.event.inputs.target_environment || 'staging' }}" == "development" ]; then
+            echo "BASE_URL=${{ secrets.QM_DEVELOPMENT_URL }}" >> $GITHUB_ENV
+            echo "API_TOKEN=${{ secrets.QM_DEVELOPMENT_API_TOKEN }}" >> $GITHUB_ENV
+            echo "USE_AUTH=false" >> $GITHUB_ENV
+          else
+            echo "BASE_URL=${{ secrets.QM_STAGING_URL }}" >> $GITHUB_ENV
+            echo "API_TOKEN=${{ secrets.QM_STAGING_API_TOKEN }}" >> $GITHUB_ENV
+            echo "USE_AUTH=true" >> $GITHUB_ENV
+          fi
+          
+          # Set test profile parameters
+          case "${{ github.event.inputs.test_profile || 'medium' }}" in
+            light)
+              echo "USERS=10" >> $GITHUB_ENV
+              echo "SPAWN_RATE=2" >> $GITHUB_ENV
+              echo "DURATION=2m" >> $GITHUB_ENV
+              ;;
+            heavy)
+              echo "USERS=500" >> $GITHUB_ENV
+              echo "SPAWN_RATE=50" >> $GITHUB_ENV
+              echo "DURATION=10m" >> $GITHUB_ENV
+              ;;
+            spike)
+              echo "USERS=1000" >> $GITHUB_ENV
+              echo "SPAWN_RATE=200" >> $GITHUB_ENV
+              echo "DURATION=5m" >> $GITHUB_ENV
+              ;;
+            soak)
+              echo "USERS=200" >> $GITHUB_ENV
+              echo "SPAWN_RATE=20" >> $GITHUB_ENV
+              echo "DURATION=30m" >> $GITHUB_ENV
+              ;;
+            *)  # medium (default)
+              echo "USERS=100" >> $GITHUB_ENV
+              echo "SPAWN_RATE=10" >> $GITHUB_ENV
+              echo "DURATION=5m" >> $GITHUB_ENV
+              ;;
+          esac
+          
+          # Override with manual inputs if provided
+          if [ -n "${{ github.event.inputs.users }}" ]; then
+            echo "USERS=${{ github.event.inputs.users }}" >> $GITHUB_ENV
+          fi
+          if [ -n "${{ github.event.inputs.duration }}" ]; then
+            echo "DURATION=${{ github.event.inputs.duration }}" >> $GITHUB_ENV
+          fi
+          
+          # Set thresholds
+          echo "THRESHOLD_FAIL_RATIO=${{ secrets.QM_LOADTEST_THRESHOLD_FAIL_RATIO || '0.01' }}" >> $GITHUB_ENV
+          echo "THRESHOLD_P95=${{ secrets.QM_LOADTEST_THRESHOLD_P95 || '1000' }}" >> $GITHUB_ENV
+          echo "THRESHOLD_P99=${{ secrets.QM_LOADTEST_THRESHOLD_P99 || '2000' }}" >> $GITHUB_ENV
+      
+      - name: Create artifacts directory
+        run: mkdir -p artifacts
+      
+      - name: Run Locust load test
+        id: locust
+        run: |
+          echo "🚀 Starting load test..."
+          echo "Target: $BASE_URL"
+          echo "Users: $USERS"
+          echo "Spawn Rate: $SPAWN_RATE"
+          echo "Duration: $DURATION"
+          
+          # Run Locust in headless mode
+          locust \
+            -f ops/locust/locustfile.py \
+            --headless \
+            --users $USERS \
+            --spawn-rate $SPAWN_RATE \
+            --run-time $DURATION \
+            --host $BASE_URL \
+            --csv=artifacts/locust \
+            --csv-full-history \
+            --only-summary \
+            --print-stats \
+            || true  # Don't fail immediately, we'll check thresholds later
+          
+          echo "✅ Load test completed"
+      
+      - name: Generate CSV summary
+        id: summary
+        run: |
+          echo "📊 Generating test summary..."
+          
+          # Generate CSV summary
+          node scripts/export_locust_csv_summary.js \
+            -i artifacts \
+            -o artifacts/summary_report.csv \
+            -f csv \
+            -t \
+            -v
+          
+          # Also generate HTML report
+          node scripts/export_locust_csv_summary.js \
+            -i artifacts \
+            -o artifacts/summary_report.html \
+            -f html \
+            -v
+          
+          # Check if thresholds passed
+          if [ $? -eq 0 ]; then
+            echo "✅ All thresholds passed!"
+            echo "threshold_passed=true" >> $GITHUB_OUTPUT
+          else
+            echo "❌ Some thresholds failed"
+            echo "threshold_passed=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: locust-results-${{ github.run_number }}
+          path: |
+            artifacts/*.csv
+            artifacts/*.html
+          retention-days: 30
+      
+      - name: Parse test results
+        id: parse
+        if: always()
+        run: |
+          # Extract key metrics from CSV for summary
+          if [ -f "artifacts/locust_stats.csv" ]; then
+            # Get total stats (last line of CSV)
+            TOTAL_REQUESTS=$(tail -1 artifacts/locust_stats.csv | cut -d',' -f3)
+            TOTAL_FAILURES=$(tail -1 artifacts/locust_stats.csv | cut -d',' -f4)
+            AVG_RESPONSE=$(tail -1 artifacts/locust_stats.csv | cut -d',' -f6)
+            P95_RESPONSE=$(tail -1 artifacts/locust_stats.csv | cut -d',' -f11)
+            P99_RESPONSE=$(tail -1 artifacts/locust_stats.csv | cut -d',' -f12)
+            RPS=$(tail -1 artifacts/locust_stats.csv | cut -d',' -f13)
+            
+            # Calculate error rate
+            if [ "$TOTAL_REQUESTS" -gt 0 ]; then
+              ERROR_RATE=$(echo "scale=4; $TOTAL_FAILURES / $TOTAL_REQUESTS * 100" | bc)
+            else
+              ERROR_RATE=0
+            fi
+            
+            # Set outputs
+            echo "total_requests=$TOTAL_REQUESTS" >> $GITHUB_OUTPUT
+            echo "error_rate=$ERROR_RATE" >> $GITHUB_OUTPUT
+            echo "avg_response=$AVG_RESPONSE" >> $GITHUB_OUTPUT
+            echo "p95_response=$P95_RESPONSE" >> $GITHUB_OUTPUT
+            echo "p99_response=$P99_RESPONSE" >> $GITHUB_OUTPUT
+            echo "rps=$RPS" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            // Read summary if available
+            let summaryContent = '## 🚀 Load Test Results\n\n';
+            
+            summaryContent += `**Environment:** ${{ github.event.inputs.target_environment || 'staging' }}\n`;
+            summaryContent += `**Profile:** ${{ github.event.inputs.test_profile || 'medium' }}\n`;
+            summaryContent += `**Duration:** ${{ env.DURATION }}\n`;
+            summaryContent += `**Users:** ${{ env.USERS }}\n\n`;
+            
+            summaryContent += '### 📊 Key Metrics\n\n';
+            summaryContent += '| Metric | Value | Status |\n';
+            summaryContent += '|--------|-------|--------|\n';
+            summaryContent += `| Total Requests | ${{ steps.parse.outputs.total_requests || 'N/A' }} | - |\n`;
+            summaryContent += `| Error Rate | ${{ steps.parse.outputs.error_rate || 'N/A' }}% | ${parseFloat('${{ steps.parse.outputs.error_rate || 0 }}') > 1 ? '❌' : '✅'} |\n`;
+            summaryContent += `| Avg Response | ${{ steps.parse.outputs.avg_response || 'N/A' }}ms | - |\n`;
+            summaryContent += `| P95 Response | ${{ steps.parse.outputs.p95_response || 'N/A' }}ms | ${parseFloat('${{ steps.parse.outputs.p95_response || 0 }}') > 1000 ? '⚠️' : '✅'} |\n`;
+            summaryContent += `| P99 Response | ${{ steps.parse.outputs.p99_response || 'N/A' }}ms | ${parseFloat('${{ steps.parse.outputs.p99_response || 0 }}') > 2000 ? '⚠️' : '✅'} |\n`;
+            summaryContent += `| Throughput | ${{ steps.parse.outputs.rps || 'N/A' }} RPS | - |\n\n`;
+            
+            summaryContent += `**Overall Status:** ${{ steps.summary.outputs.threshold_passed == 'true' ? '✅ PASSED' : '❌ FAILED' }}\n\n`;
+            summaryContent += `[View Full Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})\n`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summaryContent
+            });
+      
+      - name: Send Slack notification
+        if: always() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK_URL" ]; then
+            STATUS_EMOJI="${{ steps.summary.outputs.threshold_passed == 'true' && '✅' || '❌' }}"
+            STATUS_TEXT="${{ steps.summary.outputs.threshold_passed == 'true' && 'PASSED' || 'FAILED' }}"
+            
+            curl -X POST $SLACK_WEBHOOK_URL \
+              -H 'Content-Type: application/json' \
+              -d "{
+                \"text\": \"$STATUS_EMOJI Load Test $STATUS_TEXT\",
+                \"blocks\": [
+                  {
+                    \"type\": \"header\",
+                    \"text\": {
+                      \"type\": \"plain_text\",
+                      \"text\": \"$STATUS_EMOJI QuizMentor Load Test Results\"
+                    }
+                  },
+                  {
+                    \"type\": \"section\",
+                    \"fields\": [
+                      {
+                        \"type\": \"mrkdwn\",
+                        \"text\": \"*Environment:*\n${{ github.event.inputs.target_environment || 'staging' }}\"
+                      },
+                      {
+                        \"type\": \"mrkdwn\",
+                        \"text\": \"*Duration:*\n${{ env.DURATION }}\"
+                      },
+                      {
+                        \"type\": \"mrkdwn\",
+                        \"text\": \"*Error Rate:*\n${{ steps.parse.outputs.error_rate || 'N/A' }}%\"
+                      },
+                      {
+                        \"type\": \"mrkdwn\",
+                        \"text\": \"*P95 Latency:*\n${{ steps.parse.outputs.p95_response || 'N/A' }}ms\"
+                      }
+                    ]
+                  },
+                  {
+                    \"type\": \"actions\",
+                    \"elements\": [
+                      {
+                        \"type\": \"button\",
+                        \"text\": {
+                          \"type\": \"plain_text\",
+                          \"text\": \"View Results\"
+                        },
+                        \"url\": \"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
+                      }
+                    ]
+                  }
+                ]
+              }"
+          fi
+      
+      - name: Create issue on failure
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `🚨 Nightly Load Test Failed - ${new Date().toISOString().split('T')[0]}`;
+            const body = `
+            ## Load Test Failure Report
+            
+            The nightly load test has failed. Please investigate.
+            
+            **Environment:** ${{ github.event.inputs.target_environment || 'staging' }}
+            **Error Rate:** ${{ steps.parse.outputs.error_rate || 'N/A' }}%
+            **P95 Response:** ${{ steps.parse.outputs.p95_response || 'N/A' }}ms
+            
+            ### Action Items
+            - [ ] Review test results
+            - [ ] Check application logs
+            - [ ] Verify infrastructure health
+            - [ ] Update thresholds if needed
+            
+            [View Full Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            `;
+            
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['load-test', 'failure', 'automated']
+            });
+      
+      - name: Fail job if thresholds not met
+        if: steps.summary.outputs.threshold_passed != 'true'
+        run: |
+          echo "❌ Load test failed to meet thresholds"
+          exit 1

@@ -1,0 +1,189 @@
+{
+  "quiz_id": "harvest_javascript",
+  "title": "Javascript Quiz (Harvested)",
+  "description": "Auto-generated quiz from harvested javascript content",
+  "category": "javascript",
+  "difficulty": "mixed",
+  "time_limit": 30,
+  "passing_score": 70,
+  "questions": [
+    {
+      "id": "harvest_86",
+      "question": "Which of the following best describes JavaScript?",
+      "options": [
+        "A of functions overview: functions defining functions calling functions function scopes and closures arguments & parameters arrow functions expressions",
+        "A component of JavaScript with additional configuration",
+        "An alternative to JavaScript with additional configuration",
+        "A different approach to JavaScript with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "JavaScript is correctly described as: A of functions overview: functions defining functions calling functions function scopes and closures",
+      "difficulty": 2,
+      "tags": [
+        "javascript",
+        "Guide"
+      ]
+    },
+    {
+      "id": "harvest_87",
+      "question": "In javascript, what does Guide refer to?",
+      "options": [
+        "A different approach to Guide with additional configuration",
+        "An alternative to Guide with additional configuration",
+        "A component of Guide with additional configuration",
+        "A javascript guide the javascript guide shows you how to use javascript and gives an overview of the language"
+      ],
+      "correct_answer": 3,
+      "explanation": "Guide is correctly described as: A javascript guide the javascript guide shows you how to use javascript and gives an overview of the",
+      "difficulty": 2,
+      "tags": [
+        "javascript",
+        "Guide"
+      ]
+    },
+    {
+      "id": "harvest_88",
+      "question": "What is This?",
+      "options": [
+        "A different approach to This with additional configuration",
+        "A component of This with additional configuration",
+        "A  language overview data structures enumerability and ownership of properties inheritance and the prototype chain equality comparisons and sameness clo",
+        "An alternative to This with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "This is correctly described as: A  language overview data structures enumerability and ownership of properties inheritance and the p",
+      "difficulty": 2,
+      "tags": [
+        "javascript",
+        "Guide"
+      ]
+    },
+    {
+      "id": "harvest_89",
+      "question": "Why would you use Introduction in Guide?",
+      "options": [
+        "A different approach to Introduction with additional configuration",
+        "A component of Introduction with additional configuration",
+        "An alternative to Introduction with additional configuration",
+        "Introduction Overview: Introduction About this guide About JavaScript JavaScript and Java ECMAScript Tools What's next Grammar and types Overview: Gr"
+      ],
+      "correct_answer": 3,
+      "explanation": "Introduction Overview: Introduction About this guide About JavaScript JavaScript and Java ECMAScript Tools What's next Grammar and types Overview: Grammar and types Basic syntax & comments Declaration",
+      "difficulty": 2,
+      "tags": [
+        "javascript",
+        "Guide"
+      ]
+    },
+    {
+      "id": "harvest_90",
+      "question": "When should you use Overview?",
+      "options": [
+        "A component of Overview with additional configuration",
+        "of Functions Overview: Functions Defining functions Calling functions Function scopes and closures Arguments & parameters Arrow functions Expressions",
+        "An alternative to Overview with additional configuration",
+        "A different approach to Overview with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "of Functions Overview: Functions Defining functions Calling functions Function scopes and closures Arguments & parameters Arrow functions Expressions and operators Overview: Expressions and operators ",
+      "difficulty": 2,
+      "tags": [
+        "javascript",
+        "Guide"
+      ]
+    },
+    {
+      "id": "harvest_91",
+      "question": "Which of the following best describes Node?",
+      "options": [
+        "A component of Node with additional configuration",
+        "A js about this documentation usage and example assertion testing asynchronous context tracking async hooks buffer c++ addons c/c++ addons with node-api",
+        "A different approach to Node with additional configuration",
+        "An alternative to Node with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Node is correctly described as: A js about this documentation usage and example assertion testing asynchronous context tracking asyn",
+      "difficulty": 2,
+      "tags": [
+        "javascript",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_92",
+      "question": "Which approach is best for About?",
+      "options": [
+        "A different approach to About with additional configuration",
+        "An alternative to About with additional configuration",
+        "js About this documentation Usage and example Assertion testing Asynchronous context tracking Async hooks Buffer C++ addons C/C++ addons with Node-API",
+        "A component of About with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "js About this documentation Usage and example Assertion testing Asynchronous context tracking Async hooks Buffer C++ addons C/C++ addons with Node-API C++ embedder API Child processes Cluster Command-",
+      "difficulty": 2,
+      "tags": [
+        "javascript",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_93",
+      "question": "When should you use Usage?",
+      "options": [
+        "An alternative to Usage with additional configuration",
+        "A different approach to Usage with additional configuration",
+        "A component of Usage with additional configuration",
+        "js About this documentation Usage and example Assertion testing Asynchronous context tracking Async hooks Buffer C++ addons C/C++ addons with Node-API"
+      ],
+      "correct_answer": 3,
+      "explanation": "js About this documentation Usage and example Assertion testing Asynchronous context tracking Async hooks Buffer C++ addons C/C++ addons with Node-API C++ embedder API Child processes Cluster Command-",
+      "difficulty": 2,
+      "tags": [
+        "javascript",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_94",
+      "question": "What is required to use Assertion?",
+      "options": [
+        "A component of Assertion with additional configuration",
+        "A different approach to Assertion with additional configuration",
+        "An alternative to Assertion with additional configuration",
+        "js About this documentation Usage and example Assertion testing Asynchronous context tracking Async hooks Buffer C++ addons C/C++ addons with Node-API"
+      ],
+      "correct_answer": 3,
+      "explanation": "js About this documentation Usage and example Assertion testing Asynchronous context tracking Async hooks Buffer C++ addons C/C++ addons with Node-API C++ embedder API Child processes Cluster Command-",
+      "difficulty": 2,
+      "tags": [
+        "javascript",
+        "docs"
+      ]
+    },
+    {
+      "id": "harvest_95",
+      "question": "How is Asynchronous typically implemented?",
+      "options": [
+        "js About this documentation Usage and example Assertion testing Asynchronous context tracking Async hooks Buffer C++ addons C/C++ addons with Node-API",
+        "A different approach to Asynchronous with additional configuration",
+        "An alternative to Asynchronous with additional configuration",
+        "A component of Asynchronous with additional configuration"
+      ],
+      "correct_answer": 0,
+      "explanation": "js About this documentation Usage and example Assertion testing Asynchronous context tracking Async hooks Buffer C++ addons C/C++ addons with Node-API C++ embedder API Child processes Cluster Command-",
+      "difficulty": 3,
+      "tags": [
+        "javascript",
+        "docs"
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "automated_harvest",
+    "question_count": 10,
+    "difficulty_distribution": {
+      "2": 9,
+      "3": 1
+    }
+  }
+}

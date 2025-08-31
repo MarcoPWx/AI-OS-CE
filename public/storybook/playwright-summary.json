@@ -1,0 +1,6 @@
+{
+  "source": "html-only",
+  "reportPath": "playwright-report",
+  "note": "HTML report present. Run `npm run test:e2e:json` to generate full JSON summary.",
+  "generatedAt": "2025-08-29T12:56:17.327Z"
+}

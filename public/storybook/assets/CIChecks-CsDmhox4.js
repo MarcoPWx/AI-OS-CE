@@ -1,0 +1,15 @@
+import{j as t}from"./jsx-runtime-BjG_zV1W.js";import{useMDXComponents as d}from"./index-Di0Mt_3y.js";import{M as h}from"./index-Dd9QK8Sf.js";import{R as e}from"./index-R2V08a_e.js";import"./iframe-D4bCNOrd.js";import"./index-B25VQ0Mk.js";import"./index-BMU9HDYU.js";import"./index-DrFu-skq.js";const f=()=>{const[s,o]=e.useState(null),[p,y]=e.useState(null);e.useEffect(()=>{let n=!0;return(async()=>{try{const l=await fetch("/data/tests/storybook-e2e.json",{cache:"no-store"});n&&l.ok&&o(await l.json())}catch{}try{const l=await fetch("/data/tests/storybook-journeys-e2e.json",{cache:"no-store"});n&&l.ok&&y(await l.json())}catch{}})(),()=>{n=!1}},[]);const a={border:"1px solid rgba(148,163,184,0.25)",borderRadius:12,padding:16,background:"rgba(2,6,23,0.9)",color:"#e5e7eb"},E={display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(260px, 1fr))",gap:12},i={fontWeight:800,marginBottom:8},c={fontSize:12,color:"#94a3b8"},u=(n,l)=>{if(!n)return e.createElement("div",{style:a},e.createElement("div",{style:i},l),e.createElement("div",null,"No JSON found. Run the script below to generate it."));const r=(n==null?void 0:n.stats)||(n==null?void 0:n.totals)||null,b=r?e.createElement("ul",null,r.total!=null&&e.createElement("li",null,"Total: ",r.total),r.passed!=null&&e.createElement("li",null,"Passed: ",r.passed),r.failed!=null&&e.createElement("li",null,"Failed: ",r.failed),r.skipped!=null&&e.createElement("li",null,"Skipped: ",r.skipped)):e.createElement("div",{style:c},"No totals present (format may vary).");return e.createElement("div",{style:a},e.createElement("div",{style:i},l),b)};return e.createElement("div",null,e.createElement("div",{style:E},u(s,"Storybook E2E (Presenter/MSW)"),u(p,"Storybook Journeys E2E")),e.createElement("div",{style:{marginTop:12}},e.createElement("div",{style:c},"How to generate results:"),e.createElement("pre",{style:{whiteSpace:"pre-wrap",background:"rgba(2,6,23,0.7)",padding:12,borderRadius:8}},`# Run Storybook E2E against presenter/MSW overlays
+npm run e2e:storybook:json
+
+# (Optional) Run Storybook Journeys E2E
+npm run e2e:storybook:journeys:json`)))},C={devOnly:!0};function m(s){const o={h1:"h1",li:"li",p:"p",ul:"ul",...d(),...s.components};return t.jsxs(t.Fragment,{children:[t.jsx(h,{title:"Dev/CI Checks"}),`
+`,`
+`,t.jsx(o.h1,{id:"ci-checks-for-storybook",children:"CI Checks for Storybook"}),`
+`,t.jsx(o.p,{children:"This page summarizes E2E checks that exercise Presenter Mode and MSW overlays against a running Storybook instance."}),`
+`,t.jsx(o.p,{children:"How to run"}),`
+`,t.jsxs(o.ul,{children:[`
+`,t.jsx(o.li,{children:"Storybook E2E (Presenter/MSW): npm run e2e:storybook:json"}),`
+`,t.jsx(o.li,{children:"Storybook Journeys E2E: npm run e2e:storybook:journeys:json"}),`
+`]}),`
+`,t.jsx(o.p,{children:"Results will appear below if the JSON artifacts exist under data/tests/."}),`
+`,t.jsx(f,{})]})}function R(s={}){const{wrapper:o}={...d(),...s.components};return o?t.jsx(o,{...s,children:t.jsx(m,{...s})}):m(s)}export{R as default,C as parameters};

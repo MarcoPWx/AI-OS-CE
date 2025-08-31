@@ -1,0 +1,70 @@
+# Labs: Index — Coverage Map
+
+import { Meta } from '@storybook/blocks';
+import React from 'react';
+import { addons } from '@storybook/preview-api';
+import { UPDATE_GLOBALS } from '@storybook/core-events';
+
+<Meta title="Labs/Index" />
+
+<div style={{ display: 'flex', gap: 12, alignItems: 'center', margin: '12px 0 4px 0' }}>
+  <button
+    style={{
+      padding: '8px 12px',
+      borderRadius: 8,
+      border: '1px solid rgba(59,130,246,0.5)',
+      background: 'rgba(2,6,23,0.9)',
+      color: '#e5e7eb',
+      fontWeight: 700,
+      cursor: 'pointer',
+    }}
+    onClick={() => {
+      try {
+        const channel = addons.getChannel();
+        channel.emit(UPDATE_GLOBALS, { globals: { presenterGuide: 'labs', presenterStep: 0 } });
+      } catch {}
+    }}
+  >
+    ▶ Start Presentation
+  </button>
+  <span style={{ fontSize: 12, color: '#64748b' }}>Tip: press g g to toggle the Presenter overlay</span>
+</div>
+
+Purpose
+- One place to understand and navigate all Labs covering functionality, user stories, and S2S flows.
+
+Labs overview
+- Mobile Mock Beta — device builds with full mocks
+- Device Matrix — iOS/Android smoke and interview demo
+- Auth & Session — mock auth, session persistence, guarded actions
+- Quiz & Content — categories, questions, fallback
+- Gamification & Achievements — XP, levels, badges
+- Leaderboard & Social — rankings and social loops
+- Onboarding & Profile — first run, profile basics
+- Error & Offline — network failures, fallback flows
+- S2S Orchestration — contracts, MSW, Swagger, supertest
+- Performance & Device Metrics — budgets and checks
+- Security & Privacy — headers, data handling
+- Accessibility — key screens checks
+- Sentry — crash & release health (Expo/EAS)
+
+Map to stories (selected)
+- Auth: src/stories/AuthSmoke.stories.tsx, src/stories/AuthMSWFlow.stories.tsx
+- Quiz: src/stories/QuizFlowDemo.stories.tsx, src/stories/QuizScreen.stories.tsx, src/stories/QuizEngineSandbox.stories.tsx
+- Gamification: src/stories/gamification/GamificationSystem.stories.tsx
+- Leaderboard: src/screens/LeaderboardScreenGameified.tsx (link via MDX notes)
+- Journeys: src/stories/journeys/UserJourneys.stories.tsx, .storybook/stories/SpecsJourneysDetailed.mdx
+- S2S: src/stories/S2SOrchestration.stories.tsx, Swagger, ApiPlayground
+- Network: src/stories/NetworkPlayground.stories.tsx, TransportFallback.stories.tsx
+- Performance: src/stories/CodeSplitDemo.stories.tsx, .storybook/stories/BundlingAndPerformance.mdx
+- Security: src/stories/SecurityPlayground.stories.tsx, .storybook/stories/SpecsSecurityPrivacyExtended.mdx
+- Accessibility: .storybook/test-runner.ts (axe), run guidance in lab
+
+Coverage checklist (fill as you validate)
+- [ ] All user journeys exercised via Labs/User Journeys
+- [ ] All S2S contracts tested via Labs/S2S Orchestration
+- [ ] Mock device builds validated via Labs/Mobile Mock Beta
+- [ ] Performance budgets verified via Labs/Performance
+- [ ] Security headers and data handling validated via Labs/Security & Privacy
+- [ ] Accessibility checks completed on key screens
+

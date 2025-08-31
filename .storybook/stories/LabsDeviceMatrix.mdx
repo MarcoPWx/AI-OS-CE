@@ -1,0 +1,45 @@
+# Labs: Device Matrix — iOS/Android smoke and interview demo
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Labs/Device Matrix" />
+
+Purpose
+- Run a fast, repeatable device matrix to de-risk crashes and showcase workflow in interviews.
+
+Matrix (minimum viable)
+- iPhone 13/14 (iOS 17.x)
+- Pixel 6/7 (Android 13/14)
+- Optional: low-end Android (Android 12) for perf sanity
+
+Build flavor
+- Dev/preview builds with mocks on-device
+  - EXPO_PUBLIC_USE_ALL_MOCKS=1
+  - EXPO_PUBLIC_MOCK_BANNER=1
+- Keep logs enabled (Xcode/Android Studio/Flipper)
+
+Smoke scenarios (each device)
+- Cold launch → Home → pick Category → 10 Q quiz → Results
+- Airplane mode repeat (offline fallback)
+- Theme spot check (light/dark)
+- Background/resume during quiz
+- Rotations (Android), notch/safe areas (iOS)
+- Basic a11y: labels present on key controls
+
+What to capture
+- Time to first interaction (rough)
+- Any jank/crash points and red screens
+- Screenshots for store listing (portrait)
+- Console warnings around transitions
+
+Exit criteria
+- No crashes, no unhandled rejections/red screens
+- Smooth quiz loop; offline fallback works
+- No obvious layout issues across device families
+
+Interview talk track
+- Start at Labs/Index → Labs/Mobile Mock Beta
+- Explain mock gating, banner, and why we iterate UI first
+- Walk the device smoke checklist live, narrate findings
+- Close with Labs/S2S Orchestration to demonstrate contract-first thinking
+

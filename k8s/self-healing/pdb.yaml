@@ -1,0 +1,66 @@
+# QuizMentor Pod Disruption Budget Configuration
+# Ensures minimum availability during voluntary disruptions (e.g., cluster upgrades)
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: quizmentor-api-pdb
+  namespace: quizmentor
+  labels:
+    app: quizmentor
+    component: api
+spec:
+  minAvailable: 2  # Always keep at least 2 API pods running
+  selector:
+    matchLabels:
+      app: quizmentor
+      component: api
+  unhealthyPodEvictionPolicy: IfHealthyBudget  # Evict unhealthy pods if budget allows
+
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: quizmentor-worker-pdb
+  namespace: quizmentor
+  labels:
+    app: quizmentor
+    component: worker
+spec:
+  minAvailable: 1  # Always keep at least 1 worker running
+  selector:
+    matchLabels:
+      app: quizmentor
+      component: worker
+
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: quizmentor-adaptive-engine-pdb
+  namespace: quizmentor
+  labels:
+    app: quizmentor
+    component: adaptive-engine
+spec:
+  maxUnavailable: 1  # Allow at most 1 adaptive engine pod to be unavailable
+  selector:
+    matchLabels:
+      app: quizmentor
+      component: adaptive-engine
+
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: quizmentor-cache-pdb
+  namespace: quizmentor
+  labels:
+    app: quizmentor
+    component: cache
+spec:
+  minAvailable: "60%"  # Keep at least 60% of cache pods running
+  selector:
+    matchLabels:
+      app: quizmentor
+      component: redis

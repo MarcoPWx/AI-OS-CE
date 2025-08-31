@@ -1,0 +1,38 @@
+name: Docs Manifest Check
+
+on:
+  pull_request:
+    branches: [ main, master ]
+  push:
+    branches: [ main, master ]
+
+jobs:
+  docs-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate docs manifest
+        run: npm run docs:manifest
+
+      - name: Verify docs manifest is committed
+        run: |
+          if [ -f docs/docs-manifest.json ]; then
+            git diff --exit-code -- docs/docs-manifest.json || {
+              echo "Docs manifest is stale. Run 'npm run docs:manifest' and commit the result." >&2
+              exit 1
+            }
+          else
+            echo "Missing docs/docs-manifest.json. Ensure the generator outputs to docs/docs-manifest.json." >&2
+            exit 1
+          fi
+

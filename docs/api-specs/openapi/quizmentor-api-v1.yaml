@@ -1,0 +1,1064 @@
+openapi: 3.0.3
+info:
+  title: QuizMentor API
+  description: |
+    Complete REST API specification for QuizMentor - A gamified quiz learning platform.
+    This API provides endpoints for authentication, quiz management, gamification, 
+    multiplayer features, and analytics.
+  version: 1.0.0
+  contact:
+    name: QuizMentor Team
+    email: api@quizmentor.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: http://localhost:3002/api
+    description: Local development server
+  - url: https://api.quizmentor.com
+    description: Production server
+  - url: https://staging-api.quizmentor.com
+    description: Staging server
+
+security:
+  - BearerAuth: []
+  - ApiKeyAuth: []
+
+tags:
+  - name: Authentication
+    description: User authentication and session management
+  - name: Users
+    description: User profile and account management
+  - name: Quiz
+    description: Quiz gameplay and question management
+  - name: Categories
+    description: Quiz category management
+  - name: Gamification
+    description: XP, achievements, and leaderboards
+  - name: Multiplayer
+    description: Real-time multiplayer features
+  - name: Analytics
+    description: Event tracking and analytics
+  - name: Admin
+    description: Admin operations
+
+paths:
+  /auth/register:
+    post:
+      tags: [Authentication]
+      summary: Register new user
+      operationId: registerUser
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '409':
+          description: User already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /auth/login:
+    post:
+      tags: [Authentication]
+      summary: Login user
+      operationId: loginUser
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /auth/refresh:
+    post:
+      tags: [Authentication]
+      summary: Refresh access token
+      operationId: refreshToken
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [refresh_token]
+              properties:
+                refresh_token:
+                  type: string
+      responses:
+        '200':
+          description: Token refreshed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+
+  /auth/logout:
+    post:
+      tags: [Authentication]
+      summary: Logout user
+      operationId: logoutUser
+      responses:
+        '204':
+          description: Logout successful
+
+  /auth/oauth/{provider}:
+    post:
+      tags: [Authentication]
+      summary: OAuth authentication
+      operationId: oauthLogin
+      security: []
+      parameters:
+        - name: provider
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [google, github, facebook]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [code]
+              properties:
+                code:
+                  type: string
+                state:
+                  type: string
+      responses:
+        '200':
+          description: OAuth successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+
+  /users/me:
+    get:
+      tags: [Users]
+      summary: Get current user profile
+      operationId: getCurrentUser
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    patch:
+      tags: [Users]
+      summary: Update user profile
+      operationId: updateProfile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProfileRequest'
+      responses:
+        '200':
+          description: Profile updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+  /users/me/stats:
+    get:
+      tags: [Users]
+      summary: Get user statistics
+      operationId: getUserStats
+      responses:
+        '200':
+          description: User statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStats'
+
+  /users/me/achievements:
+    get:
+      tags: [Gamification]
+      summary: Get user achievements
+      operationId: getUserAchievements
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+      responses:
+        '200':
+          description: User achievements
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  achievements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Achievement'
+                  total:
+                    type: integer
+                  page:
+                    type: integer
+                  limit:
+                    type: integer
+
+  /categories:
+    get:
+      tags: [Categories]
+      summary: List quiz categories
+      operationId: getCategories
+      security: []
+      parameters:
+        - name: parent_id
+          in: query
+          schema:
+            type: string
+        - name: difficulty
+          in: query
+          schema:
+            type: string
+            enum: [beginner, intermediate, advanced, expert]
+      responses:
+        '200':
+          description: Category list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  categories:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+
+  /categories/{id}:
+    get:
+      tags: [Categories]
+      summary: Get category details
+      operationId: getCategory
+      security: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Category details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+
+  /quiz/session:
+    post:
+      tags: [Quiz]
+      summary: Create quiz session
+      operationId: createQuizSession
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateQuizRequest'
+      responses:
+        '201':
+          description: Quiz session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuizSession'
+
+  /quiz/session/{id}:
+    get:
+      tags: [Quiz]
+      summary: Get quiz session
+      operationId: getQuizSession
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Quiz session
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuizSession'
+
+  /quiz/session/{id}/answer:
+    post:
+      tags: [Quiz]
+      summary: Submit answer
+      operationId: submitAnswer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmitAnswerRequest'
+      responses:
+        '200':
+          description: Answer processed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnswerResponse'
+
+  /quiz/session/{id}/complete:
+    post:
+      tags: [Quiz]
+      summary: Complete quiz session
+      operationId: completeQuizSession
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Quiz completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuizResult'
+
+  /leaderboard:
+    get:
+      tags: [Gamification]
+      summary: Get leaderboard
+      operationId: getLeaderboard
+      security: []
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: string
+            enum: [global, friends, category, weekly, monthly]
+        - name: category_id
+          in: query
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+      responses:
+        '200':
+          description: Leaderboard data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  leaderboard:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LeaderboardEntry'
+                  user_rank:
+                    $ref: '#/components/schemas/LeaderboardEntry'
+
+  /multiplayer/match:
+    post:
+      tags: [Multiplayer]
+      summary: Create multiplayer match
+      operationId: createMatch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMatchRequest'
+      responses:
+        '201':
+          description: Match created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Match'
+
+  /multiplayer/match/{id}/join:
+    post:
+      tags: [Multiplayer]
+      summary: Join match
+      operationId: joinMatch
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                invite_code:
+                  type: string
+      responses:
+        '200':
+          description: Joined match
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Match'
+
+  /analytics/event:
+    post:
+      tags: [Analytics]
+      summary: Track event
+      operationId: trackEvent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrackEventRequest'
+      responses:
+        '204':
+          description: Event tracked
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+
+  parameters:
+    PageParam:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    LimitParam:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  schemas:
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            details:
+              type: object
+
+    RegisterRequest:
+      type: object
+      required: [email, password, display_name]
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          minLength: 8
+        display_name:
+          type: string
+          minLength: 3
+          maxLength: 50
+        avatar_url:
+          type: string
+          format: uri
+        preferences:
+          type: object
+          properties:
+            categories:
+              type: array
+              items:
+                type: string
+            difficulty:
+              type: string
+              enum: [beginner, intermediate, advanced, expert]
+
+    LoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+
+    AuthResponse:
+      type: object
+      required: [user, session]
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        session:
+          type: object
+          required: [access_token, refresh_token, expires_at]
+          properties:
+            access_token:
+              type: string
+            refresh_token:
+              type: string
+            expires_at:
+              type: string
+              format: date-time
+
+    User:
+      type: object
+      required: [id, email, display_name, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        display_name:
+          type: string
+        avatar_url:
+          type: string
+          format: uri
+        level:
+          type: integer
+          minimum: 1
+        xp:
+          type: integer
+          minimum: 0
+        trust_score:
+          type: number
+          minimum: 0
+          maximum: 1
+        streak:
+          type: integer
+          minimum: 0
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    UpdateProfileRequest:
+      type: object
+      properties:
+        display_name:
+          type: string
+        avatar_url:
+          type: string
+          format: uri
+        preferences:
+          type: object
+
+    UserStats:
+      type: object
+      required: [user_id, stats]
+      properties:
+        user_id:
+          type: string
+        stats:
+          type: object
+          properties:
+            total_questions:
+              type: integer
+            correct_answers:
+              type: integer
+            accuracy_rate:
+              type: number
+            categories_mastered:
+              type: array
+              items:
+                type: string
+            best_streak:
+              type: integer
+            total_xp:
+              type: integer
+            rank_global:
+              type: integer
+            rank_percentile:
+              type: number
+            play_time_minutes:
+              type: integer
+            quizzes_completed:
+              type: integer
+
+    Category:
+      type: object
+      required: [id, name, description]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        parent_id:
+          type: string
+        icon:
+          type: string
+        color:
+          type: string
+        question_count:
+          type: integer
+        difficulty_levels:
+          type: array
+          items:
+            type: string
+            enum: [beginner, intermediate, advanced, expert]
+        completion_rate:
+          type: number
+        trending:
+          type: boolean
+        unlocked:
+          type: boolean
+        requirements:
+          type: object
+          properties:
+            level:
+              type: integer
+            achievements:
+              type: array
+              items:
+                type: string
+
+    CreateQuizRequest:
+      type: object
+      required: [category_id, question_count]
+      properties:
+        category_id:
+          type: string
+        difficulty:
+          type: string
+          enum: [beginner, intermediate, advanced, expert, adaptive]
+        question_count:
+          type: integer
+          minimum: 1
+          maximum: 50
+        mode:
+          type: string
+          enum: [practice, timed, multiplayer, challenge, survival]
+        time_per_question:
+          type: integer
+          minimum: 10
+          maximum: 300
+
+    QuizSession:
+      type: object
+      required: [id, status, questions, config]
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [pending, active, paused, completed, abandoned]
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+        current_question:
+          type: integer
+        config:
+          type: object
+          properties:
+            total_questions:
+              type: integer
+            time_per_question:
+              type: integer
+            scoring_method:
+              type: string
+              enum: [standard, speed_bonus, accuracy_bonus, combo]
+            difficulty_mode:
+              type: string
+        started_at:
+          type: string
+          format: date-time
+        completed_at:
+          type: string
+          format: date-time
+
+    Question:
+      type: object
+      required: [id, text, options, difficulty, category]
+      properties:
+        id:
+          type: string
+          format: uuid
+        text:
+          type: string
+        code_snippet:
+          type: string
+        image_url:
+          type: string
+          format: uri
+        options:
+          type: array
+          minItems: 2
+          maxItems: 6
+          items:
+            type: object
+            required: [id, text]
+            properties:
+              id:
+                type: string
+              text:
+                type: string
+              image_url:
+                type: string
+        difficulty:
+          type: string
+          enum: [beginner, intermediate, advanced, expert]
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        time_limit:
+          type: integer
+        points:
+          type: integer
+
+    SubmitAnswerRequest:
+      type: object
+      required: [question_id, selected_option_id]
+      properties:
+        question_id:
+          type: string
+        selected_option_id:
+          type: string
+        response_time:
+          type: integer
+          description: Response time in milliseconds
+        confidence_level:
+          type: number
+          minimum: 0
+          maximum: 1
+
+    AnswerResponse:
+      type: object
+      required: [correct, question_id]
+      properties:
+        correct:
+          type: boolean
+        question_id:
+          type: string
+        correct_option_id:
+          type: string
+        explanation:
+          type: string
+        xp_gained:
+          type: integer
+        points_earned:
+          type: integer
+        combo_multiplier:
+          type: number
+        achievements_unlocked:
+          type: array
+          items:
+            $ref: '#/components/schemas/Achievement'
+        trust_impact:
+          type: number
+        feedback:
+          type: string
+        learning_resources:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                enum: [article, video, documentation, tutorial]
+              title:
+                type: string
+              url:
+                type: string
+                format: uri
+
+    QuizResult:
+      type: object
+      required: [session_id, score, accuracy, xp_earned]
+      properties:
+        session_id:
+          type: string
+        score:
+          type: integer
+        accuracy:
+          type: number
+        xp_earned:
+          type: integer
+        level_progress:
+          type: object
+          properties:
+            current_level:
+              type: integer
+            xp_for_next:
+              type: integer
+            level_up:
+              type: boolean
+        achievements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Achievement'
+        new_rank:
+          type: integer
+        streak_maintained:
+          type: boolean
+        performance_grade:
+          type: string
+          enum: [S, A, B, C, D, F]
+        summary:
+          type: object
+          properties:
+            total_questions:
+              type: integer
+            correct_answers:
+              type: integer
+            average_response_time:
+              type: integer
+            best_combo:
+              type: integer
+            categories_covered:
+              type: array
+              items:
+                type: string
+
+    Achievement:
+      type: object
+      required: [id, name, description, rarity]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        icon:
+          type: string
+        rarity:
+          type: string
+          enum: [common, rare, epic, legendary, mythic]
+        xp_reward:
+          type: integer
+        unlocked_at:
+          type: string
+          format: date-time
+        progress:
+          type: object
+          properties:
+            current:
+              type: integer
+            target:
+              type: integer
+            percentage:
+              type: number
+
+    LeaderboardEntry:
+      type: object
+      required: [rank, user, score]
+      properties:
+        rank:
+          type: integer
+        user:
+          type: object
+          required: [id, display_name]
+          properties:
+            id:
+              type: string
+            display_name:
+              type: string
+            avatar_url:
+              type: string
+        score:
+          type: integer
+        xp:
+          type: integer
+        level:
+          type: integer
+        streak:
+          type: integer
+        badges:
+          type: array
+          items:
+            type: string
+        trend:
+          type: string
+          enum: [up, down, stable, new]
+
+    Match:
+      type: object
+      required: [id, status, mode, players]
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [waiting, ready, active, completed, cancelled]
+        mode:
+          type: string
+          enum: [versus, team, tournament, battle_royale]
+        invite_code:
+          type: string
+        category_id:
+          type: string
+        difficulty:
+          type: string
+        players:
+          type: array
+          items:
+            type: object
+            properties:
+              user_id:
+                type: string
+              display_name:
+                type: string
+              avatar_url:
+                type: string
+              ready:
+                type: boolean
+              score:
+                type: integer
+              status:
+                type: string
+                enum: [waiting, playing, finished, disconnected]
+        settings:
+          type: object
+          properties:
+            question_count:
+              type: integer
+            time_per_question:
+              type: integer
+            power_ups_enabled:
+              type: boolean
+        created_at:
+          type: string
+          format: date-time
+        started_at:
+          type: string
+          format: date-time
+
+    CreateMatchRequest:
+      type: object
+      required: [category_id, mode]
+      properties:
+        category_id:
+          type: string
+        mode:
+          type: string
+          enum: [versus, team, tournament, battle_royale]
+        difficulty:
+          type: string
+        settings:
+          type: object
+          properties:
+            question_count:
+              type: integer
+            time_per_question:
+              type: integer
+            power_ups_enabled:
+              type: boolean
+            max_players:
+              type: integer
+            private:
+              type: boolean
+
+    TrackEventRequest:
+      type: object
+      required: [event_name, properties]
+      properties:
+        event_name:
+          type: string
+        properties:
+          type: object
+        user_context:
+          type: object
+          properties:
+            session_id:
+              type: string
+            trust_score:
+              type: number
+            motivation_state:
+              type: string
+            device_info:
+              type: object
+        timestamp:
+          type: string
+          format: date-time

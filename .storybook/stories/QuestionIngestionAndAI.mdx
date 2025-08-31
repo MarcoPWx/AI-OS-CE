@@ -1,0 +1,135 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Docs/Question Ingestion & AI Reasoning" />
+
+# Question Ingestion & AI Reasoning
+
+This guide explains:
+
+- How to import the original CLI question sets
+- How to seed the database and switch the API to Supabase
+- How the AI/quality pipeline evaluates questions and how to extend it
+
+## Import CLI Questions
+
+Use the importer to scan DevMentor CLI packs and generate JSON in this app.
+
+```bash path=null start=null
+node scripts/cli-import.js
+```
+
+This writes:
+
+- data/cli_import/categories.json
+- data/cli_import/questions.json
+- data/cli_import/summary.json
+
+## Evaluate Quality (Heuristics with AI Hook)
+
+Run heuristic quality scoring for all questions (readability, option uniqueness, explanation presence, bounds):
+
+```bash path=null start=null
+node scripts/quality-evaluate.js
+```
+
+Outputs:
+
+- data/cli_import/quality_report.json
+- data/cli_import/quality_report.csv
+
+To add LLM-based review, extend scripts/quality-evaluate.js to call your local/hosted model behind environment variables. Recommended flow: heuristics first → sample low-scoring items → LLM review.
+
+## Curation for Editors
+
+After evaluation (and optional AI review), merge results into a single curator-friendly file:
+
+```bash path=null start=null
+node scripts/curate-quality.js
+```
+
+Outputs:
+
+- data/cli_import/curated.json
+- data/cli_import/curated.csv
+
+View interactively in Storybook → Docs/Quality Curation Dashboard.
+
+## Seed the Database (Supabase)
+
+Generate a SQL seed from the imported JSON that targets the canonical schema defined in supabase/migrations/003_question_delivery.sql (question_categories, questions):
+
+```bash path=null start=null
+node scripts/generate-sql-from-import.js
+# Then run the generated SQL in your Supabase project (SQL Editor or psql)
+```
+
+Ensure these env vars are set on the API server for DB usage:
+
+- SUPABASE_URL
+- SUPABASE_SERVICE_ROLE_KEY
+- API_USE_SUPABASE=true
+
+## Switch API to Supabase
+
+Set the following environment variables for the API service:
+
+```env path=null start=null
+SUPABASE_URL=https://your-project-id.supabase.co
+SUPABASE_SERVICE_ROLE_KEY={{service_role_key}}
+API_USE_SUPABASE=true
+```
+
+Endpoint:
+
+```bash path=null start=null
+curl "http://localhost:PORT/api/quiz/questions?categoryId=javascript&limit=10&random=true"
+```
+
+You can also filter by difficulty:
+
+```bash path=null start=null
+curl "http://localhost:PORT/api/quiz/questions?categoryId=javascript&difficulty=medium&limit=5"
+```
+
+When API_USE_SUPABASE=true, the API endpoint uses Supabase instead of JSON:
+
+- GET /api/quiz/questions?categoryId=...&difficulty=...&limit=...&offset=...&random=true
+- categoryId accepts a UUID (category_id) or a slug/name from question_categories.metadata.slug/name
+- difficulty filters by 'easy' | 'medium' | 'hard'
+- random performs an in-memory shuffle of a reasonable over-fetch window
+
+When API_USE_SUPABASE=false (default), the endpoint serves from data/cli_import/questions.json if present, or returns stubs.
+
+## How the AI "reasons"
+
+We use a two-stage approach:
+
+1. Heuristic Scoring (fast, consistent)
+   - Option Uniqueness: penalizes near-duplicates among options
+   - Readability: basic proxy using text length + punctuation density
+   - Explanation Presence: reward if explanation exists
+   - Correctness Bounds: ensure correct index in range
+   - Aggregate score (0–1) combines the above
+
+2. LLM-assisted Review (optional, configurable)
+   - For items below a threshold (e.g., < 0.6), call a local/hosted LLM to:
+     - Check factual accuracy
+     - Flag ambiguous phrasing
+     - Suggest better distractors
+     - Propose refined explanations
+   - Store review metadata for curation dashboards or gating (e.g., only publish items with aggregate ≥ 0.7 or AI-reviewed OK)
+
+This mirrors the harvesting pipeline where we filter by confidence and optionally enhance with RAG/LLM (see Python scripts in harvest_output/ and rag_enhancer.py).
+
+## Recommended thresholds
+
+- aggregate ≥ 0.8: Excellent
+- 0.6–0.79: Good (candidate for LLM spot-checks)
+- 0.4–0.59: Needs review
+- < 0.4: Likely reject
+
+## See also
+
+- Docs/AI Quality Pipeline (with examples)
+- Docs/DB-Backed Questions (Supabase)
+- Quality Curation Dashboard (interactive)

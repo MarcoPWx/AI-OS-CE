@@ -1,0 +1,20 @@
+# Ignore heavy/build/vendor directories and problematic files for Prettier
+node_modules/
+storybook-static/
+coverage/
+dist/
+build/
+android/
+ios/
+venv/
+harvest_output/
+data/
+playwright-report/
+test-results/
+public/
+
+# Specific files that cause parser issues for Prettier
+.storybook/stubs/expo-linear-gradient.ts
+jest.setup.js
+lib/supabaseMock.ts
+

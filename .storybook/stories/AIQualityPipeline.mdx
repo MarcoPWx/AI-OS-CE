@@ -1,0 +1,120 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Docs/AI Quality Pipeline" />
+
+# AI Quality Evaluation Pipeline
+
+This document explains how question quality is evaluated and curated for QuizMentor.
+
+## Overview
+
+The pipeline runs over all imported questions and computes a quality score per item, combining:
+
+- Option uniqueness (avoid near-duplicate choices)
+- Readability of the question text
+- Presence of an explanation
+- Correct-answer bounds validation
+
+An aggregate score (0-1) summarizes the above.
+
+## Running the pipeline
+
+1. Import the DevMentor CLI questions
+
+```bash path=null start=null
+node scripts/cli-import.js
+```
+
+This generates:
+
+- data/cli_import/categories.json
+- data/cli_import/questions.json
+- data/cli_import/summary.json
+
+2. Evaluate quality
+
+```bash path=null start=null
+node scripts/quality-evaluate.js
+```
+
+Outputs:
+
+- data/cli_import/quality_report.json
+- data/cli_import/quality_report.csv
+
+## Interpreting results
+
+- aggregate >= 0.8: Excellent
+- 0.6 - 0.79: Good
+- 0.4 - 0.59: Needs review
+- < 0.4: Likely problematic
+
+## Examples (Before/After)
+
+Below is a hypothetical example showing how an AI reviewer might refine a question.
+
+```json path=null start=null
+{
+  "id": "cli_1234abcd5678ef90",
+  "category": "networking-protocols",
+  "text": "Which protocol is used to send emails?",
+  "options": ["IMAP", "POP3", "SMTP", "HTTP"],
+  "correct_answer": 2,
+  "explanation": "SMTP is used to send email.",
+  "difficulty": "easy"
+}
+```
+
+AI reviewer suggestions:
+
+- Clarify that IMAP/POP3 are retrieval protocols; SMTP handles sending.
+- Improve distractors so there’s less domain overlap confusion.
+
+After revision (example):
+
+```json path=null start=null
+{
+  "text": "Which protocol is primarily responsible for sending emails between servers?",
+  "options": ["IMAP (retrieval)", "POP3 (retrieval)", "SMTP (sending)", "DNS (name resolution)"],
+  "correct_answer": 2,
+  "explanation": "SMTP (Simple Mail Transfer Protocol) handles sending; IMAP/POP3 handle retrieval; DNS resolves hostnames.",
+  "difficulty": "easy"
+}
+```
+
+## Optional LLM-assisted review
+
+Enable an OpenAI-compatible endpoint (Ollama or hosted) via environment variables and the script will auto-review low-scoring questions and write quality_ai_review.json.
+
+```env path=null start=null
+AI_REVIEW_ENABLED=true
+# For Ollama (OpenAI-compatible), defaults to localhost:11434 if not set
+AI_REVIEW_URL=http://localhost:11434
+# For hosted, e.g., OpenAI-compatible gateway
+# AI_REVIEW_URL=https://api.openai.com
+# AI_REVIEW_API_KEY={{OPENAI_API_KEY}}
+AI_REVIEW_MODEL=gpt-4o-mini
+AI_REVIEW_THRESHOLD=0.6     # review items below this aggregate score
+AI_REVIEW_MAX=100           # max items to review
+AI_REVIEW_BATCH=10          # batch size per request
+```
+
+Run:
+
+```bash path=null start=null
+node scripts/quality-evaluate.js
+```
+
+Outputs:
+
+- data/cli_import/quality_ai_review.json (AI-reviewed subset with flags, suggestions, and scores)
+
+For production, run heuristics first, then sample questions below a threshold for human/AI review.
+
+## Feeding scores back into the app
+
+- Scores can be joined to questions by id. You can store them in a dedicated table (e.g., question_analytics or a new question_quality table) and surface badges or filters in UI (e.g., "Show only 0.7+ quality").
+
+## As part of scraping/harvest
+
+During harvest, a similar scoring pass can filter low-confidence items before they reach the app. See harvest_output/\* and Python scripts like rag_enhancer.py and compare_quality.py for inspiration.

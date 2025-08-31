@@ -1,0 +1,160 @@
+{
+  "questions": [
+    {
+      "id": "q_001",
+      "category": "science",
+      "difficulty": "easy",
+      "type": "multiple",
+      "question": "What is the chemical symbol for water?",
+      "correctAnswer": "H2O",
+      "incorrectAnswers": ["O2", "CO2", "NaCl"],
+      "explanation": "Water consists of two hydrogen atoms and one oxygen atom, represented as H2O.",
+      "points": 10,
+      "timeLimit": 30
+    },
+    {
+      "id": "q_002",
+      "category": "science",
+      "difficulty": "medium",
+      "type": "multiple",
+      "question": "Which planet is known as the Red Planet?",
+      "correctAnswer": "Mars",
+      "incorrectAnswers": ["Venus", "Jupiter", "Saturn"],
+      "explanation": "Mars appears red due to iron oxide on its surface, giving it its distinctive color.",
+      "points": 20,
+      "timeLimit": 20
+    },
+    {
+      "id": "q_003",
+      "category": "history",
+      "difficulty": "medium",
+      "type": "multiple",
+      "question": "In which year did World War II end?",
+      "correctAnswer": "1945",
+      "incorrectAnswers": ["1944", "1946", "1943"],
+      "explanation": "World War II ended in 1945 with the surrender of Germany in May and Japan in September.",
+      "points": 20,
+      "timeLimit": 25
+    },
+    {
+      "id": "q_004",
+      "category": "mathematics",
+      "difficulty": "easy",
+      "type": "multiple",
+      "question": "What is 15 × 3?",
+      "correctAnswer": "45",
+      "incorrectAnswers": ["35", "50", "40"],
+      "explanation": "15 multiplied by 3 equals 45.",
+      "points": 10,
+      "timeLimit": 15
+    },
+    {
+      "id": "q_005",
+      "category": "technology",
+      "difficulty": "hard",
+      "type": "multiple",
+      "question": "What does HTTP stand for?",
+      "correctAnswer": "HyperText Transfer Protocol",
+      "incorrectAnswers": [
+        "HyperText Transmission Protocol",
+        "High Transfer Text Protocol",
+        "HyperText Transport Protocol"
+      ],
+      "explanation": "HTTP stands for HyperText Transfer Protocol, the foundation of data communication on the web.",
+      "points": 30,
+      "timeLimit": 30
+    },
+    {
+      "id": "q_006",
+      "category": "geography",
+      "difficulty": "medium",
+      "type": "multiple",
+      "question": "What is the capital of Australia?",
+      "correctAnswer": "Canberra",
+      "incorrectAnswers": ["Sydney", "Melbourne", "Brisbane"],
+      "explanation": "Canberra is the purpose-built capital city of Australia, chosen as a compromise between Sydney and Melbourne.",
+      "points": 20,
+      "timeLimit": 20
+    },
+    {
+      "id": "q_007",
+      "category": "science",
+      "difficulty": "hard",
+      "type": "multiple",
+      "question": "What is the speed of light in a vacuum?",
+      "correctAnswer": "299,792,458 m/s",
+      "incorrectAnswers": ["300,000,000 m/s", "299,000,000 m/s", "298,792,458 m/s"],
+      "explanation": "The speed of light in a vacuum is exactly 299,792,458 meters per second.",
+      "points": 30,
+      "timeLimit": 30
+    },
+    {
+      "id": "q_008",
+      "category": "general",
+      "difficulty": "easy",
+      "type": "true_false",
+      "question": "The Great Wall of China is visible from space.",
+      "correctAnswer": "false",
+      "incorrectAnswers": [],
+      "explanation": "This is a common myth. The Great Wall is not visible from space without aid.",
+      "points": 10,
+      "timeLimit": 15
+    },
+    {
+      "id": "q_009",
+      "category": "literature",
+      "difficulty": "medium",
+      "type": "multiple",
+      "question": "Who wrote 'Romeo and Juliet'?",
+      "correctAnswer": "William Shakespeare",
+      "incorrectAnswers": ["Charles Dickens", "Jane Austen", "Mark Twain"],
+      "explanation": "William Shakespeare wrote Romeo and Juliet around 1594-1596.",
+      "points": 20,
+      "timeLimit": 20
+    },
+    {
+      "id": "q_010",
+      "category": "sports",
+      "difficulty": "easy",
+      "type": "multiple",
+      "question": "How many players are on a basketball team on the court?",
+      "correctAnswer": "5",
+      "incorrectAnswers": ["6", "4", "7"],
+      "explanation": "A basketball team has 5 players on the court at one time.",
+      "points": 10,
+      "timeLimit": 15
+    }
+  ],
+  "quizSets": [
+    {
+      "id": "quiz_001",
+      "title": "Science Basics",
+      "description": "Test your knowledge of basic scientific concepts",
+      "category": "science",
+      "questionIds": ["q_001", "q_002", "q_007"],
+      "difficulty": "mixed",
+      "totalPoints": 60,
+      "estimatedTime": 80
+    },
+    {
+      "id": "quiz_002",
+      "title": "General Knowledge Mix",
+      "description": "A variety of questions across different topics",
+      "category": "general",
+      "questionIds": ["q_003", "q_004", "q_006", "q_008", "q_010"],
+      "difficulty": "mixed",
+      "totalPoints": 70,
+      "estimatedTime": 95
+    },
+    {
+      "id": "quiz_demo",
+      "title": "Demo Quiz",
+      "description": "Experience QuizMentor with this demo quiz",
+      "category": "mixed",
+      "questionIds": ["q_001", "q_003", "q_004", "q_006", "q_009"],
+      "difficulty": "mixed",
+      "totalPoints": 80,
+      "estimatedTime": 100
+    }
+  ]
+}

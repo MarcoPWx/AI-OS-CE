@@ -1,0 +1,89 @@
+# DigitalOcean App Platform - Simplified Configuration
+# No OpenAI, using your custom AI engines
+name: quizmentor
+region: nyc
+
+services:
+  # Frontend Next.js App
+  - name: frontend
+    github:
+      repo: your-github-username/quizmentor
+      branch: main
+      deploy_on_push: true
+    build_command: npm run build
+    run_command: npm start
+    instance_size: basic-xxs
+    instance_count: 1
+    http_port: 3000
+    routes:
+      - path: /
+    envs:
+      - key: NEXT_PUBLIC_API_URL
+        value: ${APP_URL}/api
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        value: ${SUPABASE_URL}
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        value: ${SUPABASE_ANON_KEY}
+
+  # API with your custom AI engines
+  - name: api
+    github:
+      repo: your-github-username/quizmentor
+      branch: main
+      deploy_on_push: true
+    dockerfile_path: api/Dockerfile
+    instance_size: basic-s
+    instance_count: 2
+    http_port: 8080
+    health_check:
+      http_path: /health
+    routes:
+      - path: /api
+    envs:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        value: ${db.DATABASE_URL}
+      - key: REDIS_URL
+        value: ${redis.REDIS_URL}
+      - key: SUPABASE_URL
+        value: ${SUPABASE_URL}
+      - key: SUPABASE_SERVICE_KEY
+        type: SECRET
+        value: ${SUPABASE_SERVICE_KEY}
+      - key: JWT_SECRET
+        type: SECRET
+        value: ${JWT_SECRET}
+      - key: POSTHOG_API_KEY
+        value: ${POSTHOG_API_KEY}
+
+# Background worker for async tasks
+workers:
+  - name: scheduler
+    github:
+      repo: your-github-username/quizmentor
+      branch: main
+    dockerfile_path: workers/Dockerfile
+    instance_size: basic-xxs
+    instance_count: 1
+    envs:
+      - key: DATABASE_URL
+        value: ${db.DATABASE_URL}
+      - key: REDIS_URL
+        value: ${redis.REDIS_URL}
+
+# Databases
+databases:
+  - name: db
+    engine: PG
+    version: "15"
+    size: basic-xs
+    num_nodes: 1
+    
+  - name: redis
+    engine: REDIS
+    version: "7"
+    size: basic-xs
+    eviction_policy: allkeys-lru
+
+# Cost: ~$85/month on DigitalOcean

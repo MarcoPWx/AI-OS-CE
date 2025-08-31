@@ -1,0 +1,177 @@
+# QuizMentor Horizontal Pod Autoscaler Configuration
+# Automatically scales pods based on CPU, memory, and custom metrics
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: quizmentor-api-hpa
+  namespace: quizmentor
+  labels:
+    app: quizmentor
+    component: api
+    tier: backend
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: quizmentor-api
+  minReplicas: 3
+  maxReplicas: 50
+  metrics:
+    # CPU utilization target
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+    # Memory utilization target
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    # Custom metrics (requires metrics server)
+    - type: Pods
+      pods:
+        metric:
+          name: http_requests_per_second
+        target:
+          type: AverageValue
+          averageValue: "1000"
+    - type: Pods
+      pods:
+        metric:
+          name: response_time_p95
+        target:
+          type: AverageValue
+          averageValue: "500"  # milliseconds
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300  # Wait 5 minutes before scaling down
+      policies:
+        - type: Percent
+          value: 50  # Scale down by max 50% of current pods
+          periodSeconds: 60
+        - type: Pods
+          value: 5  # Scale down by max 5 pods
+          periodSeconds: 60
+      selectPolicy: Min  # Use the most conservative policy
+    scaleUp:
+      stabilizationWindowSeconds: 60  # Wait 1 minute before scaling up
+      policies:
+        - type: Percent
+          value: 100  # Scale up by max 100% of current pods
+          periodSeconds: 30
+        - type: Pods
+          value: 10  # Scale up by max 10 pods
+          periodSeconds: 30
+      selectPolicy: Max  # Use the most aggressive policy
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: quizmentor-worker-hpa
+  namespace: quizmentor
+  labels:
+    app: quizmentor
+    component: worker
+    tier: backend
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: quizmentor-worker
+  minReplicas: 2
+  maxReplicas: 20
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 75
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 85
+    # Queue-based scaling
+    - type: External
+      external:
+        metric:
+          name: queue_depth
+          selector:
+            matchLabels:
+              queue: "quizmentor-jobs"
+        target:
+          type: AverageValue
+          averageValue: "30"  # Target 30 messages per worker
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 600  # Wait 10 minutes before scaling down
+      policies:
+        - type: Percent
+          value: 25  # Scale down by max 25% of current pods
+          periodSeconds: 120
+    scaleUp:
+      stabilizationWindowSeconds: 30  # Quick scale up for queue processing
+      policies:
+        - type: Percent
+          value: 200  # Scale up by max 200% for burst traffic
+          periodSeconds: 30
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: quizmentor-adaptive-engine-hpa
+  namespace: quizmentor
+  labels:
+    app: quizmentor
+    component: adaptive-engine
+    tier: ai
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: quizmentor-adaptive-engine
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60  # Lower threshold for AI workloads
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 75
+    # OpenAI API latency-based scaling
+    - type: Pods
+      pods:
+        metric:
+          name: openai_api_latency_p95
+        target:
+          type: AverageValue
+          averageValue: "2000"  # milliseconds
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 900  # Wait 15 minutes (AI model warm-up is expensive)
+      policies:
+        - type: Pods
+          value: 1  # Scale down slowly, one pod at a time
+          periodSeconds: 300
+    scaleUp:
+      stabilizationWindowSeconds: 120  # Wait 2 minutes to avoid thrashing
+      policies:
+        - type: Pods
+          value: 2  # Scale up by max 2 pods at a time
+          periodSeconds: 60

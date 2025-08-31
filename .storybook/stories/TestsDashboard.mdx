@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/blocks';
+import React from 'react';
+import { TestsDashboard } from '../../src/stories/TestsDashboard';
+
+<Meta title="Dev/Tests Dashboard" />
+
+export const parameters = { devOnly: true };
+
+# Tests Dashboard
+
+This dashboard surfaces recent unit test (Jest) and E2E (Playwright) results, plus coverage, directly inside Storybook.
+
+How to refresh results
+- Unit (Jest JSON summary): npm run test:unit:json
+- E2E (Playwright JSON summary): npm run test:e2e:json or npm run e2e:ensure-summary
+- Coverage: npm run test:coverage
+
+Playwright HTML report
+- After E2E tests, open the full report here:
+  - /reports/playwright/index.html
+
+<TestsDashboard />
+

@@ -1,0 +1,1 @@
+# DEVLOG (legacy pointer)\n\n> Canonical location: /docs/status/DEVLOG.md\n\nThis file is retained for compatibility. Please update bookmarks to /docs/status/DEVLOG.md.

@@ -1,0 +1,337 @@
+# QuizMentor API Deployment with Self-Healing Features
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quizmentor-api
+  namespace: quizmentor
+  labels:
+    app: quizmentor
+    component: api
+    version: v1.0.0
+spec:
+  replicas: 3  # Initial replicas (HPA will manage this)
+  revisionHistoryLimit: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: quizmentor
+      component: api
+  template:
+    metadata:
+      labels:
+        app: quizmentor
+        component: api
+        version: v1.0.0
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+        prometheus.io/path: "/metrics"
+    spec:
+      affinity:
+        # Spread pods across nodes
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: component
+                      operator: In
+                      values: ["api"]
+                topologyKey: kubernetes.io/hostname
+        # Prefer nodes with SSD storage
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 50
+              preference:
+                matchExpressions:
+                  - key: disktype
+                    operator: In
+                    values: ["ssd"]
+      
+      containers:
+        - name: api
+          image: quizmentor/api:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+            - name: metrics
+              containerPort: 9090
+              protocol: TCP
+          
+          # Resource limits and requests
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "2000m"
+              memory: "2Gi"
+          
+          # Health checks for self-healing
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 3
+            successThreshold: 1
+            failureThreshold: 3
+          
+          startupProbe:
+            httpGet:
+              path: /health/startup
+              port: http
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 3
+            successThreshold: 1
+            failureThreshold: 30  # Allow up to 5 minutes for startup
+          
+          # Environment variables
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: PORT
+              value: "3000"
+            - name: LOG_LEVEL
+              value: "info"
+            - name: ENABLE_METRICS
+              value: "true"
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: quizmentor-secrets
+                  key: database-url
+            - name: REDIS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: quizmentor-secrets
+                  key: redis-url
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: quizmentor-secrets
+                  key: openai-api-key
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          
+          # Volume mounts
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
+              readOnly: true
+            - name: cache
+              mountPath: /app/cache
+          
+          # Lifecycle hooks for graceful shutdown
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - |
+                    # Signal the app to stop accepting new requests
+                    kill -TERM 1
+                    # Wait for in-flight requests to complete (max 30s)
+                    sleep 30
+      
+      # Init container to check dependencies
+      initContainers:
+        - name: wait-for-database
+          image: busybox:1.35
+          command:
+            - sh
+            - -c
+            - |
+              until nc -z quizmentor-postgres 5432; do
+                echo "Waiting for database..."
+                sleep 2
+              done
+              echo "Database is ready!"
+        
+        - name: wait-for-redis
+          image: busybox:1.35
+          command:
+            - sh
+            - -c
+            - |
+              until nc -z quizmentor-redis 6379; do
+                echo "Waiting for Redis..."
+                sleep 2
+              done
+              echo "Redis is ready!"
+      
+      # Volumes
+      volumes:
+        - name: config
+          configMap:
+            name: quizmentor-config
+        - name: cache
+          emptyDir:
+            sizeLimit: 1Gi
+      
+      # Service account for RBAC
+      serviceAccountName: quizmentor-api
+      
+      # Security context
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+      
+      # DNS policy for service discovery
+      dnsPolicy: ClusterFirst
+      
+      # Restart policy
+      restartPolicy: Always
+      
+      # Termination grace period for graceful shutdown
+      terminationGracePeriodSeconds: 60
+
+---
+# Worker Deployment with Self-Healing
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quizmentor-worker
+  namespace: quizmentor
+  labels:
+    app: quizmentor
+    component: worker
+    version: v1.0.0
+spec:
+  replicas: 2  # Initial replicas (HPA will manage this)
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0  # Never allow workers to be completely unavailable
+  selector:
+    matchLabels:
+      app: quizmentor
+      component: worker
+  template:
+    metadata:
+      labels:
+        app: quizmentor
+        component: worker
+        version: v1.0.0
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9091"
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: component
+                      operator: In
+                      values: ["worker"]
+                topologyKey: kubernetes.io/hostname
+      
+      containers:
+        - name: worker
+          image: quizmentor/worker:latest
+          imagePullPolicy: Always
+          
+          resources:
+            requests:
+              cpu: "1000m"
+              memory: "1Gi"
+            limits:
+              cpu: "4000m"
+              memory: "4Gi"
+          
+          # Worker health checks
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - "pgrep -f worker || exit 1"
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 3
+          
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - "test -f /tmp/worker-ready"
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          
+          env:
+            - name: WORKER_CONCURRENCY
+              value: "10"
+            - name: WORKER_TIMEOUT
+              value: "300"
+            - name: QUEUE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: quizmentor-secrets
+                  key: queue-url
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: quizmentor-secrets
+                  key: database-url
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: quizmentor-secrets
+                  key: openai-api-key
+          
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - |
+                    # Signal worker to stop accepting new jobs
+                    kill -TERM 1
+                    # Wait for current jobs to complete (max 5 minutes)
+                    sleep 300
+      
+      serviceAccountName: quizmentor-worker
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 310  # Slightly more than preStop sleep

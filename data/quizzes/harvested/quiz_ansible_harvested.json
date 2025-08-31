@@ -1,0 +1,103 @@
+{
+  "quiz_id": "harvest_ansible",
+  "title": "Ansible Quiz (Harvested)",
+  "description": "Auto-generated quiz from harvested ansible content",
+  "category": "ansible",
+  "difficulty": "mixed",
+  "time_limit": 30,
+  "passing_score": 70,
+  "questions": [
+    {
+      "id": "harvest_126",
+      "question": "What is the main advantage of Ansible?",
+      "options": [
+        "A different approach to Ansible with additional configuration",
+        "A component of Ansible with additional configuration",
+        "An alternative to Ansible with additional configuration",
+        "0 Porting Guide Using Ansible Building Ansible inventories How to build your inventory Working with dynamic inventory Patterns: targeting hosts and gr"
+      ],
+      "correct_answer": 3,
+      "explanation": "0 Porting Guide Using Ansible Building Ansible inventories How to build your inventory Working with dynamic inventory Patterns: targeting hosts and groups Connection methods and details Using Ansible ",
+      "difficulty": 2,
+      "tags": [
+        "ansible",
+        "latest"
+      ]
+    },
+    {
+      "id": "harvest_127",
+      "question": "In ansible, what does Documentation refer to?",
+      "options": [
+        "An alternative to Documentation with additional configuration",
+        "A different approach to Documentation with additional configuration",
+        "A 0 porting guide using ansible building ansible inventories how to build your inventory working with dynamic inventory patterns: targeting hosts and gr",
+        "A component of Documentation with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "Documentation is correctly described as: A 0 porting guide using ansible building ansible inventories how to build your inventory working wit",
+      "difficulty": 2,
+      "tags": [
+        "ansible",
+        "latest"
+      ]
+    },
+    {
+      "id": "harvest_128",
+      "question": "Which of the following best describes Welcome?",
+      "options": [
+        "An alternative to Welcome with additional configuration",
+        "A ansible documentation ansible documentation \uf0c1 welcome to ansible community documentation!\nthis documentation covers the version of ansible noted in th",
+        "A different approach to Welcome with additional configuration",
+        "A component of Welcome with additional configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Welcome is correctly described as: A ansible documentation ansible documentation \uf0c1 welcome to ansible community documentation!\nthis doc",
+      "difficulty": 2,
+      "tags": [
+        "ansible",
+        "latest"
+      ]
+    },
+    {
+      "id": "harvest_129",
+      "question": "What is This?",
+      "options": [
+        "A different approach to This with additional configuration",
+        "A component of This with additional configuration",
+        "A ansible documentation ansible documentation \uf0c1 welcome to ansible community documentation!\nthis documentation covers the version of ansible noted in th",
+        "An alternative to This with additional configuration"
+      ],
+      "correct_answer": 2,
+      "explanation": "This is correctly described as: A ansible documentation ansible documentation \uf0c1 welcome to ansible community documentation!\nthis doc",
+      "difficulty": 2,
+      "tags": [
+        "ansible",
+        "latest"
+      ]
+    },
+    {
+      "id": "harvest_130",
+      "question": "When should you use Contributors?",
+      "options": [
+        "A component of Contributors with additional configuration",
+        "A different approach to Contributors with additional configuration",
+        "An alternative to Contributors with additional configuration",
+        "0 Porting Guide Using Ansible Building Ansible inventories How to build your inventory Working with dynamic inventory Patterns: targeting hosts and gr"
+      ],
+      "correct_answer": 3,
+      "explanation": "0 Porting Guide Using Ansible Building Ansible inventories How to build your inventory Working with dynamic inventory Patterns: targeting hosts and groups Connection methods and details Using Ansible ",
+      "difficulty": 2,
+      "tags": [
+        "ansible",
+        "latest"
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "automated_harvest",
+    "question_count": 5,
+    "difficulty_distribution": {
+      "2": 5
+    }
+  }
+}

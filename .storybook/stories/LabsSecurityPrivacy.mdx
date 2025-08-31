@@ -1,0 +1,23 @@
+# Labs: Security & Privacy — Headers and data handling
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Labs/Security & Privacy" />
+
+What this lab covers
+- Security headers, auth risks, data handling (no PII in logs), and rate limits
+
+Stories/Docs to use
+- src/stories/SecurityPlayground.stories.tsx — interactive checks
+- .storybook/stories/SpecsSecurityPrivacyExtended.mdx — extended model
+- .storybook/stories/SpecsServiceCatalog.mdx — endpoints and policies
+
+Exercises
+1) Headers
+   - Enumerate desired headers (CSP, HSTS, X-Frame-Options, etc.)
+   - Note current status; capture deltas for API layer
+2) Data handling
+   - Grep for console.* and ensure no PII or secrets; keep structured logs
+3) Auth risks
+   - Walk auth stories for token handling; ensure memory-only and no leaks
+

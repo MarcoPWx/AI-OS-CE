@@ -1,0 +1,49 @@
+apiVersion: telemetry.istio.io/v1alpha1
+kind: Telemetry
+metadata:
+  name: quizmentor-metrics
+  namespace: quizmentor-app
+spec:
+  metrics:
+  - providers:
+    - name: prometheus
+    dimensions:
+      request_protocol: request.protocol | "unknown"
+      response_code: response.code | 200
+      source_workload: source.workload.name | "unknown"
+      source_app: source.labels["app"] | "unknown"
+      destination_service: destination.service.name | "unknown"
+      destination_version: destination.labels["version"] | "unknown"
+---
+apiVersion: telemetry.istio.io/v1alpha1
+kind: Telemetry
+metadata:
+  name: quizmentor-tracing
+  namespace: quizmentor-app
+spec:
+  tracing:
+  - providers:
+    - name: jaeger
+    randomSamplingPercentage: 100.0
+    customTags:
+      learning_session_id:
+        header:
+          name: x-learning-session-id
+      user_skill_level:
+        header:
+          name: x-user-skill-level
+      bloom_level:
+        header:
+          name: x-bloom-level
+---
+apiVersion: telemetry.istio.io/v1alpha1
+kind: Telemetry
+metadata:
+  name: quizmentor-access-logging
+  namespace: quizmentor-app
+spec:
+  accessLogging:
+  - providers:
+    - name: otel
+    filter:
+      expression: 'response.code >= 400'

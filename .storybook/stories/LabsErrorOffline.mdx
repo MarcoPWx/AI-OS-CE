@@ -1,0 +1,21 @@
+# Labs: Error & Offline — Failures and fallback
+
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Labs/Error & Offline" />
+
+What this lab covers
+- Network failures, retry/backoff, and offline fallback
+
+Stories to use
+- src/stories/NetworkPlayground.stories.tsx — latency/error profiles
+- src/stories/TransportFallback.stories.tsx — WS→SSE/HTTP fallback
+
+Exercises
+1) Network latency and errors
+   - Use Latency Profiles to simulate flaky/chaos; verify UI remains usable
+2) Offline fallback
+   - Toggle offline; confirm quiz flow uses local data
+3) Logging
+   - Inspect logs for clear, actionable messages; no secrets
+
