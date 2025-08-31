@@ -60,7 +60,7 @@ jobs:
       - name: Run E2E tests
         run: |
           npx concurrently -k -s first -n "SB,E2E" \
-            "npx http-server storybook-static -p 7007" \
+            "npx http-server storybook-static -p 7009" \
             "npx wait-on http://localhost:7009 && npm run e2e"
       
       - name: Upload coverage
