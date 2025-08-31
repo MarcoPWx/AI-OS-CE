@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import type { Preview } from '@storybook/react';
 
-const requiredPassword = (import.meta as any)?.env?.VITE_STORYBOOK_PASSWORD as string | undefined;
+const env = (import.meta as any)?.env || {};
+const requiredPassword = env?.VITE_STORYBOOK_PASSWORD as string | undefined;
+const requiredUsername = env?.VITE_STORYBOOK_USERNAME as string | undefined;
+const tourDefault = env?.EXPO_PUBLIC_TOUR_DEFAULT === '1';
+const tourEnforce = env?.EXPO_PUBLIC_TOUR_ENFORCE === '1' || env?.NEXT_PUBLIC_TOUR_ENFORCE === '1';
 
 function Gate({ children }: { children: React.ReactNode }) {
   const [authed, setAuthed] = useState(false);
@@ -17,21 +21,45 @@ function Gate({ children }: { children: React.ReactNode }) {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // If no password provided via env, allow but encourage setting it
     if (!requiredPassword) {
-      // No password set -> allow, but encourage setting env in Vercel
       try { sessionStorage.setItem('sb_authed', '1'); } catch {}
       setAuthed(true);
       return;
     }
-    if (password === requiredPassword) {
+
+    const usernameOk = requiredUsername ? username.trim() === requiredUsername : true;
+    const passwordOk = password === requiredPassword;
+
+    if (usernameOk && passwordOk) {
       try { sessionStorage.setItem('sb_authed', '1'); } catch {}
       setAuthed(true);
     } else {
-      alert('Invalid password');
+      alert('Invalid credentials');
     }
   };
 
-  if (authed) return <>{children}</>;
+  if (authed) return (
+    <>
+      {/* Beta banner */}
+      <div style={{ position: 'fixed', top: 8, right: 8, zIndex: 999999, display: 'flex', gap: 8 }}>
+        <div style={{ padding: '6px 10px', borderRadius: 8, background: 'rgba(2,6,23,0.85)', border: '1px solid rgba(59,130,246,0.4)', color: '#e5e7eb', fontSize: 12, fontWeight: 800 }}>
+          BETA
+        </div>
+        {tourDefault && (
+          <div style={{ padding: '6px 10px', borderRadius: 8, background: 'rgba(15,23,42,0.85)', border: '1px solid rgba(34,197,94,0.5)', color: '#e5e7eb', fontSize: 12, fontWeight: 800 }}>
+            Tour: Auto-start
+          </div>
+        )}
+        {tourEnforce && (
+          <div style={{ padding: '6px 10px', borderRadius: 8, background: 'rgba(15,23,42,0.85)', border: '1px solid rgba(234,179,8,0.6)', color: '#e5e7eb', fontSize: 12, fontWeight: 800 }}>
+            Tour: Enforced
+          </div>
+        )}
+      </div>
+      {children}
+    </>
+  );
 
   return (
     <div style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg,#0f172a,#020617)' }}>
@@ -43,7 +71,7 @@ function Gate({ children }: { children: React.ReactNode }) {
         <input
           value={username}
           onChange={(e) => setUsername(e.currentTarget.value)}
-          placeholder="beta"
+          placeholder={requiredUsername || 'beta'}
           style={{ width: '100%', padding: '10px 12px', marginTop: 4, marginBottom: 12, borderRadius: 8, border: '1px solid rgba(148,163,184,0.2)', background: 'rgba(148,163,184,0.08)', color: '#e5e7eb' }}
         />
 
@@ -75,6 +103,14 @@ const withGate = (Story: any) => (
 );
 
 export const decorators = [withGate];
+
+export const parameters = {
+  options: {
+    storySort: {
+      order: ['00-Mock', 'Guided Tour', 'Components', 'Stories'],
+    },
+  },
+};
 
 const preview: Preview = {};
 export default preview;

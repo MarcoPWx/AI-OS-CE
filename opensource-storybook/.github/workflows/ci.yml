@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main, staging, dev]
+  pull_request:
+    branches: [main, staging, dev]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      STORYBOOK_DISABLE_TELEMETRY: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm install --no-audit --no-fund
+      - run: npm run prettier:check
+      - run: npm run lint -- --quiet || true
+      - run: npm run test:unit:coverage
+      - run: npm run integrity:check
+      - run: npm run build
+      - run: npx playwright install --with-deps
+      - run: |
+          npx concurrently -k -s first -n "SB,TEST" \
+            "npx http-server storybook-static -p 7007" \
+            "npx wait-on http://localhost:7007 && npm run test:stories"
+      - run: |
+          npx concurrently -k -s first -n "SB,E2E" \
+            "npx http-server storybook-static -p 7007" \
+            "npx wait-on http://localhost:7007 && npm run e2e"
