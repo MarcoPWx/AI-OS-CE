@@ -1,0 +1,48 @@
+name: OpenSource Storybook CI (subdir)
+
+on:
+  push:
+    branches: [main, staging, dev, chore/**, feat/**]
+  pull_request:
+    branches: [main, staging, dev]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      STORYBOOK_DISABLE_TELEMETRY: '1'
+    defaults:
+      run:
+        working-directory: opensource-storybook
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: opensource-storybook/package-lock.json
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Prettier check
+        run: npm run prettier:check
+      - name: Lint
+        run: npm run lint -- --quiet || true
+      - name: Unit tests with coverage
+        run: npm run test:unit:coverage
+      - name: Integrity check
+        run: npm run integrity:check
+      - name: Build Storybook
+        run: npm run build
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Storybook a11y tests (static)
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" \
+            "npx http-server storybook-static -p 7007" \
+            "npx wait-on http://localhost:7007 && npm run test:stories"
+      - name: E2E tests (static)
+        run: |
+          npx concurrently -k -s first -n "SB,E2E" \
+            "npx http-server storybook-static -p 7007" \
+            "npx wait-on http://localhost:7007 && npm run e2e"
+
