@@ -6,12 +6,31 @@
 
 Keep it simple: one DevLog, one System Status, one Epic Manager (Improved). No badges, no banners, no auto-hooks. Manual, agent-driven updates only.
 
-Quick start
-- Install: npm install
-- Run Storybook: npm run storybook
-- Open: http://localhost:7007
+Start here (TL;DR)
+Requirements:
+- Node >= 18.17
+- Optional (for E2E): npx playwright install
 
-CLI (scaffold into any repo)
+- Install deps: npm install
+- Start dev (HMR): npm run dev
+- Open: http://localhost:7007
+- Dev controls:
+  - Press "g" twice → Presenter overlay
+  - Toolbar → MSW → On / Off / Info; set Latency and Error Rate
+  - MSW Info shows active routes from src/mocks/handlers.ts
+- Real API mode: set MSW → Off to passthrough real network
+- Command cheat sheet:
+  - Start: npm run dev
+  - Unit tests: npm run test:unit
+  - Build static: npm run build
+
+Common issues (see docs/TROUBLESHOOTING.md for more)
+- Port in use: npm run dev -- -p 7008
+- MSW seems off: toolbar → MSW → On
+- E2E failing: run npx playwright install
+- Build prompts for telemetry: STORYBOOK_DISABLE_TELEMETRY=1 npm run build
+
+Optional: scaffold into another repo
 - One-liner: `npx create-agent-storybook --force`
 - Flags: `--dry-run` `--docs-only` `--stories-only` `--no-config`
 
@@ -45,20 +64,17 @@ Labs
 - Labs/S2S Foundations — network + API playgrounds under load
 - Labs/Porting Projects — bring flows from Harvest, DevMentor, Quiz, Voice
 
-Porting to another project (minimal)
+Porting to another project (3 steps)
 1) Copy canonical docs:
-   - docs/status/DEVLOG.md
-   - docs/roadmap/EPICS.md
-   - docs/SYSTEM_STATUS.md
-   - docs/status/AGENT_BOOT.md (optional loaded preface)
-   - docs/AgentBoot.docs.mdx (Storybook page)
+   - docs/status/DEVLOG.md, docs/roadmap/EPICS.md, docs/SYSTEM_STATUS.md
+   - (optional) docs/status/AGENT_BOOT.md and docs/AgentBoot.docs.mdx
 2) Copy the three stories/components:
-   - src/stories/Docs/DevLog.stories.tsx, src/stories/Docs/DevLogLive.tsx
-   - src/stories/Docs/SystemStatusDocLive.stories.tsx, src/stories/Docs/SystemStatusDocLive.tsx
-   - src/stories/Epics/EpicManager.improved.tsx, src/stories/Epics/EpicManagerImproved.stories.tsx
-3) Serve docs statically in .storybook/main.ts via staticDirs: ['../docs'] (and '../public' if needed)
-4) Keep .storybook/preview.ts minimal (no agent/badges/banners)
-5) Optional scripts (manual): scripts/docs-refresh.mjs, scripts/update-docs-status.mjs; add docs:refresh and docs:updates scripts, but do not wire to prestorybook/prebuild
+   - Docs: DevLogLive (story + component), SystemStatusDocLive (story + component)
+   - Epics: EpicManagerImproved (story + component)
+3) Configure Storybook:
+   - .storybook/main.ts → staticDirs includes '../docs' (and '../public' if needed)
+   - Keep .storybook/preview minimal; HMR-friendly
+   - Optional scripts: scripts/docs-refresh.mjs, scripts/update-docs-status.mjs (manual only)
 
 ---
 
