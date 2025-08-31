@@ -3,10 +3,23 @@
 # dependencies
 node_modules/
 
-# Expo
+# Builds / output
 .expo/
 dist/
 web-build/
+coverage/
+playwright-report/
+public/storybook/
+storyboard-static/
+storybook-static/
+
+# Large/generated data
+harvest_output/
+*.db
+*.webm
+
+# Expo
+tmp/
 expo-env.d.ts
 
 # Native
