@@ -1,0 +1,10 @@
+/* Minimal print styles to satisfy Storybook import */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+}

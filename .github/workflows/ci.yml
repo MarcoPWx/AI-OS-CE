@@ -5,6 +5,12 @@ on:
     branches: [main, staging, dev]
   pull_request:
     branches: [main, staging, dev]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Why are you running CI manually?'
+        required: false
+        default: 'manual trigger'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -48,14 +54,14 @@ jobs:
       - name: Run Storybook tests (a11y)
         run: |
           npx concurrently -k -s first -n "SB,TEST" \
-            "npx http-server storybook-static -p 7007" \
-            "npx wait-on http://localhost:7007 && npm run test:stories"
+            "npx http-server storybook-static -p 7009" \
+            "npx wait-on http://localhost:7009 && npm run test:stories"
       
       - name: Run E2E tests
         run: |
           npx concurrently -k -s first -n "SB,E2E" \
-            "npx http-server storybook-static -p 7007" \
-            "npx wait-on http://localhost:7007 && npm run e2e"
+            "npx http-server storybook-static -p 7009" \
+            "npx wait-on http://localhost:7009 && npm run e2e"
       
       - name: Upload coverage
         uses: actions/upload-artifact@v4
