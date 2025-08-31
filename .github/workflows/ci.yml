@@ -5,6 +5,12 @@ on:
     branches: [main, staging, dev]
   pull_request:
     branches: [main, staging, dev]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Why are you running CI manually?'
+        required: false
+        default: 'manual trigger'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
