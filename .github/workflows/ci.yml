@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches: [main, staging, dev]
+  pull_request:
+    branches: [main, staging, dev]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Why are you running CI manually?'
+        required: false
+        default: 'manual trigger'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      STORYBOOK_DISABLE_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Prettier check
+        run: npm run prettier:check
+      
+      - name: Lint
+        run: npm run lint -- --quiet
+      
+      - name: Run unit tests with coverage
+        run: npm run test:unit:coverage
+
+      - name: Reference integrity
+        run: npm run integrity:check
+      
+      - name: Build Storybook
+        run: npm run build
+      
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      
+      - name: Run Storybook tests (a11y)
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" \
+            "npx http-server storybook-static -p 7007" \
+            "npx wait-on http://localhost:7007 && npm run test:stories"
+      
+      - name: Run E2E tests
+        run: |
+          npx concurrently -k -s first -n "SB,E2E" \
+            "npx http-server storybook-static -p 7007" \
+            "npx wait-on http://localhost:7007 && npm run e2e"
+      
+      - name: Upload coverage
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage
+          path: coverage/
+      
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+      
+      - name: Upload Storybook build
+        uses: actions/upload-artifact@v4
+        with:
+          name: storybook-static
+          path: storybook-static/
