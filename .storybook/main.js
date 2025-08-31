@@ -18,7 +18,6 @@ const config = {
     autodocs: 'tag'
   },
   viteFinal: async (config) => {
-    // Ensure React Native imports resolve to web implementation for Storybook
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
@@ -31,10 +30,9 @@ const config = {
       ...(config.optimizeDeps.exclude || []),
       'react-native'
     ];
-    config.optimizeDeps.esbuildOptions = config.optimizeDeps.esbuildOptions || {} as any;
-    // Treat JS files as JSX for certain RN/Expo packages shipped with JSX in .js
-    (config.optimizeDeps.esbuildOptions as any).loader = {
-      ...(config.optimizeDeps.esbuildOptions as any).loader,
+    config.optimizeDeps.esbuildOptions = config.optimizeDeps.esbuildOptions || {};
+    config.optimizeDeps.esbuildOptions.loader = {
+      ...(config.optimizeDeps.esbuildOptions.loader || {}),
       '.js': 'jsx',
     };
     return config;

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
-import { GameTour } from '../../src/components/GameTour';
+import { GameTour } from '../components/GameTour';
 
 const meta: Meta<typeof GameTour> = {
   title: 'Guided Tour/GameTour',
