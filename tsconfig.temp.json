@@ -1,9 +1,0 @@
-{
-  "compilerOptions": { "skipLibCheck": true, "noEmit": true },
-  "exclude": [
-    "services/subscriptionService.tsx",
-    "providers/QueryProvider.tsx",
-    "services/selfLearningOrchestrator.ts",
-    "src/screens/LoginScreen.tsx"
-  ]
-}

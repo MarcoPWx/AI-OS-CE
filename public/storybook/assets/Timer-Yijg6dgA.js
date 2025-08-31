@@ -1,1 +1,0 @@
-import{R as r}from"./index-R2V08a_e.js";function m({secondsLeft:t,totalSeconds:a}){const e=Math.max(0,Math.round(t)),i=Math.max(1,Math.round(a));return r.createElement("div",{"aria-label":"timer",role:"status","aria-live":"polite","aria-atomic":"true","data-testid":"timer-text",style:{fontSize:12,opacity:.8}},"Time: ",e,"s / ",i,"s")}export{m as T};
