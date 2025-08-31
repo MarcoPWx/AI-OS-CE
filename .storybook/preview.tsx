@@ -42,9 +42,12 @@ function Gate({ children }: { children: React.ReactNode }) {
   if (authed) return (
     <>
       {/* Beta banner */}
-      <div style={{ position: 'fixed', top: 8, right: 8, zIndex: 999999, display: 'flex', gap: 8 }}>
+      <div style={{ position: 'fixed', top: 8, right: 8, zIndex: 999999, display: 'flex', gap: 8, alignItems: 'center' }}>
         <div style={{ padding: '6px 10px', borderRadius: 8, background: 'rgba(2,6,23,0.85)', border: '1px solid rgba(59,130,246,0.4)', color: '#e5e7eb', fontSize: 12, fontWeight: 800 }}>
           BETA
+        </div>
+        <div style={{ padding: '6px 10px', borderRadius: 8, background: 'rgba(2,6,23,0.85)', border: '1px solid rgba(147,197,253,0.4)', color: '#bfdbfe', fontSize: 12, fontWeight: 800 }}>
+          MOCK
         </div>
         {tourDefault && (
           <div style={{ padding: '6px 10px', borderRadius: 8, background: 'rgba(15,23,42,0.85)', border: '1px solid rgba(34,197,94,0.5)', color: '#e5e7eb', fontSize: 12, fontWeight: 800 }}>
@@ -56,6 +59,21 @@ function Gate({ children }: { children: React.ReactNode }) {
             Tour: Enforced
           </div>
         )}
+        {/* Quick links */}
+        <a
+          href={'../?path=/story/00-mock-mocked-app--mocked-app-with-tour'}
+          target="_top"
+          style={{ padding: '6px 10px', borderRadius: 8, border: '1px solid rgba(59,130,246,0.5)', background: 'rgba(2,6,23,0.65)', color: '#93c5fd', fontWeight: 800, textDecoration: 'none' }}
+        >
+          Open Mock (UI)
+        </a>
+        <a
+          href={'./iframe.html?path=/story/00-mock-mocked-app--mocked-app-with-tour'}
+          target="_top"
+          style={{ padding: '6px 10px', borderRadius: 8, border: '1px solid rgba(59,130,246,0.5)', background: 'rgba(2,6,23,0.65)', color: '#93c5fd', fontWeight: 800, textDecoration: 'none' }}
+        >
+          Preview Only
+        </a>
       </div>
       {children}
     </>
