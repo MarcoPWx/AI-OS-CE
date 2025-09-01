@@ -59,6 +59,73 @@ python3 tools/agent/agent_boot.py sync-github
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Storybook](https://img.shields.io/badge/Storybook-8.6-ff4785?logo=storybook)](https://storybook.js.org/)
 
+## 💡 Why AIBook? The Problem We Solve
+
+AIBook is a Storybook setup specifically designed for developers who build UI with AI assistants (Claude, GPT-4, Copilot).
+
+**The core insight:** AI can't see your UI or run your code. AIBook provides the missing feedback loop.
+
+### 🎯 Who Needs This?
+
+You need AIBook if you've ever:
+
+- ✋ Spent 30 minutes debugging AI-generated code that "looked right"
+- ✋ Had AI create beautiful components that broke with real data
+- ✋ Wished AI could see what you're building
+- ✋ Wanted AI to follow your team's patterns
+- ✋ Needed to verify AI code is accessible and tested
+
+### 💰 The Value (Why This Saves You Time)
+
+**Without AIBook:**
+```
+1. Ask AI for component → 2. Copy code → 3. It breaks → 4. Debug for 20 min → 5. Ask AI to fix → 6. Still broken → 7. Give up and write it yourself
+```
+
+**With AIBook:**
+```
+1. Ask AI (with examples) → 2. Copy code → 3. Run tests → 4. See it working → 5. Ship it
+```
+
+**Time saved per component: ~30 minutes**  
+**Components per week: ~10**  
+**Time saved per week: 5 hours**
+
+### 🚀 Real Example: Build a Feature in 5 Minutes
+
+**Task:** "I need a notification center with dismiss and mark-all-read"
+
+**Without AIBook (typical experience):**
+```javascript
+// AI gives you this...
+function NotificationCenter() {
+  const [notifications, setNotifications] = useState([]); // Where's the data?
+  // 200 lines of broken code...
+}
+// Spend next hour wiring up data, fixing errors, adding tests
+```
+
+**With AIBook:**
+```markdown
+# Your prompt to AI:
+"Create a notification center following the pattern in:
+- Component: src/stories/Epics/EpicManager.tsx
+- With mock: src/mocks/handlers.ts (GET /api/notifications)
+- With test: tests/unit/EpicManager.test.tsx"
+
+# AI generates working code because it has patterns to follow
+# You validate in seconds:
+npm run test:unit # ✅ Tests pass
+Open Storybook # ✅ Looks perfect
+Toggle MSW Error Rate # ✅ Handles errors gracefully
+```
+
+**Result:** Feature complete in 5 minutes vs 1+ hour
+
+📖 **Full guide: [docs/LLM_WORKFLOW_GUIDE.md](docs/LLM_WORKFLOW_GUIDE.md)**
+
+---
+
 ## Agent-Driven Storybook (Minimal)
 
 Keep it simple: one DevLog, one System Status, one Epic Manager (Improved). No badges, no banners, no auto-hooks. Manual, agent-driven updates only.
@@ -145,93 +212,6 @@ Porting to another project (3 steps)
    - Optional scripts: scripts/docs-refresh.mjs, scripts/update-docs-status.mjs (manual only)
 
 ---
-
-## 💡 What is AIBook?
-
-AIBook is a Storybook setup specifically designed for developers who build UI with AI assistants (Claude, GPT-4, Copilot).
-
-**The core insight:** AI can't see your UI or run your code. AIBook provides the missing feedback loop.
-
-## 🎯 Who Needs This?
-
-You need AIBook if you've ever:
-
-- ✋ Spent 30 minutes debugging AI-generated code that "looked right"
-- ✋ Had AI create beautiful components that broke with real data
-- ✋ Wished AI could see what you're building
-- ✋ Wanted AI to follow your team's patterns
-- ✋ Needed to verify AI code is accessible and tested
-
-## 💰 The Value (Why This Saves You Time)
-
-### Without AIBook:
-
-```
-1. Ask AI for component → 2. Copy code → 3. It breaks → 4. Debug for 20 min → 5. Ask AI to fix → 6. Still broken → 7. Give up and write it yourself
-```
-
-### With AIBook:
-
-```
-1. Ask AI (with examples) → 2. Copy code → 3. Run tests → 4. See it working → 5. Ship it
-```
-
-**Time saved per component: ~30 minutes**  
-**Components per week: ~10**  
-**Time saved per week: 5 hours**
-
-## 🎬 Try It Now (2 minutes)
-
-```bash
-# See real value in 2 minutes
-git clone https://github.com/NatureQuest/opensource-storybook
-cd opensource-storybook
-npm install && npm run dev
-
-# Open http://localhost:7007
-# Click: Epics/Epic Manager - Full working CRUD, no backend needed!
-# Try: MSW Toolbar - Set Error Rate to 0.5, watch graceful failures
-# Check: Status/Dashboard - See your test coverage live
-```
-
-## 🚀 Real Example: Build a Feature in 5 Minutes
-
-### Task: "I need a notification center with dismiss and mark-all-read"
-
-#### Without AIBook (typical experience):
-
-```javascript
-// AI gives you this...
-function NotificationCenter() {
-  const [notifications, setNotifications] = useState([]); // Where's the data?
-  // 200 lines of broken code...
-}
-// Spend next hour wiring up data, fixing errors, adding tests
-```
-
-#### With AIBook:
-
-```markdown
-# Your prompt to AI:
-
-"Create a notification center following the pattern in:
-
-- Component: src/stories/Epics/EpicManager.tsx
-- With mock: src/mocks/handlers.ts (GET /api/notifications)
-- With test: tests/unit/EpicManager.test.tsx"
-
-# AI generates working code because it has patterns to follow
-
-# You validate in seconds:
-
-npm run test:unit # ✅ Tests pass
-Open Storybook # ✅ Looks perfect
-Toggle MSW Error Rate # ✅ Handles errors gracefully
-```
-
-**Result:** Feature complete in 5 minutes vs 1+ hour
-
-📖 **Full guide: [docs/LLM_WORKFLOW_GUIDE.md](docs/LLM_WORKFLOW_GUIDE.md)**
 
 ## 🎁 What You Get (Pre-Built & Working)
 
