@@ -41,7 +41,8 @@ npm run dev
 
 # 5. (Optional) Use the Python Agent Boot system
 python3 tools/agent/agent_boot.py init
-python3 tools/agent/agent_boot.py update-docs --content "Starting new session"
+python3 tools/agent/agent_boot.py list-epics
+python3 tools/agent/agent_boot.py create-epic --title "New Feature" --description "Details" --create-issue
 ```
 
 ## 🎯 Two Main Components
@@ -57,14 +58,16 @@ python3 tools/agent/agent_boot.py update-docs --content "Starting new session"
 **Located in `tools/agent/agent_boot.py`** - Complete development orchestration:
 
 **What it DOES (NEW!):**
-- ✅ **Creates GitHub issues** - Automatically from epics
-- ✅ **Updates EPICS.md** - Auto-tracks progress and completion
-- ✅ **Auto-logs to DEVLOG.md** - Records all operations
+- ✅ **Epic Management** - Create, update, list, and track epics with completion %
+- ✅ **GitHub Issue Integration** - Auto-creates issues from epics with `--create-issue`
+- ✅ **Progress Tracking** - Visual progress bars in GitHub comments [██████░░░░] 60%
+- ✅ **Bidirectional Sync** - `sync-github` syncs epic status with GitHub issues
+- ✅ **Status Updates** - Update epic status (TODO → IN_PROGRESS → DONE)
+- ✅ **Auto-logs to DEVLOG.md** - Records all operations with timestamps
 - ✅ **Monitors GitHub PRs** - Tracks CI status and failures
-- ✅ **Performance tracking** - Visual progress bars and metrics
+- ✅ **Performance tracking** - Built-in metrics and performance reports
 - ✅ **Security testing** - Built-in vulnerability scanner
-- ✅ **Auto-commits changes** - Optional git integration
-- ✅ **Enforces tracking** - Prevents context loss with smart triggers
+- ✅ **Graceful Degradation** - Works offline, warns if GitHub unavailable
 
 ## Agent-Driven Storybook (Minimal)
 
@@ -696,12 +699,37 @@ npm run storybook:analyze  # Open bundle analyzer
 
 ### Agent Boot (Python)
 
+#### Epic Management Commands (NEW!):
 ```bash
-python3 agent_boot.py init
-python3 agent_boot.py update-docs --content "Session update"
-python3 agent_boot.py create-epic --title "Title" --description "Description"
-python3 agent_boot.py test-security --input "<script>alert('xss')</script>"
-python3 agent_boot.py performance-report
+# List all epics with status and completion
+python3 tools/agent/agent_boot.py list-epics
+
+# Create epic with GitHub issue
+python3 tools/agent/agent_boot.py create-epic --title "Add OAuth" --description "Implement OAuth2 authentication" --create-issue
+
+# Update epic status and progress
+python3 tools/agent/agent_boot.py update-epic --title "Add Dark Mode" --status IN_PROGRESS --completion 75
+python3 tools/agent/agent_boot.py update-epic --epic-id fd1e7278 --status DONE
+
+# Sync local epics with GitHub issues
+python3 tools/agent/agent_boot.py sync-github
+```
+
+#### Other Commands:
+```bash
+# Initialize and setup
+python3 tools/agent/agent_boot.py init
+
+# Documentation updates
+python3 tools/agent/agent_boot.py update-docs --content "Completed authentication feature"
+
+# GitHub status monitoring
+python3 tools/agent/agent_boot.py github-status
+python3 tools/agent/agent_boot.py workflow-status
+
+# Security and performance
+python3 tools/agent/agent_boot.py test-security --input "<script>alert('xss')</script>"
+python3 tools/agent/agent_boot.py performance-report
 ```
 
 ## 📁 Project Structure
