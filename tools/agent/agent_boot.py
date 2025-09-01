@@ -622,6 +622,7 @@ class EpicManager:
         self.context = context
         self.epics_path = Path(context.config.get('project_root', '.')) / 'docs' / 'roadmap' / 'EPICS.md'
         self.epics: Dict[str, Epic] = {}
+        self.github_issues: Dict[str, str] = {}  # epic_id -> issue_number
         self._load_epics()
     
     def _load_epics(self) -> None:
@@ -647,6 +648,205 @@ class EpicManager:
                     
         except Exception as e:
             logger.error(f"Failed to load epics: {e}")
+    
+    def find_epic_by_title(self, title: str) -> Optional[Epic]:
+        """Find epic by title."""
+        for epic in self.epics.values():
+            if epic.title == title:
+                return epic
+        return None
+    
+    @measure_performance
+    async def update_epic(self, epic_id: str, status: Optional[str] = None, 
+                          completion: Optional[int] = None) -> TaskResult:
+        """
+        Update existing epic status and progress.
+        WHY: Track project progress over time.
+        """
+        try:
+            if epic_id not in self.epics:
+                raise ValueError(f"Epic {epic_id} not found")
+            
+            epic = self.epics[epic_id]
+            updated = False
+            
+            if status and status != epic.status:
+                epic.status = status
+                updated = True
+                
+                # Auto-update completion based on status
+                if status == 'DONE' and completion is None:
+                    epic.completion_percentage = 100.0
+                elif status == 'IN_PROGRESS' and completion is None:
+                    epic.completion_percentage = max(epic.completion_percentage, 50.0)
+            
+            if completion is not None:
+                epic.completion_percentage = float(min(100, max(0, completion)))
+                updated = True
+            
+            if updated:
+                epic.updated_at = datetime.now(timezone.utc).isoformat()
+                await self._persist_epics()
+                
+                # Update GitHub issue if it exists
+                if epic_id in self.github_issues:
+                    await self._update_github_issue(epic_id, epic)
+            
+            return TaskResult(
+                success=True,
+                data=epic.to_dict(),
+                error=None,
+                duration_ms=0,
+                timestamp=datetime.now(timezone.utc).isoformat()
+            )
+            
+        except Exception as e:
+            logger.error(f"Failed to update epic: {e}")
+            return TaskResult(
+                success=False,
+                data=None,
+                error=str(e),
+                duration_ms=0,
+                timestamp=datetime.now(timezone.utc).isoformat()
+            )
+    
+    async def _update_github_issue(self, epic_id: str, epic: Epic) -> None:
+        """
+        Update GitHub issue with epic progress.
+        WHY: Keep GitHub in sync with local state.
+        """
+        try:
+            issue_number = self.github_issues.get(epic_id)
+            if not issue_number:
+                return
+            
+            # Create progress bar
+            progress = int(epic.completion_percentage)
+            filled = '█' * (progress // 10)
+            empty = '░' * (10 - (progress // 10))
+            progress_bar = f"[{filled}{empty}] {progress}%"
+            
+            # Create comment body
+            comment = f"""
+### 📊 Epic Progress Update
+
+**Status:** {epic.status}
+**Progress:** {progress_bar}
+**Updated:** {epic.updated_at}
+
+---
+*Updated by Agent Boot*
+"""
+            
+            # Post comment to issue
+            cmd = ['gh', 'issue', 'comment', issue_number, '--body', comment]
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            
+            if result.returncode == 0:
+                logger.info(f"Updated GitHub issue #{issue_number} with progress")
+            else:
+                logger.warning(f"Could not update GitHub issue: {result.stderr}")
+                
+        except Exception as e:
+            logger.warning(f"GitHub update failed (non-critical): {e}")
+    
+    @measure_performance
+    async def list_epics(self) -> TaskResult:
+        """
+        List all epics with their status.
+        WHY: Overview of project state.
+        """
+        try:
+            epic_list = []
+            for epic in self.epics.values():
+                epic_summary = {
+                    'id': epic.id,
+                    'title': epic.title,
+                    'status': epic.status,
+                    'completion': f"{epic.completion_percentage:.0f}%",
+                    'github_issue': self.github_issues.get(epic.id)
+                }
+                epic_list.append(epic_summary)
+            
+            # Sort by status and completion
+            epic_list.sort(key=lambda x: (x['status'] != 'IN_PROGRESS', x['status'] == 'DONE', x['title']))
+            
+            return TaskResult(
+                success=True,
+                data={'epics': epic_list, 'total': len(epic_list)},
+                error=None,
+                duration_ms=0,
+                timestamp=datetime.now(timezone.utc).isoformat()
+            )
+            
+        except Exception as e:
+            logger.error(f"Failed to list epics: {e}")
+            return TaskResult(
+                success=False,
+                data=None,
+                error=str(e),
+                duration_ms=0,
+                timestamp=datetime.now(timezone.utc).isoformat()
+            )
+    
+    @measure_performance
+    async def sync_with_github(self) -> TaskResult:
+        """
+        Sync epic status with GitHub issues.
+        WHY: Keep local and remote state consistent.
+        """
+        try:
+            synced = 0
+            
+            # Get all issues
+            result = subprocess.run(
+                ['gh', 'issue', 'list', '--state', 'all', '--json', 'number,title,state,body'],
+                capture_output=True, text=True
+            )
+            
+            if result.returncode != 0:
+                raise Exception(f"GitHub CLI failed: {result.stderr}")
+            
+            issues = json.loads(result.stdout) if result.stdout else []
+            
+            # Match issues to epics by title
+            for issue in issues:
+                for epic_id, epic in self.epics.items():
+                    if epic.title in issue['title']:
+                        # Update epic status based on issue state
+                        if issue['state'] == 'CLOSED':
+                            epic.status = 'DONE'
+                            epic.completion_percentage = 100.0
+                        elif issue['state'] == 'OPEN' and epic.status == 'TODO':
+                            epic.status = 'IN_PROGRESS'
+                            epic.completion_percentage = max(epic.completion_percentage, 10.0)
+                        
+                        # Store issue number
+                        self.github_issues[epic_id] = str(issue['number'])
+                        synced += 1
+                        break
+            
+            # Save updates
+            if synced > 0:
+                await self._persist_epics()
+            
+            return TaskResult(
+                success=True,
+                data={'synced': synced, 'total_issues': len(issues)},
+                error=None,
+                duration_ms=0,
+                timestamp=datetime.now(timezone.utc).isoformat()
+            )
+            
+        except Exception as e:
+            logger.error(f"GitHub sync failed: {e}")
+            return TaskResult(
+                success=False,
+                data=None,
+                error=str(e),
+                duration_ms=0,
+                timestamp=datetime.now(timezone.utc).isoformat()
+            )
     
     @measure_performance
     async def create_epic(self, title: str, description: str, **kwargs) -> TaskResult:
@@ -1170,6 +1370,22 @@ class AgentBoot:
                     if epic:
                         github_result = await self.github.create_issue_from_epic(epic)
                         result['data']['github_issue'] = github_result['data']
+                        if github_result['success'] and github_result['data']:
+                            # Store the issue number for future updates
+                            self.epic_manager.github_issues[epic_id] = github_result['data'].get('issue_number')
+                
+            elif command == "update_epic":
+                result = await self.epic_manager.update_epic(
+                    kwargs.get('epic_id'),
+                    status=kwargs.get('status'),
+                    completion=kwargs.get('completion')
+                )
+                
+            elif command == "list_epics":
+                result = await self.epic_manager.list_epics()
+                
+            elif command == "sync_github":
+                result = await self.epic_manager.sync_with_github()
                 
             elif command == "test_security":
                 result = await self.security_lab.test_input_validation(
@@ -1454,12 +1670,15 @@ Examples:
     )
     
     parser.add_argument('command', choices=[
-        'init', 'update-docs', 'create-epic', 'test-security', 'performance-report',
-        'github-status', 'workflow-status'
+        'init', 'update-docs', 'create-epic', 'update-epic', 'list-epics', 'test-security', 'performance-report',
+        'github-status', 'workflow-status', 'sync-github'
     ], help='Command to execute')
     
     parser.add_argument('--title', help='Epic title')
     parser.add_argument('--description', help='Epic description')
+    parser.add_argument('--epic-id', help='Epic ID to update')
+    parser.add_argument('--status', choices=['TODO', 'IN_PROGRESS', 'DONE'], help='Epic status')
+    parser.add_argument('--completion', type=int, help='Completion percentage (0-100)')
     parser.add_argument('--input', help='Input to test')
     parser.add_argument('--content', help='Documentation content')
     parser.add_argument('--create-issue', action='store_true', help='Create GitHub issue for epic')
@@ -1527,6 +1746,40 @@ Examples:
                 create_issue=args.create_issue
             )
             print(f"Epic created: {json.dumps(result, indent=2)}")
+            
+        elif args.command == 'update-epic':
+            if not args.epic_id and not args.title:
+                print("Error: --epic-id or --title required for update-epic")
+                sys.exit(1)
+            
+            # Find epic by title if ID not provided
+            epic_id = args.epic_id
+            if not epic_id and args.title:
+                # Find epic by title
+                for e_id, epic in agent.epic_manager.epics.items():
+                    if epic.title == args.title:
+                        epic_id = e_id
+                        break
+            
+            if not epic_id:
+                print(f"Error: Epic not found with title '{args.title}'")
+                sys.exit(1)
+            
+            result = await agent.execute_command(
+                'update_epic',
+                epic_id=epic_id,
+                status=args.status,
+                completion=args.completion
+            )
+            print(f"Epic updated: {json.dumps(result, indent=2)}")
+            
+        elif args.command == 'list-epics':
+            result = await agent.execute_command('list_epics')
+            print(f"\nEpics:\n{json.dumps(result['data'], indent=2)}")
+            
+        elif args.command == 'sync-github':
+            result = await agent.execute_command('sync_github')
+            print(f"GitHub sync result: {json.dumps(result, indent=2)}")
             
         elif args.command == 'test-security':
             result = await agent.execute_command(
