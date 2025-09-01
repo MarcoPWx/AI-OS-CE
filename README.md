@@ -1,8 +1,9 @@
 # Agent-Driven Storybook (Minimal)
 
-[![CI](https://github.com/NatureQuest/opensource-storybook/actions/workflows/ci.yml/badge.svg)](https://github.com/NatureQuest/opensource-storybook/actions/workflows/ci.yml)
+[![CI](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![npm](https://img.shields.io/npm/v/create-agent-storybook)](https://www.npmjs.com/package/create-agent-storybook)
+[![Node](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](package.json)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
 
 Keep it simple: one DevLog, one System Status, one Epic Manager (Improved). No badges, no banners, no auto-hooks. Manual, agent-driven updates only.
 
