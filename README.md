@@ -51,7 +51,7 @@ Canonical docs (single source of truth)
 - DevLog: docs/status/DEVLOG.md
 - Epics: docs/roadmap/EPICS.md
 - System Status: docs/SYSTEM_STATUS.md
-- Agent Boot System (reference): AGENT_BOOT_README.md
+- Agent Boot System (reference): tools/agent/AGENT_BOOT_README.md
 - Agent Boot (Storybook): docs/AgentBoot.docs.mdx
 
 Storybook pages
@@ -68,7 +68,7 @@ Agent operations
   - Set "> Updated: YYYY-MM-DD" in docs/roadmap/EPICS.md
   - Refresh docs/status/last-updated.json timestamps
 - "Load Agent Boot"
-  - Ensure AGENT_BOOT_README.md and docs/AgentBoot.docs.mdx reflect the current contract
+- Ensure tools/agent/AGENT_BOOT_README.md and docs/AgentBoot.docs.mdx reflect the current contract
   - No manifests and no pre-hooks; manual-only
 
 Nothing auto-runs
@@ -311,7 +311,7 @@ npm run dev
 ## 🤖 Agent Boot System (Python, Reference Implementation)
 
 - Complete learning platform and production-ready patterns
-- Read: AGENT_BOOT_README.md for full details and the manifesto
+- Read: tools/agent/AGENT_BOOT_README.md for full details and the manifesto
 - **NEW**: Automatic tracking enforcement prevents context loss
 
 ### 🚨 Tracking Enforcement System
@@ -332,15 +332,15 @@ Prevents agents from losing context with automatic enforcement:
 ❌ ERROR TRACKED: Error requiring documentation
 ```
 
-See [TRACKING_ENFORCEMENT.md](TRACKING_ENFORCEMENT.md) for details.
+See [tools/agent/TRACKING_ENFORCEMENT.md](tools/agent/TRACKING_ENFORCEMENT.md) for details.
 
 ### Quick CLI:
 ```bash
-python3 agent_boot.py init
-python3 agent_boot.py update-docs --content "Session summary"
-python3 agent_boot.py create-epic --title "New Feature" --description "Complete implementation"
-python3 agent_boot.py test-security --input "<script>alert('xss')</script>"
-python3 agent_boot.py performance-report
+python3 tools/agent/agent_boot.py init
+python3 tools/agent/agent_boot.py update-docs --content "Session summary"
+python3 tools/agent/agent_boot.py create-epic --title "New Feature" --description "Complete implementation"
+python3 tools/agent/agent_boot.py test-security --input "<script>alert('xss')</script>"
+python3 tools/agent/agent_boot.py performance-report
 ````
 
 ## 🔁 Porting This Setup to Another Project
@@ -355,9 +355,9 @@ python3 agent_boot.py performance-report
    - Epics/Epic Manager (use your improved component)
 3. Include Agent Boot (manual):
 
-- AGENT_BOOT_README.md (reference implementation & contract)
+- tools/agent/AGENT_BOOT_README.md (reference implementation & contract)
 - docs/AgentBoot.docs.mdx (same contract for Storybook)
-- Optional: link AGENT_BOOT_README.md from your project's README
+- Optional: link tools/agent/AGENT_BOOT_README.md from your project's README
 
 4. Optional helper scripts (manual-only):
    - scripts/docs-refresh.mjs and scripts/update-docs-status.mjs
@@ -582,7 +582,7 @@ npm run storybook:check-budgets  # Enforce limits
 || [🧪 Lab 01: Notification Center](docs/labs/LAB_01_NOTIFICATION_CENTER.mdx) | Build a notification center fast | First lab |
 || [🧩 Patterns Overview](docs/guides/PATTERNS_OVERVIEW.mdx) | Tradeoffs, anti-patterns, and links to templates | When choosing a pattern |
 || [🧵 Hooks (Query & Mutation)](docs/guides/HOOKS.mdx) | Minimal useQuery/useMutation APIs and examples | When wiring async data |
-|| [🤖 Agent Boot System (Reference)](AGENT_BOOT_README.md) | Python-based agent orchestration and manifesto | When using the agent to manage docs/epics/status |
+|| [🤖 Agent Boot System (Reference)](tools/agent/AGENT_BOOT_README.md) | Python-based agent orchestration and manifesto | When using the agent to manage docs/epics/status |
 
 ### Deep Dives
 

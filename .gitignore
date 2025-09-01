@@ -6,6 +6,15 @@ storybook-static/
 coverage/
 playwright-report/
 test-results/
+dist/
+*.tgz
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Local Storybook dev artifacts
 .storybook-dev.log
@@ -13,4 +22,17 @@ test-results/
 
 # OS files
 .DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
 
