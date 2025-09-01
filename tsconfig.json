@@ -23,10 +23,5 @@
     "*.config.ts",
     "scripts/**/*"
   ],
-  "exclude": [
-    "node_modules",
-    "storybook-static",
-    "coverage",
-    "playwright-report"
-  ]
+  "exclude": ["node_modules", "storybook-static", "coverage", "playwright-report"]
 }

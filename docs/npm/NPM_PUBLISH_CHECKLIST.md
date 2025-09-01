@@ -28,17 +28,20 @@
 ## 🚀 How to Publish
 
 ### 1. First-time setup (if not done):
+
 ```bash
 npm login
 # Enter your npm credentials
 ```
 
 ### 2. Publish the beta version:
+
 ```bash
 npm publish --access public --tag beta
 ```
 
 ### 3. After publishing, users can install with:
+
 ```bash
 # Install specific beta
 npm install @ai-os/storybook-toolkit@beta
@@ -60,12 +63,14 @@ npx @ai-os/storybook-toolkit create my-app
 ### Current: 0.1.0-beta.1
 
 ### Next versions:
+
 - `0.1.0-beta.2` - After fixing any reported issues
 - `0.1.0` - First stable release
 - `0.2.0` - New features
 - `1.0.0` - Production ready
 
 ### Version bump commands:
+
 ```bash
 # Beta releases
 npm version prerelease --preid=beta
@@ -90,6 +95,7 @@ npm version major
 First public release of the AI-OS Storybook Toolkit!
 
 #### Features
+
 - Complete Storybook setup with MSW integration
 - Built-in testing with Vitest and Playwright
 - Agent Boot system for automation
@@ -98,20 +104,24 @@ First public release of the AI-OS Storybook Toolkit!
 - Full TypeScript support
 
 #### Installation
+
 \`\`\`bash
 npm install @ai-os/storybook-toolkit@beta
 \`\`\`
 
 #### Quick Start
+
 \`\`\`bash
 npx @ai-os/storybook-toolkit create my-app
 \`\`\`
 
 #### Known Issues
+
 - CLI requires Node >= 18.17
 - Windows support is experimental
 
 #### Feedback
+
 Please report issues at: https://github.com/MarcoPWx/AI-OS-Storybook/issues
 ```
 
@@ -125,6 +135,7 @@ Please report issues at: https://github.com/MarcoPWx/AI-OS-Storybook/issues
 ## 🎯 Success Criteria
 
 The package is ready when:
+
 - [x] CI is green
 - [x] Package installs without errors
 - [x] CLI tool works

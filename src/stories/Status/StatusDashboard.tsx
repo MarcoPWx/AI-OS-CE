@@ -189,9 +189,7 @@ const StatusDashboard: React.FC = () => {
   };
 
   const overallHealth =
-    (services.filter((s) => s.status === "operational").length /
-      services.length) *
-    100;
+    (services.filter((s) => s.status === "operational").length / services.length) * 100;
 
   return (
     <div
@@ -199,8 +197,7 @@ const StatusDashboard: React.FC = () => {
         maxWidth: 1400,
         margin: "0 auto",
         padding: 24,
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         background: "#f8fafc",
         minHeight: "100vh",
       }}
@@ -273,11 +270,7 @@ const StatusDashboard: React.FC = () => {
                   height: 12,
                   borderRadius: "50%",
                   background:
-                    overallHealth > 90
-                      ? "#10b981"
-                      : overallHealth > 70
-                        ? "#f59e0b"
-                        : "#ef4444",
+                    overallHealth > 90 ? "#10b981" : overallHealth > 70 ? "#f59e0b" : "#ef4444",
                   display: "inline-block",
                 }}
               />
@@ -288,30 +281,19 @@ const StatusDashboard: React.FC = () => {
           </div>
           <div style={{ display: "flex", gap: 32 }}>
             <div>
-              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>
-                Services
-              </div>
+              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>Services</div>
               <div style={{ fontSize: 20, fontWeight: 600, color: "#334155" }}>
-                {services.filter((s) => s.status === "operational").length}/
-                {services.length}
+                {services.filter((s) => s.status === "operational").length}/{services.length}
               </div>
             </div>
             <div>
-              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>
-                Avg Uptime
-              </div>
+              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>Avg Uptime</div>
               <div style={{ fontSize: 20, fontWeight: 600, color: "#334155" }}>
-                {(
-                  services.reduce((acc, s) => acc + s.uptime, 0) /
-                  services.length
-                ).toFixed(2)}
-                %
+                {(services.reduce((acc, s) => acc + s.uptime, 0) / services.length).toFixed(2)}%
               </div>
             </div>
             <div>
-              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>
-                Active Alerts
-              </div>
+              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>Active Alerts</div>
               <div
                 style={{
                   fontSize: 20,
@@ -346,9 +328,7 @@ const StatusDashboard: React.FC = () => {
               borderLeft: `4px solid ${getStatusColor(metric.status)}`,
             }}
           >
-            <div style={{ fontSize: 13, color: "#64748b", marginBottom: 8 }}>
-              {metric.name}
-            </div>
+            <div style={{ fontSize: 13, color: "#64748b", marginBottom: 8 }}>{metric.name}</div>
             <div
               style={{
                 display: "flex",
@@ -360,15 +340,9 @@ const StatusDashboard: React.FC = () => {
               <span style={{ fontSize: 28, fontWeight: 700, color: "#0f172a" }}>
                 {metric.value.toFixed(metric.unit === "%" ? 0 : 1)}
               </span>
-              <span style={{ fontSize: 14, color: "#94a3b8" }}>
-                {metric.unit}
-              </span>
+              <span style={{ fontSize: 14, color: "#94a3b8" }}>{metric.unit}</span>
               <span style={{ marginLeft: "auto", fontSize: 14 }}>
-                {metric.trend === "up"
-                  ? "↑"
-                  : metric.trend === "down"
-                    ? "↓"
-                    : "→"}
+                {metric.trend === "up" ? "↑" : metric.trend === "down" ? "↓" : "→"}
               </span>
             </div>
             <div
@@ -541,14 +515,10 @@ const StatusDashboard: React.FC = () => {
                       {formatTimestamp(alert.timestamp)}
                     </span>
                   </div>
-                  <div
-                    style={{ fontSize: 14, color: "#334155", marginBottom: 2 }}
-                  >
+                  <div style={{ fontSize: 14, color: "#334155", marginBottom: 2 }}>
                     {alert.message}
                   </div>
-                  <div style={{ fontSize: 12, color: "#64748b" }}>
-                    {alert.service}
-                  </div>
+                  <div style={{ fontSize: 12, color: "#64748b" }}>{alert.service}</div>
                 </div>
               ))
             ) : (
@@ -599,37 +569,34 @@ const StatusDashboard: React.FC = () => {
             overflowY: "auto",
           }}
         >
+          <div>[{currentTime.toLocaleTimeString()}] API Gateway: Request processed (45ms)</div>
           <div>
-            [{currentTime.toLocaleTimeString()}] API Gateway: Request processed
-            (45ms)
+            [{new Date(currentTime.getTime() - 1000).toLocaleTimeString()}] Database: Query executed
+            (12ms)
           </div>
           <div>
-            [{new Date(currentTime.getTime() - 1000).toLocaleTimeString()}]
-            Database: Query executed (12ms)
+            [{new Date(currentTime.getTime() - 2000).toLocaleTimeString()}] Cache Service: Cache hit
+            ratio 89%
           </div>
           <div>
-            [{new Date(currentTime.getTime() - 2000).toLocaleTimeString()}]
-            Cache Service: Cache hit ratio 89%
+            [{new Date(currentTime.getTime() - 3000).toLocaleTimeString()}] Auth Service: User
+            authenticated
           </div>
           <div>
-            [{new Date(currentTime.getTime() - 3000).toLocaleTimeString()}] Auth
-            Service: User authenticated
+            [{new Date(currentTime.getTime() - 4000).toLocaleTimeString()}] File Storage: File
+            uploaded (2.3MB)
           </div>
           <div>
-            [{new Date(currentTime.getTime() - 4000).toLocaleTimeString()}] File
-            Storage: File uploaded (2.3MB)
+            [{new Date(currentTime.getTime() - 5000).toLocaleTimeString()}] Queue Service: Message
+            processed
           </div>
           <div>
-            [{new Date(currentTime.getTime() - 5000).toLocaleTimeString()}]
-            Queue Service: Message processed
+            [{new Date(currentTime.getTime() - 6000).toLocaleTimeString()}] API Gateway: Rate limit
+            check passed
           </div>
           <div>
-            [{new Date(currentTime.getTime() - 6000).toLocaleTimeString()}] API
-            Gateway: Rate limit check passed
-          </div>
-          <div>
-            [{new Date(currentTime.getTime() - 7000).toLocaleTimeString()}]
-            Database: Connection pool healthy
+            [{new Date(currentTime.getTime() - 7000).toLocaleTimeString()}] Database: Connection
+            pool healthy
           </div>
         </div>
       </div>

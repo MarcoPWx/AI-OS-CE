@@ -8,8 +8,7 @@ const meta: Meta<typeof PromptLibrary> = {
     layout: "fullscreen",
     docs: {
       description: {
-        component:
-          "A curated collection of battle-tested AI prompts for common development tasks.",
+        component: "A curated collection of battle-tested AI prompts for common development tasks.",
       },
     },
   },

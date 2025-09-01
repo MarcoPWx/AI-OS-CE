@@ -242,11 +242,7 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  label,
-  onClick,
-  disabled = false,
-}) => {
+export const Button: React.FC<ButtonProps> = ({ label, onClick, disabled = false }) => {
   return (
     <button onClick={onClick} disabled={disabled}>
       {label}

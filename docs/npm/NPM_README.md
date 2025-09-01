@@ -36,21 +36,24 @@ npx create-ai-os-storybook --init
 ## 📦 What's Included
 
 ### Components
+
 - **Epic Manager** - Full CRUD with search/filters
-- **API Playground** - Test endpoints instantly  
+- **API Playground** - Test endpoints instantly
 - **Network Playground** - Visualize concurrent requests
 - **Status Dashboard** - Live test coverage
 - **Dev Log Viewer** - Render markdown docs
 
 ### Tools
+
 - **MSW Integration** - Mock Service Worker for API mocking
 - **Playwright** - E2E testing setup
 - **Vitest** - Unit testing with coverage
 - **Agent Boot** - Python automation system
 
 ### Templates
+
 - CRUD patterns
-- Fetch patterns  
+- Fetch patterns
 - Table patterns
 - Form handling
 - Error boundaries
@@ -58,18 +61,21 @@ npx create-ai-os-storybook --init
 ## 🎯 Use Cases
 
 ### 1. Build with AI assistants
+
 ```javascript
 // AI sees working patterns in Epic Manager
 // Generates consistent, tested code
 ```
 
 ### 2. Mock-first development
+
 ```javascript
 // No backend? No problem
-fetch('/api/items') // Returns mock data instantly
+fetch("/api/items"); // Returns mock data instantly
 ```
 
 ### 3. Test error scenarios
+
 ```javascript
 // Toolbar: Set Error Rate to 0.5
 // Watch components handle failures gracefully

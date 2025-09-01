@@ -21,8 +21,7 @@ function maybeFail(rate: number) {
 
 export const handlers = [
   http.all("*", async ({ request }) => {
-    const disabled =
-      (request.headers as any as Headers).get("x-mock-disable") === "1";
+    const disabled = (request.headers as any as Headers).get("x-mock-disable") === "1";
     if (disabled) return passthrough();
     return undefined as any;
   }),
@@ -31,10 +30,7 @@ export const handlers = [
     const er = readErrorRate(request);
     if (d) await delay(d);
     if (maybeFail(er))
-      return HttpResponse.json(
-        { error: "Injected error (ping)" },
-        { status: 429 },
-      );
+      return HttpResponse.json({ error: "Injected error (ping)" }, { status: 429 });
     return HttpResponse.json({ ok: true, time: new Date().toISOString() });
   }),
   http.post("/api/echo", async ({ request }) => {
@@ -42,10 +38,7 @@ export const handlers = [
     const er = readErrorRate(request);
     if (d) await delay(d);
     if (maybeFail(er))
-      return HttpResponse.json(
-        { error: "Injected error (echo)" },
-        { status: 503 },
-      );
+      return HttpResponse.json({ error: "Injected error (echo)" }, { status: 503 });
     const body = await request.json().catch(() => null);
     return HttpResponse.json({ received: body });
   }),

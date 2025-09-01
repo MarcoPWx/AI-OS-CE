@@ -113,28 +113,18 @@ const preview: Preview = {
         useEffect(() => {
           const onToggle = (e: Event) => {
             const detail = (e as CustomEvent)?.detail || {};
-            if (detail.script)
-              (window as any).__presenterScript = String(detail.script);
-            if (typeof detail.visible === "boolean")
-              setOverlay(!!detail.visible);
+            if (detail.script) (window as any).__presenterScript = String(detail.script);
+            if (typeof detail.visible === "boolean") setOverlay(!!detail.visible);
             else setOverlay((v) => !v);
           };
-          window.addEventListener(
-            "presenter:toggle",
-            onToggle as EventListener,
-          );
-          return () =>
-            window.removeEventListener(
-              "presenter:toggle",
-              onToggle as EventListener,
-            );
+          window.addEventListener("presenter:toggle", onToggle as EventListener);
+          return () => window.removeEventListener("presenter:toggle", onToggle as EventListener);
         }, []);
 
         const help = (context?.parameters as any)?.help;
         const quickId = context?.globals?.docsQuickLink;
         const quickLink = useMemo(
-          () =>
-            quickId && quickId !== "none" ? `?path=/docs/${quickId}` : null,
+          () => (quickId && quickId !== "none" ? `?path=/docs/${quickId}` : null),
           [quickId],
         );
 
@@ -170,10 +160,7 @@ const preview: Preview = {
               mswStatus={mswStatus}
               script={(window as any).__presenterScript}
             />
-            <MswInfoOverlay
-              visible={mswInfo}
-              onClose={() => setMswInfo(false)}
-            />
+            <MswInfoOverlay visible={mswInfo} onClose={() => setMswInfo(false)} />
           </div>
         );
       };

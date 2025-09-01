@@ -14,8 +14,7 @@ const guideSections: GuideSection[] = [
     id: "prompting",
     title: "Effective Prompting",
     icon: "💬",
-    content:
-      "Learn how to write prompts that get accurate, working code on the first try.",
+    content: "Learn how to write prompts that get accurate, working code on the first try.",
     examples: [
       'Bad: "Make a button component"',
       'Good: "Create a React button component with TypeScript, following our design system with primary/secondary variants, disabled state, and onClick handler"',
@@ -32,8 +31,7 @@ const guideSections: GuideSection[] = [
     id: "context",
     title: "Providing Context",
     icon: "📚",
-    content:
-      "AI performs best when it understands your project structure and conventions.",
+    content: "AI performs best when it understands your project structure and conventions.",
     examples: [
       "Project structure: Show AI your folder organization",
       "Tech stack: List all major dependencies and versions",
@@ -163,8 +161,7 @@ const AICollaborationGuide: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("prompting");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const currentSection =
-    guideSections.find((s) => s.id === activeSection) || guideSections[0];
+  const currentSection = guideSections.find((s) => s.id === activeSection) || guideSections[0];
 
   const filteredSections = guideSections.filter(
     (section) =>
@@ -178,8 +175,7 @@ const AICollaborationGuide: React.FC = () => {
         maxWidth: 1400,
         margin: "0 auto",
         padding: 24,
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
       {/* Header */}
@@ -195,8 +191,7 @@ const AICollaborationGuide: React.FC = () => {
           🤖 AI Collaboration Guide
         </h1>
         <p style={{ color: "#64748b", fontSize: 16 }}>
-          Master the art of working with AI assistants for faster, better
-          development
+          Master the art of working with AI assistants for faster, better development
         </p>
       </div>
 
@@ -225,9 +220,7 @@ const AICollaborationGuide: React.FC = () => {
         />
       </div>
 
-      <div
-        style={{ display: "grid", gridTemplateColumns: "300px 1fr", gap: 24 }}
-      >
+      <div style={{ display: "grid", gridTemplateColumns: "300px 1fr", gap: 24 }}>
         {/* Sidebar Navigation */}
         <div
           style={{
@@ -259,8 +252,7 @@ const AICollaborationGuide: React.FC = () => {
                 marginBottom: 8,
                 borderRadius: 8,
                 border: "none",
-                background:
-                  activeSection === section.id ? "#3b82f6" : "transparent",
+                background: activeSection === section.id ? "#3b82f6" : "transparent",
                 color: activeSection === section.id ? "white" : "#334155",
                 fontSize: 14,
                 fontWeight: activeSection === section.id ? 600 : 400,
@@ -394,9 +386,7 @@ const AICollaborationGuide: React.FC = () => {
                       borderLeft: "4px solid #3b82f6",
                     }}
                   >
-                    <p style={{ margin: 0, fontSize: 14, color: "#1e40af" }}>
-                      {tip}
-                    </p>
+                    <p style={{ margin: 0, fontSize: 14, color: "#1e40af" }}>{tip}</p>
                   </div>
                 ))}
               </div>
@@ -413,9 +403,7 @@ const AICollaborationGuide: React.FC = () => {
               color: "white",
             }}
           >
-            <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 12 }}>
-              Ready to Try?
-            </h3>
+            <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 12 }}>Ready to Try?</h3>
             <p style={{ marginBottom: 16, opacity: 0.9 }}>
               Practice these techniques with our interactive components:
             </p>

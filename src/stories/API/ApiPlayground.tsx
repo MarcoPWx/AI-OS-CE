@@ -227,9 +227,7 @@ const mockResponses: Record<string, any> = {
 };
 
 const ApiPlayground: React.FC = () => {
-  const [selectedEndpoint, setSelectedEndpoint] = useState<APIEndpoint>(
-    mockEndpoints[0],
-  );
+  const [selectedEndpoint, setSelectedEndpoint] = useState<APIEndpoint>(mockEndpoints[0]);
   const [params, setParams] = useState<Record<string, string>>({});
   const [headers, setHeaders] = useState<Record<string, string>>({
     "Content-Type": "application/json",
@@ -238,9 +236,7 @@ const ApiPlayground: React.FC = () => {
   const [requestBody, setRequestBody] = useState<string>("{}");
   const [response, setResponse] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState<"params" | "headers" | "body">(
-    "params",
-  );
+  const [activeTab, setActiveTab] = useState<"params" | "headers" | "body">("params");
 
   const getMethodColor = (method: string) => {
     const colors = {
@@ -289,8 +285,7 @@ const ApiPlayground: React.FC = () => {
         maxWidth: 1400,
         margin: "0 auto",
         padding: 24,
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
       {/* Header */}
@@ -310,9 +305,7 @@ const ApiPlayground: React.FC = () => {
         </p>
       </div>
 
-      <div
-        style={{ display: "grid", gridTemplateColumns: "350px 1fr", gap: 24 }}
-      >
+      <div style={{ display: "grid", gridTemplateColumns: "350px 1fr", gap: 24 }}>
         {/* Sidebar - Endpoints */}
         <div
           style={{
@@ -353,8 +346,7 @@ const ApiPlayground: React.FC = () => {
                   padding: "12px 20px",
                   borderBottom: "1px solid #f1f5f9",
                   cursor: "pointer",
-                  background:
-                    selectedEndpoint.id === endpoint.id ? "#f0f9ff" : "white",
+                  background: selectedEndpoint.id === endpoint.id ? "#f0f9ff" : "white",
                   transition: "background 0.2s",
                 }}
                 onMouseEnter={(e) => {
@@ -412,9 +404,7 @@ const ApiPlayground: React.FC = () => {
                 >
                   {endpoint.name}
                 </div>
-                <div style={{ fontSize: 12, color: "#64748b" }}>
-                  {endpoint.path}
-                </div>
+                <div style={{ fontSize: 12, color: "#64748b" }}>{endpoint.path}</div>
               </div>
             ))}
           </div>
@@ -515,8 +505,7 @@ const ApiPlayground: React.FC = () => {
                     fontSize: 14,
                     fontWeight: activeTab === tab ? 600 : 400,
                     color: activeTab === tab ? "#3b82f6" : "#64748b",
-                    borderBottom:
-                      activeTab === tab ? "2px solid #3b82f6" : "none",
+                    borderBottom: activeTab === tab ? "2px solid #3b82f6" : "none",
                     cursor: "pointer",
                     textTransform: "capitalize",
                   }}
@@ -533,8 +522,7 @@ const ApiPlayground: React.FC = () => {
             <div style={{ padding: 20 }}>
               {activeTab === "params" && (
                 <div>
-                  {selectedEndpoint.params &&
-                  selectedEndpoint.params.length > 0 ? (
+                  {selectedEndpoint.params && selectedEndpoint.params.length > 0 ? (
                     <div
                       style={{
                         display: "flex",
@@ -562,9 +550,7 @@ const ApiPlayground: React.FC = () => {
                               {param.name}
                             </label>
                             {param.required && (
-                              <span style={{ fontSize: 11, color: "#ef4444" }}>
-                                *required
-                              </span>
+                              <span style={{ fontSize: 11, color: "#ef4444" }}>*required</span>
                             )}
                             <span
                               style={{
@@ -635,9 +621,7 @@ const ApiPlayground: React.FC = () => {
                           type="text"
                           value={value}
                           placeholder="Header value"
-                          onChange={(e) =>
-                            setHeaders({ ...headers, [key]: e.target.value })
-                          }
+                          onChange={(e) => setHeaders({ ...headers, [key]: e.target.value })}
                           style={{
                             flex: 2,
                             padding: "8px 12px",
@@ -655,8 +639,7 @@ const ApiPlayground: React.FC = () => {
 
               {activeTab === "body" && (
                 <div>
-                  {selectedEndpoint.method !== "GET" &&
-                  selectedEndpoint.method !== "DELETE" ? (
+                  {selectedEndpoint.method !== "GET" && selectedEndpoint.method !== "DELETE" ? (
                     <textarea
                       value={requestBody}
                       onChange={(e) => setRequestBody(e.target.value)}
@@ -674,8 +657,7 @@ const ApiPlayground: React.FC = () => {
                     />
                   ) : (
                     <p style={{ color: "#94a3b8", fontSize: 14 }}>
-                      {selectedEndpoint.method} requests typically don&apos;t
-                      have a request body
+                      {selectedEndpoint.method} requests typically don&apos;t have a request body
                     </p>
                   )}
                 </div>
@@ -760,9 +742,7 @@ const ApiPlayground: React.FC = () => {
                   {Object.entries(response.headers).map(([key, value]) => (
                     <div key={key} style={{ marginBottom: 4 }}>
                       <span style={{ color: "#64748b" }}>{key}:</span>{" "}
-                      <span style={{ color: "#334155" }}>
-                        {value as string}
-                      </span>
+                      <span style={{ color: "#334155" }}>{value as string}</span>
                     </div>
                   ))}
                 </div>

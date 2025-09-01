@@ -100,9 +100,7 @@ export default function NetworkPlayground(): JSX.Element {
 
   const runTest = (testId: string) => {
     setTests((prev) =>
-      prev.map((test) =>
-        test.id === testId ? { ...test, status: "running" } : test,
-      ),
+      prev.map((test) => (test.id === testId ? { ...test, status: "running" } : test)),
     );
 
     setTimeout(
@@ -161,9 +159,7 @@ export default function NetworkPlayground(): JSX.Element {
             setNetworkStats({
               totalRequests: completed,
               successRate: Math.floor(Math.random() * 5) + 95,
-              avgLatency: Math.floor(
-                results.reduce((a, b) => a + b, 0) / results.length,
-              ),
+              avgLatency: Math.floor(results.reduce((a, b) => a + b, 0) / results.length),
               p95Latency: sorted[Math.floor(sorted.length * 0.95)],
               p99Latency: sorted[Math.floor(sorted.length * 0.99)],
             });
@@ -201,8 +197,7 @@ export default function NetworkPlayground(): JSX.Element {
         maxWidth: 1400,
         margin: "0 auto",
         padding: 24,
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
       {/* Header */}
@@ -218,8 +213,7 @@ export default function NetworkPlayground(): JSX.Element {
           Network Playground
         </h1>
         <p style={{ color: "#64748b", fontSize: 16 }}>
-          Monitor network connections, test endpoints, and simulate load
-          conditions
+          Monitor network connections, test endpoints, and simulate load conditions
         </p>
       </div>
 
@@ -243,9 +237,7 @@ export default function NetworkPlayground(): JSX.Element {
         >
           Bandwidth Monitor
         </h2>
-        <div
-          style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}
-        >
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
           <div>
             <div
               style={{
@@ -365,10 +357,7 @@ export default function NetworkPlayground(): JSX.Element {
                       height: 8,
                       borderRadius: "50%",
                       background: getStatusColor(conn.status),
-                      animation:
-                        conn.status === "connecting"
-                          ? "pulse 2s infinite"
-                          : "none",
+                      animation: conn.status === "connecting" ? "pulse 2s infinite" : "none",
                     }}
                   />
                   <div>
@@ -444,11 +433,7 @@ export default function NetworkPlayground(): JSX.Element {
                 }}
               >
                 <div>
-                  <div
-                    style={{ fontSize: 14, fontWeight: 500, color: "#334155" }}
-                  >
-                    {test.name}
-                  </div>
+                  <div style={{ fontSize: 14, fontWeight: 500, color: "#334155" }}>{test.name}</div>
                   <div style={{ fontSize: 12, color: "#94a3b8" }}>
                     {test.method} {test.endpoint}
                   </div>
@@ -471,13 +456,11 @@ export default function NetworkPlayground(): JSX.Element {
                     padding: "6px 12px",
                     borderRadius: 6,
                     border: "none",
-                    background:
-                      test.status === "running" ? "#94a3b8" : "#3b82f6",
+                    background: test.status === "running" ? "#94a3b8" : "#3b82f6",
                     color: "white",
                     fontSize: 12,
                     fontWeight: 500,
-                    cursor:
-                      test.status === "running" ? "not-allowed" : "pointer",
+                    cursor: test.status === "running" ? "not-allowed" : "pointer",
                   }}
                 >
                   {test.status === "running" ? "Testing..." : "Test"}
@@ -603,41 +586,31 @@ export default function NetworkPlayground(): JSX.Element {
             }}
           >
             <div>
-              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>
-                Total Requests
-              </div>
+              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>Total Requests</div>
               <div style={{ fontSize: 20, fontWeight: 600, color: "#334155" }}>
                 {networkStats.totalRequests}
               </div>
             </div>
             <div>
-              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>
-                Success Rate
-              </div>
+              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>Success Rate</div>
               <div style={{ fontSize: 20, fontWeight: 600, color: "#10b981" }}>
                 {networkStats.successRate}%
               </div>
             </div>
             <div>
-              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>
-                Avg Latency
-              </div>
+              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>Avg Latency</div>
               <div style={{ fontSize: 20, fontWeight: 600, color: "#334155" }}>
                 {networkStats.avgLatency}ms
               </div>
             </div>
             <div>
-              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>
-                P95 Latency
-              </div>
+              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>P95 Latency</div>
               <div style={{ fontSize: 20, fontWeight: 600, color: "#f59e0b" }}>
                 {networkStats.p95Latency}ms
               </div>
             </div>
             <div>
-              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>
-                P99 Latency
-              </div>
+              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>P99 Latency</div>
               <div style={{ fontSize: 20, fontWeight: 600, color: "#ef4444" }}>
                 {networkStats.p99Latency}ms
               </div>
@@ -685,9 +658,7 @@ export default function NetworkPlayground(): JSX.Element {
                   <span style={{ color: "#94a3b8" }}>
                     [{result.timestamp.toLocaleTimeString()}]
                   </span>{" "}
-                  <span
-                    style={{ color: result.success ? "#10b981" : "#ef4444" }}
-                  >
+                  <span style={{ color: result.success ? "#10b981" : "#ef4444" }}>
                     {result.success ? "SUCCESS" : "FAILED"}
                   </span>{" "}
                   Test #{result.testId} - {result.latency}ms

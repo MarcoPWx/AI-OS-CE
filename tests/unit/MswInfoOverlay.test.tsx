@@ -7,17 +7,13 @@ import { MOCK_ROUTES } from "../../src/mocks/handlers";
 
 describe("MswInfoOverlay", () => {
   it("renders nothing when not visible", () => {
-    const { container } = render(
-      <MswInfoOverlay visible={false} onClose={() => {}} />,
-    );
+    const { container } = render(<MswInfoOverlay visible={false} onClose={() => {}} />);
     expect(container.firstChild).toBeNull();
   });
 
   it("renders routes table when visible", () => {
     const onClose = vi.fn();
-    const { container } = render(
-      <MswInfoOverlay visible={true} onClose={onClose} />,
-    );
+    const { container } = render(<MswInfoOverlay visible={true} onClose={onClose} />);
 
     expect(screen.getByText("MSW Info")).toBeInTheDocument();
     const rows = container.querySelectorAll("tbody tr");

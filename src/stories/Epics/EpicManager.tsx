@@ -30,8 +30,7 @@ const mockEpics: Epic[] = [
   {
     id: "EP-002",
     title: "Performance Optimization Phase 2",
-    description:
-      "Reduce API response times by 40% and implement caching strategy",
+    description: "Reduce API response times by 40% and implement caching strategy",
     status: "in-progress",
     priority: "high",
     progress: 35,
@@ -53,8 +52,7 @@ const mockEpics: Epic[] = [
   {
     id: "EP-004",
     title: "Data Analytics Dashboard",
-    description:
-      "Build comprehensive analytics dashboard with real-time metrics",
+    description: "Build comprehensive analytics dashboard with real-time metrics",
     status: "review",
     priority: "high",
     progress: 85,
@@ -78,9 +76,7 @@ const mockEpics: Epic[] = [
 const EpicManager: React.FC = () => {
   const [epics] = useState<Epic[]>(mockEpics);
   const [filter, setFilter] = useState<string>("all");
-  const [sortBy, setSortBy] = useState<"priority" | "dueDate" | "progress">(
-    "priority",
-  );
+  const [sortBy, setSortBy] = useState<"priority" | "dueDate" | "progress">("priority");
 
   const getStatusColor = (status: Epic["status"]) => {
     const colors = {
@@ -124,8 +120,7 @@ const EpicManager: React.FC = () => {
         maxWidth: 1200,
         margin: "0 auto",
         padding: 24,
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
       {/* Header */}
@@ -230,8 +225,7 @@ const EpicManager: React.FC = () => {
               background: "white",
               borderRadius: 12,
               padding: 20,
-              boxShadow:
-                "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+              boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
               border: "1px solid #e2e8f0",
               transition: "transform 0.2s, box-shadow 0.2s",
               cursor: "pointer",
@@ -331,9 +325,7 @@ const EpicManager: React.FC = () => {
                 }}
               >
                 <span style={{ fontSize: 12, color: "#64748b" }}>Progress</span>
-                <span
-                  style={{ fontSize: 12, fontWeight: 600, color: "#334155" }}
-                >
+                <span style={{ fontSize: 12, fontWeight: 600, color: "#334155" }}>
                   {epic.progress}%
                 </span>
               </div>
@@ -367,38 +359,18 @@ const EpicManager: React.FC = () => {
               }}
             >
               <div>
-                <div
-                  style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}
-                >
-                  Tasks
-                </div>
-                <div
-                  style={{ fontSize: 14, fontWeight: 600, color: "#334155" }}
-                >
+                <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>Tasks</div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: "#334155" }}>
                   {epic.tasks.completed}/{epic.tasks.total}
                 </div>
               </div>
               <div>
-                <div
-                  style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}
-                >
-                  Owner
-                </div>
-                <div
-                  style={{ fontSize: 14, fontWeight: 500, color: "#334155" }}
-                >
-                  {epic.owner}
-                </div>
+                <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>Owner</div>
+                <div style={{ fontSize: 14, fontWeight: 500, color: "#334155" }}>{epic.owner}</div>
               </div>
               <div>
-                <div
-                  style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}
-                >
-                  Due Date
-                </div>
-                <div
-                  style={{ fontSize: 14, fontWeight: 500, color: "#334155" }}
-                >
+                <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>Due Date</div>
+                <div style={{ fontSize: 14, fontWeight: 500, color: "#334155" }}>
                   {new Date(epic.dueDate).toLocaleDateString("en-US", {
                     month: "short",
                     day: "numeric",
@@ -425,43 +397,26 @@ const EpicManager: React.FC = () => {
         }}
       >
         <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: 24, fontWeight: 700, color: "#0f172a" }}>
-            {epics.length}
-          </div>
-          <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>
-            Total Epics
-          </div>
+          <div style={{ fontSize: 24, fontWeight: 700, color: "#0f172a" }}>{epics.length}</div>
+          <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>Total Epics</div>
         </div>
         <div style={{ textAlign: "center" }}>
           <div style={{ fontSize: 24, fontWeight: 700, color: "#3b82f6" }}>
             {epics.filter((e) => e.status === "in-progress").length}
           </div>
-          <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>
-            In Progress
-          </div>
+          <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>In Progress</div>
         </div>
         <div style={{ textAlign: "center" }}>
           <div style={{ fontSize: 24, fontWeight: 700, color: "#f59e0b" }}>
-            {
-              epics.filter(
-                (e) => e.priority === "critical" || e.priority === "high",
-              ).length
-            }
+            {epics.filter((e) => e.priority === "critical" || e.priority === "high").length}
           </div>
-          <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>
-            High Priority
-          </div>
+          <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>High Priority</div>
         </div>
         <div style={{ textAlign: "center" }}>
           <div style={{ fontSize: 24, fontWeight: 700, color: "#10b981" }}>
-            {Math.round(
-              epics.reduce((acc, e) => acc + e.progress, 0) / epics.length,
-            )}
-            %
+            {Math.round(epics.reduce((acc, e) => acc + e.progress, 0) / epics.length)}%
           </div>
-          <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>
-            Avg Progress
-          </div>
+          <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>Avg Progress</div>
         </div>
       </div>
     </div>

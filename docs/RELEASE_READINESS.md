@@ -99,13 +99,7 @@ npm run e2e
     "prepublishOnly": "npm run build && npm test",
     "postinstall": "node scripts/setup.js"
   },
-  "keywords": [
-    "storybook",
-    "ai",
-    "developer-tools",
-    "github-automation",
-    "agent"
-  ],
+  "keywords": ["storybook", "ai", "developer-tools", "github-automation", "agent"],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

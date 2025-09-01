@@ -197,8 +197,7 @@ jobs:
   # All checks passed
   all-checks:
     if: always()
-    needs:
-      [lint, type-check, unit-tests, build-storybook, storybook-tests, security]
+    needs: [lint, type-check, unit-tests, build-storybook, storybook-tests, security]
     runs-on: ubuntu-latest
     steps:
       - name: Check if all jobs passed

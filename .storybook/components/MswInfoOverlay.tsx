@@ -18,9 +18,7 @@ export const MswInfoOverlay: React.FC<{
         zIndex: 1003,
       }}
     >
-      <div
-        style={{ background: "#111", margin: 24, padding: 16, borderRadius: 8 }}
-      >
+      <div style={{ background: "#111", margin: 24, padding: 16, borderRadius: 8 }}>
         <div
           style={{
             display: "flex",

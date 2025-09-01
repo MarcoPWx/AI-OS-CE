@@ -126,12 +126,7 @@ async function main() {
     fs.ensureDirSync(projectPath);
 
     // Copy template files
-    const templatePath = path.join(
-      __dirname,
-      "..",
-      "templates",
-      config.language,
-    );
+    const templatePath = path.join(__dirname, "..", "templates", config.language);
     const fallbackTemplate = path.join(__dirname, "..", "templates", "base");
 
     if (fs.existsSync(templatePath)) {

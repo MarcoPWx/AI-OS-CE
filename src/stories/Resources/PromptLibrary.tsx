@@ -254,12 +254,7 @@ Provide:
 4. Migration plan
 5. Rollback procedures
 6. Success metrics`,
-    variables: [
-      "LegacySystem",
-      "CurrentIssues",
-      "RefactoringGoals",
-      "Constraints",
-    ],
+    variables: ["LegacySystem", "CurrentIssues", "RefactoringGoals", "Constraints"],
     tags: ["refactoring", "architecture", "migration"],
   },
 ];
@@ -270,21 +265,15 @@ const PromptLibrary: React.FC = () => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [expandedPrompt, setExpandedPrompt] = useState<string | null>(null);
 
-  const categories = [
-    "All",
-    ...Array.from(new Set(promptTemplates.map((p) => p.category))),
-  ];
+  const categories = ["All", ...Array.from(new Set(promptTemplates.map((p) => p.category)))];
 
   const filteredPrompts = promptTemplates.filter((prompt) => {
-    const matchesCategory =
-      selectedCategory === "All" || prompt.category === selectedCategory;
+    const matchesCategory = selectedCategory === "All" || prompt.category === selectedCategory;
     const matchesSearch =
       searchTerm === "" ||
       prompt.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       prompt.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      prompt.tags.some((tag) =>
-        tag.toLowerCase().includes(searchTerm.toLowerCase()),
-      );
+      prompt.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
 
@@ -312,8 +301,7 @@ const PromptLibrary: React.FC = () => {
         maxWidth: 1400,
         margin: "0 auto",
         padding: 24,
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
       {/* Header */}
@@ -366,12 +354,8 @@ const PromptLibrary: React.FC = () => {
                 style={{
                   padding: "8px 16px",
                   borderRadius: 6,
-                  border:
-                    selectedCategory === category
-                      ? "2px solid #3b82f6"
-                      : "1px solid #e2e8f0",
-                  background:
-                    selectedCategory === category ? "#eff6ff" : "white",
+                  border: selectedCategory === category ? "2px solid #3b82f6" : "1px solid #e2e8f0",
+                  background: selectedCategory === category ? "#eff6ff" : "white",
                   color: selectedCategory === category ? "#3b82f6" : "#64748b",
                   fontSize: 13,
                   fontWeight: selectedCategory === category ? 600 : 400,
@@ -405,18 +389,14 @@ const PromptLibrary: React.FC = () => {
               transition: "transform 0.2s, box-shadow 0.2s",
               cursor: "pointer",
             }}
-            onClick={() =>
-              setExpandedPrompt(expandedPrompt === prompt.id ? null : prompt.id)
-            }
+            onClick={() => setExpandedPrompt(expandedPrompt === prompt.id ? null : prompt.id)}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow =
-                "0 4px 6px -1px rgba(0, 0, 0, 0.1)";
+              e.currentTarget.style.boxShadow = "0 4px 6px -1px rgba(0, 0, 0, 0.1)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow =
-                "0 1px 3px 0 rgba(0, 0, 0, 0.1)";
+              e.currentTarget.style.boxShadow = "0 1px 3px 0 rgba(0, 0, 0, 0.1)";
             }}
           >
             {/* Header */}
@@ -430,9 +410,7 @@ const PromptLibrary: React.FC = () => {
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ fontSize: 20 }}>
-                    {getCategoryIcon(prompt.category)}
-                  </span>
+                  <span style={{ fontSize: 20 }}>{getCategoryIcon(prompt.category)}</span>
                   <span
                     style={{
                       fontSize: 11,
@@ -637,33 +615,23 @@ const PromptLibrary: React.FC = () => {
           }}
         >
           <div>
-            <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>
-              Be Specific
-            </h4>
+            <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Be Specific</h4>
             <p style={{ fontSize: 13, opacity: 0.9 }}>
               Replace all variables with concrete values from your project
             </p>
           </div>
           <div>
-            <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>
-              Provide Context
-            </h4>
+            <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Provide Context</h4>
             <p style={{ fontSize: 13, opacity: 0.9 }}>
               Share relevant code snippets and project structure
             </p>
           </div>
           <div>
-            <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>
-              Iterate
-            </h4>
-            <p style={{ fontSize: 13, opacity: 0.9 }}>
-              Refine the output with follow-up questions
-            </p>
+            <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Iterate</h4>
+            <p style={{ fontSize: 13, opacity: 0.9 }}>Refine the output with follow-up questions</p>
           </div>
           <div>
-            <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>
-              Verify
-            </h4>
+            <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Verify</h4>
             <p style={{ fontSize: 13, opacity: 0.9 }}>
               Always test AI-generated code before using in production
             </p>

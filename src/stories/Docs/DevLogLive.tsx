@@ -113,21 +113,8 @@ const DevLogLive: React.FC = () => {
   useEffect(() => {
     // Simulate new log entries
     const interval = setInterval(() => {
-      const categories = [
-        "API",
-        "Database",
-        "Auth",
-        "Cache",
-        "Deployment",
-        "Performance",
-      ];
-      const levels: LogEntry["level"][] = [
-        "debug",
-        "info",
-        "warning",
-        "error",
-        "success",
-      ];
+      const categories = ["API", "Database", "Auth", "Cache", "Deployment", "Performance"];
+      const levels: LogEntry["level"][] = ["debug", "info", "warning", "error", "success"];
       const messages = [
         "Request processed successfully",
         "Cache hit ratio: 92%",
@@ -143,10 +130,7 @@ const DevLogLive: React.FC = () => {
         level: levels[Math.floor(Math.random() * levels.length)],
         category: categories[Math.floor(Math.random() * categories.length)],
         message: messages[Math.floor(Math.random() * messages.length)],
-        details:
-          Math.random() > 0.5
-            ? `Additional details for log entry ${Date.now()}`
-            : undefined,
+        details: Math.random() > 0.5 ? `Additional details for log entry ${Date.now()}` : undefined,
         user: Math.random() > 0.5 ? "System" : undefined,
       };
 
@@ -196,8 +180,7 @@ const DevLogLive: React.FC = () => {
       searchTerm === "" ||
       log.message.toLowerCase().includes(searchTerm.toLowerCase()) ||
       log.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (log.details &&
-        log.details.toLowerCase().includes(searchTerm.toLowerCase()));
+      (log.details && log.details.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesFilter && matchesSearch;
   });
 
@@ -217,8 +200,7 @@ const DevLogLive: React.FC = () => {
         maxWidth: 1400,
         margin: "0 auto",
         padding: 24,
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
       {/* Header */}
@@ -269,30 +251,25 @@ const DevLogLive: React.FC = () => {
         </div>
 
         <div style={{ display: "flex", gap: 8 }}>
-          {["all", "debug", "info", "warning", "error", "success"].map(
-            (level) => (
-              <button
-                key={level}
-                onClick={() => setFilter(level)}
-                style={{
-                  padding: "6px 12px",
-                  borderRadius: 6,
-                  border:
-                    filter === level
-                      ? "2px solid #3b82f6"
-                      : "1px solid #e2e8f0",
-                  background: filter === level ? "#eff6ff" : "white",
-                  color: filter === level ? "#3b82f6" : "#64748b",
-                  fontSize: 13,
-                  fontWeight: filter === level ? 600 : 400,
-                  cursor: "pointer",
-                  textTransform: "capitalize",
-                }}
-              >
-                {level}
-              </button>
-            ),
-          )}
+          {["all", "debug", "info", "warning", "error", "success"].map((level) => (
+            <button
+              key={level}
+              onClick={() => setFilter(level)}
+              style={{
+                padding: "6px 12px",
+                borderRadius: 6,
+                border: filter === level ? "2px solid #3b82f6" : "1px solid #e2e8f0",
+                background: filter === level ? "#eff6ff" : "white",
+                color: filter === level ? "#3b82f6" : "#64748b",
+                fontSize: 13,
+                fontWeight: filter === level ? 600 : 400,
+                cursor: "pointer",
+                textTransform: "capitalize",
+              }}
+            >
+              {level}
+            </button>
+          ))}
         </div>
 
         <button
@@ -348,8 +325,7 @@ const DevLogLive: React.FC = () => {
                 marginBottom: 4,
                 padding: "8px 12px",
                 borderRadius: 4,
-                background:
-                  selectedLog?.id === log.id ? "#1e293b" : "transparent",
+                background: selectedLog?.id === log.id ? "#1e293b" : "transparent",
                 cursor: "pointer",
                 transition: "background 0.2s",
               }}
@@ -364,9 +340,7 @@ const DevLogLive: React.FC = () => {
                 }
               }}
             >
-              <div
-                style={{ display: "flex", gap: 12, alignItems: "flex-start" }}
-              >
+              <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                 <span style={{ color: "#64748b", flexShrink: 0 }}>
                   {formatTimestamp(log.timestamp)}
                 </span>
@@ -384,16 +358,10 @@ const DevLogLive: React.FC = () => {
                 >
                   {log.level}
                 </span>
-                <span style={{ color: "#8b5cf6", flexShrink: 0 }}>
-                  [{log.category}]
-                </span>
+                <span style={{ color: "#8b5cf6", flexShrink: 0 }}>[{log.category}]</span>
                 <span style={{ color: "#e2e8f0", flex: 1 }}>{log.message}</span>
                 {log.user && (
-                  <span
-                    style={{ color: "#64748b", fontSize: 11, flexShrink: 0 }}
-                  >
-                    @{log.user}
-                  </span>
+                  <span style={{ color: "#64748b", fontSize: 11, flexShrink: 0 }}>@{log.user}</span>
                 )}
               </div>
               {log.details && selectedLog?.id === log.id && (

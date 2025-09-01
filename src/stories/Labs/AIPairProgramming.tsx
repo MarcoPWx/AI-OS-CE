@@ -189,13 +189,9 @@ const exercises: Exercise[] = [
 ];
 
 const AIPairProgramming: React.FC = () => {
-  const [selectedExercise, setSelectedExercise] = useState<Exercise>(
-    exercises[0],
-  );
+  const [selectedExercise, setSelectedExercise] = useState<Exercise>(exercises[0]);
   const [showSolution, setShowSolution] = useState(false);
-  const [completedExercises, setCompletedExercises] = useState<Set<string>>(
-    new Set(),
-  );
+  const [completedExercises, setCompletedExercises] = useState<Set<string>>(new Set());
   const [currentHint, setCurrentHint] = useState(0);
 
   const markComplete = (exerciseId: string) => {
@@ -221,8 +217,7 @@ const AIPairProgramming: React.FC = () => {
         maxWidth: 1400,
         margin: "0 auto",
         padding: 24,
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
       {/* Header */}
@@ -259,9 +254,7 @@ const AIPairProgramming: React.FC = () => {
             marginBottom: 8,
           }}
         >
-          <span style={{ fontSize: 14, fontWeight: 600, color: "#334155" }}>
-            Your Progress
-          </span>
+          <span style={{ fontSize: 14, fontWeight: 600, color: "#334155" }}>Your Progress</span>
           <span style={{ fontSize: 14, color: "#64748b" }}>
             {completedExercises.size} / {exercises.length} completed
           </span>
@@ -285,9 +278,7 @@ const AIPairProgramming: React.FC = () => {
         </div>
       </div>
 
-      <div
-        style={{ display: "grid", gridTemplateColumns: "350px 1fr", gap: 24 }}
-      >
+      <div style={{ display: "grid", gridTemplateColumns: "350px 1fr", gap: 24 }}>
         {/* Exercise List */}
         <div
           style={{
@@ -321,9 +312,7 @@ const AIPairProgramming: React.FC = () => {
                   padding: 12,
                   borderRadius: 8,
                   border:
-                    selectedExercise.id === exercise.id
-                      ? "2px solid #3b82f6"
-                      : "1px solid #e2e8f0",
+                    selectedExercise.id === exercise.id ? "2px solid #3b82f6" : "1px solid #e2e8f0",
                   background:
                     selectedExercise.id === exercise.id
                       ? "#eff6ff"
@@ -343,14 +332,10 @@ const AIPairProgramming: React.FC = () => {
                     marginBottom: 4,
                   }}
                 >
-                  <span
-                    style={{ fontSize: 14, fontWeight: 500, color: "#0f172a" }}
-                  >
+                  <span style={{ fontSize: 14, fontWeight: 500, color: "#0f172a" }}>
                     {exercise.title}
                   </span>
-                  {completedExercises.has(exercise.id) && (
-                    <span style={{ fontSize: 16 }}>✅</span>
-                  )}
+                  {completedExercises.has(exercise.id) && <span style={{ fontSize: 16 }}>✅</span>}
                 </div>
                 <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                   <span
@@ -358,8 +343,7 @@ const AIPairProgramming: React.FC = () => {
                       fontSize: 11,
                       padding: "2px 6px",
                       borderRadius: 4,
-                      background:
-                        getDifficultyColor(exercise.difficulty) + "20",
+                      background: getDifficultyColor(exercise.difficulty) + "20",
                       color: getDifficultyColor(exercise.difficulty),
                       fontWeight: 500,
                       textTransform: "capitalize",
@@ -367,9 +351,7 @@ const AIPairProgramming: React.FC = () => {
                   >
                     {exercise.difficulty}
                   </span>
-                  <span style={{ fontSize: 11, color: "#94a3b8" }}>
-                    {exercise.estimatedTime}
-                  </span>
+                  <span style={{ fontSize: 11, color: "#94a3b8" }}>{exercise.estimatedTime}</span>
                 </div>
               </button>
             ))}
@@ -411,8 +393,7 @@ const AIPairProgramming: React.FC = () => {
                       fontSize: 12,
                       padding: "4px 8px",
                       borderRadius: 4,
-                      background:
-                        getDifficultyColor(selectedExercise.difficulty) + "20",
+                      background: getDifficultyColor(selectedExercise.difficulty) + "20",
                       color: getDifficultyColor(selectedExercise.difficulty),
                       fontWeight: 500,
                       textTransform: "capitalize",
@@ -432,20 +413,14 @@ const AIPairProgramming: React.FC = () => {
                   padding: "8px 16px",
                   borderRadius: 6,
                   border: "none",
-                  background: completedExercises.has(selectedExercise.id)
-                    ? "#10b981"
-                    : "#3b82f6",
+                  background: completedExercises.has(selectedExercise.id) ? "#10b981" : "#3b82f6",
                   color: "white",
                   fontSize: 14,
                   fontWeight: 500,
-                  cursor: completedExercises.has(selectedExercise.id)
-                    ? "default"
-                    : "pointer",
+                  cursor: completedExercises.has(selectedExercise.id) ? "default" : "pointer",
                 }}
               >
-                {completedExercises.has(selectedExercise.id)
-                  ? "✅ Completed"
-                  : "Mark Complete"}
+                {completedExercises.has(selectedExercise.id) ? "✅ Completed" : "Mark Complete"}
               </button>
             </div>
             <p style={{ fontSize: 16, color: "#64748b", lineHeight: 1.6 }}>
@@ -496,14 +471,10 @@ const AIPairProgramming: React.FC = () => {
                 marginBottom: 12,
               }}
             >
-              <h3 style={{ fontSize: 16, fontWeight: 600, color: "#334155" }}>
-                💡 Hints
-              </h3>
+              <h3 style={{ fontSize: 16, fontWeight: 600, color: "#334155" }}>💡 Hints</h3>
               <button
                 onClick={() =>
-                  setCurrentHint(
-                    Math.min(currentHint + 1, selectedExercise.hints.length),
-                  )
+                  setCurrentHint(Math.min(currentHint + 1, selectedExercise.hints.length))
                 }
                 disabled={currentHint >= selectedExercise.hints.length}
                 style={{
@@ -511,15 +482,9 @@ const AIPairProgramming: React.FC = () => {
                   borderRadius: 6,
                   border: "1px solid #e2e8f0",
                   background: "white",
-                  color:
-                    currentHint >= selectedExercise.hints.length
-                      ? "#94a3b8"
-                      : "#3b82f6",
+                  color: currentHint >= selectedExercise.hints.length ? "#94a3b8" : "#3b82f6",
                   fontSize: 13,
-                  cursor:
-                    currentHint >= selectedExercise.hints.length
-                      ? "not-allowed"
-                      : "pointer",
+                  cursor: currentHint >= selectedExercise.hints.length ? "not-allowed" : "pointer",
                 }}
               >
                 Show Next Hint ({currentHint}/{selectedExercise.hints.length})
@@ -653,8 +618,7 @@ const AIPairProgramming: React.FC = () => {
               🚀 Ready to Practice?
             </h4>
             <p style={{ fontSize: 14, opacity: 0.9, marginBottom: 12 }}>
-              Open your AI assistant (Claude, GPT-4, or Copilot) and try this
-              exercise!
+              Open your AI assistant (Claude, GPT-4, or Copilot) and try this exercise!
             </p>
             <div style={{ display: "flex", gap: 12 }}>
               <button

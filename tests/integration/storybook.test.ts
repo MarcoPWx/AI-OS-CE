@@ -80,9 +80,7 @@ describe("Storybook Integration Tests", () => {
     });
 
     it("should have proper story exports", async () => {
-      const epicStory: any = await import(
-        "../../src/stories/Epics/EpicManagerImproved.stories"
-      );
+      const epicStory: any = await import("../../src/stories/Epics/EpicManagerImproved.stories");
       expect(epicStory.default).toBeDefined();
       expect(epicStory.default.title).toBeDefined();
       expect(epicStory.default.component).toBeDefined();
@@ -121,10 +119,7 @@ describe("Code Quality Checks", () => {
         .filter((f) => f.toString().endsWith(".tsx"));
       for (const file of files) {
         if (file.toString().includes(".stories.tsx")) {
-          const content = fs.readFileSync(
-            path.join(storyDir, file.toString()),
-            "utf-8",
-          );
+          const content = fs.readFileSync(path.join(storyDir, file.toString()), "utf-8");
           expect(content).not.toMatch(/from\s+['"].*\.stories/);
         }
       }
@@ -139,10 +134,7 @@ describe("Code Quality Checks", () => {
         "src/stories/Dev/NetworkPlayground.tsx",
       ];
       for (const comp of components) {
-        const content = fs.readFileSync(
-          path.join(process.cwd(), comp),
-          "utf-8",
-        );
+        const content = fs.readFileSync(path.join(process.cwd(), comp), "utf-8");
         expect(content).toMatch(/import\s+.*React/);
         expect(content).toMatch(/export\s+default/);
         expect(content).toMatch(/:\s*(React\.)?FC|function\s+\w+\s*\(/);

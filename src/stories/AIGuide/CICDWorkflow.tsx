@@ -78,9 +78,7 @@ const prRules: PRRule[] = [
 ];
 
 const CICDWorkflow: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"workflow" | "rules" | "commands">(
-    "workflow",
-  );
+  const [activeTab, setActiveTab] = useState<"workflow" | "rules" | "commands">("workflow");
   const [workflowSteps, setWorkflowSteps] = useState<WorkflowStep[]>([
     { id: "1", name: "Checkout Code", status: "success", duration: "2s" },
     { id: "2", name: "Setup Node.js", status: "success", duration: "5s" },
@@ -117,10 +115,8 @@ const CICDWorkflow: React.FC = () => {
         setWorkflowSteps([...steps]);
 
         setTimeout(() => {
-          steps[currentStep].status =
-            Math.random() > 0.1 ? "success" : "failed";
-          steps[currentStep].duration =
-            `${Math.floor(Math.random() * 30) + 2}s`;
+          steps[currentStep].status = Math.random() > 0.1 ? "success" : "failed";
+          steps[currentStep].duration = `${Math.floor(Math.random() * 30) + 2}s`;
           setWorkflowSteps([...steps]);
           currentStep++;
 
@@ -228,8 +224,7 @@ const CICDWorkflow: React.FC = () => {
         maxWidth: 1400,
         margin: "0 auto",
         padding: 24,
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
       {/* Header */}
@@ -279,11 +274,7 @@ const CICDWorkflow: React.FC = () => {
             {tab === "workflow" && "🔄 "}
             {tab === "rules" && "📋 "}
             {tab === "commands" && "⚡ "}
-            {tab === "workflow"
-              ? "CI Pipeline"
-              : tab === "rules"
-                ? "PR Rules"
-                : "Commands"}
+            {tab === "workflow" ? "CI Pipeline" : tab === "rules" ? "PR Rules" : "Commands"}
           </button>
         ))}
       </div>
@@ -364,9 +355,7 @@ const CICDWorkflow: React.FC = () => {
                       {step.name}
                     </div>
                     {step.duration && (
-                      <div
-                        style={{ fontSize: 12, color: "#94a3b8", marginTop: 2 }}
-                      >
+                      <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 2 }}>
                         Duration: {step.duration}
                       </div>
                     )}
@@ -552,9 +541,7 @@ const CICDWorkflow: React.FC = () => {
                     >
                       {cmd.cmd}
                     </code>
-                    <span style={{ fontSize: 13, color: "#64748b" }}>
-                      {cmd.desc}
-                    </span>
+                    <span style={{ fontSize: 13, color: "#64748b" }}>{cmd.desc}</span>
                   </div>
                 ))}
               </div>

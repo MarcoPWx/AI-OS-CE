@@ -321,7 +321,7 @@ Prevents agents from losing context with automatic enforcement:
 ```python
 # Enforcement triggers:
 - After 3 changes → forced update
-- Every 5 minutes → forced update  
+- Every 5 minutes → forced update
 - Context switch → immediate update
 - Any error → immediate update
 

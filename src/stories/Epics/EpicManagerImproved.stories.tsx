@@ -75,8 +75,7 @@ export const InProgress: StoryObj<typeof EpicManager> = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Shows only epics that are currently in progress, sorted by completion percentage.",
+        story: "Shows only epics that are currently in progress, sorted by completion percentage.",
       },
     },
   },
@@ -93,8 +92,7 @@ export const HighPriority: StoryObj<typeof EpicManager> = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Displays top priority epics with limited view for focused attention.",
+        story: "Displays top priority epics with limited view for focused attention.",
       },
     },
   },
@@ -129,8 +127,7 @@ export const CompactView: StoryObj<typeof EpicManager> = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Compact view without statistics panel, showing more epics at once.",
+        story: "Compact view without statistics panel, showing more epics at once.",
       },
     },
   },
