@@ -1,6 +1,6 @@
 # 🤖 AIBook - Where AI Meets UI Development
 
-> Stop copying broken AI code. Start shipping tested components.
+> **This IS a complete Storybook development environment** - Install it, run `npm run dev`, and you have a working UI development system with AI agent orchestration
 
 [![CI](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -11,6 +11,55 @@
 [![Playwright](https://img.shields.io/badge/Playwright-E2E-45ba4b?logo=playwright)](https://playwright.dev/)
 [![Vitest](https://img.shields.io/badge/Vitest-Unit-729b1a?logo=vitest)](https://vitest.dev/)
 
+## ⚡ What You're Installing
+
+**This repository IS:**
+- ✅ **A complete Storybook 8.6 setup** - Ready to run, no configuration needed
+- ✅ **A Python Agent Boot system** - AI agent orchestration for documentation and development
+- ✅ **A working UI development environment** - With examples, tests, and mocks
+
+**This is NOT:**
+- ❌ A template generator
+- ❌ A CLI tool to add to existing projects
+- ❌ Just documentation
+
+## 🚀 Quick Start (2 minutes)
+
+```bash
+# 1. Clone this Storybook environment
+git clone https://github.com/MarcoPWx/AI-OS-Storybook.git
+cd AI-OS-Storybook
+
+# 2. Install dependencies
+npm install
+
+# 3. Start Storybook (this IS the main application)
+npm run dev
+
+# 4. Open http://localhost:7007
+# You now have a complete Storybook with examples, tests, and agent tools!
+
+# 5. (Optional) Use the Python Agent Boot system
+python3 tools/agent/agent_boot.py init
+python3 tools/agent/agent_boot.py update-docs --content "Starting new session"
+```
+
+## 🎯 Two Main Components
+
+### 1. Storybook Development Environment (Primary)
+**This IS a fully configured Storybook** that you install and run:
+- Start with `npm run dev` → Opens Storybook on http://localhost:7007
+- Includes working examples (Epic Manager, API Playground, etc.)
+- Has MSW mocking, Vitest tests, Playwright E2E
+- Ready to use immediately - no setup required
+
+### 2. Python Agent Boot System (AI Orchestration)
+**Located in `tools/agent/agent_boot.py`** - Manages documentation and development workflow:
+- Tracks development sessions
+- Updates documentation automatically
+- Enforces context tracking
+- Prevents AI agents from losing context
+
 ## Agent-Driven Storybook (Minimal)
 
 Keep it simple: one DevLog, one System Status, one Epic Manager (Improved). No badges, no banners, no auto-hooks. Manual, agent-driven updates only.
@@ -19,6 +68,7 @@ Start here (TL;DR)
 Requirements:
 
 - Node >= 18.17
+- Python 3.x (for Agent Boot)
 - Optional (for E2E): npx playwright install
 
 - Install deps: npm install
