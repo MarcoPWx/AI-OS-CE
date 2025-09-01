@@ -1,8 +1,51 @@
 {
-  "name": "opensource-storybook",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@ai-os/storybook-toolkit",
+  "version": "0.1.0-beta.1",
+  "description": "AI-OS Storybook Toolkit - A complete development environment for building UI with AI assistants",
+  "keywords": [
+    "storybook",
+    "ai",
+    "development",
+    "toolkit",
+    "react",
+    "testing",
+    "msw",
+    "playwright"
+  ],
+  "homepage": "https://github.com/MarcoPWx/AI-OS-Storybook#readme",
+  "bugs": {
+    "url": "https://github.com/MarcoPWx/AI-OS-Storybook/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcoPWx/AI-OS-Storybook.git"
+  },
+  "license": "MIT",
+  "author": "MarcoPWx",
   "type": "commonjs",
+  "bin": {
+    "create-ai-os-storybook": "./bin/create.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    ".storybook/",
+    "tests/",
+    "e2e/",
+    "docs/",
+    "public/",
+    "scripts/",
+    "templates/",
+    "agent_boot.py",
+    "AGENT_BOOT_README.md",
+    "README.md",
+    "LICENSE",
+    "tsconfig.json",
+    "vitest.config.ts",
+    "playwright.config.ts",
+    ".eslintrc.cjs",
+    ".prettierrc"
+  ],
   "engines": {
     "node": ">=18.17"
   },
@@ -19,37 +62,40 @@
     "integrity:check": "node scripts/integrity-check.mjs"
   },
   "dependencies": {
+    "commander": "^11.1.0",
+    "fs-extra": "^11.2.0",
+    "msw": "^2.3.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "msw": "^2.3.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.46.0",
     "@storybook/addon-essentials": "^8.6.0",
     "@storybook/addon-interactions": "^8.6.0",
     "@storybook/react-vite": "^8.6.0",
     "@storybook/test-runner": "^0.16.0",
-    "msw-storybook-addon": "^2.0.0",
-    "storybook": "^8.6.0",
-    "typescript": "^5.5.4",
-    "vitest": "^3.2.4",
-    "@testing-library/react": "^14.3.1",
     "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^14.3.1",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "concurrently": "^8.2.2",
+    "detect-package-manager": "^2.0.1",
     "eslint": "^8.57.0",
-    "@typescript-eslint/parser": "^6.20.0",
-    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.4",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.3.3",
-    "concurrently": "^8.2.2",
     "http-server": "^14.1.1",
-    "wait-on": "^7.2.0",
+    "jsdom": "^26.1.0",
+    "msw-storybook-addon": "^2.0.0",
     "playwright": "^1.46.0",
-    "@playwright/test": "^1.46.0",
-    "@vitest/coverage-v8": "^3.2.4",
-    "detect-package-manager": "^2.0.1"
+    "prettier": "^3.3.3",
+    "storybook": "^8.6.0",
+    "typescript": "^5.5.4",
+    "vitest": "^3.2.4",
+    "wait-on": "^7.2.0"
   }
 }

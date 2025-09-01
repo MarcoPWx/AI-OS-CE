@@ -9,7 +9,7 @@ Thanks for contributing! Before requesting review:
 - [ ] Stories and tests added/updated as needed
 
 Deployment flow reminder:
+
 - Merge into `dev`
 - Promote via PR: `dev` → `staging` (CI required)
 - Promote via PR: `staging` → `main` (CI required)
-

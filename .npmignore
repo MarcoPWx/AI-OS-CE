@@ -1,0 +1,36 @@
+# Development files
+.git/
+.github/
+.vscode/
+.idea/
+node_modules/
+coverage/
+playwright-report/
+storybook-static/
+.agent_boot.config.json
+
+# Test files (optional - keep for reference)
+# tests/
+# e2e/
+
+# Build artifacts
+dist/
+build/
+*.log
+*.tmp
+.DS_Store
+
+# Config files not needed in package
+.env
+.env.local
+.env.*.local
+
+# Documentation that's too large
+docs/images/
+docs/videos/
+
+# Cache
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
