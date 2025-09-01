@@ -54,11 +54,17 @@ python3 tools/agent/agent_boot.py update-docs --content "Starting new session"
 - Ready to use immediately - no setup required
 
 ### 2. Python Agent Boot System (AI Orchestration)
-**Located in `tools/agent/agent_boot.py`** - Manages documentation and development workflow:
-- Tracks development sessions
-- Updates documentation automatically
-- Enforces context tracking
-- Prevents AI agents from losing context
+**Located in `tools/agent/agent_boot.py`** - Complete development orchestration:
+
+**What it DOES (NEW!):**
+- ✅ **Creates GitHub issues** - Automatically from epics
+- ✅ **Updates EPICS.md** - Auto-tracks progress and completion
+- ✅ **Auto-logs to DEVLOG.md** - Records all operations
+- ✅ **Monitors GitHub PRs** - Tracks CI status and failures
+- ✅ **Performance tracking** - Visual progress bars and metrics
+- ✅ **Security testing** - Built-in vulnerability scanner
+- ✅ **Auto-commits changes** - Optional git integration
+- ✅ **Enforces tracking** - Prevents context loss with smart triggers
 
 ## Agent-Driven Storybook (Minimal)
 
@@ -384,12 +390,27 @@ Prevents agents from losing context with automatic enforcement:
 
 See [tools/agent/TRACKING_ENFORCEMENT.md](tools/agent/TRACKING_ENFORCEMENT.md) for details.
 
-### Quick CLI:
+### Quick CLI Examples:
 ```bash
+# Interactive setup (first time)
 python3 tools/agent/agent_boot.py init
-python3 tools/agent/agent_boot.py update-docs --content "Session summary"
-python3 tools/agent/agent_boot.py create-epic --title "New Feature" --description "Complete implementation"
+
+# Auto-update all documentation
+python3 tools/agent/agent_boot.py update-docs --content "Completed user auth feature"
+
+# Create epic AND GitHub issue
+python3 tools/agent/agent_boot.py create-epic --title "Add OAuth" --create-issue
+
+# Check GitHub PR and CI status
+python3 tools/agent/agent_boot.py github-status
+
+# Get complete workflow status
+python3 tools/agent/agent_boot.py workflow-status
+
+# Security testing
 python3 tools/agent/agent_boot.py test-security --input "<script>alert('xss')</script>"
+
+# Performance report
 python3 tools/agent/agent_boot.py performance-report
 ````
 

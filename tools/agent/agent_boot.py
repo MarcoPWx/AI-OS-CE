@@ -24,6 +24,8 @@ import json
 import logging
 import os
 import sys
+import subprocess
+import re
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from enum import Enum, auto
@@ -176,12 +178,87 @@ class AgentModule(Protocol):
     async def shutdown(self) -> None: ...
 
 # ============================================================================
-# USER JOURNEY: Documentation Management
+# GITHUB INTEGRATION - Full GitHub API integration
+# ============================================================================
+
+class GitHubIntegration:
+    """
+    GitHub API integration for issue and PR management.
+    WHY: Seamless integration with GitHub workflow.
+    """
+    
+    def __init__(self, context: AgentContext):
+        self.context = context
+        self.repo = self._get_repo_info()
+    
+    def _get_repo_info(self) -> Dict[str, str]:
+        """Extract GitHub repo info from git remote"""
+        try:
+            result = subprocess.run(
+                ['git', 'remote', 'get-url', 'origin'],
+                capture_output=True, text=True, check=True
+            )
+            url = result.stdout.strip()
+            # Parse owner/repo from URL
+            match = re.search(r'github\.com[:/]([^/]+)/([^.]+)', url)
+            if match:
+                return {'owner': match.group(1), 'repo': match.group(2).replace('.git', '')}
+        except Exception as e:
+            logger.warning(f"Could not get repo info: {e}")
+        return {'owner': '', 'repo': ''}
+    
+    async def create_issue(self, title: str, body: str, labels: List[str] = None) -> TaskResult:
+        """
+        Create a GitHub issue using gh CLI.
+        WHY: Direct integration with development workflow.
+        """
+        try:
+            cmd = ['gh', 'issue', 'create', '--title', title, '--body', body]
+            if labels:
+                cmd.extend(['--label', ','.join(labels)])
+            
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            if result.returncode == 0:
+                issue_url = result.stdout.strip()
+                logger.info(f"✅ Created GitHub issue: {issue_url}")
+                return TaskResult(
+                    success=True,
+                    data={'url': issue_url},
+                    error=None,
+                    duration_ms=0,
+                    timestamp=datetime.now(timezone.utc).isoformat()
+                )
+            else:
+                raise Exception(result.stderr)
+        except Exception as e:
+            logger.error(f"Failed to create issue: {e}")
+            return TaskResult(
+                success=False,
+                data=None,
+                error=str(e),
+                duration_ms=0,
+                timestamp=datetime.now(timezone.utc).isoformat()
+            )
+    
+    async def list_issues(self, state: str = 'open') -> List[Dict[str, Any]]:
+        """List GitHub issues"""
+        try:
+            result = subprocess.run(
+                ['gh', 'issue', 'list', '--state', state, '--json', 'number,title,state,labels'],
+                capture_output=True, text=True, check=True
+            )
+            return json.loads(result.stdout)
+        except Exception as e:
+            logger.error(f"Failed to list issues: {e}")
+            return []
+
+# ============================================================================
+# USER JOURNEY: Documentation Management with Auto-Update
 # ============================================================================
 
 class DocumentationManager:
     """
-    Complete documentation management system.
+    Complete documentation management system with auto-update capabilities.
     WHY: Documentation is code - treat it as first-class citizen.
     """
     
@@ -191,9 +268,9 @@ class DocumentationManager:
         self.cache: Dict[str, tuple[str, str]] = {}  # path -> (hash, content)
     
     @measure_performance
-    async def update_devlog(self, entry: str) -> TaskResult:
+    async def update_devlog(self, entry: str, auto_commit: bool = True) -> TaskResult:
         """
-        Append to DEVLOG with proper formatting.
+        Append to DEVLOG with proper formatting and optional auto-commit.
         WHY: Consistent documentation format enables automation.
         """
         try:
