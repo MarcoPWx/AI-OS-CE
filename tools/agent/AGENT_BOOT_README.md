@@ -52,8 +52,15 @@ python3 agent_boot.py init
 # Update documentation
 python3 agent_boot.py update-docs --content "Session summary"
 
-# Create an epic with validation
-python3 agent_boot.py create-epic --title "New Feature" --description "Complete implementation"
+# Epic Management (NEW!)
+python3 agent_boot.py list-epics                      # View all epics with visual progress
+python3 agent_boot.py create-epic --title "New Feature" --description "Details" --create-issue
+python3 agent_boot.py update-epic --title "Feature" --status IN_PROGRESS --completion 60
+python3 agent_boot.py sync-github                     # Sync with GitHub issues
+
+# GitHub Integration
+python3 agent_boot.py github-status                   # Check PR and CI status
+python3 agent_boot.py workflow-status                 # Complete workflow overview
 
 # Test security patterns
 python3 agent_boot.py test-security --input "<script>alert('xss')</script>"
@@ -94,15 +101,36 @@ await docs_manager.update_devlog("Session notes")
 await docs_manager.update_system_status()
 ```
 
-#### 3. **EpicManager**
+#### 3. **EpicManager** (Enhanced!)
 
-Real project management with CRUD operations.
+Real project management with CRUD operations, GitHub sync, and visual progress tracking.
 
 ```python
+# Create epic with GitHub issue
 await epic_manager.create_epic(
     title="Feature",
-    description="Implementation details"
+    description="Implementation details",
+    create_issue=True  # Creates GitHub issue automatically
 )
+
+# Update epic progress
+await epic_manager.update_epic(
+    epic_id="abc123",
+    status="IN_PROGRESS",
+    completion=75  # Shows as [███████░░░] 75% in GitHub
+)
+
+# List all epics with visual progress
+await epic_manager.list_epics()
+# Output:
+# ├── Add Dark Mode [█████░░░░░] 50% IN_PROGRESS → GitHub #17
+# └── Add OAuth     [██████████] 100% DONE → GitHub #18
+
+# Bidirectional GitHub sync
+await epic_manager.sync_with_github()
+# - Closed GitHub issues mark epics as DONE
+# - Open issues update epic status
+# - Progress comments posted to GitHub
 ```
 
 #### 4. **SecurityLab**
