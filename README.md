@@ -314,8 +314,29 @@ npm run dev
 
 - Complete learning platform and production-ready patterns
 - Read: AGENT_BOOT_README.md for full details and the manifesto
+- **NEW**: Automatic tracking enforcement prevents context loss
 
-Quick CLI:
+### 🚨 Tracking Enforcement System
+
+Prevents agents from losing context with automatic enforcement:
+
+```python
+# Enforcement triggers:
+- After 3 changes → forced update
+- Every 5 minutes → forced update  
+- Context switch → immediate update
+- Any error → immediate update
+
+# Visual indicators:
+🚨 TRACKING ENFORCEMENT: Critical threshold reached
+⏰ TRACKING ENFORCEMENT: Time limit exceeded
+🔄 CONTEXT SWITCH: Task transition detected
+❌ ERROR TRACKED: Error requiring documentation
+```
+
+See [TRACKING_ENFORCEMENT.md](TRACKING_ENFORCEMENT.md) for details.
+
+### Quick CLI:
 ```bash
 python3 agent_boot.py init
 python3 agent_boot.py update-docs --content "Session summary"
