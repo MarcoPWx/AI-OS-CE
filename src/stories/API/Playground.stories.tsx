@@ -5,12 +5,12 @@ const meta: Meta<typeof ApiPlayground> = {
   title: "API/Playground",
   component: ApiPlayground,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     backgrounds: {
-      default: 'light',
+      default: "light",
       values: [
-        { name: 'light', value: '#f8fafc' },
-        { name: 'dark', value: '#0f172a' },
+        { name: "light", value: "#f8fafc" },
+        { name: "dark", value: "#0f172a" },
       ],
     },
   },

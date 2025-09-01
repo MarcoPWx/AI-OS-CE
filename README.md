@@ -8,6 +8,7 @@ Keep it simple: one DevLog, one System Status, one Epic Manager (Improved). No b
 
 Start here (TL;DR)
 Requirements:
+
 - Node >= 18.17
 - Optional (for E2E): npx playwright install
 
@@ -25,16 +26,19 @@ Requirements:
   - Build static: npm run build
 
 Common issues (see docs/TROUBLESHOOTING.md for more)
+
 - Port in use: npm run dev -- -p 7008
 - MSW seems off: toolbar → MSW → On
 - E2E failing: run npx playwright install
 - Build prompts for telemetry: STORYBOOK_DISABLE_TELEMETRY=1 npm run build
 
 Optional: scaffold into another repo
+
 - One-liner: `npx create-agent-storybook --force`
 - Flags: `--dry-run` `--docs-only` `--stories-only` `--no-config`
 
 Canonical docs (single source of truth)
+
 - DevLog: docs/status/DEVLOG.md
 - Epics: docs/roadmap/EPICS.md
 - System Status: docs/SYSTEM_STATUS.md
@@ -42,11 +46,13 @@ Canonical docs (single source of truth)
 - Agent Boot (Storybook): docs/AgentBoot.docs.mdx
 
 Storybook pages
+
 - Docs/Dev Log (reads docs/status/DEVLOG.md)
 - Docs/System Status (reads docs/SYSTEM_STATUS.md)
 - Epics/Epic Manager (Improved)
 
 Agent operations
+
 - "Update docs now"
   - Append a dated entry to docs/status/DEVLOG.md
   - Set "Last Updated: YYYY-MM-DD" in docs/SYSTEM_STATUS.md
@@ -57,22 +63,25 @@ Agent operations
   - No manifests and no pre-hooks; manual-only
 
 Nothing auto-runs
+
 - Starting Storybook does not trigger any doc updates or agent generation.
 - No badges/banners or extra UI.
 
 Labs
+
 - Labs/Agent Minimal Boot & Update — agent-driven workflow
 - Labs/S2S Foundations — network + API playgrounds under load
 - Labs/Porting Projects — bring flows from Harvest, DevMentor, Quiz, Voice
 
 Porting to another project (3 steps)
-1) Copy canonical docs:
+
+1. Copy canonical docs:
    - docs/status/DEVLOG.md, docs/roadmap/EPICS.md, docs/SYSTEM_STATUS.md
    - (optional) docs/status/AGENT_BOOT.md and docs/AgentBoot.docs.mdx
-2) Copy the three stories/components:
+2. Copy the three stories/components:
    - Docs: DevLogLive (story + component), SystemStatusDocLive (story + component)
    - Epics: EpicManagerImproved (story + component)
-3) Configure Storybook:
+3. Configure Storybook:
    - .storybook/main.ts → staticDirs includes '../docs' (and '../public' if needed)
    - Keep .storybook/preview minimal; HMR-friendly
    - Optional scripts: scripts/docs-refresh.mjs, scripts/update-docs-status.mjs (manual only)
@@ -91,13 +100,14 @@ Porting to another project (3 steps)
 
 ## 💡 What is AIBook?
 
-AIBook is a Storybook setup specifically designed for developers who build UI with AI assistants (Claude, GPT-4, Copilot). 
+AIBook is a Storybook setup specifically designed for developers who build UI with AI assistants (Claude, GPT-4, Copilot).
 
 **The core insight:** AI can't see your UI or run your code. AIBook provides the missing feedback loop.
 
 ## 🎯 Who Needs This?
 
 You need AIBook if you've ever:
+
 - ✋ Spent 30 minutes debugging AI-generated code that "looked right"
 - ✋ Had AI create beautiful components that broke with real data
 - ✋ Wished AI could see what you're building
@@ -107,11 +117,13 @@ You need AIBook if you've ever:
 ## 💰 The Value (Why This Saves You Time)
 
 ### Without AIBook:
+
 ```
 1. Ask AI for component → 2. Copy code → 3. It breaks → 4. Debug for 20 min → 5. Ask AI to fix → 6. Still broken → 7. Give up and write it yourself
 ```
 
 ### With AIBook:
+
 ```
 1. Ask AI (with examples) → 2. Copy code → 3. Run tests → 4. See it working → 5. Ship it
 ```
@@ -139,28 +151,34 @@ npm install && npm run dev
 ### Task: "I need a notification center with dismiss and mark-all-read"
 
 #### Without AIBook (typical experience):
+
 ```javascript
 // AI gives you this...
 function NotificationCenter() {
-  const [notifications, setNotifications] = useState([]) // Where's the data?
+  const [notifications, setNotifications] = useState([]); // Where's the data?
   // 200 lines of broken code...
 }
 // Spend next hour wiring up data, fixing errors, adding tests
 ```
 
 #### With AIBook:
+
 ```markdown
 # Your prompt to AI:
+
 "Create a notification center following the pattern in:
+
 - Component: src/stories/Epics/EpicManager.tsx
 - With mock: src/mocks/handlers.ts (GET /api/notifications)
 - With test: tests/unit/EpicManager.test.tsx"
 
 # AI generates working code because it has patterns to follow
+
 # You validate in seconds:
-npm run test:unit       # ✅ Tests pass
-Open Storybook          # ✅ Looks perfect
-Toggle MSW Error Rate   # ✅ Handles errors gracefully
+
+npm run test:unit # ✅ Tests pass
+Open Storybook # ✅ Looks perfect
+Toggle MSW Error Rate # ✅ Handles errors gracefully
 ```
 
 **Result:** Feature complete in 5 minutes vs 1+ hour
@@ -171,13 +189,13 @@ Toggle MSW Error Rate   # ✅ Handles errors gracefully
 
 ### Real Components AI Can Learn From:
 
-| Component | What It Does | Why AI Needs This Pattern |
-|-----------|-------------|---------------------------|
-| **Epic Manager** | Full CRUD with search/filters | Shows AI how to handle forms, state, validation |
-| **API Playground** | Test any endpoint instantly | Shows AI async patterns that actually work |
-| **Network Playground** | Visualize concurrent requests | Shows AI how to handle loading states |
-| **Status Dashboard** | Live test coverage | Shows AI how to read/display system data |
-| **Dev Log Viewer** | Render markdown docs | Shows AI how to integrate documentation |
+| Component              | What It Does                  | Why AI Needs This Pattern                       |
+| ---------------------- | ----------------------------- | ----------------------------------------------- |
+| **Epic Manager**       | Full CRUD with search/filters | Shows AI how to handle forms, state, validation |
+| **API Playground**     | Test any endpoint instantly   | Shows AI async patterns that actually work      |
+| **Network Playground** | Visualize concurrent requests | Shows AI how to handle loading states           |
+| **Status Dashboard**   | Live test coverage            | Shows AI how to read/display system data        |
+| **Dev Log Viewer**     | Render markdown docs          | Shows AI how to integrate documentation         |
 
 #### Engineering highlights (what devs care about)
 
@@ -211,29 +229,33 @@ Toggle MSW Error Rate   # ✅ Handles errors gracefully
 
 ### Templates (Copy-Paste Starters)
 
-| Template | What It Demonstrates |
-|----------|----------------------|
-| **CRUD Pattern** | Create/read/update/delete with server state and error/latency handling |
-| **Fetch Pattern** | Idle/loading/success/error states and retry behavior |
-| **Table Pattern** | Sorting, empty states, and reload patterns |
+| Template          | What It Demonstrates                                                   |
+| ----------------- | ---------------------------------------------------------------------- |
+| **CRUD Pattern**  | Create/read/update/delete with server state and error/latency handling |
+| **Fetch Pattern** | Idle/loading/success/error states and retry behavior                   |
+| **Table Pattern** | Sorting, empty states, and reload patterns                             |
 
 ### What Makes AIBook Special:
 
 **🔥 Mock-First Development**
+
 - Everything works instantly - no backend setup
 - MSW intercepts all API calls
 - Control latency & errors via toolbar
 - AI's code works immediately
 
 **✅ Tests Built-In**
+
 ```bash
 npm run test:unit      # Vitest unit tests
-npm run test:stories   # Accessibility checks  
+npm run test:stories   # Accessibility checks
 npm run e2e           # Playwright E2E tests
 ```
+
 Every component AI generates is automatically testable.
 
 **📊 Quality Dashboard**
+
 - See test coverage live
 - View E2E test results
 - Track component health
@@ -241,6 +263,7 @@ Every component AI generates is automatically testable.
 
 **🎛️ Developer Controls**
 Storybook toolbar lets you:
+
 - Simulate slow networks (0-2000ms latency)
 - Test error states (0-50% failure rate)
 - MSW Info overlay: choose MSW → Info to see active routes and controls
@@ -251,11 +274,12 @@ Storybook toolbar lets you:
 ## 🚦 Get Started (< 5 minutes)
 
 HMR-friendly dev loop:
+
 - Start: npm run dev (Vite-powered Storybook with HMR)
 - Toggle Presenter overlay: press "g" twice
 - Open MSW Info overlay: toolbar → MSW → Info
 
-```bash
+````bash
 # 1. Clone AIBook
 git clone https://github.com/NatureQuest/opensource-storybook
 cd opensource-storybook
@@ -297,28 +321,31 @@ python3 agent_boot.py update-docs --content "Session summary"
 python3 agent_boot.py create-epic --title "New Feature" --description "Complete implementation"
 python3 agent_boot.py test-security --input "<script>alert('xss')</script>"
 python3 agent_boot.py performance-report
-```
+````
 
 ## 🔁 Porting This Setup to Another Project
 
-1) Create canonical docs in your repo:
+1. Create canonical docs in your repo:
    - docs/status/DEVLOG.md
    - docs/roadmap/EPICS.md
    - docs/SYSTEM_STATUS.md
-2) Add three simple stories that fetch those exact paths:
+2. Add three simple stories that fetch those exact paths:
    - Docs/Dev Log (live markdown)
    - Docs/System Status (live markdown)
    - Epics/Epic Manager (use your improved component)
-3) Include Agent Boot (manual):
-  - AGENT_BOOT_README.md (reference implementation & contract)
-  - docs/AgentBoot.docs.mdx (same contract for Storybook)
-  - Optional: link AGENT_BOOT_README.md from your project's README
-4) Optional helper scripts (manual-only):
+3. Include Agent Boot (manual):
+
+- AGENT_BOOT_README.md (reference implementation & contract)
+- docs/AgentBoot.docs.mdx (same contract for Storybook)
+- Optional: link AGENT_BOOT_README.md from your project's README
+
+4. Optional helper scripts (manual-only):
    - scripts/docs-refresh.mjs and scripts/update-docs-status.mjs
    - package.json: add scripts "docs:refresh" and "docs:updates" (do NOT wire to prestorybook/prebuild)
-5) Keep it minimal:
+5. Keep it minimal:
    - No banners/badges, no auto-hooks, no agent manifest.
-```
+
+````
 
 ## 🧭 User Stories & Use Cases
 
@@ -328,7 +355,8 @@ python3 agent_boot.py performance-report
 **Solution:**
 ```bash
 npm run dev  # Start Storybook on http://localhost:7007
-```
+````
+
 - Open "Docs/Start Here" → Quick system overview
 - Open "Status/Dashboard" → See test coverage & build health
 - Open "Epics/Epic Manager" → Reference full CRUD patterns
@@ -337,9 +365,11 @@ npm run dev  # Start Storybook on http://localhost:7007
 **Result:** Context rebuilt in 2 minutes vs 15 minutes of re-explaining.
 
 ### 2) Build a feature with working patterns (5-min flow)
+
 **Scenario:** "I need a notification center with dismiss and mark-all-read."
 
 **Solution:**
+
 1. Study pattern: Open "Epics/Epic Manager" for state management reference
 2. Add mocks: `src/mocks/handlers.ts` → Add GET/POST `/api/notifications`
 3. Create story: `src/stories/Notifications/NotificationCenter.stories.tsx`
@@ -349,9 +379,11 @@ npm run dev  # Start Storybook on http://localhost:7007
 **Result:** Working, tested feature instead of broken AI hallucinations.
 
 ### 3) Mock-first API development (no backend yet)
+
 **Scenario:** Backend team is 2 weeks behind, but you need to ship UI now.
 
 **Solution:**
+
 1. Define contract in `src/mocks/handlers.ts`
 2. Test endpoints in "API/Playground" story
 3. Build UI against mocks with confidence
@@ -360,9 +392,11 @@ npm run dev  # Start Storybook on http://localhost:7007
 **Result:** Ship UI on schedule, backend swaps in seamlessly.
 
 ### 4) Debug production issues locally
+
 **Scenario:** "It works on my machine" but fails for users on slow 3G.
 
 **Solution:**
+
 1. Set Storybook toolbar: MSW Latency = 2000ms, Error Rate = 0.2
 2. Watch components handle timeouts and failures
 3. Fix loading states and retry logic
@@ -371,22 +405,27 @@ npm run dev  # Start Storybook on http://localhost:7007
 **Result:** Reproduce and fix flaky issues deterministically.
 
 ### 5) Validate AI-generated code before merge
+
 **Scenario:** AI created a 500-line PR. Is it production-ready?
 
 **Quick Check:**
+
 ```bash
 npm run test:unit:coverage  # Coverage > 80%?
 npm run test:stories        # Accessibility pass?
 npm run e2e                 # User flows work?
 ```
+
 Then visual QA in Storybook for edge cases.
 
 **Result:** Ship with confidence, catch issues before users do.
 
 ### 6) Onboard new team member in 15 minutes
+
 **Scenario:** New developer joins mid-sprint, needs context ASAP.
 
 **Onboarding Path:**
+
 1. "Docs/Start Here" → System overview
 2. "Epics/Epic Manager" → Data flow patterns
 3. "API/Playground" → Available endpoints
@@ -396,9 +435,11 @@ Then visual QA in Storybook for edge cases.
 **Result:** Productive on day 1 instead of week 1.
 
 ### 7) Ensure accessibility from day one
+
 **Scenario:** Legal requires WCAG 2.1 AA compliance.
 
 **Built-in Solution:**
+
 1. Every story gets automatic a11y checks
 2. Run `npm run test:stories` → Axe-core validation
 3. See violations in CI before merge
@@ -407,9 +448,11 @@ Then visual QA in Storybook for edge cases.
 **Result:** Accessibility baked in, not bolted on.
 
 ### 8) Monitor and control bundle size
+
 **Scenario:** Performance budget is 200KB, but latest feature added 50KB.
 
 **Investigation:**
+
 ```bash
 npm run storybook:stats     # Generate webpack stats
 npm run storybook:analyze   # Visual bundle breakdown
@@ -419,9 +462,11 @@ npm run storybook:check-budgets  # Enforce limits
 **Result:** Catch bloat before deploy, optimize the right chunks.
 
 ### 9) Create shareable component demos
+
 **Scenario:** Designer needs to review all loading states for sign-off.
 
 **Solution:**
+
 1. Build Storybook: `npm run build`
 2. Share link to static site
 3. Designer can interact with all states
@@ -430,9 +475,11 @@ npm run storybook:check-budgets  # Enforce limits
 **Result:** Async feedback without meetings.
 
 ### 10) Establish patterns AI can follow reliably
+
 **Scenario:** Every time AI generates code, it's slightly different and breaks.
 
 **Pattern Setup:**
+
 1. Create reference component with all concerns:
    - Component: `src/stories/Reference/Pattern.tsx`
    - Story: `src/stories/Reference/Pattern.stories.tsx`
@@ -447,6 +494,7 @@ npm run storybook:check-budgets  # Enforce limits
 ### The Two-Phase Approach
 
 **Phase 1: Context Building (Use GPT-4/GPT-5)**
+
 - **Why:** Better at understanding large codebases and building mental models
 - **Tasks:**
   - Initial project exploration
@@ -456,6 +504,7 @@ npm run storybook:check-budgets  # Enforce limits
   - Building the "project map"
 
 **Phase 2: Implementation (Switch to Claude)**
+
 - **Why:** Superior at actual code generation and complex logic
 - **When to switch:** Once the AI demonstrates it understands:
   - Your component patterns
@@ -466,12 +515,14 @@ npm run storybook:check-budgets  # Enforce limits
 ### How to Know When to Switch
 
 **GPT is ready to hand off when it can:**
+
 - ✅ Correctly reference existing components without being told
 - ✅ Suggest appropriate mock endpoints
 - ✅ Know which patterns to follow
 - ✅ Understand the testing approach
 
 **Example Workflow:**
+
 ```bash
 # Phase 1: Context Building (GPT-4/5)
 "Explore the Storybook at localhost:7007"
@@ -486,11 +537,13 @@ npm run storybook:check-budgets  # Enforce limits
 ```
 
 ### Cost Optimization
+
 - **GPT-4/5:** ~$0.03/1K tokens (exploration phase: ~$0.50)
 - **Claude:** ~$0.008/1K tokens (implementation: ~$2-3 per feature)
 - **Total savings:** ~60% compared to using GPT-5 throughout
 
 ### Pro Tips
+
 - Keep a `context.md` file with GPT's understanding
 - Have GPT create a "handoff summary" for Claude
 - Use Storybook as the visual ground truth for both models
@@ -499,6 +552,7 @@ npm run storybook:check-budgets  # Enforce limits
 ## 📚 Documentation
 
 ### Quick References
+
 || Guide | Description | When to Use |
 ||-------|-------------|-------------|
 || [🚀 Quick Start Checklist](docs/QUICK_START_CHECKLIST.md) | 2-minute setup guide | Every new session |
@@ -511,22 +565,25 @@ npm run storybook:check-budgets  # Enforce limits
 || [🤖 Agent Boot System (Reference)](AGENT_BOOT_README.md) | Python-based agent orchestration and manifesto | When using the agent to manage docs/epics/status |
 
 ### Deep Dives
-| Guide | Description |
-|-------|-------------|
-| [LLM Workflow Guide](docs/LLM_WORKFLOW_GUIDE.md) | Complete AI development patterns |
-| [User Stories](docs/specs/user-stories.md) | Requirements for AI context |
-| [System Status Spec](docs/specs/system-status-full-spec.md) | Dashboard implementation |
-| [Epic Management](docs/specs/epic-management-full-spec.md) | CRUD pattern reference |
+
+| Guide                                                       | Description                      |
+| ----------------------------------------------------------- | -------------------------------- |
+| [LLM Workflow Guide](docs/LLM_WORKFLOW_GUIDE.md)            | Complete AI development patterns |
+| [User Stories](docs/specs/user-stories.md)                  | Requirements for AI context      |
+| [System Status Spec](docs/specs/system-status-full-spec.md) | Dashboard implementation         |
+| [Epic Management](docs/specs/epic-management-full-spec.md)  | CRUD pattern reference           |
 
 ## 📊 Commands
 
 ### Development
+
 ```bash
 npm run dev              # Start Storybook (port 7007)
 npm run build            # Build static Storybook
 ```
 
 ### Testing
+
 ```bash
 npm run test:unit        # Run unit tests (Vitest)
 npm run test:unit:watch  # Watch mode
@@ -540,12 +597,14 @@ npm run e2e:storybook   # Start Storybook + run E2E
 ```
 
 ### Analysis
+
 ```bash
 npm run storybook:stats    # Generate bundle stats
 npm run storybook:analyze  # Open bundle analyzer
 ```
 
 ### Agent Boot (Python)
+
 ```bash
 python3 agent_boot.py init
 python3 agent_boot.py update-docs --content "Session update"
@@ -570,7 +629,7 @@ python3 agent_boot.py performance-report
 │   │   └── hooks/                   # Minimal hooks (useQuery/useMutation)
 │   └── 📁 stories/
 │       ├── API/                     # API Playground
-│       ├── Dev/                     # Network Playground  
+│       ├── Dev/                     # Network Playground
 │       ├── Epics/                   # Epic Manager CRUD (+ improved)
 │       ├── Status/                  # Dashboard
 │       ├── Docs/                    # Dev Log viewer
@@ -595,6 +654,7 @@ python3 agent_boot.py performance-report
 ## 🔍 Why AIBook Works
 
 ### 1. AI Has Working Examples to Follow
+
 ```typescript
 // Instead of guessing, AI sees this working pattern:
 // src/stories/Epics/EpicManager.tsx
@@ -603,28 +663,36 @@ const filtered = data.filter(...) // AI learns your filtering approach
 ```
 
 ### 2. Everything Works Without Setup
+
 ```typescript
 // No backend? No problem. MSW provides data:
-fetch('/api/items') // Returns mock data instantly
+fetch("/api/items"); // Returns mock data instantly
 // Control behavior via Storybook toolbar
 ```
 
 ### 3. Tests Catch AI's Mistakes
+
 ```typescript
 // AI might forget edge cases, but tests catch them:
-it('handles empty state', () => { /* ... */ })
-it('handles errors gracefully', () => { /* ... */ })
+it("handles empty state", () => {
+  /* ... */
+});
+it("handles errors gracefully", () => {
+  /* ... */
+});
 ```
 
 ## 🎨 Customization
 
 ### Add Your Components
+
 1. Create component: `src/stories/YourCategory/YourComponent.tsx`
 2. Add story: `src/stories/YourCategory/YourComponent.stories.tsx`
 3. Add test: `tests/unit/YourComponent.test.tsx`
 4. Add mocks: Update `src/mocks/handlers.ts`
 
 ### Configure for Your Needs
+
 - Port: Change `7007` in package.json scripts
 - Theme: Update `.storybook/preview.ts`
 - Coverage thresholds: Edit `vitest.config.ts`
@@ -632,6 +700,7 @@ it('handles errors gracefully', () => { /* ... */ })
 ## 🚀 CI/CD Ready
 
 GitHub Actions workflow included:
+
 - ✅ Builds Storybook
 - ✅ Runs unit tests with coverage
 - ✅ Runs accessibility tests
@@ -643,6 +712,7 @@ See [.github/workflows/ci.yml](.github/workflows/ci.yml)
 ### Deploy Storybook to GitHub Pages
 
 A Pages workflow is included to publish the static Storybook.
+
 - Enable Pages in your repo (source: GitHub Actions)
 - Ensure permissions to write to gh-pages
 - On pushes to main, a fresh build will be deployed
@@ -701,6 +771,7 @@ If AIBook saves you time (and sanity), consider buying me a coffee! Your support
 </div>
 
 ### Why Support?
+
 - 🚀 Funds go directly to maintaining and improving AIBook
 - 📚 Helps create more documentation and tutorials
 - 🎯 Enables new features like Vue/Angular support
@@ -719,4 +790,3 @@ If AIBook saves you time (and sanity), consider buying me a coffee! Your support
   <a href="https://yourportfolio.com">About Me</a> • 
   <a href="https://www.buymeacoffee.com/yourusername">☕ Support</a>
 </div>
-

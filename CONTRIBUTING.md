@@ -3,6 +3,7 @@
 Thank you for your interest in contributing to AI-OS Storybook! This document provides guidelines and instructions for contributing to the project.
 
 ## 📋 Table of Contents
+
 - [Code of Conduct](#code-of-conduct)
 - [Getting Started](#getting-started)
 - [Development Setup](#development-setup)
@@ -16,15 +17,18 @@ Thank you for your interest in contributing to AI-OS Storybook! This document pr
 ## 📜 Code of Conduct
 
 ### Our Pledge
+
 We are committed to providing a friendly, safe, and welcoming environment for all contributors.
 
 ### Expected Behavior
+
 - Be respectful and inclusive
 - Accept constructive criticism gracefully
 - Focus on what's best for the community
 - Show empathy towards others
 
 ### Unacceptable Behavior
+
 - Harassment, discrimination, or offensive comments
 - Personal attacks or trolling
 - Publishing others' private information
@@ -33,12 +37,14 @@ We are committed to providing a friendly, safe, and welcoming environment for al
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js >= 18.17
 - npm >= 9.0
 - Git
 - GitHub CLI (optional but recommended)
 
 ### Quick Start
+
 ```bash
 # Fork and clone the repository
 gh repo fork MarcoPWx/AI-OS-Storybook --clone
@@ -56,6 +62,7 @@ npm test
 ## 💻 Development Setup
 
 ### 1. Fork and Clone
+
 ```bash
 # Using GitHub CLI
 gh repo fork MarcoPWx/AI-OS-Storybook --clone
@@ -67,17 +74,20 @@ git remote add upstream https://github.com/MarcoPWx/AI-OS-Storybook.git
 ```
 
 ### 2. Install Dependencies
+
 ```bash
 npm install
 npx playwright install  # For E2E tests
 ```
 
 ### 3. Set Up Git Hooks (Optional)
+
 ```bash
 npm run prepare  # Sets up Husky for pre-commit hooks
 ```
 
 ### 4. Verify Setup
+
 ```bash
 npm run storybook  # Should start on http://localhost:7007
 npm test           # Should pass all tests
@@ -88,30 +98,35 @@ npm test           # Should pass all tests
 ### Types of Contributions
 
 #### 🐛 Reporting Bugs
+
 - Use the [bug report template](.github/ISSUE_TEMPLATE/bug_report.md)
 - Include detailed steps to reproduce
 - Add screenshots if applicable
 - Specify your environment details
 
 #### ✨ Suggesting Features
+
 - Use the [feature request template](.github/ISSUE_TEMPLATE/feature_request.md)
 - Explain the problem it solves
 - Provide use cases
 - Consider alternatives
 
 #### 📚 Improving Documentation
+
 - Fix typos or clarify existing docs
 - Add examples or tutorials
 - Translate documentation
 - Improve inline code comments
 
 #### 🧪 Adding Tests
+
 - Increase test coverage
 - Add edge case tests
 - Fix flaky tests
 - Add E2E test scenarios
 
 #### 💻 Contributing Code
+
 - Fix bugs
 - Implement new features
 - Improve performance
@@ -120,6 +135,7 @@ npm test           # Should pass all tests
 ## 📋 Workflow Process
 
 ### 1. Find or Create an Issue
+
 ```bash
 # Check existing issues
 gh issue list --label "good first issue"
@@ -130,6 +146,7 @@ gh issue list --label "help wanted"
 ```
 
 ### 2. Create a Feature Branch
+
 ```bash
 # Using our helper script
 ./scripts/gh-workflows.sh new-feature "Feature name" "Description"
@@ -141,13 +158,16 @@ git checkout -b feature/issue-NUMBER-description
 ```
 
 ### 3. Make Your Changes
+
 Follow our [coding standards](#coding-standards) and ensure:
+
 - Code is properly formatted
 - Tests are added/updated
 - Documentation is updated
 - No console errors
 
 ### 4. Commit Your Changes
+
 Use [conventional commits](https://www.conventionalcommits.org/):
 
 ```bash
@@ -159,6 +179,7 @@ git commit -m "test: Add unit tests for prompt library"
 ```
 
 **Commit Types:**
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation only
@@ -168,11 +189,13 @@ git commit -m "test: Add unit tests for prompt library"
 - `chore`: Maintenance tasks
 
 ### 5. Push Your Branch
+
 ```bash
 git push -u origin feature/issue-NUMBER-description
 ```
 
 ### 6. Create a Pull Request
+
 ```bash
 # Using our helper script
 ./scripts/gh-workflows.sh create-pr
@@ -182,16 +205,19 @@ gh pr create --base dev --title "feat: Your feature" --body "Closes #NUMBER"
 ```
 
 ### 7. Address Review Comments
+
 - Respond to all feedback
 - Make requested changes
 - Re-request review when ready
 
 ### 8. Merge
+
 Once approved, your PR will be merged by a maintainer.
 
 ## 📏 Coding Standards
 
 ### TypeScript/JavaScript
+
 ```typescript
 // ✅ Good
 export const calculateTotal = (items: Item[]): number => {
@@ -201,12 +227,13 @@ export const calculateTotal = (items: Item[]): number => {
 // ❌ Bad
 export function calc(i) {
   let t = 0;
-  for(let x of i) t += x.p;
+  for (let x of i) t += x.p;
   return t;
 }
 ```
 
 ### React Components
+
 ```tsx
 // ✅ Good
 interface ButtonProps {
@@ -215,10 +242,10 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({ 
-  label, 
-  onClick, 
-  disabled = false 
+export const Button: React.FC<ButtonProps> = ({
+  label,
+  onClick,
+  disabled = false,
 }) => {
   return (
     <button onClick={onClick} disabled={disabled}>
@@ -234,6 +261,7 @@ export const Button = (props) => {
 ```
 
 ### File Organization
+
 ```
 src/
 ├── components/        # Shared components
@@ -248,6 +276,7 @@ src/
 ```
 
 ### Naming Conventions
+
 - **Files**: PascalCase for components, camelCase for utilities
 - **Variables**: camelCase
 - **Constants**: UPPER_SNAKE_CASE
@@ -257,6 +286,7 @@ src/
 ## 🧪 Testing Requirements
 
 ### Unit Tests
+
 ```typescript
 // Every component should have tests
 describe('Button', () => {
@@ -275,11 +305,13 @@ describe('Button', () => {
 ```
 
 ### Coverage Requirements
+
 - Minimum 80% line coverage
 - Minimum 80% branch coverage
 - All new code must include tests
 
 ### Running Tests
+
 ```bash
 npm test                  # Run unit tests
 npm run test:watch       # Watch mode
@@ -291,6 +323,7 @@ npm run e2e              # Run E2E tests
 ## 📚 Documentation
 
 ### Code Documentation
+
 ```typescript
 /**
  * Calculates the total price of items
@@ -306,27 +339,29 @@ export const calculateTotal = (items: Item[]): number => {
 ```
 
 ### Component Documentation
+
 - Add JSDoc comments to all props
 - Include usage examples
 - Document any side effects
 - Explain complex logic
 
 ### Storybook Stories
+
 ```typescript
 export default {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
   parameters: {
     docs: {
       description: {
-        component: 'A reusable button component with multiple variants',
+        component: "A reusable button component with multiple variants",
       },
     },
   },
   argTypes: {
     label: {
-      description: 'Button label text',
-      control: 'text',
+      description: "Button label text",
+      control: "text",
     },
   },
 };
@@ -335,12 +370,15 @@ export default {
 ## 🔐 Security
 
 ### Reporting Security Issues
+
 **DO NOT** create public issues for security vulnerabilities. Instead:
+
 1. Email security concerns to the maintainers
 2. Include detailed description and steps to reproduce
 3. Allow time for the issue to be addressed before public disclosure
 
 ### Security Best Practices
+
 - Never commit secrets or API keys
 - Validate all user inputs
 - Keep dependencies updated
@@ -365,13 +403,16 @@ Before submitting a PR, ensure:
 ## 🤝 Community
 
 ### Getting Help
+
 - Check existing [documentation](./docs)
 - Search [closed issues](https://github.com/MarcoPWx/AI-OS-Storybook/issues?q=is%3Aissue+is%3Aclosed)
 - Ask in [discussions](https://github.com/MarcoPWx/AI-OS-Storybook/discussions)
 - Join our community chat (if available)
 
 ### Recognition
+
 Contributors will be:
+
 - Listed in our README
 - Mentioned in release notes
 - Given credit in commit messages

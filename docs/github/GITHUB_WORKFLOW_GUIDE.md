@@ -1,6 +1,7 @@
 # GitHub Workflow Guide
 
 ## 📋 Table of Contents
+
 1. [Branching Strategy](#branching-strategy)
 2. [Issue Management](#issue-management)
 3. [Pull Request Workflow](#pull-request-workflow)
@@ -14,6 +15,7 @@
 ## 🌳 Branching Strategy
 
 ### Branch Structure
+
 ```
 main (production)
 ├── dev (integration)
@@ -25,6 +27,7 @@ main (production)
 ```
 
 ### Branch Naming Convention
+
 - `feature/issue-{number}-short-description` (e.g., `feature/7-unit-tests`)
 - `fix/issue-{number}-bug-description` (e.g., `fix/23-navigation-error`)
 - `docs/section-update` (e.g., `docs/api-documentation`)
@@ -56,12 +59,14 @@ git merge dev  # or rebase: git rebase dev
 ### Issue Types & Labels
 
 #### Priority Labels
+
 - `priority:p0` - Critical, blocking
 - `priority:p1` - High priority
 - `priority:p2` - Medium priority
 - `priority:p3` - Low priority
 
 #### Type Labels
+
 - `bug` - Something isn't working
 - `enhancement` - New feature or request
 - `documentation` - Documentation improvements
@@ -71,6 +76,7 @@ git merge dev  # or rebase: git rebase dev
 - `tech-debt` - Code refactoring
 
 #### Epic Labels
+
 - `epic:testing` - Testing & QA
 - `epic:documentation` - Documentation
 - `epic:ai-features` - AI Features
@@ -145,6 +151,7 @@ ISSUE_NUM=$(gh issue create --title "Test" --body "Test" | grep -o '[0-9]*$')
 ### Creating Pull Requests
 
 #### Standard PR Creation
+
 ```bash
 # Create PR from current branch
 gh pr create \
@@ -167,7 +174,9 @@ gh pr create \
 ```
 
 #### PR Title Conventions
+
 Use conventional commits format:
+
 - `feat:` - New feature
 - `fix:` - Bug fix
 - `docs:` - Documentation only
@@ -178,6 +187,7 @@ Use conventional commits format:
 - `perf:` - Performance improvements
 
 Examples:
+
 ```bash
 feat: Add AI collaboration guide component
 fix: Resolve navigation menu overflow on mobile
@@ -187,29 +197,36 @@ chore: Update GitHub Actions workflow
 ```
 
 ### PR Body Template
+
 ```markdown
 ## 🎯 Overview
+
 Brief description of what this PR does
 
 ## 🔗 Related Issues
+
 Closes #7
 Related to #14
 
 ## ✨ Changes Made
+
 - Added unit tests for AICollaborationGuide
 - Implemented test coverage reporting
 - Fixed edge cases in prompt validation
 
 ## 📸 Screenshots/Recordings
+
 (if applicable)
 
 ## 🧪 Testing
+
 - [ ] Unit tests pass
 - [ ] E2E tests pass
 - [ ] Manual testing completed
 - [ ] No console errors
 
 ## 📋 Checklist
+
 - [ ] Code follows project conventions
 - [ ] Tests added/updated
 - [ ] Documentation updated
@@ -218,6 +235,7 @@ Related to #14
 - [ ] Performance impact assessed
 
 ## 💭 Notes for Reviewers
+
 Any specific areas that need attention
 ```
 
@@ -266,6 +284,7 @@ gh pr close 15
 ### For Reviewers
 
 #### Review Checklist
+
 1. **Code Quality**
    - [ ] Clear, readable code
    - [ ] Proper naming conventions
@@ -294,6 +313,7 @@ gh pr close 15
    - [ ] Proper authentication/authorization
 
 #### Review Commands
+
 ```bash
 # Start review
 gh pr review 15 --comment --body "Starting review"
@@ -317,6 +337,7 @@ gh pr checks 15
 ### For Authors
 
 #### Responding to Reviews
+
 ```bash
 # View review comments
 gh pr view 15 --comments
@@ -338,6 +359,7 @@ gh pr view 15 --json reviews
 ### Essential Commands Reference
 
 #### Repository Management
+
 ```bash
 # Clone repo
 gh repo clone MarcoPWx/AI-OS-Storybook
@@ -356,6 +378,7 @@ gh repo set-default
 ```
 
 #### Workflow Commands
+
 ```bash
 # List workflows
 gh workflow list
@@ -381,6 +404,7 @@ gh run view <run-id> --log
 ```
 
 #### Release Management
+
 ```bash
 # Create release
 gh release create v1.0.0 \
@@ -399,6 +423,7 @@ gh release delete v1.0.0
 ```
 
 #### Alias Creation
+
 ```bash
 # Create useful aliases
 gh alias set prs "pr list --author @me"
@@ -417,6 +442,7 @@ gh alias list
 ### GitHub Actions Workflow
 
 #### PR Checks Workflow
+
 ```yaml
 name: PR Checks
 on:
@@ -436,6 +462,7 @@ jobs:
 ```
 
 #### Auto-labeler
+
 ```yaml
 name: Auto Label
 on:
@@ -454,6 +481,7 @@ jobs:
 ### Branch Protection Rules
 
 #### For `main` branch:
+
 - Require PR before merging
 - Require approvals: 2
 - Dismiss stale reviews
@@ -466,6 +494,7 @@ jobs:
 - Restrict who can push
 
 #### For `dev` branch:
+
 - Require PR before merging
 - Require approvals: 1
 - Require status checks:
@@ -473,6 +502,7 @@ jobs:
   - Linting
 
 ### Setting Protection via CLI
+
 ```bash
 # Note: Branch protection rules are better set via GitHub UI
 # But can be configured via API:
@@ -489,6 +519,7 @@ gh api repos/MarcoPWx/AI-OS-Storybook/branches/main/protection \
 ## 🎯 Best Practices
 
 ### Commit Messages
+
 1. Use conventional commits format
 2. Keep subject line under 50 characters
 3. Use imperative mood ("Add" not "Added")
@@ -506,12 +537,14 @@ Closes #7"
 ```
 
 ### Pull Request Best Practices
+
 1. **Keep PRs small and focused**
    - Single feature/fix per PR
    - Easier to review
    - Faster to merge
 
 2. **Update regularly**
+
    ```bash
    # Keep PR up to date with base branch
    git checkout feature/my-feature
@@ -521,6 +554,7 @@ Closes #7"
    ```
 
 3. **Use draft PRs for work in progress**
+
    ```bash
    gh pr create --draft --title "WIP: Feature implementation"
    ```
@@ -535,6 +569,7 @@ Closes #7"
    - Testing instructions
 
 ### Issue Management Best Practices
+
 1. **Use templates** for consistency
 2. **Add labels** immediately
 3. **Assign to appropriate milestone**
@@ -542,6 +577,7 @@ Closes #7"
 5. **Keep issues updated** with progress
 
 ### Code Review Best Practices
+
 1. **Review promptly** (within 24 hours)
 2. **Be constructive** in feedback
 3. **Suggest specific improvements**
@@ -555,6 +591,7 @@ Closes #7"
 ### Common Workflows
 
 #### Start New Feature
+
 ```bash
 # 1. Create issue
 ISSUE=$(gh issue create --title "Add new feature" --body "..." | grep -o '[0-9]*$')
@@ -579,6 +616,7 @@ gh pr create --title "feat: Add new feature" --body "Closes #$ISSUE" --base dev
 ```
 
 #### Review and Merge PR
+
 ```bash
 # 1. Check out PR
 gh pr checkout 15
@@ -598,6 +636,7 @@ gh pr merge 15 --squash
 ```
 
 #### Hotfix Process
+
 ```bash
 # 1. Create hotfix branch from main
 git checkout main
@@ -632,6 +671,7 @@ git push origin dev
 ### Common Issues
 
 #### PR Conflicts
+
 ```bash
 # Resolve conflicts locally
 git checkout feature/my-feature
@@ -644,6 +684,7 @@ git push --force-with-lease
 ```
 
 #### Accidentally Committed to Wrong Branch
+
 ```bash
 # Move commits to new branch
 git checkout -b correct-branch
@@ -653,12 +694,14 @@ git checkout correct-branch
 ```
 
 #### Need to Update PR After Force Push
+
 ```bash
 # Force push safely
 git push --force-with-lease origin feature/my-feature
 ```
 
 #### Can't Push to Protected Branch
+
 ```bash
 # Create PR instead
 gh pr create --title "My changes" --base protected-branch
@@ -666,5 +709,5 @@ gh pr create --title "My changes" --base protected-branch
 
 ---
 
-*Last Updated: September 2024*
-*Maintained by: AI-OS Team*
+_Last Updated: September 2024_
+_Maintained by: AI-OS Team_

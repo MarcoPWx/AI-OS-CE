@@ -1092,6 +1092,161 @@ class AgentBoot:
 # CLI INTERFACE
 # ============================================================================
 
+async def interactive_setup():
+    """
+    Interactive setup for first-time configuration.
+    WHY: Projects have different branch strategies and configurations.
+    """
+    import json
+    from pathlib import Path
+    
+    config_file = Path('.agent_boot.config.json')
+    
+    # Check if config exists
+    if config_file.exists():
+        try:
+            with open(config_file, 'r') as f:
+                existing_config = json.load(f)
+                print(f"\n📋 Found existing configuration:")
+                print(f"  • Branch: {existing_config.get('default_branch', 'unknown')}")
+                print(f"  • Project: {existing_config.get('project_name', 'unknown')}")
+                
+                response = input("\nUse existing configuration? (y/n) [y]: ").strip().lower()
+                if response != 'n':
+                    return existing_config
+        except Exception as e:
+            logger.warning(f"Could not load existing config: {e}")
+    
+    print("\n🚀 Agent Boot Setup\n" + "="*50)
+    
+    # Get current branch
+    try:
+        current_branch = subprocess.run(
+            ['git', 'branch', '--show-current'],
+            capture_output=True,
+            text=True
+        ).stdout.strip()
+    except:
+        current_branch = 'main'
+    
+    # Get remote branches
+    try:
+        remote_branches = subprocess.run(
+            ['git', 'branch', '-r'],
+            capture_output=True,
+            text=True
+        ).stdout.strip().split('\n')
+        remote_branches = [b.strip().replace('origin/', '') for b in remote_branches if 'origin/' in b]
+    except:
+        remote_branches = ['main', 'dev', 'staging']
+    
+    print(f"\n📌 Current branch: {current_branch}")
+    print(f"📦 Available branches: {', '.join(remote_branches[:5])}")
+    
+    # Questions
+    config = {}
+    
+    # 1. Default branch
+    print("\n1️⃣ Which branch should agent_boot work with?")
+    print(f"   Options: {', '.join(remote_branches[:5])}")
+    default_branch = input(f"   Branch [{current_branch}]: ").strip() or current_branch
+    config['default_branch'] = default_branch
+    
+    # 2. Project name
+    project_name = Path.cwd().name
+    print(f"\n2️⃣ Project name [{project_name}]: ", end="")
+    config['project_name'] = input().strip() or project_name
+    
+    # 3. GitHub integration
+    print("\n3️⃣ Enable GitHub integration? (y/n) [y]: ", end="")
+    enable_github = input().strip().lower() != 'n'
+    config['github_integration'] = enable_github
+    
+    if enable_github:
+        # Check if gh CLI is available
+        try:
+            gh_check = subprocess.run(['gh', 'auth', 'status'], capture_output=True)
+            if gh_check.returncode != 0:
+                print("   ⚠️  GitHub CLI not authenticated. Run: gh auth login")
+        except:
+            print("   ⚠️  GitHub CLI not found. Install from: https://cli.github.com")
+    
+    # 4. Test coverage threshold
+    print("\n4️⃣ Minimum test coverage (%) [80]: ", end="")
+    coverage_input = input().strip()
+    config['test_coverage_threshold'] = float(coverage_input) if coverage_input else 80.0
+    
+    # 5. Development port
+    print("\n5️⃣ Storybook port [7007]: ", end="")
+    port_input = input().strip()
+    config['storybook_port'] = int(port_input) if port_input else 7007
+    
+    # 6. Auto-pull on start
+    print("\n6️⃣ Auto-pull latest changes on start? (y/n) [y]: ", end="")
+    config['auto_pull'] = input().strip().lower() != 'n'
+    
+    # Save configuration
+    with open(config_file, 'w') as f:
+        json.dump(config, f, indent=2)
+    
+    print(f"\n✅ Configuration saved to {config_file}")
+    print(f"\n📝 Summary:")
+    print(f"  • Working branch: {config['default_branch']}")
+    print(f"  • Project: {config['project_name']}")
+    print(f"  • GitHub: {'Enabled' if config['github_integration'] else 'Disabled'}")
+    print(f"  • Coverage: {config['test_coverage_threshold']}%")
+    print(f"  • Port: {config['storybook_port']}")
+    print(f"  • Auto-pull: {'Yes' if config['auto_pull'] else 'No'}")
+    
+    return config
+
+async def ensure_correct_branch(config: dict) -> bool:
+    """
+    Ensure we're on the correct branch and it's up to date.
+    WHY: Consistency across sessions prevents confusion.
+    """
+    default_branch = config.get('default_branch', 'dev')
+    auto_pull = config.get('auto_pull', True)
+    
+    try:
+        # Get current branch
+        current_branch = subprocess.run(
+            ['git', 'branch', '--show-current'],
+            capture_output=True,
+            text=True
+        ).stdout.strip()
+        
+        # Switch if needed
+        if current_branch != default_branch:
+            print(f"\n🔄 Switching from {current_branch} to {default_branch}...")
+            result = subprocess.run(
+                ['git', 'checkout', default_branch],
+                capture_output=True,
+                text=True
+            )
+            if result.returncode != 0:
+                logger.error(f"Failed to switch to {default_branch}: {result.stderr}")
+                return False
+        
+        # Pull latest if enabled
+        if auto_pull:
+            print(f"📥 Pulling latest changes from {default_branch}...")
+            result = subprocess.run(
+                ['git', 'pull', 'origin', default_branch],
+                capture_output=True,
+                text=True
+            )
+            if result.returncode == 0:
+                print(f"✅ Updated to latest {default_branch}")
+            else:
+                logger.warning(f"Could not pull latest: {result.stderr}")
+        
+        return True
+        
+    except Exception as e:
+        logger.error(f"Git operations failed: {e}")
+        return False
+
 async def main():
     """
     Main entry point with comprehensive CLI.
@@ -1132,8 +1287,36 @@ Examples:
     if args.debug:
         logging.getLogger().setLevel(logging.DEBUG)
     
-    # Initialize agent
-    agent = AgentBoot()
+    # Load or create configuration
+    config_file = Path('.agent_boot.config.json')
+    if args.command == 'init' or not config_file.exists():
+        config = await interactive_setup()
+    else:
+        try:
+            with open(config_file, 'r') as f:
+                config = json.load(f)
+        except:
+            config = await interactive_setup()
+    
+    # Ensure we're on the right branch
+    await ensure_correct_branch(config)
+    
+    # Initialize agent with loaded config
+    agent_config = ConfigDict(
+        project_root=os.getcwd(),
+        canonical_docs={
+            'devlog': 'docs/status/DEVLOG.md',
+            'epics': 'docs/roadmap/EPICS.md',
+            'status': 'docs/SYSTEM_STATUS.md'
+        },
+        test_coverage_threshold=config.get('test_coverage_threshold', 80.0),
+        performance_budget_ms=200,
+        cache_ttl_seconds=300,
+        max_retries=3,
+        enable_telemetry=False
+    )
+    
+    agent = AgentBoot(agent_config)
     await agent.initialize()
     
     try:

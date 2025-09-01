@@ -1,18 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import CICDWorkflow from './CICDWorkflow';
+import type { Meta, StoryObj } from "@storybook/react";
+import CICDWorkflow from "./CICDWorkflow";
 
 const meta: Meta<typeof CICDWorkflow> = {
-  title: 'AI Guide/CI CD Workflow',
+  title: "AI Guide/CI CD Workflow",
   component: CICDWorkflow,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     docs: {
       description: {
-        component: 'Interactive guide showing CI/CD pipeline, PR rules, and common development commands.'
-      }
-    }
+        component:
+          "Interactive guide showing CI/CD pipeline, PR rules, and common development commands.",
+      },
+    },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default meta;

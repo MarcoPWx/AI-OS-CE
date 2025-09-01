@@ -7,6 +7,7 @@
 ## 📊 Release Checklist
 
 ### ❌ CI/CD Status
+
 - ❌ **CI Pipeline**: Failing due to linting errors
 - ❌ **Unit Tests**: Not running (missing jsdom dependency)
 - ❌ **E2E Tests**: Unknown status
@@ -14,6 +15,7 @@
 - ✅ **GitHub Actions**: Workflows exist but need fixes
 
 ### ❌ Code Quality
+
 - ❌ **Linting**: 5 errors found
   - Unescaped entities in React components
   - Unused variables
@@ -22,6 +24,7 @@
 - ✅ **Documentation**: Comprehensive docs exist
 
 ### ✅ Documentation
+
 - ✅ GitHub Workflow Guide
 - ✅ Contributing Guidelines
 - ✅ Issue/PR Templates
@@ -29,6 +32,7 @@
 - ✅ README with examples
 
 ### ⚠️ Package Structure
+
 - ⚠️ **Package.json**: Currently marked as `private: true`
 - ❌ **Version**: Still at 0.1.0
 - ❌ **NPM Publishing**: Not configured
@@ -37,6 +41,7 @@
 ## 🔧 Critical Issues to Fix
 
 ### Priority 1: Fix CI/CD Pipeline
+
 ```bash
 # 1. Fix linting errors
 npm run lint:fix
@@ -51,6 +56,7 @@ npm run e2e
 ```
 
 ### Priority 2: Fix TypeScript Version
+
 ```json
 // Update devDependencies in package.json
 "@typescript-eslint/parser": "^7.0.0",
@@ -58,6 +64,7 @@ npm run e2e
 ```
 
 ### Priority 3: Fix Linting Errors
+
 1. **ApiPlayground.tsx:483** - Escape apostrophe
 2. **EpicManager.tsx:77** - Remove unused `setEpics`
 3. **EpicManagerImproved.stories.tsx:2** - Remove unused `action`
@@ -68,6 +75,7 @@ npm run e2e
 ### Should This Be an NPM Package? ✅ YES
 
 #### Benefits of NPM Package:
+
 1. **Easy Installation**: `npx create-ai-os-storybook`
 2. **Version Control**: Semantic versioning for updates
 3. **Distribution**: Reach wider developer audience
@@ -86,13 +94,7 @@ npm run e2e
     "ai-os": "./bin/cli.js",
     "agent-boot": "./bin/agent-boot.js"
   },
-  "files": [
-    "dist",
-    "bin",
-    "templates",
-    ".storybook",
-    "src/stories"
-  ],
+  "files": ["dist", "bin", "templates", ".storybook", "src/stories"],
   "scripts": {
     "prepublishOnly": "npm run build && npm test",
     "postinstall": "node scripts/setup.js"
@@ -114,11 +116,13 @@ npm run e2e
 ### NPM Package Features
 
 #### 1. **Scaffold Command**
+
 ```bash
 npx @ai-os/storybook-toolkit create my-project
 ```
 
 #### 2. **Global CLI**
+
 ```bash
 npm install -g @ai-os/storybook-toolkit
 ai-os init
@@ -126,6 +130,7 @@ ai-os agent-boot
 ```
 
 #### 3. **Template System**
+
 - Starter templates for different frameworks
 - Pre-configured GitHub workflows
 - Agent boot integration
@@ -133,24 +138,28 @@ ai-os agent-boot
 ## 📋 Release Action Plan
 
 ### Phase 1: Fix Critical Issues (1-2 hours)
+
 - [ ] Fix all linting errors
 - [ ] Install missing dependencies
 - [ ] Run and pass all tests
 - [ ] Update TypeScript ESLint packages
 
 ### Phase 2: Prepare for NPM (2-3 hours)
+
 - [ ] Create npm package configuration
 - [ ] Build distribution files
 - [ ] Create CLI wrapper
 - [ ] Test local installation
 
 ### Phase 3: Pre-Release Testing (1 hour)
+
 - [ ] Test on fresh environment
 - [ ] Verify all workflows
 - [ ] Check documentation links
 - [ ] Run security audit
 
 ### Phase 4: Release (30 minutes)
+
 - [ ] Tag version 1.0.0
 - [ ] Publish to NPM
 - [ ] Create GitHub release
@@ -161,6 +170,7 @@ ai-os agent-boot
 ### ❌ Current Status: **NOT READY FOR RELEASE**
 
 **Blockers:**
+
 1. CI/CD pipeline failing
 2. Linting errors present
 3. Tests not running
@@ -179,18 +189,21 @@ ai-os agent-boot
 ## 🚀 NPM Package Benefits
 
 ### For Users:
+
 - One-command setup: `npx @ai-os/storybook-toolkit`
 - Automatic updates via npm
 - Global CLI tools
 - Template selection
 
 ### For Maintainers:
+
 - Version management
 - Download analytics
 - Dependency resolution
 - Community contributions
 
 ### Distribution Strategy:
+
 1. NPM Registry (primary)
 2. GitHub Packages (mirror)
 3. CDN for assets
@@ -199,6 +212,7 @@ ai-os agent-boot
 ## ✅ When Ready Checklist
 
 Before publishing to NPM:
+
 - [ ] All tests passing
 - [ ] CI/CD green
 - [ ] Security audit clean
