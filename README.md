@@ -1,73 +1,63 @@
-# 🤖 AIBook - Where AI Meets UI Development
+# 🤖 AI-OS-Storybook
 
-> **This IS a complete Storybook development environment** - Install it, run `npm run dev`, and you have a working UI development system with AI agent orchestration
+**Ready-to-use Storybook + AI Agent that manages your development workflow**
+
+## What This Is (30 seconds)
+
+This is a **complete, working Storybook application** that comes with an AI-powered Python agent that tracks your development, manages epics, creates GitHub issues, and keeps documentation updated.
+
+**Two things you get:**
+1. **📚 Storybook UI** - Full component development environment (runs on http://localhost:7007)
+2. **🤖 Python Agent** - Manages epics, GitHub issues, and documentation automatically
+
+## Start Now (2 minutes)
+
+```bash
+# Clone and install
+git clone https://github.com/MarcoPWx/AI-OS-Storybook.git
+cd AI-OS-Storybook
+npm install
+
+# Start Storybook UI
+npm run dev
+# → Open http://localhost:7007
+
+# Use the Agent (Python)
+python3 tools/agent/agent_boot.py list-epics                    # See project status
+python3 tools/agent/agent_boot.py create-epic --title "Add login" --create-issue  # Creates GitHub issue
+python3 tools/agent/agent_boot.py update-epic --title "Add login" --status IN_PROGRESS --completion 50
+```
+
+## What The Agent Does For You
+
+```bash
+# Track your epics with visual progress
+python3 tools/agent/agent_boot.py list-epics
+# Output:
+# ├── Add Dark Mode Support [░░░░░░░░░░] 0% TODO
+# ├── Add Authentication   [████████░░] 80% IN_PROGRESS → GitHub #19
+# └── Add Vue.js Support    [██████████] 100% DONE → GitHub #18
+
+# Create epic with GitHub issue automatically
+python3 tools/agent/agent_boot.py create-epic --title "Add OAuth" --create-issue
+# → Creates epic locally
+# → Creates GitHub issue #20
+# → Links them together
+
+# Update progress (automatically updates GitHub)
+python3 tools/agent/agent_boot.py update-epic --title "Add OAuth" --completion 60
+# → Updates local epic
+# → Posts to GitHub: "Progress: [██████░░░░] 60%"
+
+# Sync with GitHub (bidirectional)
+python3 tools/agent/agent_boot.py sync-github
+# → Closed GitHub issues mark epics as DONE
+# → Open issues update epic status
+```
 
 [![CI](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Node](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](package.json)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
 [![Storybook](https://img.shields.io/badge/Storybook-8.6-ff4785?logo=storybook)](https://storybook.js.org/)
-[![MSW](https://img.shields.io/badge/MSW-2.0-ff6a33?logo=mockserviceworker)](https://mswjs.io/)
-[![Playwright](https://img.shields.io/badge/Playwright-E2E-45ba4b?logo=playwright)](https://playwright.dev/)
-[![Vitest](https://img.shields.io/badge/Vitest-Unit-729b1a?logo=vitest)](https://vitest.dev/)
-
-## ⚡ What You're Installing
-
-**This repository IS:**
-- ✅ **A complete Storybook 8.6 setup** - Ready to run, no configuration needed
-- ✅ **A Python Agent Boot system** - AI agent orchestration for documentation and development
-- ✅ **A working UI development environment** - With examples, tests, and mocks
-
-**This is NOT:**
-- ❌ A template generator
-- ❌ A CLI tool to add to existing projects
-- ❌ Just documentation
-
-## 🚀 Quick Start (2 minutes)
-
-```bash
-# 1. Clone this Storybook environment
-git clone https://github.com/MarcoPWx/AI-OS-Storybook.git
-cd AI-OS-Storybook
-
-# 2. Install dependencies
-npm install
-
-# 3. Start Storybook (this IS the main application)
-npm run dev
-
-# 4. Open http://localhost:7007
-# You now have a complete Storybook with examples, tests, and agent tools!
-
-# 5. (Optional) Use the Python Agent Boot system
-python3 tools/agent/agent_boot.py init
-python3 tools/agent/agent_boot.py list-epics
-python3 tools/agent/agent_boot.py create-epic --title "New Feature" --description "Details" --create-issue
-```
-
-## 🎯 Two Main Components
-
-### 1. Storybook Development Environment (Primary)
-**This IS a fully configured Storybook** that you install and run:
-- Start with `npm run dev` → Opens Storybook on http://localhost:7007
-- Includes working examples (Epic Manager, API Playground, etc.)
-- Has MSW mocking, Vitest tests, Playwright E2E
-- Ready to use immediately - no setup required
-
-### 2. Python Agent Boot System (AI Orchestration)
-**Located in `tools/agent/agent_boot.py`** - Complete development orchestration:
-
-**What it DOES (NEW!):**
-- ✅ **Epic Management** - Create, update, list, and track epics with completion %
-- ✅ **GitHub Issue Integration** - Auto-creates issues from epics with `--create-issue`
-- ✅ **Progress Tracking** - Visual progress bars in GitHub comments [██████░░░░] 60%
-- ✅ **Bidirectional Sync** - `sync-github` syncs epic status with GitHub issues
-- ✅ **Status Updates** - Update epic status (TODO → IN_PROGRESS → DONE)
-- ✅ **Auto-logs to DEVLOG.md** - Records all operations with timestamps
-- ✅ **Monitors GitHub PRs** - Tracks CI status and failures
-- ✅ **Performance tracking** - Built-in metrics and performance reports
-- ✅ **Security testing** - Built-in vulnerability scanner
-- ✅ **Graceful Degradation** - Works offline, warns if GitHub unavailable
 
 ## Agent-Driven Storybook (Minimal)
 
