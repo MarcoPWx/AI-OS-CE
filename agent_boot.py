@@ -824,6 +824,108 @@ class PerformanceMonitor:
 # MAIN AGENT ORCHESTRATOR
 # ============================================================================
 
+class TrackingEnforcer:
+    """
+    Enforces systematic tracking updates.
+    WHY: Prevents context loss between sessions.
+    
+    ENFORCEMENT RULES:
+    1. Every 3 changes = forced update
+    2. Every 5 minutes = forced update
+    3. Context switch = forced update
+    4. Error occurrence = immediate update
+    """
+    
+    def __init__(self, context: AgentContext):
+        self.context = context
+        self.last_update = time.time()
+        self.pending_updates = []
+        self.update_interval = 300  # 5 minutes
+        self.changes_since_update = 0
+        self.critical_threshold = 3  # Force update after 3 changes
+        self.current_task = None
+        self.task_start_time = None
+    
+    def track_change(self, change_type: str, description: str, **details) -> bool:
+        """
+        Track any significant change.
+        WHY: Every change must be recorded immediately.
+        """
+        self.pending_updates.append({
+            'timestamp': datetime.now(timezone.utc).isoformat(),
+            'type': change_type,
+            'description': description,
+            'details': details
+        })
+        self.changes_since_update += 1
+        
+        # Force update if critical threshold reached
+        if self.changes_since_update >= self.critical_threshold:
+            logger.warning(f"🚨 TRACKING ENFORCEMENT: {self.changes_since_update} changes pending - forcing update")
+            return True
+        
+        # Check time-based trigger
+        if time.time() - self.last_update > self.update_interval:
+            logger.warning(f"⏰ TRACKING ENFORCEMENT: {self.update_interval}s elapsed - forcing update")
+            return True
+        
+        return False
+    
+    def detect_context_switch(self, new_task: str) -> bool:
+        """
+        Detect context switches that require immediate update.
+        WHY: Context switches lose state if not tracked.
+        """
+        if self.current_task and self.current_task != new_task:
+            logger.warning(f"🔄 CONTEXT SWITCH: {self.current_task} → {new_task} - forcing update")
+            self.track_change(
+                'context_switch',
+                f"Switched from {self.current_task} to {new_task}",
+                previous_task=self.current_task,
+                new_task=new_task,
+                task_duration=time.time() - self.task_start_time if self.task_start_time else 0
+            )
+            self.current_task = new_task
+            self.task_start_time = time.time()
+            return True
+        
+        if not self.current_task:
+            self.current_task = new_task
+            self.task_start_time = time.time()
+        
+        return False
+    
+    def track_error(self, error: str, context: str) -> bool:
+        """
+        Track errors for immediate update.
+        WHY: Errors need immediate documentation.
+        """
+        logger.error(f"❌ ERROR TRACKED: {error} in {context}")
+        self.track_change(
+            'error',
+            f"Error in {context}: {error}",
+            error=error,
+            context=context,
+            severity='high'
+        )
+        return True  # Always force update on errors
+    
+    def get_pending_summary(self) -> str:
+        """Generate summary of pending updates."""
+        if not self.pending_updates:
+            return "No pending updates"
+        
+        summary = f"\n📋 Pending Updates ({len(self.pending_updates)} items):\n"
+        for update in self.pending_updates:
+            summary += f"  • {update['type']}: {update['description']}\n"
+        return summary
+    
+    def clear_pending(self) -> None:
+        """Clear pending updates after writing."""
+        self.pending_updates = []
+        self.changes_since_update = 0
+        self.last_update = time.time()
+
 class AgentBoot:
     """
     Main agent orchestrator - coordinates all modules.
@@ -858,10 +960,14 @@ class AgentBoot:
         self.security_lab = SecurityLab(self.context)
         self.perf_monitor = PerformanceMonitor(self.context)
         self.github = GitHubIntegration(self.context)
+        self.tracking_enforcer = TrackingEnforcer(self.context)
         
         # Task queue for async operations
         self.task_queue: asyncio.Queue = asyncio.Queue()
         self.workers: List[asyncio.Task] = []
+        
+        # Automatic tracking reminder
+        self.tracking_task: Optional[asyncio.Task] = None
     
     async def initialize(self) -> None:
         """
