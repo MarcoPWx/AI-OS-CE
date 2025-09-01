@@ -1,9 +1,17 @@
-# Agent-Driven Storybook (Minimal)
+# 🤖 AIBook - Where AI Meets UI Development
+
+> Stop copying broken AI code. Start shipping tested components.
 
 [![CI](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](package.json)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
+[![Storybook](https://img.shields.io/badge/Storybook-8.6-ff4785?logo=storybook)](https://storybook.js.org/)
+[![MSW](https://img.shields.io/badge/MSW-2.0-ff6a33?logo=mockserviceworker)](https://mswjs.io/)
+[![Playwright](https://img.shields.io/badge/Playwright-E2E-45ba4b?logo=playwright)](https://playwright.dev/)
+[![Vitest](https://img.shields.io/badge/Vitest-Unit-729b1a?logo=vitest)](https://vitest.dev/)
+
+## Agent-Driven Storybook (Minimal)
 
 Keep it simple: one DevLog, one System Status, one Epic Manager (Improved). No badges, no banners, no auto-hooks. Manual, agent-driven updates only.
 
@@ -88,16 +96,6 @@ Porting to another project (3 steps)
    - Optional scripts: scripts/docs-refresh.mjs, scripts/update-docs-status.mjs (manual only)
 
 ---
-
-# 🤖 AIBook - Where AI Meets UI Development
-
-> Stop copying broken AI code. Start shipping tested components.
-
-[![Storybook](https://img.shields.io/badge/Storybook-8.6-ff4785?logo=storybook)](https://storybook.js.org/)
-[![MSW](https://img.shields.io/badge/MSW-2.0-ff6a33?logo=mockserviceworker)](https://mswjs.io/)
-[![Playwright](https://img.shields.io/badge/Playwright-E2E-45ba4b?logo=playwright)](https://playwright.dev/)
-[![Vitest](https://img.shields.io/badge/Vitest-Unit-729b1a?logo=vitest)](https://vitest.dev/)
-[![CI](https://github.com/NatureQuest/opensource-storybook/actions/workflows/ci.yml/badge.svg)](https://github.com/NatureQuest/opensource-storybook/actions/workflows/ci.yml)
 
 ## 💡 What is AIBook?
 
