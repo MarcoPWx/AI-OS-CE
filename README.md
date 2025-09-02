@@ -128,6 +128,26 @@ Toggle MSW Error Rate # ✅ Handles errors gracefully
 
 ## Agent-Driven Storybook (Minimal)
 
+### V1 (Open-Source Core)
+- Fully configured Storybook environment
+- Agent Boot CLI: update-docs, create-epic, update-epic, list-epics, github-status, workflow-status, sync-github
+- MSW-based simulation in stories
+- Clear runbooks and usage docs
+
+See also:
+- docs/specs/USER_JOURNEYS.md
+- docs/specs/S2S_ARCHITECTURE.md
+- docs/STRATEGY_POSITIONING.md
+
+### Pro (Private Roadmap)
+- Guardrail Engine (input/output guardrails, policies, acceptance criteria)
+- Durable state (epics.json) and GH outbox (queue)
+- Daemon/watch mode with status/queue commands
+- Resilience utilities (breaker, backoff, timeout, retry, rateLimiter, bulkhead, dedupe, sse) + Storybook demos
+- Debug Mode + evaluation loop (datasets, metrics, optional LLM arbiter via Ollama)
+
+Positioning vs. solveIT and cost model: see docs/STRATEGY_POSITIONING.md
+
 Keep it simple: one DevLog, one System Status, one Epic Manager (Improved). No badges, no banners, no auto-hooks. Manual, agent-driven updates only.
 
 Start here (TL;DR)
