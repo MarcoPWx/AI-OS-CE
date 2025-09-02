@@ -50,11 +50,11 @@
     "node": ">=18.17"
   },
   "scripts": {
-    "dev": "storybook dev -p 7009",
+    "dev": "storybook dev -p 7007",
     "build": "storybook build",
     "test:unit": "vitest run",
     "test:unit:coverage": "vitest run --coverage",
-    "test:stories": "test-storybook --url http://localhost:7009",
+    "test:stories": "test-storybook --url http://localhost:7007",
     "e2e": "playwright test",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "prettier:check": "prettier --check .",
