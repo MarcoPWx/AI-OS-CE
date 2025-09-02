@@ -1,0 +1,4076 @@
+{
+  "epics": [
+    {
+      "title": "Accessibility",
+      "description": "Epic derived from AI User Journeys category: Accessibility",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API design",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "API integration",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "AuthN/Z",
+          "status": "TODO"
+        },
+        {
+          "title": "Background jobs",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Client-server contract",
+          "status": "TODO"
+        },
+        {
+          "title": "Code review",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB layer",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "Define workflow",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "End-to-end flow",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Feature flags",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Forms & a11y",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Observability hooks",
+          "status": "TODO"
+        },
+        {
+          "title": "Onboarding",
+          "status": "TODO"
+        },
+        {
+          "title": "Pair program",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Rate limiting",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Resilience",
+          "status": "TODO"
+        },
+        {
+          "title": "Retrospective",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "State mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "Styling system",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "UI layout",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "CI/CD",
+      "description": "Epic derived from AI User Journeys category: CI/CD",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API design",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "API integration",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "AuthN/Z",
+          "status": "TODO"
+        },
+        {
+          "title": "Background jobs",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Client-server contract",
+          "status": "TODO"
+        },
+        {
+          "title": "Code review",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB layer",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "Define workflow",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "End-to-end flow",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Feature flags",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Forms & a11y",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Observability hooks",
+          "status": "TODO"
+        },
+        {
+          "title": "Onboarding",
+          "status": "TODO"
+        },
+        {
+          "title": "Pair program",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Rate limiting",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Resilience",
+          "status": "TODO"
+        },
+        {
+          "title": "Retrospective",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "State mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "Styling system",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "UI layout",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Code Generation",
+      "description": "Epic derived from AI User Journeys category: Code Generation",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API design",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "API integration",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "AuthN/Z",
+          "status": "TODO"
+        },
+        {
+          "title": "Background jobs",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Client-server contract",
+          "status": "TODO"
+        },
+        {
+          "title": "Code review",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB layer",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "Define workflow",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "End-to-end flow",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Feature flags",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Forms & a11y",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Observability hooks",
+          "status": "TODO"
+        },
+        {
+          "title": "Onboarding",
+          "status": "TODO"
+        },
+        {
+          "title": "Pair program",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Rate limiting",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Resilience",
+          "status": "TODO"
+        },
+        {
+          "title": "Retrospective",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "State mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "Styling system",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "UI layout",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Data",
+      "description": "Epic derived from AI User Journeys category: Data",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API design",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "API integration",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "AuthN/Z",
+          "status": "TODO"
+        },
+        {
+          "title": "Background jobs",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Client-server contract",
+          "status": "TODO"
+        },
+        {
+          "title": "Code review",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB layer",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "Define workflow",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "End-to-end flow",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Feature flags",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Forms & a11y",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Observability hooks",
+          "status": "TODO"
+        },
+        {
+          "title": "Onboarding",
+          "status": "TODO"
+        },
+        {
+          "title": "Pair program",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Rate limiting",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Resilience",
+          "status": "TODO"
+        },
+        {
+          "title": "Retrospective",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "State mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "Styling system",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "UI layout",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Documentation",
+      "description": "Epic derived from AI User Journeys category: Documentation",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API design",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "API integration",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "AuthN/Z",
+          "status": "TODO"
+        },
+        {
+          "title": "Background jobs",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Client-server contract",
+          "status": "TODO"
+        },
+        {
+          "title": "Code review",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB layer",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "Define workflow",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "End-to-end flow",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Feature flags",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Forms & a11y",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Observability hooks",
+          "status": "TODO"
+        },
+        {
+          "title": "Onboarding",
+          "status": "TODO"
+        },
+        {
+          "title": "Pair program",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Rate limiting",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Resilience",
+          "status": "TODO"
+        },
+        {
+          "title": "Retrospective",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "State mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "Styling system",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "UI layout",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Infrastructure",
+      "description": "Epic derived from AI User Journeys category: Infrastructure",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Migrations",
+      "description": "Epic derived from AI User Journeys category: Migrations",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API design",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "API integration",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "AuthN/Z",
+          "status": "TODO"
+        },
+        {
+          "title": "Background jobs",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Client-server contract",
+          "status": "TODO"
+        },
+        {
+          "title": "Code review",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB layer",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "Define workflow",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "End-to-end flow",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Feature flags",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Forms & a11y",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Observability hooks",
+          "status": "TODO"
+        },
+        {
+          "title": "Onboarding",
+          "status": "TODO"
+        },
+        {
+          "title": "Pair program",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Rate limiting",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Resilience",
+          "status": "TODO"
+        },
+        {
+          "title": "Retrospective",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "State mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "Styling system",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "UI layout",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Performance",
+      "description": "Epic derived from AI User Journeys category: Performance",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API design",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "API integration",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "AuthN/Z",
+          "status": "TODO"
+        },
+        {
+          "title": "Background jobs",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Client-server contract",
+          "status": "TODO"
+        },
+        {
+          "title": "Code review",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB layer",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "Define workflow",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "End-to-end flow",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Feature flags",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Forms & a11y",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Observability hooks",
+          "status": "TODO"
+        },
+        {
+          "title": "Onboarding",
+          "status": "TODO"
+        },
+        {
+          "title": "Pair program",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Rate limiting",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Resilience",
+          "status": "TODO"
+        },
+        {
+          "title": "Retrospective",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "State mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "Styling system",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "UI layout",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Planning",
+      "description": "Epic derived from AI User Journeys category: Planning",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API design",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "API integration",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "AuthN/Z",
+          "status": "TODO"
+        },
+        {
+          "title": "Background jobs",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Client-server contract",
+          "status": "TODO"
+        },
+        {
+          "title": "Code review",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB layer",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "Define workflow",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "End-to-end flow",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Feature flags",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Forms & a11y",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Observability hooks",
+          "status": "TODO"
+        },
+        {
+          "title": "Onboarding",
+          "status": "TODO"
+        },
+        {
+          "title": "Pair program",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Rate limiting",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Resilience",
+          "status": "TODO"
+        },
+        {
+          "title": "Retrospective",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "State mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "Styling system",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "UI layout",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Refactoring",
+      "description": "Epic derived from AI User Journeys category: Refactoring",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API design",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "API integration",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "AuthN/Z",
+          "status": "TODO"
+        },
+        {
+          "title": "Background jobs",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Client-server contract",
+          "status": "TODO"
+        },
+        {
+          "title": "Code review",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB layer",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "Define workflow",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "End-to-end flow",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Feature flags",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Forms & a11y",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Observability hooks",
+          "status": "TODO"
+        },
+        {
+          "title": "Onboarding",
+          "status": "TODO"
+        },
+        {
+          "title": "Pair program",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Rate limiting",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Resilience",
+          "status": "TODO"
+        },
+        {
+          "title": "Retrospective",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "State mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "Styling system",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "UI layout",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Security",
+      "description": "Epic derived from AI User Journeys category: Security",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API design",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "API integration",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "AuthN/Z",
+          "status": "TODO"
+        },
+        {
+          "title": "Background jobs",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Client-server contract",
+          "status": "TODO"
+        },
+        {
+          "title": "Code review",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB layer",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "Define workflow",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "End-to-end flow",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Feature flags",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Forms & a11y",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Observability hooks",
+          "status": "TODO"
+        },
+        {
+          "title": "Onboarding",
+          "status": "TODO"
+        },
+        {
+          "title": "Pair program",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Rate limiting",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Resilience",
+          "status": "TODO"
+        },
+        {
+          "title": "Retrospective",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "State mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "Styling system",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "UI layout",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Testing",
+      "description": "Epic derived from AI User Journeys category: Testing",
+      "tasks": [
+        {
+          "title": "ADR",
+          "status": "TODO"
+        },
+        {
+          "title": "API design",
+          "status": "TODO"
+        },
+        {
+          "title": "API docs",
+          "status": "TODO"
+        },
+        {
+          "title": "API integration",
+          "status": "TODO"
+        },
+        {
+          "title": "Add ARIA",
+          "status": "TODO"
+        },
+        {
+          "title": "Add caching",
+          "status": "TODO"
+        },
+        {
+          "title": "Add integration test",
+          "status": "TODO"
+        },
+        {
+          "title": "Add lint stage",
+          "status": "TODO"
+        },
+        {
+          "title": "Add story",
+          "status": "TODO"
+        },
+        {
+          "title": "Alert tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "AuthN/Z",
+          "status": "TODO"
+        },
+        {
+          "title": "Background jobs",
+          "status": "TODO"
+        },
+        {
+          "title": "Batch process",
+          "status": "TODO"
+        },
+        {
+          "title": "Blue/green deploy",
+          "status": "TODO"
+        },
+        {
+          "title": "Break down epic",
+          "status": "TODO"
+        },
+        {
+          "title": "Cache dependencies",
+          "status": "TODO"
+        },
+        {
+          "title": "Changelog",
+          "status": "TODO"
+        },
+        {
+          "title": "Client-server contract",
+          "status": "TODO"
+        },
+        {
+          "title": "Code review",
+          "status": "TODO"
+        },
+        {
+          "title": "Color contrast",
+          "status": "TODO"
+        },
+        {
+          "title": "Create feature spec",
+          "status": "TODO"
+        },
+        {
+          "title": "Create hook",
+          "status": "TODO"
+        },
+        {
+          "title": "DB layer",
+          "status": "TODO"
+        },
+        {
+          "title": "DB migration",
+          "status": "TODO"
+        },
+        {
+          "title": "Data backfill",
+          "status": "TODO"
+        },
+        {
+          "title": "Data validation",
+          "status": "TODO"
+        },
+        {
+          "title": "Define acceptance criteria",
+          "status": "TODO"
+        },
+        {
+          "title": "Define workflow",
+          "status": "TODO"
+        },
+        {
+          "title": "ETL job",
+          "status": "TODO"
+        },
+        {
+          "title": "End-to-end flow",
+          "status": "TODO"
+        },
+        {
+          "title": "Error triage",
+          "status": "TODO"
+        },
+        {
+          "title": "Escape output",
+          "status": "TODO"
+        },
+        {
+          "title": "Estimate effort",
+          "status": "TODO"
+        },
+        {
+          "title": "Extract function",
+          "status": "TODO"
+        },
+        {
+          "title": "Feature flags",
+          "status": "TODO"
+        },
+        {
+          "title": "Fix dependency vuln",
+          "status": "TODO"
+        },
+        {
+          "title": "Focus order",
+          "status": "TODO"
+        },
+        {
+          "title": "Forms & a11y",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate fixtures",
+          "status": "TODO"
+        },
+        {
+          "title": "Generate service layer",
+          "status": "TODO"
+        },
+        {
+          "title": "IaC update",
+          "status": "TODO"
+        },
+        {
+          "title": "Identify risks",
+          "status": "TODO"
+        },
+        {
+          "title": "Increase coverage",
+          "status": "TODO"
+        },
+        {
+          "title": "Index tuning",
+          "status": "TODO"
+        },
+        {
+          "title": "Introduce pattern",
+          "status": "TODO"
+        },
+        {
+          "title": "Keyboard nav",
+          "status": "TODO"
+        },
+        {
+          "title": "Live regions",
+          "status": "TODO"
+        },
+        {
+          "title": "Mock network",
+          "status": "TODO"
+        },
+        {
+          "title": "Modularize code",
+          "status": "TODO"
+        },
+        {
+          "title": "Observability hooks",
+          "status": "TODO"
+        },
+        {
+          "title": "Onboarding",
+          "status": "TODO"
+        },
+        {
+          "title": "Pair program",
+          "status": "TODO"
+        },
+        {
+          "title": "Parallelize work",
+          "status": "TODO"
+        },
+        {
+          "title": "Profile hot path",
+          "status": "TODO"
+        },
+        {
+          "title": "Provision infra",
+          "status": "TODO"
+        },
+        {
+          "title": "Publish artifacts",
+          "status": "TODO"
+        },
+        {
+          "title": "Rate limiting",
+          "status": "TODO"
+        },
+        {
+          "title": "Reduce bundle",
+          "status": "TODO"
+        },
+        {
+          "title": "Remove duplication",
+          "status": "TODO"
+        },
+        {
+          "title": "Resilience",
+          "status": "TODO"
+        },
+        {
+          "title": "Retrospective",
+          "status": "TODO"
+        },
+        {
+          "title": "Rollback plan",
+          "status": "TODO"
+        },
+        {
+          "title": "Rotate keys",
+          "status": "TODO"
+        },
+        {
+          "title": "Run a11y tests",
+          "status": "TODO"
+        },
+        {
+          "title": "SLO report",
+          "status": "TODO"
+        },
+        {
+          "title": "Scaffold component",
+          "status": "TODO"
+        },
+        {
+          "title": "Scale autos",
+          "status": "TODO"
+        },
+        {
+          "title": "Schema evolve",
+          "status": "TODO"
+        },
+        {
+          "title": "Secrets mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Set budgets",
+          "status": "TODO"
+        },
+        {
+          "title": "Setup pipeline",
+          "status": "TODO"
+        },
+        {
+          "title": "Simplify branching",
+          "status": "TODO"
+        },
+        {
+          "title": "State mgmt",
+          "status": "TODO"
+        },
+        {
+          "title": "Streaming",
+          "status": "TODO"
+        },
+        {
+          "title": "Structured logs",
+          "status": "TODO"
+        },
+        {
+          "title": "Styling system",
+          "status": "TODO"
+        },
+        {
+          "title": "System Status",
+          "status": "TODO"
+        },
+        {
+          "title": "Threat model",
+          "status": "TODO"
+        },
+        {
+          "title": "Tracing spans",
+          "status": "TODO"
+        },
+        {
+          "title": "UI layout",
+          "status": "TODO"
+        },
+        {
+          "title": "Update DevLog",
+          "status": "TODO"
+        },
+        {
+          "title": "Validate inputs",
+          "status": "TODO"
+        },
+        {
+          "title": "Write API client",
+          "status": "TODO"
+        },
+        {
+          "title": "Write unit tests",
+          "status": "TODO"
+        },
+        {
+          "title": "Zero-downtime",
+          "status": "TODO"
+        }
+      ]
+    }
+  ]
+}

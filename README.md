@@ -136,6 +136,8 @@ Toggle MSW Error Rate # ✅ Handles errors gracefully
 
 See also:
 - docs/specs/USER_JOURNEYS.md
+- docs/specs/AI_USER_JOURNEYS_1000.md
+- docs/specs/AI_USER_JOURNEYS_EPICS.md
 - docs/specs/S2S_ARCHITECTURE.md
 - docs/specs/EDITION_MATRIX.md
 - docs/STRATEGY_POSITIONING.md
