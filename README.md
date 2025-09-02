@@ -10,6 +10,15 @@ This is a **complete, working Storybook application** that comes with an AI-powe
 1. **📚 Storybook UI** - Full component development environment (runs on http://localhost:7007)
 2. **🤖 Python Agent** - Manages epics, GitHub issues, and documentation automatically
 
+## Scope of this repository (Community Edition)
+
+This repository contains the Community Edition (CE) of the AI-OS Storybook toolkit. It is designed to be fully local and manual-first.
+
+- Local Storybook UI with MSW-controlled latency and error simulation
+- Python Agent Boot CLI for managing docs/epics optionally wired to GitHub issues when you choose
+- No background daemons, no cloud services, no automated actions without explicit commands
+- Keep development simple, private, and reproducible on your machine
+
 ## Start Now (2 minutes)
 
 ```bash
