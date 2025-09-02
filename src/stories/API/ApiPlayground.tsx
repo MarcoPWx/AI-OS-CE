@@ -229,9 +229,11 @@ const mockResponses: Record<string, any> = {
 const ApiPlayground: React.FC = () => {
   const [selectedEndpoint, setSelectedEndpoint] = useState<APIEndpoint>(mockEndpoints[0]);
   const [params, setParams] = useState<Record<string, string>>({});
+  const generateCorrelationId = () => "cid-" + Math.random().toString(36).slice(2, 10);
   const [headers, setHeaders] = useState<Record<string, string>>({
     "Content-Type": "application/json",
     Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "X-Correlation-Id": generateCorrelationId(),
   });
   const [requestBody, setRequestBody] = useState<string>("{}");
   const [response, setResponse] = useState<any>(null);
@@ -262,6 +264,7 @@ const ApiPlayground: React.FC = () => {
           "Content-Type": "application/json",
           "X-Request-ID": Math.random().toString(36).substring(7),
           "X-Response-Time": Math.floor(Math.random() * 500) + "ms",
+          "X-Correlation-Id": headers["X-Correlation-Id"] || "",
         },
         timestamp: new Date().toISOString(),
       });
@@ -595,6 +598,24 @@ const ApiPlayground: React.FC = () => {
 
               {activeTab === "headers" && (
                 <div>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
+                    <div style={{ fontSize: 12, color: "#64748b" }}>Manage request headers</div>
+                    <button
+                      onClick={() =>
+                        setHeaders((prev) => ({ ...prev, "X-Correlation-Id": generateCorrelationId() }))
+                      }
+                      style={{
+                        padding: "6px 10px",
+                        borderRadius: 6,
+                        border: "1px solid #e2e8f0",
+                        background: "#f1f5f9",
+                        fontSize: 12,
+                        cursor: "pointer",
+                      }}
+                    >
+                      Regenerate Correlation ID
+                    </button>
+                  </div>
                   <div
                     style={{
                       display: "flex",

@@ -18,6 +18,11 @@ function readErrorRate(req: Request) {
 function maybeFail(rate: number) {
   return Math.random() < rate;
 }
+function ensureCorrelationId(req: Request) {
+  const h = req.headers as any as Headers;
+  const existing = h.get("x-correlation-id");
+  return existing && existing.trim() ? existing : `cid-${Math.random().toString(36).slice(2, 10)}`;
+}
 
 export const handlers = [
   http.all("*", async ({ request }) => {
@@ -28,18 +33,32 @@ export const handlers = [
   http.get("/api/ping", async ({ request }) => {
     const d = readDelay(request);
     const er = readErrorRate(request);
+    const cid = ensureCorrelationId(request);
     if (d) await delay(d);
     if (maybeFail(er))
-      return HttpResponse.json({ error: "Injected error (ping)" }, { status: 429 });
-    return HttpResponse.json({ ok: true, time: new Date().toISOString() });
+      return HttpResponse.json(
+        { error: "Injected error (ping)" },
+        { status: 429, headers: { "X-Correlation-Id": cid } },
+      );
+    return HttpResponse.json(
+      { ok: true, time: new Date().toISOString() },
+      { headers: { "X-Correlation-Id": cid } },
+    );
   }),
   http.post("/api/echo", async ({ request }) => {
     const d = readDelay(request);
     const er = readErrorRate(request);
+    const cid = ensureCorrelationId(request);
     if (d) await delay(d);
     if (maybeFail(er))
-      return HttpResponse.json({ error: "Injected error (echo)" }, { status: 503 });
+      return HttpResponse.json(
+        { error: "Injected error (echo)" },
+        { status: 503, headers: { "X-Correlation-Id": cid } },
+      );
     const body = await request.json().catch(() => null);
-    return HttpResponse.json({ received: body });
+    return HttpResponse.json(
+      { received: body },
+      { headers: { "X-Correlation-Id": cid } },
+    );
   }),
 ];
