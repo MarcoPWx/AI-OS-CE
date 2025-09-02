@@ -137,7 +137,14 @@ Toggle MSW Error Rate # ✅ Handles errors gracefully
 See also:
 - docs/specs/USER_JOURNEYS.md
 - docs/specs/S2S_ARCHITECTURE.md
+- docs/specs/EDITION_MATRIX.md
 - docs/STRATEGY_POSITIONING.md
+
+Clean Code & Language-Aware Guidance (OSS)
+- Clean Code Advisor (read-only): tools/agent/engines/clean_code_advisor.py
+- Language Detector: tools/agent/utils/lang_detector.py
+
+Pro adds: guardrails, durable state, daemon/watch, resilience utilities, Debug Mode, Ollama Arbiter.
 
 ### Pro (Private Roadmap)
 - Guardrail Engine (input/output guardrails, policies, acceptance criteria)
