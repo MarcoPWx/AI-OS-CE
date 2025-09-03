@@ -362,10 +362,10 @@ gh pr view 15 --json reviews
 
 ```bash
 # Clone repo
-gh repo clone MarcoPWx/AI-OS-Storybook
+gh repo clone MarcoPWx/AI-OS-CE
 
 # Fork repo
-gh repo fork MarcoPWx/AI-OS-Storybook --clone
+gh repo fork MarcoPWx/AI-OS-CE --clone
 
 # View repo info
 gh repo view
@@ -507,7 +507,7 @@ jobs:
 # Note: Branch protection rules are better set via GitHub UI
 # But can be configured via API:
 
-gh api repos/MarcoPWx/AI-OS-Storybook/branches/main/protection \
+gh api repos/MarcoPWx/AI-OS-CE/branches/main/protection \
   --method PUT \
   --field required_status_checks='{"strict":true,"contexts":["continuous-integration"]}' \
   --field enforce_admins=true \

@@ -1,6 +1,6 @@
 {
   "default_branch": "main",
-  "project_name": "AI-OS-Storybook",
+  "project_name": "AI-OS-CE",
   "github_integration": true,
   "test_coverage_threshold": 80.0,
   "storybook_port": 7007,

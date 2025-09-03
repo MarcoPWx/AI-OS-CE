@@ -76,7 +76,7 @@ npm install --save-dev @typescript-eslint/eslint-plugin@^7.0.0
 
 ### Priority 3: Fix README
 
-- Update badge URLs to point to MarcoPWx/AI-OS-Storybook
+- Update badge URLs to point to MarcoPWx/AI-OS-CE
 - Remove NPM badge until package is published
 - Fix CI badge URL
 

@@ -1,6 +1,6 @@
 # @ai-os/storybook-toolkit
 
-[![CI](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml)
+[![CI](https://github.com/MarcoPWx/AI-OS-CE/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcoPWx/AI-OS-CE/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/@ai-os/storybook-toolkit.svg)](https://www.npmjs.com/package/@ai-os/storybook-toolkit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -83,10 +83,10 @@ fetch("/api/items"); // Returns mock data instantly
 
 ## 📚 Documentation
 
-- [Quick Start Guide](https://github.com/MarcoPWx/AI-OS-Storybook#quick-start)
-- [API Documentation](https://github.com/MarcoPWx/AI-OS-Storybook/docs)
-- [Examples](https://github.com/MarcoPWx/AI-OS-Storybook/tree/main/src/stories)
-- [Agent Boot System](https://github.com/MarcoPWx/AI-OS-Storybook/blob/main/AGENT_BOOT_README.md)
+- [Quick Start Guide](https://github.com/MarcoPWx/AI-OS-CE#quick-start)
+- [API Documentation](https://github.com/MarcoPWx/AI-OS-CE/docs)
+- [Examples](https://github.com/MarcoPWx/AI-OS-CE/tree/main/src/stories)
+- [Agent Boot System](https://github.com/MarcoPWx/AI-OS-CE/blob/main/AGENT_BOOT_README.md)
 
 ## 🛠️ Commands
 
@@ -122,9 +122,9 @@ MIT © [MarcoPWx](https://github.com/MarcoPWx)
 
 ## 🔗 Links
 
-- [GitHub Repository](https://github.com/MarcoPWx/AI-OS-Storybook)
+- [GitHub Repository](https://github.com/MarcoPWx/AI-OS-CE)
 - [NPM Package](https://www.npmjs.com/package/@ai-os/storybook-toolkit)
-- [Report Issues](https://github.com/MarcoPWx/AI-OS-Storybook/issues)
+- [Report Issues](https://github.com/MarcoPWx/AI-OS-CE/issues)
 
 ---
 

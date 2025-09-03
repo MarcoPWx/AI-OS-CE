@@ -138,7 +138,7 @@ The `.agent_boot.config.json` file stores your preferences:
 ```json
 {
   "default_branch": "main",
-  "project_name": "AI-OS-Storybook",
+  "project_name": "AI-OS-CE",
   "github_integration": true,
   "test_coverage_threshold": 80.0,
   "storybook_port": 7007,
@@ -201,7 +201,7 @@ Epic created: {
   "title": "Add Dark Mode",
   "github_issue": {
     "issue_number": "18",
-    "url": "https://github.com/MarcoPWx/AI-OS-Storybook/issues/18"
+    "url": "https://github.com/MarcoPWx/AI-OS-CE/issues/18"
   }
 }
 ```

@@ -186,7 +186,7 @@ report = perf_monitor.get_performance_report()
 ## File Structure
 
 ```
-AI-OS-Storybook/
+AI-OS-CE/
 ├── agent_boot.py                 # Main implementation
 ├── AGENT_BOOT_README.md          # This file
 ├── docs/

@@ -1,6 +1,6 @@
-# Contributing to AI-OS Storybook
+# Contributing to AI-OS-CE
 
-Thank you for your interest in contributing to AI-OS Storybook! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to AI-OS-CE! This document provides guidelines and instructions for contributing to the project.
 
 ## 📋 Table of Contents
 
@@ -47,7 +47,7 @@ We are committed to providing a friendly, safe, and welcoming environment for al
 
 ```bash
 # Fork and clone the repository
-gh repo fork MarcoPWx/AI-OS-Storybook --clone
+gh repo fork MarcoPWx/AI-OS-CE --clone
 
 # Install dependencies
 npm install
@@ -65,12 +65,12 @@ npm test
 
 ```bash
 # Using GitHub CLI
-gh repo fork MarcoPWx/AI-OS-Storybook --clone
+gh repo fork MarcoPWx/AI-OS-CE --clone
 
 # Or traditional Git
-git clone https://github.com/YOUR_USERNAME/AI-OS-Storybook.git
-cd AI-OS-Storybook
-git remote add upstream https://github.com/MarcoPWx/AI-OS-Storybook.git
+git clone https://github.com/YOUR_USERNAME/AI-OS-CE.git
+cd AI-OS-CE
+git remote add upstream https://github.com/MarcoPWx/AI-OS-CE.git
 ```
 
 ### 2. Install Dependencies

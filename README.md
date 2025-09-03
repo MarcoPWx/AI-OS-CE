@@ -1,4 +1,4 @@
-# 🤖 AI-OS-Storybook
+# 🤖 AI-OS-CE
 
 **Ready-to-use Storybook + AI Agent that manages your development workflow**
 
@@ -24,8 +24,8 @@ This repository contains the Community Edition (CE) of the toolkit. It is design
 
 ```bash
 # Clone and install
-git clone https://github.com/MarcoPWx/AI-OS-Storybook.git
-cd AI-OS-Storybook
+git clone https://github.com/MarcoPWx/AI-OS-CE.git
+cd AI-OS-CE
 npm install
 
 # Start Storybook UI
@@ -65,7 +65,7 @@ python3 tools/agent/agent_boot.py sync-github
 # → Open issues update epic status
 ```
 
-[![CI](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcoPWx/AI-OS-Storybook/actions/workflows/ci.yml)
+[![CI](https://github.com/MarcoPWx/AI-OS-CE/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcoPWx/AI-OS-CE/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Storybook](https://img.shields.io/badge/Storybook-8.6-ff4785?logo=storybook)](https://storybook.js.org/)
 

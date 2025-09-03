@@ -1,7 +1,7 @@
 {
   "name": "@ai-os/storybook-toolkit",
   "version": "0.1.0-beta.1",
-  "description": "AI-OS Storybook Toolkit - A complete development environment for building UI with AI assistants",
+  "description": "AI-OS CE Toolkit - A complete development environment for building UI with AI assistants",
   "keywords": [
     "storybook",
     "ai",
@@ -12,13 +12,13 @@
     "msw",
     "playwright"
   ],
-  "homepage": "https://github.com/MarcoPWx/AI-OS-Storybook#readme",
+  "homepage": "https://github.com/MarcoPWx/AI-OS-CE#readme",
   "bugs": {
-    "url": "https://github.com/MarcoPWx/AI-OS-Storybook/issues"
+    "url": "https://github.com/MarcoPWx/AI-OS-CE/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarcoPWx/AI-OS-Storybook.git"
+    "url": "git+https://github.com/MarcoPWx/AI-OS-CE.git"
   },
   "license": "MIT",
   "author": "MarcoPWx",
