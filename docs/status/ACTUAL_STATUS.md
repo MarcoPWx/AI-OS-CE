@@ -34,13 +34,13 @@
 
 - **Exists**: YES
 - **Problems**:
-  - Badge URLs point to wrong repo (NatureQuest/opensource-storybook)
+  - Badge URLs point to wrong repo
   - NPM badge references non-existent package
   - CI badge will show as broken
 
 ### ✅ What ACTUALLY Works
 
-1. **Storybook**: Can run locally with `npm run dev`
+1. Documentation files exist and are comprehensive
 2. **Documentation Files**: Exist and are comprehensive
 3. **Agent Boot**: Python script runs and has GitHub integration
 4. **Project Structure**: Well organized

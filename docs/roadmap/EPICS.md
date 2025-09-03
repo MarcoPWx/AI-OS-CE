@@ -1,15 +1,44 @@
 # Epics
-> Updated: 2025-09-01
+> Updated: 2025-09-03
 
+
+## CE Smoke Test
+
+**Status:** IN_PROGRESS  
+**Priority:** NORMAL  
+**Completion:** 25%  
+**Created:** 2025-09-03T21:44:30.223803+00:00  
+**Updated:** 2025-09-03T21:44:30.526272+00:00  
+
+**Status:** TODO  
+**Priority:** NORMAL  
+**Completion:** 0%  
+**Created:** 2025-09-03T21:44:27.449960+00:00  
+**Updated:** 2025-09-03T21:44:27.449966+00:00  
+Test epic for CE workflow validation
+---
+
+
+---
 
 ## Implement Testing Framework
 
+**Status:** TODO  
+**Priority:** NORMAL  
+**Completion:** 0%  
+**Created:** 2025-09-03T21:44:30.223766+00:00  
+**Updated:** 2025-09-03T21:44:30.223768+00:00  
+
+**Status:** TODO  
+**Priority:** NORMAL  
+**Completion:** 0%  
+**Created:** 2025-09-03T21:44:27.149185+00:00  
+**Updated:** 2025-09-03T21:44:27.149187+00:00  
 **Status:** IN_PROGRESS  
 **Priority:** NORMAL  
 **Completion:** 45%  
 **Created:** 2025-09-01T02:15:01.830355+00:00  
 **Updated:** 2025-09-01T02:15:02.274178+00:00  
-
 **Status:** IN_PROGRESS  
 **Priority:** NORMAL  
 **Completion:** 10%  
@@ -23,6 +52,8 @@
 Set up comprehensive testing with Jest and React Testing Library
 ---
 ---
+---
+---
 
 
 ---
@@ -32,9 +63,19 @@ Set up comprehensive testing with Jest and React Testing Library
 **Status:** TODO  
 **Priority:** NORMAL  
 **Completion:** 0%  
+**Created:** 2025-09-03T21:44:30.223785+00:00  
+**Updated:** 2025-09-03T21:44:30.223786+00:00  
+
+**Status:** TODO  
+**Priority:** NORMAL  
+**Completion:** 0%  
+**Created:** 2025-09-03T21:44:27.149201+00:00  
+**Updated:** 2025-09-03T21:44:27.149202+00:00  
+**Status:** TODO  
+**Priority:** NORMAL  
+**Completion:** 0%  
 **Created:** 2025-09-01T02:15:01.830328+00:00  
 **Updated:** 2025-09-01T02:15:01.830331+00:00  
-
 **Status:** IN_PROGRESS  
 **Priority:** NORMAL  
 **Completion:** 10%  
@@ -54,6 +95,8 @@ Implement dark mode theme switching for better developer experience during night
 ---
 ---
 ---
+---
+---
 
 
 ---
@@ -63,9 +106,19 @@ Implement dark mode theme switching for better developer experience during night
 **Status:** TODO  
 **Priority:** NORMAL  
 **Completion:** 0%  
+**Created:** 2025-09-03T21:44:30.223795+00:00  
+**Updated:** 2025-09-03T21:44:30.223796+00:00  
+
+**Status:** TODO  
+**Priority:** NORMAL  
+**Completion:** 0%  
+**Created:** 2025-09-03T21:44:27.149211+00:00  
+**Updated:** 2025-09-03T21:44:27.149212+00:00  
+**Status:** TODO  
+**Priority:** NORMAL  
+**Completion:** 0%  
 **Created:** 2025-09-01T02:15:01.830346+00:00  
 **Updated:** 2025-09-01T02:15:01.830347+00:00  
-
 **Status:** IN_PROGRESS  
 **Priority:** NORMAL  
 **Completion:** 10%  
@@ -81,7 +134,9 @@ Implement dark mode theme switching for better developer experience during night
 **Completion:** 0%  
 **Created:** 2025-09-01T02:00:34.661232+00:00  
 **Updated:** 2025-09-01T02:00:34.661234+00:00  
-Implement Vue.js version of AIBook components for broader framework support
+Implement Vue.js version of CE toolkit components for broader framework support
+---
+---
 ---
 ---
 ---

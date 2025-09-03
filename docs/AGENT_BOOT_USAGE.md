@@ -141,7 +141,7 @@ The `.agent_boot.config.json` file stores your preferences:
   "project_name": "AI-OS-CE",
   "github_integration": true,
   "test_coverage_threshold": 80.0,
-  "storybook_port": 7007,
+  "dev_port": 7007,
   "auto_pull": false
 }
 ```

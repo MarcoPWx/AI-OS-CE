@@ -3,13 +3,9 @@ import fs from "fs";
 import path from "path";
 
 const required = [
-  ".storybook/main.ts",
-  ".storybook/preview.tsx",
-  "src/stories/Epics/EpicManagerImproved.stories.tsx",
-  "src/stories/API/Playground.stories.tsx",
-  "src/stories/Dev/NetworkPlayground.stories.tsx",
-  "src/stories/Status/StatusDashboard.stories.tsx",
-  "src/stories/Docs/DevLog.stories.tsx",
+  "package.json",
+  "tsconfig.json",
+  "src/utils/http/correlation.ts",
 ];
 
 let ok = true;

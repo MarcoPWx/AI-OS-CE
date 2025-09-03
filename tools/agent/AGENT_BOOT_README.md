@@ -190,7 +190,7 @@ AI-OS-CE/
 ├── agent_boot.py                 # Main implementation
 ├── AGENT_BOOT_README.md          # This file
 ├── docs/
-│   ├── AgentBoot.docs.mdx       # Storybook documentation
+│   ├── AgentBoot.docs.mdx       # Reference documentation (optional)
 │   ├── status/
 │   │   └── DEVLOG.md            # Development log (auto-updated)
 │   ├── roadmap/

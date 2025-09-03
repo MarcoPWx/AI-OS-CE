@@ -1,4 +1,4 @@
-/* Minimal print styles to satisfy Storybook import */
+/* Minimal print styles for documentation */
 @media print {
   body {
     -webkit-print-color-adjust: exact;

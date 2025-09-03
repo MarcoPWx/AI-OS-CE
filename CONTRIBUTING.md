@@ -10,7 +10,6 @@ Thank you for your interest in contributing to AI-OS-CE! This document provides 
 - [How to Contribute](#how-to-contribute)
 - [Workflow Process](#workflow-process)
 - [Coding Standards](#coding-standards)
-- [Testing Requirements](#testing-requirements)
 - [Documentation](#documentation)
 - [Community](#community)
 
@@ -52,11 +51,9 @@ gh repo fork MarcoPWx/AI-OS-CE --clone
 # Install dependencies
 npm install
 
-# Start development server
-npm run storybook
-
-# Run tests
-npm test
+# Lint and integrity
+npm run lint
+npm run integrity:check
 ```
 
 ## 💻 Development Setup
@@ -77,7 +74,6 @@ git remote add upstream https://github.com/MarcoPWx/AI-OS-CE.git
 
 ```bash
 npm install
-npx playwright install  # For E2E tests
 ```
 
 ### 3. Set Up Git Hooks (Optional)
@@ -89,8 +85,8 @@ npm run prepare  # Sets up Husky for pre-commit hooks
 ### 4. Verify Setup
 
 ```bash
-npm run storybook  # Should start on http://localhost:7007
-npm test           # Should pass all tests
+npm run lint           # ESLint should succeed
+npm run integrity:check
 ```
 
 ## 🔄 How to Contribute
@@ -118,12 +114,6 @@ npm test           # Should pass all tests
 - Translate documentation
 - Improve inline code comments
 
-#### 🧪 Adding Tests
-
-- Increase test coverage
-- Add edge case tests
-- Fix flaky tests
-- Add E2E test scenarios
 
 #### 💻 Contributing Code
 
@@ -162,7 +152,6 @@ git checkout -b feature/issue-NUMBER-description
 Follow our [coding standards](#coding-standards) and ensure:
 
 - Code is properly formatted
-- Tests are added/updated
 - Documentation is updated
 - No console errors
 
@@ -175,7 +164,6 @@ Use [conventional commits](https://www.conventionalcommits.org/):
 git commit -m "feat: Add dark mode support"
 git commit -m "fix: Resolve navigation menu overflow"
 git commit -m "docs: Update API documentation"
-git commit -m "test: Add unit tests for prompt library"
 ```
 
 **Commit Types:**
@@ -260,13 +248,6 @@ export const Button = (props) => {
 
 ```
 src/
-├── components/        # Shared components
-│   ├── Button/
-│   │   ├── Button.tsx
-│   │   ├── Button.test.tsx
-│   │   ├── Button.stories.tsx
-│   │   └── index.ts
-├── stories/          # Storybook stories
 ├── utils/            # Utility functions
 └── types/            # TypeScript types
 ```
@@ -279,42 +260,9 @@ src/
 - **Types/Interfaces**: PascalCase
 - **CSS Classes**: kebab-case
 
-## 🧪 Testing Requirements
+## 🧪 Testing
 
-### Unit Tests
-
-```typescript
-// Every component should have tests
-describe('Button', () => {
-  it('renders with label', () => {
-    render(<Button label="Click me" onClick={() => {}} />);
-    expect(screen.getByText('Click me')).toBeInTheDocument();
-  });
-
-  it('calls onClick when clicked', () => {
-    const handleClick = jest.fn();
-    render(<Button label="Click" onClick={handleClick} />);
-    fireEvent.click(screen.getByText('Click'));
-    expect(handleClick).toHaveBeenCalledTimes(1);
-  });
-});
-```
-
-### Coverage Requirements
-
-- Minimum 80% line coverage
-- Minimum 80% branch coverage
-- All new code must include tests
-
-### Running Tests
-
-```bash
-npm test                  # Run unit tests
-npm run test:watch       # Watch mode
-npm run test:coverage    # Generate coverage report
-npm run test:storybook   # Run Storybook tests
-npm run e2e              # Run E2E tests
-```
+Testing is optional in CE. If you add tests, ensure they are deterministic and document any required setup in the PR.
 
 ## 📚 Documentation
 
@@ -334,14 +282,12 @@ export const calculateTotal = (items: Item[]): number => {
 };
 ```
 
-### Component Documentation
 
 - Add JSDoc comments to all props
 - Include usage examples
 - Document any side effects
 - Explain complex logic
 
-### Storybook Stories
 
 ```typescript
 export default {

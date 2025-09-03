@@ -1,16 +1,11 @@
 {
-  "name": "@ai-os/storybook-toolkit",
+  "name": "@ai-os/ce-toolkit",
   "version": "0.1.0-beta.1",
-  "description": "AI-OS CE Toolkit - A complete development environment for building UI with AI assistants",
+  "description": "AI-OS CE Toolkit - Community Edition for AI-assisted development (no Storybook)",
   "keywords": [
-    "storybook",
     "ai",
     "development",
-    "toolkit",
-    "react",
-    "testing",
-    "msw",
-    "playwright"
+    "toolkit"
   ],
   "homepage": "https://github.com/MarcoPWx/AI-OS-CE#readme",
   "bugs": {
@@ -24,7 +19,7 @@
   "author": "MarcoPWx",
   "type": "commonjs",
   "bin": {
-    "create-ai-os-storybook": "./bin/create.js"
+    "create-ai-os-ce": "./bin/create.js"
   },
   "files": [
     "bin/",
@@ -39,7 +34,6 @@
     "README.md",
     "LICENSE",
     "tsconfig.json",
-    "vitest.config.ts",
     ".eslintrc.cjs",
     ".prettierrc"
   ],
@@ -47,8 +41,6 @@
     "node": ">=18.17"
   },
   "scripts": {
-    "test:unit": "vitest run",
-    "test:unit:coverage": "vitest run --coverage",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
@@ -56,40 +48,18 @@
   },
   "dependencies": {
     "commander": "^11.1.0",
-    "fs-extra": "^11.2.0",
-    "msw": "^2.3.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "fs-extra": "^11.2.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.46.0",
-    "@storybook/addon-essentials": "^8.6.0",
-    "@storybook/addon-interactions": "^8.6.0",
-    "@storybook/react-vite": "^8.6.0",
-    "@storybook/test-runner": "^0.16.0",
-    "@testing-library/jest-dom": "^6.4.8",
-    "@testing-library/react": "^14.3.1",
     "@types/node": "^20.11.30",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
-    "@vitest/coverage-v8": "^3.2.4",
-    "axe-playwright": "^2.1.0",
-    "concurrently": "^8.2.2",
     "detect-package-manager": "^2.0.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.4",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "http-server": "^14.1.1",
-    "jsdom": "^26.1.0",
-    "msw-storybook-addon": "^2.0.0",
-    "playwright": "^1.46.0",
     "prettier": "^3.3.3",
-    "storybook": "^8.6.0",
-    "typescript": "^5.5.4",
-    "vitest": "^3.2.4",
-    "wait-on": "^7.2.0"
+    "typescript": "^5.5.4"
   }
 }

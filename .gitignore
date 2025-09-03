@@ -2,10 +2,7 @@
 node_modules/
 
 # Build outputs
-storybook-static/
 coverage/
-playwright-report/
-test-results/
 dist/
 *.tgz
 
@@ -16,9 +13,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Local Storybook dev artifacts
-.storybook-dev.log
-.storybook-dev.pid
 
 # OS files
 .DS_Store

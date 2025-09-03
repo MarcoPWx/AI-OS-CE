@@ -1576,9 +1576,9 @@ async def interactive_setup():
     config['test_coverage_threshold'] = float(coverage_input) if coverage_input else 80.0
     
     # 5. Development port
-    print("\n5️⃣ Storybook port [7007]: ", end="")
+    print("\n5️⃣ Development server port [7007]: ", end="")
     port_input = input().strip()
-    config['storybook_port'] = int(port_input) if port_input else 7007
+    config['dev_port'] = int(port_input) if port_input else 7007
     
     # 6. Auto-pull on start
     print("\n6️⃣ Auto-pull latest changes on start? (y/n) [y]: ", end="")
@@ -1594,7 +1594,7 @@ async def interactive_setup():
     print(f"  • Project: {config['project_name']}")
     print(f"  • GitHub: {'Enabled' if config['github_integration'] else 'Disabled'}")
     print(f"  • Coverage: {config['test_coverage_threshold']}%")
-    print(f"  • Port: {config['storybook_port']}")
+    print(f"  • Port: {config['dev_port']}")
     print(f"  • Auto-pull: {'Yes' if config['auto_pull'] else 'No'}")
     
     return config

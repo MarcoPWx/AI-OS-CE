@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Create AI-OS Storybook - Scaffold a new project
- * Usage: npx @ai-os/storybook-toolkit create my-project
+ * Create AI-OS CE Toolkit - Scaffold a new project
+ * Usage: npx @ai-os/ce-toolkit create my-project
  */
 
 const { program } = require("commander");
@@ -17,16 +17,16 @@ const { execSync } = require("child_process");
 const banner = `
 ╔═══════════════════════════════════════════════╗
 ║                                               ║
-║      🤖 AI-OS Storybook Toolkit 🚀           ║
+║      🤖 AI-OS CE Toolkit 🚀                 ║
 ║                                               ║
-║   Production-ready Storybook with AI tools   ║
+║   Community Edition - AI dev toolkit         ║
 ║                                               ║
 ╚═══════════════════════════════════════════════╝
 `;
 
 program
-  .name("create-ai-os-storybook")
-  .description("Create a new AI-OS Storybook project")
+  .name("create-ai-os-ce")
+  .description("Create a new AI-OS CE project")
   .version("1.0.0")
   .argument("[project-name]", "Name of the project")
   .option("--typescript", "Use TypeScript (default)", true)
@@ -50,7 +50,7 @@ async function main() {
       type: "text",
       name: "projectName",
       message: "What is your project name?",
-      initial: "my-ai-storybook",
+      initial: "my-ai-os-ce",
       validate: (value) => {
         if (!value) return "Project name is required";
         if (!/^[a-z0-9-]+$/.test(value)) {
@@ -94,14 +94,7 @@ async function main() {
       message: "Which features would you like to include?",
       choices: [
         { title: "GitHub Workflows", value: "github", selected: true },
-        { title: "Agent Boot System", value: "agent", selected: true },
-        { title: "MSW API Mocking", value: "msw", selected: true },
-        { title: "Playwright E2E Tests", value: "playwright", selected: true },
-        {
-          title: "AI Component Examples",
-          value: "ai-components",
-          selected: true,
-        },
+        { title: "Agent Boot System", value: "agent", selected: true }
       ],
       hint: "- Space to select. Enter to submit",
     },
@@ -152,21 +145,7 @@ async function main() {
       }
     }
 
-    if (config.features.includes("ai-components")) {
-      spinner.text = "Adding AI components...";
-      const storiesPath = path.join(__dirname, "..", "src", "stories");
-      if (fs.existsSync(storiesPath)) {
-        fs.ensureDirSync(path.join(projectPath, "src"));
-        fs.copySync(storiesPath, path.join(projectPath, "src", "stories"));
-      }
-    }
 
-    // Copy Storybook configuration
-    spinner.text = "Configuring Storybook...";
-    const storybookPath = path.join(__dirname, "..", ".storybook");
-    if (fs.existsSync(storybookPath)) {
-      fs.copySync(storybookPath, path.join(projectPath, ".storybook"));
-    }
 
     // Create package.json
     spinner.text = "Creating package.json...";
@@ -175,11 +154,6 @@ async function main() {
       version: "0.1.0",
       private: true,
       scripts: {
-        dev: "storybook dev -p 7007",
-        build: "storybook build",
-        test: "vitest run",
-        "test:watch": "vitest watch",
-        "test:coverage": "vitest run --coverage",
         lint: "eslint . --ext .ts,.tsx,.js,.jsx",
         "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
         format: "prettier --write .",
@@ -210,7 +184,7 @@ async function main() {
     // README.md
     const readme = `# ${projectName}
 
-Created with AI-OS Storybook Toolkit
+Created with AI-OS CE Toolkit
 
 ## 🚀 Getting Started
 
@@ -218,14 +192,8 @@ Created with AI-OS Storybook Toolkit
 # Install dependencies
 ${config.packageManager} install
 
-# Start development server
-${config.packageManager} run dev
-
-# Run tests
-${config.packageManager} test
-
-# Build for production
-${config.packageManager} run build
+# Lint
+${config.packageManager} run lint
 \`\`\`
 
 ## 🤖 Agent Boot
@@ -236,9 +204,8 @@ python3 agent_boot.py --help
 
 ## 📚 Documentation
 
-- [GitHub Workflow Guide](./docs/github/GITHUB_WORKFLOW_GUIDE.md)
 - [Contributing Guidelines](./CONTRIBUTING.md)
-- [AI-OS Documentation](https://github.com/MarcoPWx/AI-OS-CE)
+- [AI-OS CE Repository](https://github.com/MarcoPWx/AI-OS-CE)
 
 ## 📝 License
 
@@ -252,8 +219,6 @@ dist
 .DS_Store
 *.log
 coverage
-playwright-report
-storybook-static
 .env
 .env.local
 agent_boot.log
@@ -296,7 +261,6 @@ execSync('git commit -m "Initial commit from AI-OS CE Toolkit"', {
       console.log(chalk.cyan(`  ${config.packageManager} install`));
     }
 
-    console.log(chalk.cyan(`  ${config.packageManager} run dev`));
     console.log("\n" + chalk.gray("Happy coding! 🚀"));
   } catch (error) {
     spinner.fail("Project creation failed");
