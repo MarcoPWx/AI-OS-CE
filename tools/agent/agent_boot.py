@@ -626,26 +626,99 @@ class EpicManager:
         self._load_epics()
     
     def _load_epics(self) -> None:
-        """Load epics from markdown with error recovery"""
+        """Load epics from markdown with error recovery and field parsing"""
         if not self.epics_path.exists():
             logger.info("No existing epics file found, starting fresh")
             return
         
         try:
             content = self.epics_path.read_text()
-            # Parse markdown structure (simplified for example)
-            # In production, use a proper markdown parser
-            current_epic = None
-            for line in content.split('\n'):
+            current_epic: Optional[Epic] = None
+            collecting_description = False
+            description_lines: List[str] = []
+            
+            def finalize_current():
+                nonlocal current_epic, description_lines, collecting_description
+                if current_epic is not None:
+                    # Attach accumulated description (trim trailing whitespace)
+                    desc = "\n".join(description_lines).strip()
+                    current_epic.description = desc
+                    self.epics[current_epic.id] = current_epic
+                # Reset
+                current_epic = None
+                description_lines = []
+                collecting_description = False
+            
+            for raw in content.split('\n'):
+                line = raw.strip()
                 if line.startswith('## '):
-                    # New epic
+                    # New epic section: finalize previous
+                    finalize_current()
                     title = line[3:].strip()
                     epic_id = hashlib.md5(title.encode()).hexdigest()[:8]
                     current_epic = Epic(id=epic_id, title=title, description="")
-                    self.epics[epic_id] = current_epic
-                elif current_epic and line.strip():
-                    current_epic.description += line + "\n"
-                    
+                    collecting_description = False
+                    continue
+                
+                if current_epic is None:
+                    continue
+                
+                if line.startswith('**Status:**'):
+                    collecting_description = False
+                    status_val = line.split('**Status:**', 1)[1].strip()
+                    # Strip trailing double spaces and markdown remnants
+                    status_val = status_val.replace('  ', '').strip()
+                    if status_val in ['TODO', 'IN_PROGRESS', 'DONE']:
+                        current_epic.status = status_val
+                    continue
+                
+                if line.startswith('**Priority:**'):
+                    collecting_description = False
+                    pr_str = line.split('**Priority:**', 1)[1].strip()
+                    pr_str = pr_str.replace('  ', '').strip()
+                    try:
+                        current_epic.priority = Priority[pr_str]
+                    except Exception:
+                        pass
+                    continue
+                
+                if line.startswith('**Completion:**'):
+                    collecting_description = False
+                    comp = line.split('**Completion:**', 1)[1].strip()
+                    comp = comp.replace('%', '').replace('  ', '').strip()
+                    try:
+                        current_epic.completion_percentage = float(comp)
+                    except Exception:
+                        pass
+                    continue
+                
+                if line.startswith('**Created:**'):
+                    collecting_description = False
+                    created = line.split('**Created:**', 1)[1].strip()
+                    current_epic.created_at = created
+                    continue
+                
+                if line.startswith('**Updated:**'):
+                    collecting_description = False
+                    updated = line.split('**Updated:**', 1)[1].strip()
+                    current_epic.updated_at = updated
+                    continue
+                
+                if line.startswith('---'):
+                    # End of epic section
+                    collecting_description = False
+                    continue
+                
+                # Start/continue description collection for any non-meta content
+                if line == '':
+                    # Preserve paragraph breaks
+                    description_lines.append('')
+                else:
+                    description_lines.append(raw)
+                    collecting_description = True
+            
+            # Finalize last epic
+            finalize_current()
         except Exception as e:
             logger.error(f"Failed to load epics: {e}")
     
@@ -862,18 +935,24 @@ class EpicManager:
             if len(title) > 200:
                 raise ValueError("Title must be less than 200 characters")
             
-            # Generate unique ID
-            epic_id = hashlib.md5(f"{title}{datetime.now(timezone.utc).isoformat()}".encode()).hexdigest()[:8]
+            # Stable ID derived from title
+            epic_id = hashlib.md5(title.encode()).hexdigest()[:8]
             
-            # Create epic with defaults
-            epic = Epic(
-                id=epic_id,
-                title=title,
-                description=description,
-                **kwargs
-            )
+            # Upsert by title/id
+            if epic_id in self.epics:
+                epic = self.epics[epic_id]
+                if description:
+                    epic.description = description
+                epic.updated_at = datetime.now(timezone.utc).isoformat()
+            else:
+                epic = Epic(
+                    id=epic_id,
+                    title=title,
+                    description=description,
+                    **kwargs
+                )
+                self.epics[epic_id] = epic
             
-            self.epics[epic_id] = epic
             await self._persist_epics()
             
             return TaskResult(
@@ -1263,8 +1342,7 @@ class AgentBoot:
             # Create required directories
             required_dirs = [
                 project_root / 'docs' / 'status',
-                project_root / 'docs' / 'roadmap',
-                project_root / 'tests' / 'agent_boot'
+                project_root / 'docs' / 'roadmap'
             ]
             
             for dir_path in required_dirs:

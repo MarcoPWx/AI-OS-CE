@@ -44,7 +44,8 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
-    "integrity:check": "node scripts/integrity-check.mjs"
+    "integrity:check": "node scripts/integrity-check.mjs",
+    "smoke:test": "bash ./scripts/smoke-test.sh"
   },
   "dependencies": {
     "commander": "^11.1.0",

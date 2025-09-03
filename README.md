@@ -53,6 +53,9 @@ npm run lint
 npm run prettier:check
 npm run prettier:write
 npm run integrity:check
+
+# One-shot smoke test
+npm run smoke:test
 ```
 
 Configuration
