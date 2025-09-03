@@ -1032,14 +1032,20 @@ class EpicManager:
         """
         content = f"# Epics\n> Updated: {datetime.now(timezone.utc).strftime('%Y-%m-%d')}\n\n"
         
-        # Sort by priority and status
-        sorted_epics = sorted(
-            self.epics.values(),
-            key=lambda e: (e.priority.value, e.status, e.created_at)
-        )
+        # Group by status
+        in_progress = [e for e in self.epics.values() if e.status == 'IN_PROGRESS']
+        todo = [e for e in self.epics.values() if e.status == 'TODO']
+        done = [e for e in self.epics.values() if e.status == 'DONE']
         
-        for epic in sorted_epics:
-            content += f"""
+        def sort_key(e):
+            return (e.priority.value, e.title.lower())
+        
+        def render_group(title: str, epics: List['Epic']) -> str:
+            if not epics:
+                return ""
+            section = f"### {title}\n\n"
+            for epic in sorted(epics, key=sort_key):
+                section += f"""
 ## {epic.id}: {epic.title}
 
 **Status:** {epic.status}  
@@ -1050,13 +1056,17 @@ class EpicManager:
 
 {epic.description}
 """
-            # Acceptance Criteria
-            if epic.acceptance_criteria:
-                content += "\n#### Acceptance Criteria\n"
-                for item in epic.acceptance_criteria:
-                    check = 'x' if item.get('completed') else ' '
-                    content += f"- [{check}] {item.get('description','').strip()}\n"
-            content += "\n---\n"
+                if epic.acceptance_criteria:
+                    section += "\n#### Acceptance Criteria\n"
+                    for item in epic.acceptance_criteria:
+                        check = 'x' if item.get('completed') else ' '
+                        section += f"- [{check}] {item.get('description','').strip()}\n"
+                section += "\n---\n"
+            return section
+        
+        content += render_group("In Progress", in_progress)
+        content += render_group("Todo", todo)
+        content += render_group("Completed", done)
         
         # Atomic write
         self.epics_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1655,6 +1665,11 @@ class AgentBoot:
                 changes_count += 1
                 last_status = status_out
             await asyncio.sleep(max(1, interval))
+        # Emit watch_done event regardless of changes
+        await self._emit_event('watch_done', {
+            'changes_detected': changes_count,
+            'duration_s': int(time.time() - start)
+        })
         return TaskResult(
             success=True,
             data={'changes_detected': changes_count, 'duration_s': int(time.time() - start)},

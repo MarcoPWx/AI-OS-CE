@@ -1,6 +1,8 @@
 # Epics
 > Updated: 2025-09-03
 
+### In Progress
+
 
 ## fd1e7278: Add Dark Mode Support
 
@@ -25,6 +27,8 @@ Implement dark mode theme switching for better developer experience during night
 Automated smoke test epic
 
 ---
+### Todo
+
 
 ## ec4aceb7: Add Vue.js Support
 
@@ -35,18 +39,6 @@ Automated smoke test epic
 **Updated:** 2025-09-01T02:00:34.661234+00:00  
 
 Implement Vue.js version of CE toolkit components for broader framework support
-
----
-
-## aaa355d3: Implement Testing Framework
-
-**Status:** TODO  
-**Priority:** NORMAL  
-**Completion:** 0%  
-**Created:** 2025-09-01T02:10:54.058750+00:00  
-**Updated:** 2025-09-01T02:10:54.058754+00:00  
-
-Set up comprehensive testing with Jest and React Testing Library
 
 ---
 
@@ -68,15 +60,25 @@ Test epic for CE workflow validation
 **Priority:** NORMAL  
 **Completion:** 66%  
 **Created:** 2025-09-03T22:16:45.434229+00:00  
-**Updated:** 2025-09-03T22:16:51.067859+00:00  
+**Updated:** 2025-09-03T22:22:21.161039+00:00  
 
 Epic with criteria
-
-#### Acceptance Criteria
 
 #### Acceptance Criteria
 - [x] Backend ready
 - [x] UI built
 - [ ] Docs updated
+
+---
+
+## aaa355d3: Implement Testing Framework
+
+**Status:** TODO  
+**Priority:** NORMAL  
+**Completion:** 0%  
+**Created:** 2025-09-01T02:10:54.058750+00:00  
+**Updated:** 2025-09-01T02:10:54.058754+00:00  
+
+Set up comprehensive testing with Jest and React Testing Library
 
 ---
