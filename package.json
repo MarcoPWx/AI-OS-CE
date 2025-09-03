@@ -29,9 +29,7 @@
   "files": [
     "bin/",
     "src/",
-    ".storybook/",
     "tests/",
-    "e2e/",
     "docs/",
     "public/",
     "scripts/",
@@ -42,7 +40,6 @@
     "LICENSE",
     "tsconfig.json",
     "vitest.config.ts",
-    "playwright.config.ts",
     ".eslintrc.cjs",
     ".prettierrc"
   ],
@@ -50,12 +47,8 @@
     "node": ">=18.17"
   },
   "scripts": {
-    "dev": "storybook dev -p 7007",
-    "build": "storybook build",
     "test:unit": "vitest run",
     "test:unit:coverage": "vitest run --coverage",
-    "test:stories": "test-storybook --url http://localhost:7007",
-    "e2e": "playwright test",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",

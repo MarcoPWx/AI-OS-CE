@@ -12,11 +12,12 @@ This is a **complete, working Storybook application** that comes with an AI-powe
 
 ## Scope of this repository (Community Edition)
 
-This repository contains the Community Edition (CE) of the AI-OS Storybook toolkit. It is designed to be fully local and manual-first.
+This repository contains the Community Edition (CE) of the toolkit. It is designed to be fully local and manual-first.
 
-- Local Storybook UI with MSW-controlled latency and error simulation
-- Python Agent Boot CLI for managing docs/epics optionally wired to GitHub issues when you choose
-- No background daemons, no cloud services, no automated actions without explicit commands
+- Module/CLI only; no UI module is included here
+- Optional MSW local HTTP simulation; echoes X-Correlation-Id for flow tracing
+- Python Agent Boot CLI for managing docs/epics when you explicitly run it
+- No background daemons, no cloud services, no automated actions
 - Keep development simple, private, and reproducible on your machine
 
 ## Start Now (2 minutes)
