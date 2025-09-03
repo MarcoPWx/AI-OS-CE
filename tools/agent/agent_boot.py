@@ -78,6 +78,8 @@ class ConfigDict(TypedDict):
     cache_ttl_seconds: int
     max_retries: int
     enable_telemetry: bool
+    emit_events: bool
+    events_file: str
 
 class TaskResult(TypedDict):
     """Standard result structure for all operations"""
@@ -597,6 +599,7 @@ class Epic:
     updated_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     tags: List[str] = field(default_factory=list)
     completion_percentage: float = 0.0
+    acceptance_criteria: List[Dict[str, Any]] = field(default_factory=list)
     
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -609,7 +612,8 @@ class Epic:
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'tags': self.tags,
-            'completion_percentage': self.completion_percentage
+            'completion_percentage': self.completion_percentage,
+            'acceptance_criteria': self.acceptance_criteria
         }
 
 class EpicManager:
@@ -634,48 +638,52 @@ class EpicManager:
         try:
             content = self.epics_path.read_text()
             current_epic: Optional[Epic] = None
-            collecting_description = False
             description_lines: List[str] = []
             
             def finalize_current():
-                nonlocal current_epic, description_lines, collecting_description
+                nonlocal current_epic, description_lines
                 if current_epic is not None:
                     # Attach accumulated description (trim trailing whitespace)
                     desc = "\n".join(description_lines).strip()
                     current_epic.description = desc
+                    # Recalculate completion from criteria if present
+                    if current_epic.acceptance_criteria:
+                        done = sum(1 for c in current_epic.acceptance_criteria if c.get('completed'))
+                        total = len(current_epic.acceptance_criteria)
+                        current_epic.completion_percentage = float(int((done / total) * 100)) if total else current_epic.completion_percentage
                     self.epics[current_epic.id] = current_epic
                 # Reset
                 current_epic = None
                 description_lines = []
-                collecting_description = False
             
             for raw in content.split('\n'):
                 line = raw.strip()
                 if line.startswith('## '):
                     # New epic section: finalize previous
                     finalize_current()
-                    title = line[3:].strip()
-                    epic_id = hashlib.md5(title.encode()).hexdigest()[:8]
+                    header = line[3:].strip()
+                    # Support both "EPIC-###: Title" and "Title"
+                    if ':' in header and re.match(r'^[A-Za-z0-9_-]+:\s+.+', header):
+                        id_part, title_part = header.split(':', 1)
+                        epic_id = id_part.strip()
+                        title = title_part.strip()
+                    else:
+                        title = header
+                        epic_id = hashlib.md5(title.encode()).hexdigest()[:8]
                     current_epic = Epic(id=epic_id, title=title, description="")
-                    collecting_description = False
                     continue
                 
                 if current_epic is None:
                     continue
                 
                 if line.startswith('**Status:**'):
-                    collecting_description = False
-                    status_val = line.split('**Status:**', 1)[1].strip()
-                    # Strip trailing double spaces and markdown remnants
-                    status_val = status_val.replace('  ', '').strip()
+                    status_val = line.split('**Status:**', 1)[1].strip().replace('  ', '').strip()
                     if status_val in ['TODO', 'IN_PROGRESS', 'DONE']:
                         current_epic.status = status_val
                     continue
                 
                 if line.startswith('**Priority:**'):
-                    collecting_description = False
-                    pr_str = line.split('**Priority:**', 1)[1].strip()
-                    pr_str = pr_str.replace('  ', '').strip()
+                    pr_str = line.split('**Priority:**', 1)[1].strip().replace('  ', '').strip()
                     try:
                         current_epic.priority = Priority[pr_str]
                     except Exception:
@@ -683,9 +691,7 @@ class EpicManager:
                     continue
                 
                 if line.startswith('**Completion:**'):
-                    collecting_description = False
-                    comp = line.split('**Completion:**', 1)[1].strip()
-                    comp = comp.replace('%', '').replace('  ', '').strip()
+                    comp = line.split('**Completion:**', 1)[1].strip().replace('%', '').replace('  ', '').strip()
                     try:
                         current_epic.completion_percentage = float(comp)
                     except Exception:
@@ -693,29 +699,30 @@ class EpicManager:
                     continue
                 
                 if line.startswith('**Created:**'):
-                    collecting_description = False
-                    created = line.split('**Created:**', 1)[1].strip()
-                    current_epic.created_at = created
+                    current_epic.created_at = line.split('**Created:**', 1)[1].strip()
                     continue
                 
                 if line.startswith('**Updated:**'):
-                    collecting_description = False
-                    updated = line.split('**Updated:**', 1)[1].strip()
-                    current_epic.updated_at = updated
+                    current_epic.updated_at = line.split('**Updated:**', 1)[1].strip()
+                    continue
+                
+                # Acceptance Criteria header (skip adding to description)
+                if line.startswith('#### Acceptance Criteria'):
+                    continue
+                # Acceptance criteria checkboxes "- [ ] desc" or "- [x] desc"
+                m = re.match(r'^- \[( |x|X)\] (.*)$', line)
+                if m:
+                    completed = m.group(1).lower() == 'x'
+                    desc = m.group(2).strip()
+                    current_epic.acceptance_criteria.append({'description': desc, 'completed': completed})
                     continue
                 
                 if line.startswith('---'):
-                    # End of epic section
-                    collecting_description = False
+                    # End of epic section (finalize when we see the next header)
                     continue
                 
-                # Start/continue description collection for any non-meta content
-                if line == '':
-                    # Preserve paragraph breaks
-                    description_lines.append('')
-                else:
-                    description_lines.append(raw)
-                    collecting_description = True
+                # Accumulate description lines (preserve paragraph breaks)
+                description_lines.append(raw if raw != '' else '')
             
             # Finalize last epic
             finalize_current()
@@ -731,9 +738,12 @@ class EpicManager:
     
     @measure_performance
     async def update_epic(self, epic_id: str, status: Optional[str] = None, 
-                          completion: Optional[int] = None) -> TaskResult:
+                          completion: Optional[int] = None,
+                          add_criteria: Optional[List[str]] = None,
+                          check_indices: Optional[List[int]] = None,
+                          uncheck_indices: Optional[List[int]] = None) -> TaskResult:
         """
-        Update existing epic status and progress.
+        Update existing epic status, progress, and acceptance criteria.
         WHY: Track project progress over time.
         """
         try:
@@ -743,6 +753,24 @@ class EpicManager:
             epic = self.epics[epic_id]
             updated = False
             
+            if add_criteria:
+                for c in add_criteria:
+                    if c and c.strip():
+                        epic.acceptance_criteria.append({'description': c.strip(), 'completed': False})
+                        updated = True
+            
+            if check_indices:
+                for idx in check_indices:
+                    if 0 <= idx < len(epic.acceptance_criteria):
+                        epic.acceptance_criteria[idx]['completed'] = True
+                        updated = True
+            
+            if uncheck_indices:
+                for idx in uncheck_indices:
+                    if 0 <= idx < len(epic.acceptance_criteria):
+                        epic.acceptance_criteria[idx]['completed'] = False
+                        updated = True
+            
             if status and status != epic.status:
                 epic.status = status
                 updated = True
@@ -750,12 +778,18 @@ class EpicManager:
                 # Auto-update completion based on status
                 if status == 'DONE' and completion is None:
                     epic.completion_percentage = 100.0
-                elif status == 'IN_PROGRESS' and completion is None:
+                elif status == 'IN_PROGRESS' and completion is None and not epic.acceptance_criteria:
                     epic.completion_percentage = max(epic.completion_percentage, 50.0)
             
             if completion is not None:
                 epic.completion_percentage = float(min(100, max(0, completion)))
                 updated = True
+            
+            # Recalculate completion from criteria if any were added/changed and completion not explicitly provided
+            if (add_criteria or check_indices or uncheck_indices) and completion is None:
+                done = sum(1 for c in epic.acceptance_criteria if c.get('completed'))
+                total = len(epic.acceptance_criteria)
+                epic.completion_percentage = float(int((done / total) * 100)) if total else epic.completion_percentage
             
             if updated:
                 epic.updated_at = datetime.now(timezone.utc).isoformat()
@@ -922,7 +956,7 @@ class EpicManager:
             )
     
     @measure_performance
-    async def create_epic(self, title: str, description: str, **kwargs) -> TaskResult:
+    async def create_epic(self, title: str, description: str, criteria: Optional[List[str]] = None, **kwargs) -> TaskResult:
         """
         Create new epic with validation.
         WHY: Input validation prevents downstream errors.
@@ -935,15 +969,23 @@ class EpicManager:
             if len(title) > 200:
                 raise ValueError("Title must be less than 200 characters")
             
-            # Stable ID derived from title
-            epic_id = hashlib.md5(title.encode()).hexdigest()[:8]
+            # Prefer EPIC-### style IDs; compute next number
+            next_num = 1
+            for e in self.epics.values():
+                if isinstance(e.id, str) and e.id.startswith('EPIC-'):
+                    try:
+                        num = int(e.id.split('-')[1])
+                        next_num = max(next_num, num + 1)
+                    except Exception:
+                        continue
+            epic_id = f"EPIC-{next_num:03d}"
             
-            # Upsert by title/id
-            if epic_id in self.epics:
-                epic = self.epics[epic_id]
-                if description:
-                    epic.description = description
-                epic.updated_at = datetime.now(timezone.utc).isoformat()
+            # If an epic with same title exists (legacy md5-id path), update it instead
+            existing = self.find_epic_by_title(title)
+            if existing:
+                epic = existing
+                epic.description = description or epic.description
+                # If it had a legacy id, keep it; otherwise use existing
             else:
                 epic = Epic(
                     id=epic_id,
@@ -951,8 +993,18 @@ class EpicManager:
                     description=description,
                     **kwargs
                 )
-                self.epics[epic_id] = epic
             
+            # Add acceptance criteria if provided
+            if criteria:
+                for c in criteria:
+                    if c and c.strip():
+                        epic.acceptance_criteria.append({'description': c.strip(), 'completed': False})
+                # Recalculate completion from criteria
+                done = 0
+                total = len(epic.acceptance_criteria)
+                epic.completion_percentage = float(int((done / total) * 100)) if total else epic.completion_percentage
+            
+            self.epics[epic.id] = epic
             await self._persist_epics()
             
             return TaskResult(
@@ -988,7 +1040,7 @@ class EpicManager:
         
         for epic in sorted_epics:
             content += f"""
-## {epic.title}
+## {epic.id}: {epic.title}
 
 **Status:** {epic.status}  
 **Priority:** {epic.priority.name}  
@@ -997,9 +1049,14 @@ class EpicManager:
 **Updated:** {epic.updated_at}  
 
 {epic.description}
-
----
 """
+            # Acceptance Criteria
+            if epic.acceptance_criteria:
+                content += "\n#### Acceptance Criteria\n"
+                for item in epic.acceptance_criteria:
+                    check = 'x' if item.get('completed') else ' '
+                    content += f"- [{check}] {item.get('description','').strip()}\n"
+            content += "\n---\n"
         
         # Atomic write
         self.epics_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1301,7 +1358,9 @@ class AgentBoot:
             performance_budget_ms=200,
             cache_ttl_seconds=300,
             max_retries=3,
-            enable_telemetry=False
+            enable_telemetry=False,
+            emit_events=False,
+            events_file='logs/ce/events.jsonl'
         )
         
         # Merge with provided config
@@ -1439,7 +1498,8 @@ class AgentBoot:
             elif command == "create_epic":
                 result = await self.epic_manager.create_epic(
                     kwargs.get('title'),
-                    kwargs.get('description')
+                    kwargs.get('description'),
+                    criteria=kwargs.get('criteria')
                 )
                 # Optionally create GitHub issue
                 if kwargs.get('create_issue', False) and result['success']:
@@ -1456,7 +1516,10 @@ class AgentBoot:
                 result = await self.epic_manager.update_epic(
                     kwargs.get('epic_id'),
                     status=kwargs.get('status'),
-                    completion=kwargs.get('completion')
+                    completion=kwargs.get('completion'),
+                    add_criteria=kwargs.get('add_criteria'),
+                    check_indices=kwargs.get('check_indices'),
+                    uncheck_indices=kwargs.get('uncheck_indices')
                 )
                 
             elif command == "list_epics":
@@ -1515,6 +1578,19 @@ class AgentBoot:
                     timestamp=datetime.now(timezone.utc).isoformat()
                 )
                 
+            elif command == "watch":
+                # Non-interactive watch: poll git status and log when changes are detected
+                seconds = int(kwargs.get('seconds', 60) or 60)
+                interval = int(kwargs.get('interval', 5) or 5)
+                emit_events = bool(kwargs.get('emit_events', False))
+                # Temporarily enable events if requested
+                prev_emit = self.context.config.get('emit_events', False)
+                if emit_events:
+                    self.context.config['emit_events'] = True
+                try:
+                    result = await self._watch_loop(seconds=seconds, interval=interval)
+                finally:
+                    self.context.config['emit_events'] = prev_emit
             else:
                 raise ValueError(f"Unknown command: {command}")
             
@@ -1523,6 +1599,12 @@ class AgentBoot:
                 f"command_{command}_ms",
                 (time.perf_counter() - start_time) * 1000
             )
+            
+            # Emit an event line if enabled
+            try:
+                await self._emit_event(command, result)
+            except Exception:
+                pass
             
             return result
             
@@ -1535,6 +1617,51 @@ class AgentBoot:
                 duration_ms=(time.perf_counter() - start_time) * 1000,
                 timestamp=datetime.now(timezone.utc).isoformat()
             )
+    
+    async def _emit_event(self, event_type: str, payload: Dict[str, Any]) -> None:
+        """Append a JSONL event if emit_events is enabled"""
+        if not self.context.config.get('emit_events', False):
+            return
+        events_file = Path(self.context.config.get('events_file', 'logs/ce/events.jsonl'))
+        events_file.parent.mkdir(parents=True, exist_ok=True)
+        event = {
+            'ts': datetime.now(timezone.utc).isoformat(),
+            'session': self.context.session_id,
+            'event': event_type,
+            'payload': payload
+        }
+        with open(events_file, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(event) + "\n")
+    
+    async def _watch_loop(self, seconds: int = 60, interval: int = 5) -> TaskResult:
+        """Poll git status and write docs updates when changes are detected"""
+        start = time.time()
+        last_status = None
+        changes_count = 0
+        while time.time() - start < seconds:
+            try:
+                proc = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True, timeout=5)
+                status_out = proc.stdout.strip()
+            except Exception as e:
+                status_out = f"error:{e}"
+            if last_status is None:
+                last_status = status_out
+            elif status_out != last_status:
+                diff_summary = status_out.splitlines()
+                summary = f"Watch detected changes ({len(diff_summary)} lines). First line: {diff_summary[0] if diff_summary else 'n/a'}"
+                await self.docs_manager.update_devlog(summary)
+                await self.docs_manager.update_system_status()
+                await self._emit_event('watch_change', {'lines': len(diff_summary)})
+                changes_count += 1
+                last_status = status_out
+            await asyncio.sleep(max(1, interval))
+        return TaskResult(
+            success=True,
+            data={'changes_detected': changes_count, 'duration_s': int(time.time() - start)},
+            error=None,
+            duration_ms=0,
+            timestamp=datetime.now(timezone.utc).isoformat()
+        )
     
     async def shutdown(self) -> None:
         """
@@ -1749,7 +1876,7 @@ Examples:
     
     parser.add_argument('command', choices=[
         'init', 'update-docs', 'create-epic', 'update-epic', 'list-epics', 'test-security', 'performance-report',
-        'github-status', 'workflow-status', 'sync-github'
+        'github-status', 'workflow-status', 'sync-github', 'watch'
     ], help='Command to execute')
     
     parser.add_argument('--title', help='Epic title')
@@ -1757,9 +1884,16 @@ Examples:
     parser.add_argument('--epic-id', help='Epic ID to update')
     parser.add_argument('--status', choices=['TODO', 'IN_PROGRESS', 'DONE'], help='Epic status')
     parser.add_argument('--completion', type=int, help='Completion percentage (0-100)')
+    parser.add_argument('--criterion', action='append', help='Acceptance criterion to add (repeatable, for create-epic)')
+    parser.add_argument('--add-criterion', action='append', help='Acceptance criterion to add (repeatable, for update-epic)')
+    parser.add_argument('--check-criterion', type=int, action='append', help='Mark criterion index as completed (0-based)')
+    parser.add_argument('--uncheck-criterion', type=int, action='append', help='Mark criterion index as incomplete (0-based)')
     parser.add_argument('--input', help='Input to test')
     parser.add_argument('--content', help='Documentation content')
     parser.add_argument('--create-issue', action='store_true', help='Create GitHub issue for epic')
+    parser.add_argument('--seconds', type=int, default=60, help='Watch duration in seconds (watch)')
+    parser.add_argument('--interval', type=int, default=5, help='Polling interval in seconds (watch)')
+    parser.add_argument('--emit-events', action='store_true', help='Enable event emission for this run (watch)')
     parser.add_argument('--debug', action='store_true', help='Enable debug logging')
     
     args = parser.parse_args()
@@ -1821,6 +1955,7 @@ Examples:
                 'create_epic',
                 title=args.title,
                 description=args.description or "",
+                criteria=args.criterion,
                 create_issue=args.create_issue
             )
             print(f"Epic created: {json.dumps(result, indent=2)}")
@@ -1847,7 +1982,10 @@ Examples:
                 'update_epic',
                 epic_id=epic_id,
                 status=args.status,
-                completion=args.completion
+                completion=args.completion,
+                add_criteria=args.add_criterion,
+                check_indices=args.check_criterion,
+                uncheck_indices=args.uncheck_criterion
             )
             print(f"Epic updated: {json.dumps(result, indent=2)}")
             
@@ -1877,6 +2015,10 @@ Examples:
         elif args.command == 'workflow-status':
             result = await agent.execute_command('workflow_status')
             print(f"Workflow Status:\n{json.dumps(result['data'], indent=2)}")
+            
+        elif args.command == 'watch':
+            result = await agent.execute_command('watch', seconds=args.seconds, interval=args.interval, emit_events=args.emit_events)
+            print(f"Watch finished: {json.dumps(result['data'], indent=2)}")
             
     finally:
         await agent.shutdown()

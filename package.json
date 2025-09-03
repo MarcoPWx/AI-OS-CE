@@ -45,7 +45,8 @@
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "integrity:check": "node scripts/integrity-check.mjs",
-    "smoke:test": "bash ./scripts/smoke-test.sh"
+    "smoke:test": "bash ./scripts/smoke-test.sh",
+    "events:tail": "bash ./scripts/events-tail.sh"
   },
   "dependencies": {
     "commander": "^11.1.0",

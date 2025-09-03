@@ -56,6 +56,12 @@ npm run integrity:check
 
 # One-shot smoke test
 npm run smoke:test
+
+# Optional: Watch for changes (non-interactive)
+python3 tools/agent/agent_boot.py watch --seconds 30 --interval 5 --emit-events
+
+# Optional: Tail events (if emit-events enabled)
+npm run events:tail
 ```
 
 Configuration

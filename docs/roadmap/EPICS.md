@@ -2,7 +2,7 @@
 > Updated: 2025-09-03
 
 
-## Add Dark Mode Support
+## fd1e7278: Add Dark Mode Support
 
 **Status:** IN_PROGRESS  
 **Priority:** NORMAL  
@@ -14,7 +14,7 @@ Implement dark mode theme switching for better developer experience during night
 
 ---
 
-## CE Smoke 20250903215704
+## 4495b7a0: CE Smoke 20250903215704
 
 **Status:** IN_PROGRESS  
 **Priority:** NORMAL  
@@ -26,7 +26,7 @@ Automated smoke test epic
 
 ---
 
-## Add Vue.js Support
+## ec4aceb7: Add Vue.js Support
 
 **Status:** TODO  
 **Priority:** NORMAL  
@@ -38,7 +38,7 @@ Implement Vue.js version of CE toolkit components for broader framework support
 
 ---
 
-## Implement Testing Framework
+## aaa355d3: Implement Testing Framework
 
 **Status:** TODO  
 **Priority:** NORMAL  
@@ -50,7 +50,7 @@ Set up comprehensive testing with Jest and React Testing Library
 
 ---
 
-## CE Smoke Test
+## 76f3289c: CE Smoke Test
 
 **Status:** TODO  
 **Priority:** NORMAL  
@@ -59,5 +59,24 @@ Set up comprehensive testing with Jest and React Testing Library
 **Updated:** 2025-09-03T21:44:27.449966+00:00  
 
 Test epic for CE workflow validation
+
+---
+
+## EPIC-001: Criteria Demo
+
+**Status:** TODO  
+**Priority:** NORMAL  
+**Completion:** 66%  
+**Created:** 2025-09-03T22:16:45.434229+00:00  
+**Updated:** 2025-09-03T22:16:51.067859+00:00  
+
+Epic with criteria
+
+#### Acceptance Criteria
+
+#### Acceptance Criteria
+- [x] Backend ready
+- [x] UI built
+- [ ] Docs updated
 
 ---
