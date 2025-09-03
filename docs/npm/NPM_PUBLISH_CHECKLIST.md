@@ -122,7 +122,7 @@ npx @ai-os/storybook-toolkit create my-app
 
 #### Feedback
 
-Please report issues at: https://github.com/MarcoPWx/AI-OS-Storybook/issues
+Please report issues at: https://github.com/MarcoPWx/AI-OS-CE/issues
 ```
 
 ## ⚠️ Important Notes

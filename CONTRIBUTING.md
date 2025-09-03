@@ -401,8 +401,8 @@ Before submitting a PR, ensure:
 ### Getting Help
 
 - Check existing [documentation](./docs)
-- Search [closed issues](https://github.com/MarcoPWx/AI-OS-Storybook/issues?q=is%3Aissue+is%3Aclosed)
-- Ask in [discussions](https://github.com/MarcoPWx/AI-OS-Storybook/discussions)
+- Search [closed issues](https://github.com/MarcoPWx/AI-OS-CE/issues?q=is%3Aissue+is%3Aclosed)
+- Ask in [discussions](https://github.com/MarcoPWx/AI-OS-CE/discussions)
 - Join our community chat (if available)
 
 ### Recognition
@@ -419,10 +419,10 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ## 🙏 Thank You!
 
-Your contributions make AI-OS Storybook better for everyone. We appreciate your time and effort!
+Your contributions make AI-OS-CE better for everyone. We appreciate your time and effort!
 
 ---
 
 **Questions?** Feel free to open an issue or discussion thread.
 
-**Ready to contribute?** Check out our [good first issues](https://github.com/MarcoPWx/AI-OS-Storybook/labels/good%20first%20issue)!
+**Ready to contribute?** Check out our [good first issues](https://github.com/MarcoPWx/AI-OS-CE/labels/good%20first%20issue)!

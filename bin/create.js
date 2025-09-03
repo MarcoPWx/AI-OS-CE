@@ -238,7 +238,7 @@ python3 agent_boot.py --help
 
 - [GitHub Workflow Guide](./docs/github/GITHUB_WORKFLOW_GUIDE.md)
 - [Contributing Guidelines](./CONTRIBUTING.md)
-- [AI-OS Documentation](https://github.com/MarcoPWx/AI-OS-Storybook)
+- [AI-OS Documentation](https://github.com/MarcoPWx/AI-OS-CE)
 
 ## 📝 License
 
@@ -267,7 +267,7 @@ agent_boot.log
       spinner.start("Initializing git repository...");
       execSync("git init", { cwd: projectPath, stdio: "ignore" });
       execSync("git add .", { cwd: projectPath, stdio: "ignore" });
-      execSync('git commit -m "Initial commit from AI-OS Storybook Toolkit"', {
+execSync('git commit -m "Initial commit from AI-OS CE Toolkit"', {
         cwd: projectPath,
         stdio: "ignore",
       });
